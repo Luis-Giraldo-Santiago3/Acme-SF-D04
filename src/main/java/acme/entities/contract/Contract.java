@@ -5,25 +5,33 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.Index;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
 import acme.client.data.AbstractEntity;
+import acme.entities.project.Project;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@Table(indexes = {
+	@Index(columnList = "code"), //
+})
 public class Contract extends AbstractEntity {
 
+	// Serialisation identifier -----------------------------------------------
+
 	private static final long	serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
 
 	@Column(unique = true)
 	@NotBlank
@@ -31,18 +39,28 @@ public class Contract extends AbstractEntity {
 	private String				code;
 
 	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
-	@Past
 	private Date				instantiationMoment;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
+	private String				providerName;
+
+	@NotBlank
+	@Length(max = 75)
 	private String				customerName;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	private String				goals;
 
-	private Integer				budget;
+	@NotNull(message = "El presupuesto no puede ser nulo")
+	private Double				budget;
 
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
+
+	@NotNull(message = "El proyecto correspondiente no puede ser nulo")
+	@ManyToOne(optional = false)
+	private Project				project;
 }
