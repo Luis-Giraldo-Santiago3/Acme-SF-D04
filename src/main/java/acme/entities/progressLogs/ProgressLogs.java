@@ -23,7 +23,7 @@ public class ProgressLogs extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	@Pattern(regexp = "^PG-[A-Z]{1,2}-[0-9]{4}$")
+	@Pattern(regexp = "^PG-[A-Z]{1,2}-[0-9]{4}$", message = "{validation.ProgressLogs.recordId}")
 	private String				recordId;
 
 	@Positive
