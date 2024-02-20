@@ -25,7 +25,6 @@ public class Project extends AbstractEntity {
 
 	@Column(unique = true)
 	@NotBlank
-	@Length(min = 5, max = 15)
 	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}", message = "{validation.project.code}") // preguntar
 	private String				code;
 
