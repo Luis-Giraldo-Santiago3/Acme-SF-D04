@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 
@@ -47,6 +48,7 @@ public class ProgressLog extends AbstractEntity {
 	private String				progressComment;
 
 	@NotNull
+	@Past
 	private Date				registrationMoment;
 
 	@NotBlank
