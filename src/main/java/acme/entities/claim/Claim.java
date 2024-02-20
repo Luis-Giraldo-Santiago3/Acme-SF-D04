@@ -11,13 +11,14 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.client.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Claim {
+public class Claim extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
