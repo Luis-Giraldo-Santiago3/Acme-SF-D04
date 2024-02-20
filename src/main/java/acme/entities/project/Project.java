@@ -1,8 +1,6 @@
 
 package acme.entities.project;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
@@ -11,7 +9,6 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 
 import acme.client.data.AbstractEntity;
-import acme.entities.userStory.UserStory;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -43,7 +40,5 @@ public class Project extends AbstractEntity {
 	private Boolean				cost;
 
 	private String				link;
-
-	private List<UserStory>		userStories;
 
 }

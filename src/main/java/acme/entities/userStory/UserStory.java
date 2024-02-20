@@ -4,12 +4,14 @@ package acme.entities.userStory;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 
 import acme.client.data.AbstractEntity;
+import acme.entities.project.Project;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -42,5 +44,8 @@ public class UserStory extends AbstractEntity {
 	private Priority			priority;
 
 	private String				link;
+
+	@ManyToOne(optional = true)
+	private Project				project;
 
 }
