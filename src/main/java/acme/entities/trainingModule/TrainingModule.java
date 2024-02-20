@@ -2,7 +2,6 @@
 package acme.entities.trainingModule;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -41,7 +40,7 @@ public class TrainingModule extends AbstractEntity {
 	@Past
 	private LocalDate			updateMoment;
 
-	private Optional<String>	link;
+	private String				link;
 
 	private Double				totalTime;
 
