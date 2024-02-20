@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -39,6 +40,7 @@ public class Contract extends AbstractEntity {
 	private String				code;
 
 	@NotNull
+	@Past
 	private Date				instantiationMoment;
 
 	@NotBlank
@@ -53,14 +55,14 @@ public class Contract extends AbstractEntity {
 	@Length(max = 100)
 	private String				goals;
 
-	@NotNull(message = "El presupuesto no puede ser nulo")
+	@NotNull
 	private Double				budget;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
 
-	@NotNull(message = "El proyecto correspondiente no puede ser nulo")
+	@NotNull
 	@ManyToOne(optional = false)
 	private Project				project;
 }
