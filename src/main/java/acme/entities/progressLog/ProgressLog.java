@@ -1,5 +1,5 @@
 
-package acme.entities.contract;
+package acme.entities.progressLog;
 
 import java.util.Date;
 
@@ -11,11 +11,12 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 
 import acme.client.data.AbstractEntity;
-import acme.entities.project.Project;
+import acme.entities.contract.Contract;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,9 +24,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "code"), //
+	@Index(columnList = "record_id"), //
 })
-public class Contract extends AbstractEntity {
+public class ProgressLog extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -35,32 +36,28 @@ public class Contract extends AbstractEntity {
 
 	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "^[A-Z]{1,3}-[0-9]{3}$", message = "{validation.Contract.code}")
-	private String				code;
+	@Pattern(regexp = "^PG-[A-Z]{1,2}-[0-9]{4}$", message = "{validation.ProgressLog.recordId}")
+	private String				recordId;
 
-	@NotNull
-	private Date				instantiationMoment;
-
-	@NotBlank
-	@Length(max = 75)
-	private String				providerName;
-
-	@NotBlank
-	@Length(max = 75)
-	private String				customerName;
+	@Positive
+	private Integer				completenessPercentage;
 
 	@NotBlank
 	@Length(max = 100)
-	private String				goals;
+	private String				progressComment;
 
-	@NotNull(message = "El presupuesto no puede ser nulo")
-	private Double				budget;
+	@NotNull
+	private Date				registrationMoment;
+
+	@NotBlank
+	@Length(max = 75)
+	private String				registrationResponsible;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
 
-	@NotNull(message = "El proyecto correspondiente no puede ser nulo")
+	@NotNull
 	@ManyToOne(optional = false)
-	private Project				project;
+	private Contract			contract;
 }
