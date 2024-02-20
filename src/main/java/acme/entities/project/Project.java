@@ -2,7 +2,6 @@
 package acme.entities.project;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,7 +29,7 @@ public class Project extends AbstractEntity {
 	@Column(unique = true)
 	@NotBlank
 	@Length(min = 5, max = 15)
-	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}", message = "{validation.project.code}")
+	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}", message = "{validation.project.code}") // preguntar
 	private String				code;
 
 	@NotBlank
@@ -43,7 +42,7 @@ public class Project extends AbstractEntity {
 
 	private Boolean				cost;
 
-	private Optional			link;
+	private String				link;
 
 	private List<UserStory>		userStories;
 

@@ -2,7 +2,6 @@
 package acme.entities.userStory;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
@@ -42,6 +41,6 @@ public class UserStory extends AbstractEntity {
 
 	private Priority			priority;
 
-	private Optional			link;
+	private String				link;
 
 }
