@@ -1,5 +1,5 @@
 
-package acme.entities.sponsorships;
+package acme.entities.invoices;
 
 import java.time.LocalDate;
 
@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
@@ -17,27 +18,33 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Sponsorships extends AbstractEntity {
+public class Invoices extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.sponsorships.code}")
+	@Pattern(regexp = "IN-[0-9]{4}-[0-9]{4}", message = "{validation.invoices.code}")
 	@NotBlank
 	@Column(unique = true)
 	private String				code;
 
 	@Past
-	private LocalDate			moment;
+	private LocalDate			registrationTime;
 
-	private Integer				duration;
+	private Integer				dueDate;
+
+	@NotNull
+	@Min(0)
+	private Double				quantity;
 
 	@Min(0)
-	private Double				amount;
+	private Double				tax;
 
-	private Sponsorship			type;
 
-	private String				email;
+	private Double totalAmount() {
+		return this.quantity + this.tax;
+	}
 
-	private String				link;
+
+	private String link;
 
 }
