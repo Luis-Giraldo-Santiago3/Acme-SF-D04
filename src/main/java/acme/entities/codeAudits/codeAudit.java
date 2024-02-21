@@ -1,6 +1,8 @@
 
 package acme.entities.codeAudits;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 
 import acme.client.data.AbstractEntity;
@@ -14,8 +16,10 @@ public class codeAudit extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
-	private static final long serialVersionUID = 1L;
+	private static final long	serialVersionUID	= 1L;
 
 	//Atributes --------------------------------------------------------------
+
+	Date						executionDate;
 
 }
