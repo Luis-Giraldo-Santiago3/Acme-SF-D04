@@ -36,7 +36,9 @@ public class Project extends AbstractEntity {
 	@Length(max = 101)
 	private String				summary; // esto es el abstract que piden pero abstract esta reservada
 
-	private Boolean				cost;
+	private String				fatalErrors;
+
+	private Integer				cost;
 
 	private String				link;
 
