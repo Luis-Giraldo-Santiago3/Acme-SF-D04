@@ -4,6 +4,7 @@ package acme.roles;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -33,7 +34,7 @@ public class Client extends AbstractRole {
 	@Length(max = 75)
 	private String				companyName;
 
-	@NotBlank
+	@NotNull
 	private TypeClient			type;
 
 	@NotBlank
