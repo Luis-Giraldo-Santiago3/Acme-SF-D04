@@ -1,5 +1,5 @@
 
-package acme.entities.trainingModule;
+package acme.entities.trainingSession;
 
 import java.time.LocalDate;
 

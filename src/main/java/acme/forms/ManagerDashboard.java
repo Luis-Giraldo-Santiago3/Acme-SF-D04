@@ -9,7 +9,10 @@ public class ManagerDashboard {
 
 	// Attributes -------------------------------------------------------------
 
-	Double						totalNumberOfUserStories;
+	Double						totalNumberOfMustUserStories;
+	Double						totalNumberOfShouldUserStories;
+	Double						totalNumberOfCouldUserStories;
+	Double						totalNumberOfWontUserStories;
 	Double						averageEstimatedCostOfUserStories;
 	Double						deviationEstimatedCostOfUserStories;
 	Double						minimunEstimatedCostOfUserStories;
