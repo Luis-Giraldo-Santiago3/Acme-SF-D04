@@ -20,9 +20,9 @@ public class ClientDashboard extends AbstractForm {
 	Integer						percentageOfTotalNumberCompleteness50at75;
 	Integer						percentageOfTotalNumberCompletenessMore75;
 	Double						averageBudgetOfContract;
-	Double						devidationBudgetOfContrat;
-	Double						minimumBudgetOfContrat;
-	Double						maximumBudgetOfContrat;
+	Double						deviationBudgetOfContract;
+	Double						minimumBudgetOfContract;
+	Double						maximumBudgetOfContract;
 
 	// Derived attributes -----------------------------------------------------
 
