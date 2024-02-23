@@ -41,8 +41,8 @@ public interface ClientDashboardRepository extends AbstractRepository {
 	Double averageBudgetOfContract();
 
 	// Consulta para obtener la desviación del presupuesto de los contratos
-	//@Query("")
-	//Double deviationBudgetOfContract();
+	@Query("SELECT STDDEV(c.budget) FROM Contract c")
+	Double deviationBudgetOfContract();
 
 	// Consulta para obtener el presupuesto mínimo de los contratos
 	@Query("SELECT MIN(c.budget) FROM Contract c")
