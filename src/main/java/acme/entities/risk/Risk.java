@@ -13,6 +13,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import lombok.Getter;
@@ -49,6 +50,7 @@ public class Risk extends AbstractEntity {
 	@Length(max = 100)
 	private String				description;
 
+	@URL
 	private String				link;
 
 	// Derived attributes -----------------------------------------------------
