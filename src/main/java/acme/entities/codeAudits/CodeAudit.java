@@ -6,12 +6,15 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import acme.client.data.AbstractEntity;
+import acme.entities.auditRecords.Mark;
+import acme.entities.project.Project;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -40,11 +43,13 @@ public class CodeAudit extends AbstractEntity {
 
 	@NotBlank
 	@Size(max = 100)
-
 	private List<String>		correctiveActions;
 
 	@Column(nullable = false)
 	private Mark				mark;
 
 	private String				link;
+
+	@ManyToOne(optional = true)
+	private Project				project;
 }
