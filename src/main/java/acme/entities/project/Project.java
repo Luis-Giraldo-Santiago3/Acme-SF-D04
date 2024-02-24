@@ -25,7 +25,7 @@ public class Project extends AbstractEntity {
 
 	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}", message = "{validation.project.code}") // preguntar
+	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}", message = "{validation.project.code}")
 	private String				code;
 
 	@NotBlank
@@ -34,7 +34,7 @@ public class Project extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 101)
-	private String				summary; // esto es el abstract que piden pero abstract esta reservada
+	private String				$abstract;
 
 	private String				fatalErrors;
 
