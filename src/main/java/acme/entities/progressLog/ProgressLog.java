@@ -41,19 +41,18 @@ public class ProgressLog extends AbstractEntity {
 	private String				recordId;
 
 	@Positive
-	private Integer				completenessPercentage;
+	private Double				completeness;
 
 	@NotBlank
 	@Length(max = 100)
-	private String				progressComment;
+	private String				comment;
 
-	@NotNull
 	@Past
 	private Date				registrationMoment;
 
 	@NotBlank
 	@Length(max = 75)
-	private String				registrationResponsible;
+	private String				responsiblePerson;
 
 	// Derived attributes -----------------------------------------------------
 
