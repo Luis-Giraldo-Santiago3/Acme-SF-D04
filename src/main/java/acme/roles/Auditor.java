@@ -6,6 +6,8 @@ import java.util.List;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 
+import org.hibernate.validator.constraints.URL;
+
 import acme.client.data.AbstractRole;
 
 public class Auditor extends AbstractRole {
@@ -24,5 +26,6 @@ public class Auditor extends AbstractRole {
 	@Max(101)
 	private List<String>		certifications;
 
+	@URL
 	private String				link;
 }

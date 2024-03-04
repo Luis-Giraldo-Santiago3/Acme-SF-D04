@@ -12,6 +12,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
+import org.hibernate.validator.constraints.URL;
+
 import acme.client.data.AbstractEntity;
 import acme.entities.codeAudits.CodeAudit;
 import lombok.Getter;
@@ -45,6 +47,7 @@ public class AuditRecord extends AbstractEntity {
 	@Column(nullable = false)
 	private Mark				mark;
 
+	@URL
 	private String				link;
 
 	// Relationships ----------------------------------------------------------
