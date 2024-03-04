@@ -7,8 +7,3 @@ user-account-client-01,true,"UserIdentity{name: 'Luis', surname: 'Giraldo', emai
 user-account-client-02,true,"UserIdentity{name: 'David', surname: 'Guillén', email: 'davidGuillen@acme.com'}",client2,client2
 user-account-manager-01,true,"UserIdentity{name: 'Luis', surname: 'Giraldo', email: 'luisGiraldo@acme.com'}",manager1,manager1
 user-account-manager-02,true,"UserIdentity{name: 'David', surname: 'Guillén', email: 'davidGuillen@acme.com'}",manager2,manager2
-
-
-
-
-
