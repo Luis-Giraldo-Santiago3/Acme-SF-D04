@@ -26,7 +26,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "code"), //
+	@Index(columnList = "draftMode, deadline"), //
+	@Index(columnList = "code")
+
 })
 public class Contract extends AbstractEntity {
 
@@ -58,6 +60,8 @@ public class Contract extends AbstractEntity {
 
 	@Valid
 	private Money				budget;
+
+	private boolean				draftMode;
 
 	// Derived attributes -----------------------------------------------------
 
