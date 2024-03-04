@@ -9,6 +9,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import acme.entities.project.Project;
@@ -35,14 +36,15 @@ public class UserStory extends AbstractEntity {
 	private String				description;
 
 	@Positive
-	private LocalDateTime		estimatedCost; // Preguntar tipo
+	private LocalDateTime		estimatedCost;
 
 	@NotBlank
 	@Length(max = 101)
-	private String				acceptanceCriteria; // Preguntar tipo
+	private String				acceptanceCriteria;
 
 	private Priority			priority;
 
+	@URL
 	private String				link;
 
 	@ManyToOne(optional = true)
