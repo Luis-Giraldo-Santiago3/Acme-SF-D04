@@ -1,18 +1,18 @@
 
 package acme.entities.auditRecords;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import acme.client.data.AbstractEntity;
-import acme.entities.auditors.Auditor;
 import acme.entities.codeAudits.CodeAudit;
 import lombok.Getter;
 import lombok.Setter;
@@ -34,11 +34,13 @@ public class AuditRecord extends AbstractEntity {
 
 	@Column(nullable = false)
 	@Past
-	private LocalDateTime		auditPeriodStart;
+	@Temporal(TemporalType.TIME)
+	private Date				auditPeriodStart;
 
 	@Column(nullable = false)
 	@Past
-	private LocalDateTime		auditPeriodEnd;
+	@Temporal(TemporalType.TIME)
+	private Date				auditPeriodEnd;
 
 	@Column(nullable = false)
 	private Mark				mark;
@@ -50,19 +52,4 @@ public class AuditRecord extends AbstractEntity {
 	@ManyToOne(optional = false)
 	private CodeAudit			codeAudit;
 
-	@ManyToOne
-	private Auditor				auditor;
-
-
-	public AuditRecord(final String code, final LocalDateTime auditPeriodStart, final LocalDateTime auditPeriodEnd, final Mark mark, final String link) {
-		this.code = code;
-		this.auditPeriodStart = auditPeriodStart;
-		this.auditPeriodEnd = auditPeriodEnd;
-		this.mark = mark;
-		this.link = link;
-
-		// This is to ensure the period between the start and the end of the audit is at least 1 hour long
-		if (auditPeriodStart.isAfter(auditPeriodEnd) || Duration.between(auditPeriodStart, auditPeriodEnd).toHours() < 1)
-			throw new IllegalArgumentException("Audit period must be at least one hour long");
-	}
 }
