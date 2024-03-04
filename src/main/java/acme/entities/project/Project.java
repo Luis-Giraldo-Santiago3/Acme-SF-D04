@@ -7,6 +7,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import lombok.Getter;
@@ -38,8 +39,9 @@ public class Project extends AbstractEntity {
 
 	private String				fatalErrors;
 
-	private Integer				cost;
+	private int					cost;
 
+	@URL
 	private String				link;
 
 }
