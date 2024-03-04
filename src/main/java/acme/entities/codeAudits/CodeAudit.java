@@ -14,6 +14,7 @@ import javax.validation.constraints.Size;
 
 import acme.client.data.AbstractEntity;
 import acme.entities.auditRecords.Mark;
+import acme.entities.auditors.Auditor;
 import acme.entities.project.Project;
 import lombok.Getter;
 import lombok.Setter;
@@ -50,6 +51,11 @@ public class CodeAudit extends AbstractEntity {
 
 	private String				link;
 
+	// Relationships ----------------------------------------------------------
+
 	@ManyToOne(optional = true)
 	private Project				project;
+
+	@ManyToOne
+	private Auditor				auditor;
 }
