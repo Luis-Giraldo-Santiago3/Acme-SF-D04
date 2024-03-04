@@ -21,35 +21,35 @@ import acme.client.repositories.AbstractRepository;
 public interface ClientDashboardRepository extends AbstractRepository {
 
 	// Consulta para obtener el porcentaje del número total de registros de progreso con completitud por debajo del 25%
-	@Query("SELECT COUNT(pl) FROM ProgressLog pl WHERE pl.completenessPercentage < 25")
+	@Query("SELECT COUNT(pl) FROM ProgressLog pl WHERE pl.completeness < 25")
 	Integer percentageOfTotalNumberCompleteness25();
 
 	// Consulta para obtener el porcentaje del número total de registros de progreso con completitud entre 25% y 50%
-	@Query("SELECT COUNT(pl) FROM ProgressLog pl WHERE pl.completenessPercentage >= 25 AND pl.completenessPercentage < 50")
+	@Query("SELECT COUNT(pl) FROM ProgressLog pl WHERE pl.completeness >= 25 AND pl.completeness < 50")
 	Integer percentageOfTotalNumberCompleteness25At50();
 
 	// Consulta para obtener el porcentaje del número total de registros de progreso con completitud entre 50% y 75%
-	@Query("SELECT COUNT(pl) FROM ProgressLog pl WHERE pl.completenessPercentage >= 50 AND pl.completenessPercentage < 75")
+	@Query("SELECT COUNT(pl) FROM ProgressLog pl WHERE pl.completeness >= 50 AND pl.completeness < 75")
 	Integer percentageOfTotalNumberCompleteness50at75();
 
 	// Consulta para obtener el porcentaje del número total de registros de progreso con completitud por encima del 75%
-	@Query("SELECT COUNT(pl) FROM ProgressLog pl WHERE pl.completenessPercentage >= 75")
+	@Query("SELECT COUNT(pl) FROM ProgressLog pl WHERE pl.completeness >= 75")
 	Integer percentageOfTotalNumberCompletenessMore75();
 
 	// Consulta para obtener el promedio del presupuesto de los contratos
-	@Query("SELECT AVG(c.budget) FROM Contract c")
+	@Query("SELECT AVG(c.budget.amount) FROM Contract c")
 	Double averageBudgetOfContract();
 
 	// Consulta para obtener la desviación del presupuesto de los contratos
-	@Query("SELECT STDDEV(c.budget) FROM Contract c")
+	@Query("SELECT STDDEV(c.budget.amount) FROM Contract c")
 	Double deviationBudgetOfContract();
 
 	// Consulta para obtener el presupuesto mínimo de los contratos
-	@Query("SELECT MIN(c.budget) FROM Contract c")
+	@Query("SELECT MIN(c.budget.amount) FROM Contract c")
 	Double minimumBudgetOfContract();
 
 	// Consulta para obtener el presupuesto máximo de los contratos
-	@Query("SELECT MAX(c.budget) FROM Contract c")
+	@Query("SELECT MAX(c.budget.amount) FROM Contract c")
 	Double maximumBudgetOfContract();
 
 }
