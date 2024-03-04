@@ -25,16 +25,18 @@ public class TrainingSession extends AbstractEntity {
 	private LocalDate			period;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	private String				location;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	private String				instructor;
 
 	@NotNull
 	private String				contactEmail;
 
 	private String				link;
+
+	private boolean				draftMode;
 
 }
