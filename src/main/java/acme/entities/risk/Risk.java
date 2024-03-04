@@ -23,7 +23,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "reference"), //
+	@Index(columnList = "draftMode, deadline"), //
+	@Index(columnList = "reference")
 })
 public class Risk extends AbstractEntity {
 
@@ -42,9 +43,9 @@ public class Risk extends AbstractEntity {
 	private Date				identificationDate;
 
 	@Positive
-	private Double				impact;
+	private double				impact;
 
-	private Double				probability;
+	private double				probability;
 
 	@NotBlank
 	@Length(max = 100)
@@ -52,6 +53,8 @@ public class Risk extends AbstractEntity {
 
 	@URL
 	private String				link;
+
+	private boolean				draftMode;
 
 	// Derived attributes -----------------------------------------------------
 
