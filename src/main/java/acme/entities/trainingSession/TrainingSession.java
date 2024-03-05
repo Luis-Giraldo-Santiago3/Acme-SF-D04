@@ -1,9 +1,11 @@
 
 package acme.entities.trainingSession;
 
-import java.time.LocalDate;
+import java.time.Period;
 
 import javax.persistence.Column;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -12,6 +14,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.entities.trainingModule.TrainingModule;
 
 public class TrainingSession extends AbstractEntity {
 
@@ -23,7 +26,7 @@ public class TrainingSession extends AbstractEntity {
 	private String				code;
 
 	// Mirar restricciones de este
-	private LocalDate			period;
+	private Period				period;
 
 	@NotBlank
 	@Length(max = 75)
@@ -40,5 +43,12 @@ public class TrainingSession extends AbstractEntity {
 	private String				link;
 
 	private boolean				draftMode;
+
+	// Relationships
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private TrainingModule		trainingModule;
 
 }
