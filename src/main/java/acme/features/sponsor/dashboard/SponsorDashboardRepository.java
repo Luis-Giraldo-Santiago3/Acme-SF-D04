@@ -24,11 +24,11 @@ public interface SponsorDashboardRepository extends AbstractRepository {
 	Double deviationSponsorships();
 
 	//Obtener el patrocionio con la cantidad mínima
-	@Query("SELECT MIN(s.amount) FROM FROM Sponsorships s")
+	@Query("SELECT MIN(s.amount) FROM Sponsorships s")
 	Double minimumSponsorships();
 
 	//Obtener el patrocinio con la cantidad máxima
-	@Query("SELECT MAX(s.amount) FROM FROM Sponsorships s")
+	@Query("SELECT MAX(s.amount) FROM Sponsorships s")
 	Double maximunSponsorships();
 
 	//Obtener el promedio de la cantidad de las facturas
@@ -40,10 +40,10 @@ public interface SponsorDashboardRepository extends AbstractRepository {
 	Double deviationInvoices();
 
 	//Obtener la mínima cantidad de facturas
-	@Query("SELECT MIN(i.quantity) FROM FROM Invoices i")
+	@Query("SELECT MIN(i.quantity) FROM Invoices i")
 	Double minimumInvoices();
 
 	//Obtener la máxima cantidad de facturas
-	@Query("SELECT MAX(i.quantity) FROM FROM Invoices i")
+	@Query("SELECT MAX(i.quantity) FROM Invoices i")
 	Double maximunInvoices();
 }
