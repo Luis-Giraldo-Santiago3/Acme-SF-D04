@@ -1,11 +1,14 @@
 
 package acme.entities.trainingModule;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
@@ -13,6 +16,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.entities.project.Project;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,7 +33,7 @@ public class TrainingModule extends AbstractEntity {
 	private String				code;
 
 	@Past
-	private LocalDate			creationMoment;
+	private Date				creationMoment;
 
 	@NotBlank
 	@Length(max = 100)
@@ -39,7 +43,7 @@ public class TrainingModule extends AbstractEntity {
 
 	// Revisar restricciones de este
 	@Past
-	private LocalDate			updateMoment;
+	private Date				updateMoment;
 
 	@URL
 	private String				link;
@@ -47,5 +51,12 @@ public class TrainingModule extends AbstractEntity {
 	private Double				totalTime;
 
 	private boolean				draftMode;
+
+	// Relationships
+
+	@NotNull
+	@Valid
+	@OneToOne(optional = false)
+	private Project				project;
 
 }
