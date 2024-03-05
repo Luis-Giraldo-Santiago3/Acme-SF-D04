@@ -3,12 +3,18 @@ package acme.entities.project;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.roles.Manager;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,17 +35,30 @@ public class Project extends AbstractEntity {
 	private String				code;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	private String				title;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	private String				$abstract;
 
-	private String				fatalErrors;
+	private boolean				fatalErrors;
 
-	private Integer				cost;
+	@Positive
+	private int					cost;
 
+	@URL
 	private String				link;
+
+	private boolean				published;		// draftMode
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Manager				manager;
 
 }

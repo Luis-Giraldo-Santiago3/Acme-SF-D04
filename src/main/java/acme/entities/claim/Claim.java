@@ -1,15 +1,20 @@
 
 package acme.entities.claim;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import lombok.Getter;
@@ -28,26 +33,30 @@ public class Claim extends AbstractEntity {
 
 	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "C-[0-9]{4}", message = "{validation.claim.code}") // preguntar
+	@Pattern(regexp = "C-[0-9]{4}", message = "{validation.claim.code}") // no se si quitar el message
 	private String				code;
 
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
 	@Past
-	private LocalDate			instantiationMoment; // preguntas por el tipo de atributo
+	private Date				instantiationMoment;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	private String				heading;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	private String				description;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	private String				department;
 
-	private String				emailAddress;
+	@Email
+	private String				email;
 
+	@URL
 	private String				link;
 
 }
