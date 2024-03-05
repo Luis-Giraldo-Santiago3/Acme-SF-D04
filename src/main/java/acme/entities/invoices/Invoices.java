@@ -19,7 +19,6 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
-import acme.client.data.datatypes.Money;
 import acme.entities.sponsorships.Sponsorships;
 import lombok.Getter;
 import lombok.Setter;
@@ -47,14 +46,12 @@ public class Invoices extends AbstractEntity {
 
 	private Date				dueDate;
 
-	@Valid
 	@NotNull
 	@Min(0)
-	private Money				quantity;
+	private Double				quantity;
 
-	@Valid
 	@Min(0)
-	private Money				tax;
+	private Double				tax;
 
 	@URL
 	private String				link;
@@ -65,7 +62,8 @@ public class Invoices extends AbstractEntity {
 	// Derived attributes -----------------------------------------------------
 	@Transient
 	private Double totalAmount() {
-		return this.quantity.getAmount() + this.tax.getAmount();
+		//		return this.quantity.getAmount() + this.tax.getAmount();
+		return this.getQuantity() + this.getTax();
 	}
 
 

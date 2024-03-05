@@ -4,7 +4,6 @@ package acme.entities.banner;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
-import javax.persistence.Index;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
@@ -18,10 +17,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(indexes = {
-	@Index(columnList = "draftMode"), //
-	@Index(columnList = "code")
-})
+@Table
 public class Banner extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
