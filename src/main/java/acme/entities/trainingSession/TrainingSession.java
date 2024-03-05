@@ -31,7 +31,10 @@ import lombok.Setter;
 })
 public class TrainingSession extends AbstractEntity {
 
+	// Serialisation identifier -----------------------------------------------
 	private static final long	serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
 
 	@Pattern(regexp = "TS-[A-Z]{1,3}-[0-9]{3}", message = "{validation.trainingModule.code}")
 	@NotBlank
@@ -57,7 +60,9 @@ public class TrainingSession extends AbstractEntity {
 
 	private boolean				draftMode;
 
-	// Relationships
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
 
 	@NotNull
 	@Valid
