@@ -1,7 +1,7 @@
 
 package acme.entities.sponsorships;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -42,9 +42,9 @@ public class Sponsorships extends AbstractEntity {
 	private String				code;
 
 	@Past
-	private LocalDate			moment;
+	private Date				moment;
 
-	private Integer				duration;
+	private Date				duration;
 
 	@Valid
 	@Min(0)
