@@ -18,7 +18,6 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
-import acme.client.data.datatypes.Money;
 import acme.entities.project.Project;
 import lombok.Getter;
 import lombok.Setter;
@@ -46,9 +45,8 @@ public class Sponsorships extends AbstractEntity {
 
 	private Date				duration;
 
-	@Valid
 	@Min(0)
-	private Money				amount;
+	private Double				amount;
 
 	private Sponsorship			type;
 

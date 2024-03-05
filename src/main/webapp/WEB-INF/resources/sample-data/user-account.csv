@@ -13,4 +13,3 @@ user-account-sponsor-01,true,"UserIdentity{name: 'Sponsor1', surname: 'AcmeSF', 
 user-account-sponsor-02,true,"UserIdentity{name: 'Sponsor2', surname: 'AcmeSF', email: 'sponsor2@acmesf.com'}",sponsor2,sponsor2
 user-account-developer-01,true,"UserIdentity{name: 'Developer1', surname: 'AcmeSF', email: 'developer1@acmesf.com'}",developer1,developer1
 user-account-developer-02,true,"UserIdentity{name: 'Developer2', surname: 'AcmeSF', email: 'developer2@acmesf.com'}",developer2,developer2
-
