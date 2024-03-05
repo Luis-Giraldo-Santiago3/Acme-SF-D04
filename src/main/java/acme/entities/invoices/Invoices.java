@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -18,6 +19,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.client.data.datatypes.Money;
 import acme.entities.sponsorships.Sponsorships;
 import lombok.Getter;
 import lombok.Setter;
@@ -45,12 +47,14 @@ public class Invoices extends AbstractEntity {
 
 	private Integer				dueDate;
 
+	@Valid
 	@NotNull
 	@Min(0)
-	private Double				quantity;
+	private Money				quantity;
 
+	@Valid
 	@Min(0)
-	private Double				tax;
+	private Money				tax;
 
 	@URL
 	private String				link;
@@ -59,8 +63,9 @@ public class Invoices extends AbstractEntity {
 
 
 	// Derived attributes -----------------------------------------------------
+	@Transient
 	private Double totalAmount() {
-		return this.quantity + this.tax;
+		return this.quantity.getAmount() + this.tax.getAmount();
 	}
 
 
