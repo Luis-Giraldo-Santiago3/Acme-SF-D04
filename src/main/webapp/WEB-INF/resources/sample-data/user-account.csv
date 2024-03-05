@@ -8,7 +8,7 @@ user-account-client-02,true,"UserIdentity{name: 'David', surname: 'Guillén', em
 user-account-administrator-02,true,"UserIdentity{name: 'Administrator1', surname: 'AcmeSF', email: 'administrator1@acmesf.com'}",administrator1,administrator1
 user-account-administrator-03,true,"UserIdentity{name: 'Administrator2', surname: 'AcmeSF', email: 'administrator2@acmesf.com'}",administrator2,administrator2
 user-account-sponsor-01,true,"UserIdentity{name: 'Sponsor1', surname: 'AcmeSF', email: 'sponsor1@acmesf.com'}",sponsor1,sponsor1
-user-account-sponsor-02,true,"UserIdentity{name: 'Sponsor1', surname: 'AcmeSF', email: 'sponsor1@acmesf.com'}",sponsor2,sponsor2
+user-account-sponsor-02,true,"UserIdentity{name: 'Sponsor2', surname: 'AcmeSF', email: 'sponsor2@acmesf.com'}",sponsor2,sponsor2
 user-account-developer-01,true,"UserIdentity{name: 'Developer1', surname: 'AcmeSF', email: 'developer1@acmesf.com'}",developer1,developer1
 user-account-developer-02,true,"UserIdentity{name: 'Developer2', surname: 'AcmeSF', email: 'developer2@acmesf.com'}",developer2,developer2
 "",,,,
