@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -32,7 +34,10 @@ import lombok.Setter;
 })
 public class TrainingModule extends AbstractEntity {
 
+	// Serialisation identifier -----------------------------------------------
 	private static final long	serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
 
 	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.trainingModule.code}")
 	@NotBlank
@@ -40,6 +45,7 @@ public class TrainingModule extends AbstractEntity {
 	private String				code;
 
 	@Past
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date				creationMoment;
 
 	@NotBlank
@@ -50,6 +56,7 @@ public class TrainingModule extends AbstractEntity {
 
 	// Revisar restricciones de este
 	@Past
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date				updateMoment;
 
 	@URL
@@ -59,7 +66,9 @@ public class TrainingModule extends AbstractEntity {
 
 	private boolean				draftMode;
 
-	// Relationships
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
 
 	@NotNull
 	@Valid
