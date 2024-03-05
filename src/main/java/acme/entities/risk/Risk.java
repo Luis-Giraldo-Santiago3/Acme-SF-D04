@@ -23,7 +23,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "draftMode, deadline"), //
+	@Index(columnList = "draftMode"), //
 	@Index(columnList = "reference")
 })
 public class Risk extends AbstractEntity {
