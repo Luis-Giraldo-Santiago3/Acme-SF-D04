@@ -1,18 +1,15 @@
 
 package acme.entities.userStory;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
-import acme.entities.project.Project;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,26 +25,26 @@ public class UserStory extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	private String				title;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	private String				description;
 
 	@Positive
-	private LocalDateTime		estimatedCost;
+	private int					estimatedCost;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	private String				acceptanceCriteria;
 
+	@NotNull
 	private Priority			priority;
 
 	@URL
 	private String				link;
 
-	@ManyToOne(optional = true)
-	private Project				project;
+	private boolean				published;
 
 }

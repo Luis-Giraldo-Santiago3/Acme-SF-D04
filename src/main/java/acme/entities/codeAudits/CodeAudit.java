@@ -2,7 +2,6 @@
 package acme.entities.codeAudits;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -48,7 +47,7 @@ public class CodeAudit extends AbstractEntity {
 
 	@NotBlank
 	@Size(max = 101)
-	private List<String>		correctiveActions;
+	private String				correctiveActions;
 
 	@Column(nullable = false)
 	private Mark				mark;
