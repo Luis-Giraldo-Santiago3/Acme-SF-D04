@@ -13,6 +13,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import lombok.Getter;
@@ -22,7 +23,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "reference"), //
+	@Index(columnList = "draftMode, deadline"), //
+	@Index(columnList = "reference")
 })
 public class Risk extends AbstractEntity {
 
@@ -41,15 +43,18 @@ public class Risk extends AbstractEntity {
 	private Date				identificationDate;
 
 	@Positive
-	private Double				impact;
+	private double				impact;
 
-	private Double				probability;
+	private double				probability;
 
 	@NotBlank
 	@Length(max = 100)
 	private String				description;
 
+	@URL
 	private String				link;
+
+	private boolean				draftMode;
 
 	// Derived attributes -----------------------------------------------------
 

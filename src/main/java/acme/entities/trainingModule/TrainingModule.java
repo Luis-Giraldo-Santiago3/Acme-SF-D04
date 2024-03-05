@@ -10,6 +10,7 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import lombok.Getter;
@@ -31,7 +32,7 @@ public class TrainingModule extends AbstractEntity {
 	private LocalDate			creationMoment;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	private String				details;
 
 	private Difficulty			difficultyLevel;
@@ -40,8 +41,11 @@ public class TrainingModule extends AbstractEntity {
 	@Past
 	private LocalDate			updateMoment;
 
+	@URL
 	private String				link;
 
 	private Double				totalTime;
+
+	private boolean				draftMode;
 
 }

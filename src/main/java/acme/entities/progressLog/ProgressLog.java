@@ -25,7 +25,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "recordId"), //
+	@Index(columnList = "draftMode, deadline"), //
+	@Index(columnList = "recordId")
 })
 public class ProgressLog extends AbstractEntity {
 
@@ -41,19 +42,20 @@ public class ProgressLog extends AbstractEntity {
 	private String				recordId;
 
 	@Positive
-	private Integer				completenessPercentage;
+	private double				completeness;
 
 	@NotBlank
 	@Length(max = 100)
-	private String				progressComment;
+	private String				comment;
 
-	@NotNull
 	@Past
 	private Date				registrationMoment;
 
 	@NotBlank
 	@Length(max = 75)
-	private String				registrationResponsible;
+	private String				responsiblePerson;
+
+	private boolean				draftMode;
 
 	// Derived attributes -----------------------------------------------------
 

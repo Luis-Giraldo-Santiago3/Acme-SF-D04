@@ -4,7 +4,6 @@ package acme.roles;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -27,15 +26,16 @@ public class Client extends AbstractRole {
 
 	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "^CLI-[0-9]{4}$", message = "{validation.Contract.code}")
+	@Pattern(regexp = "^CLI-[0-9]{4}$", message = "{validation.Client.identification}")
 	private String				identification;
 
 	@NotBlank
 	@Length(max = 75)
 	private String				companyName;
 
-	@NotNull
-	private TypeClient			type;
+	@NotBlank
+	@Pattern(regexp = "company|individual", message = "{validation.Client.type}")
+	private String				type;
 
 	@NotBlank
 	private String				email;

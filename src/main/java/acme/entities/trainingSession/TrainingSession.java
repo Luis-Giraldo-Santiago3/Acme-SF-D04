@@ -9,6 +9,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 
@@ -25,16 +26,19 @@ public class TrainingSession extends AbstractEntity {
 	private LocalDate			period;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	private String				location;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	private String				instructor;
 
 	@NotNull
 	private String				contactEmail;
 
+	@URL
 	private String				link;
+
+	private boolean				draftMode;
 
 }

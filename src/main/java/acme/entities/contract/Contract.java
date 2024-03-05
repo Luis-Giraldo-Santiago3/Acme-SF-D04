@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -16,6 +17,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 
 import acme.client.data.AbstractEntity;
+import acme.client.data.datatypes.Money;
 import acme.entities.project.Project;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,7 +26,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "code"), //
+	@Index(columnList = "draftMode, deadline"), //
+	@Index(columnList = "code")
+
 })
 public class Contract extends AbstractEntity {
 
@@ -39,7 +43,6 @@ public class Contract extends AbstractEntity {
 	@Pattern(regexp = "^[A-Z]{1,3}-[0-9]{3}$", message = "{validation.Contract.code}")
 	private String				code;
 
-	@NotNull
 	@Past
 	private Date				instantiationMoment;
 
@@ -55,8 +58,10 @@ public class Contract extends AbstractEntity {
 	@Length(max = 100)
 	private String				goals;
 
-	@NotNull
-	private Double				budget;
+	@Valid
+	private Money				budget;
+
+	private boolean				draftMode;
 
 	// Derived attributes -----------------------------------------------------
 
