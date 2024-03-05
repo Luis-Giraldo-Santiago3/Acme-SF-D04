@@ -1,7 +1,7 @@
 
 package acme.entities.invoices;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -43,9 +43,9 @@ public class Invoices extends AbstractEntity {
 	private String				code;
 
 	@Past
-	private LocalDate			registrationTime;
+	private Date				registrationTime;
 
-	private Integer				dueDate;
+	private Date				dueDate;
 
 	@Valid
 	@NotNull
