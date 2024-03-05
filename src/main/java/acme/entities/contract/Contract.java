@@ -68,6 +68,7 @@ public class Contract extends AbstractEntity {
 	// Relationships ----------------------------------------------------------
 
 	@NotNull
+	@Valid
 	@ManyToOne(optional = false)
 	private Project				project;
 }
