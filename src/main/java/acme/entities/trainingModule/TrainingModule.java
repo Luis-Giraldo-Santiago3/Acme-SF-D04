@@ -5,7 +5,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Index;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -27,11 +26,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(indexes = {
-	@Index(columnList = "draftMode"), //
-	@Index(columnList = "code")
-
-})
+@Table
 public class TrainingModule extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
@@ -39,11 +34,12 @@ public class TrainingModule extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.trainingModule.code}")
+	@Pattern(regexp = "^[A-Z]{1,3}-[0-9]{3}$", message = "{validation.trainingModule.code}")
 	@NotBlank
 	@Column(unique = true)
 	private String				code;
 
+	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				creationMoment;
@@ -52,19 +48,19 @@ public class TrainingModule extends AbstractEntity {
 	@Length(max = 100)
 	private String				details;
 
+	@NotNull
 	private Difficulty			difficultyLevel;
 
-	// Revisar restricciones de este
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				updateMoment;
 
 	@URL
+	@Length(max = 255)
 	private String				link;
 
-	private Double				totalTime;
-
-	private boolean				draftMode;
+	@NotNull
+	private double				totalTime;
 
 	// Derived attributes -----------------------------------------------------
 
