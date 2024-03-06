@@ -51,7 +51,7 @@ public class ProgressLog extends AbstractEntity {
 	private double				completeness;
 
 	@NotBlank
-	@Length(max = 100)
+	@Length(max = 100, min = 0)
 	private String				comment;
 
 	@NotNull
@@ -60,7 +60,7 @@ public class ProgressLog extends AbstractEntity {
 	private Date				registrationMoment;
 
 	@NotBlank
-	@Length(max = 75)
+	@Length(max = 75, min = 0)
 	private String				responsiblePerson;
 
 	// Derived attributes -----------------------------------------------------

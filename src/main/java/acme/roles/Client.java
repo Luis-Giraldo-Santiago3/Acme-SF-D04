@@ -3,8 +3,6 @@ package acme.roles;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
@@ -32,7 +30,7 @@ public class Client extends AbstractRole {
 	private String				identification;
 
 	@NotBlank
-	@Length(max = 75)
+	@Length(max = 75, min = 0)
 	private String				companyName;
 
 	@NotBlank
@@ -40,13 +38,11 @@ public class Client extends AbstractRole {
 	private String				type;
 
 	@NotBlank
-	@Min(0)
-	@Max(255)
+	@Length(max = 100, min = 0)
 	private String				email;
 
 	@URL
-	@Min(0)
-	@Max(255)
+	@Length(max = 100, min = 0)
 	private String				link;
 
 	// Derived attributes -----------------------------------------------------

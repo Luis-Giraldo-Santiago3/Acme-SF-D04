@@ -48,15 +48,15 @@ public class Contract extends AbstractEntity {
 	private Date				instantiationMoment;
 
 	@NotBlank
-	@Length(max = 75)
+	@Length(max = 75, min = 0)
 	private String				providerName;
 
 	@NotBlank
-	@Length(max = 75)
+	@Length(max = 75, min = 0)
 	private String				customerName;
 
 	@NotBlank
-	@Length(max = 100)
+	@Length(max = 100, min = 0)
 	private String				goals;
 
 	@NotNull
