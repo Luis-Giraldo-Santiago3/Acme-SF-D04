@@ -5,15 +5,16 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Index;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.URL;
 
@@ -25,10 +26,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(indexes = {
-	@Index(columnList = "draftMode"), //
-	@Index(columnList = "code")
-})
+@Table
 public class Sponsorships extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
@@ -40,22 +38,30 @@ public class Sponsorships extends AbstractEntity {
 	@Column(unique = true)
 	private String				code;
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
 	@Past
 	private Date				moment;
 
-	private Date				duration;
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	private Date				start;
 
-	@Min(0)
-	private Double				amount;
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	private Date				finish;
 
+	@NotNull
+	@Positive
+	private int					amount;
+
+	@NotNull
 	private Sponsorship			type;
 
 	private String				email;
 
 	@URL
 	private String				link;
-
-	private boolean				draftMode;
 
 	// Derived attributes -----------------------------------------------------
 

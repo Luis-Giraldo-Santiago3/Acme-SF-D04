@@ -1,11 +1,14 @@
 
 package acme.entities.banner;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
@@ -24,22 +27,31 @@ public class Banner extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
 	@Past
-	private LocalDate			instantiationUpdateMoment;
+	private Date				instantiationUpdateMoment;
 
-	private LocalDate			displayPeriod;
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	private Date				displayStart;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	private Date				displayFinish;
+
+	@NotBlank
+	private String				linkPicture;
 
 	@NotBlank
 	@Length(max = 76)
 	private String				slogan;
 
-	private boolean				draftMode;
+	@NotBlank
+	private String				linkTarget;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-	private String				linkPicture;
-
-	private String				linkTarget;
 
 }
