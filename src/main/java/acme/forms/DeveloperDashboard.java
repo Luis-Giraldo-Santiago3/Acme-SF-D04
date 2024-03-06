@@ -17,8 +17,8 @@ public class DeveloperDashboard extends AbstractForm {
 
 	Integer						totalNumberOfTrainingModulesWithAnUpdatedMoment;
 	Integer						totalNumberOfTrainingSessionsWithALink;
-	Double						averageTimeOfTrainingSessions;
-	Double						devidationTimeOfTrainingSessions;
+	Double						averageTimeOfTrainingModules;
+	Double						devidationTimeOfTrainingModules;
 	Double						minimumTimeOfTheTrainingModules;
 	Double						maximumTimeOfTheTrainingModules;
 
