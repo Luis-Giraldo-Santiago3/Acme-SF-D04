@@ -10,15 +10,14 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
-
-import org.hibernate.validator.constraints.Length;
 
 import acme.client.data.AbstractEntity;
 import acme.entities.contract.Contract;
@@ -44,21 +43,24 @@ public class ProgressLog extends AbstractEntity {
 
 	@NotNull
 	@Positive
+	@Digits(integer = 3, fraction = 2)
 	@Min(0)
-	@Max(1)
+	@Max(100)
 	private double				completeness;
 
 	@NotBlank
-	@Length(max = 100)
+	@Min(0)
+	@Max(100)
 	private String				comment;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@Past
+	@PastOrPresent
 	private Date				registrationMoment;
 
 	@NotBlank
-	@Length(max = 75)
+	@Min(0)
+	@Max(75)
 	private String				responsiblePerson;
 
 	// Derived attributes -----------------------------------------------------
