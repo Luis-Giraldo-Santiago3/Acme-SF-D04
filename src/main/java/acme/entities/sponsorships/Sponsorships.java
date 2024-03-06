@@ -36,7 +36,7 @@ public class Sponsorships extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.sponsorships.code}")
+	@Pattern(regexp = "^[A-Z]{1,3}-[0-9]{3}$", message = "{validation.sponsorships.code}")
 	@NotBlank
 	@Column(unique = true)
 	private String				code;
