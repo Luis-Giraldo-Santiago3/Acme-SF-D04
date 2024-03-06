@@ -10,6 +10,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -55,9 +56,12 @@ public class TrainingSession extends AbstractEntity {
 	private String				instructor;
 
 	@NotNull
+	@Email
+	@Length(max = 255)
 	private String				contactEmail;
 
 	@URL
+	@Length(max = 255)
 	private String				link;
 
 	// Derived attributes -----------------------------------------------------
