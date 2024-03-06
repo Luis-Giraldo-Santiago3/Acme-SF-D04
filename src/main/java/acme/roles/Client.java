@@ -38,11 +38,11 @@ public class Client extends AbstractRole {
 	private String				type;
 
 	@NotBlank
-	@Length(max = 100, min = 0)
+	@Length(max = 255, min = 0)
 	private String				email;
 
 	@URL
-	@Length(max = 100, min = 0)
+	@Length(max = 255, min = 0)
 	private String				link;
 
 	// Derived attributes -----------------------------------------------------

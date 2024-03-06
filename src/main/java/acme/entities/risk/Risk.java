@@ -70,7 +70,7 @@ public class Risk extends AbstractEntity {
 	private String				description;
 
 	@URL
-	@Length(max = 100, min = 0)
+	@Length(max = 255, min = 0)
 	private String				link;
 
 	// Derived attributes -----------------------------------------------------
