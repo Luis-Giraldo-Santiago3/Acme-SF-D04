@@ -34,7 +34,7 @@ public class TrainingModule extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.trainingModule.code}")
+	@Pattern(regexp = "^[A-Z]{1,3}-[0-9]{3}$", message = "{validation.trainingModule.code}")
 	@NotBlank
 	@Column(unique = true)
 	private String				code;
