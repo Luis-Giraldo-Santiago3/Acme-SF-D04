@@ -12,16 +12,16 @@ public interface DeveloperDashboardRepository extends AbstractRepository {
 	Integer totalNumberOfTrainingModulesWithAnUpdatedMoment();
 
 	// Proporciona el número total de sesiones de entrenamiento con un link
-	@Query("SELECT COUNT(ts) FROM TrainingModule ts WHERE ts.link IS NOT NULL")
+	@Query("SELECT COUNT(ts) FROM TrainingSession ts WHERE ts.link IS NOT NULL")
 	Integer totalNumberOfTrainingSessionsWithALink();
 
 	// Proporciona el promedio del tiempo de los módulos de entrenamiento
 	@Query("SELECT AVG(tm.totalTime) FROM TrainingModule tm")
-	Double averageTimeOfTrainingSessions();
+	Double averageTimeOfTrainingModules();
 
 	// Proporciona la desviación del tiempo de los módulos de entrenamiento
 	@Query("SELECT STDDEV(tm.totalTime) FROM TrainingModule tm")
-	Double devidationTimeOfTrainingSessions();
+	Double devidationTimeOfTrainingModules();
 
 	// Proporciona el el tiempo mínimo de los módulos de entrenamiento
 	@Query("SELECT MIN(tm.totalTime) FROM TrainingModule tm")
