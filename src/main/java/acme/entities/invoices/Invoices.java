@@ -11,13 +11,13 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.Valid;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
@@ -50,7 +50,7 @@ public class Invoices extends AbstractEntity {
 	private Date				dueDate;
 
 	@NotNull
-	@Min(0)
+	@Positive
 	private int					quantity;
 
 	@NotNull
@@ -58,6 +58,7 @@ public class Invoices extends AbstractEntity {
 	private double				tax;
 
 	@URL
+	@Length(max = 255)
 	private String				link;
 
 
