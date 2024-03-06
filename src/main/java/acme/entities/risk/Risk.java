@@ -5,12 +5,10 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
-import javax.validation.Valid;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -24,8 +22,6 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
-import acme.client.data.accounts.Administrator;
-import acme.entities.project.Project;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -82,16 +78,5 @@ public class Risk extends AbstractEntity {
 	}
 
 	// Relationships ----------------------------------------------------------
-
-
-	@NotNull
-	@Valid
-	@OneToOne(optional = false)
-	private Project			project;
-
-	@NotNull
-	@Valid
-	@OneToOne(optional = false)
-	private Administrator	administrator;
 
 }
