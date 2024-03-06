@@ -5,10 +5,14 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Index;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -27,10 +31,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(indexes = {
-	@Index(columnList = "draftMode"), //
-	@Index(columnList = "reference")
-})
+@Table
 public class Risk extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
@@ -44,26 +45,33 @@ public class Risk extends AbstractEntity {
 	@Pattern(regexp = "^“R-[0-9]{3}$", message = "{validation.Risk.reference}")
 	private String				reference;
 
+	@NotNull
+	@Temporal(TemporalType.DATE)
 	@Past
 	private Date				identificationDate;
 
+	@NotNull
 	@Positive
 	private double				impact;
 
+	@NotNull
+	@Positive
+	@Min(0)
+	@Max(1)
 	private double				probability;
 
 	@NotBlank
 	@Length(max = 100)
 	private String				description;
 
+	@NotNull
 	@URL
 	private String				link;
-
-	private boolean				draftMode;
 
 	// Derived attributes -----------------------------------------------------
 
 
+	@Transient
 	public Double value() {
 
 		return this.impact * this.probability;
