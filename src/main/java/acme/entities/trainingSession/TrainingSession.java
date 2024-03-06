@@ -1,13 +1,14 @@
 
 package acme.entities.trainingSession;
 
-import java.time.Period;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Index;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -24,11 +25,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(indexes = {
-	@Index(columnList = "draftMode"), //
-	@Index(columnList = "code")
-
-})
+@Table
 public class TrainingSession extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
@@ -41,8 +38,13 @@ public class TrainingSession extends AbstractEntity {
 	@Column(unique = true)
 	private String				code;
 
-	// Mirar restricciones de este
-	private Period				period;
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				start;
+
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				finish;
 
 	@NotBlank
 	@Length(max = 75)
@@ -57,8 +59,6 @@ public class TrainingSession extends AbstractEntity {
 
 	@URL
 	private String				link;
-
-	private boolean				draftMode;
 
 	// Derived attributes -----------------------------------------------------
 
