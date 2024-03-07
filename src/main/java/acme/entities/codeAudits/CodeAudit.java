@@ -18,7 +18,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
-import acme.entities.auditRecords.Mark;
+import acme.entities.auditRecord.Mark;
 import acme.roles.Auditor;
 import lombok.Getter;
 import lombok.Setter;
