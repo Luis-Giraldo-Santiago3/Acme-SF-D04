@@ -9,21 +9,17 @@ public class ManagerDashboard {
 
 	// Attributes -------------------------------------------------------------
 
-	Double						totalNumberOfMustUserStories;
-	Double						totalNumberOfShouldUserStories;
-	Double						totalNumberOfCouldUserStories;
-	Double						totalNumberOfWontUserStories;
+	int							totalNumberMustUserStories;
+	int							totalNumberShouldUserStories;
+	int							totalNumberCouldUserStories;
+	int							totalNumberWontUserStories;
 	Double						averageEstimatedCostOfUserStories;
 	Double						deviationEstimatedCostOfUserStories;
-	Double						minimunEstimatedCostOfUserStories;
-	Double						maximumEstimatedCostNumberOfUserStories;
-	Double						averageCostOfProjects;
-	Double						deviationCostOfProjects;
-	Double						minimunCostOfProjects;
-	Double						maximumCostNumberOfProjects;
-
-	// Derived attributes -----------------------------------------------------
-
-	// Relationships ----------------------------------------------------------
+	int							minimunEstimatedCostUserStories;
+	int							maximumEstimatedCostUserStories;
+	Double						averageCostProjects;
+	Double						deviationCostProjects;
+	int							minimunCostProjects;
+	int							maximumCostNumberProjects;
 
 }
