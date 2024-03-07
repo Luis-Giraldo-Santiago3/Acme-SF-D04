@@ -43,9 +43,6 @@ public class Risk extends AbstractEntity {
 	private String				reference;
 
 	@NotNull
-	private RiskType			type;
-
-	@NotNull
 	@Temporal(TemporalType.DATE)
 	@PastOrPresent
 	private Date				identificationDate;
