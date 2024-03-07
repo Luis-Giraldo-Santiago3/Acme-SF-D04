@@ -1,5 +1,6 @@
 
-package acme.entities.trainingSession;
+
+package acme.entities.sponsorships;
 
 import java.util.Date;
 
@@ -13,13 +14,16 @@ import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
-import acme.entities.trainingModule.TrainingModule;
+import acme.entities.project.Project;
+import acme.roles.Sponsor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,38 +31,40 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table
-public class TrainingSession extends AbstractEntity {
+public class Sponsorships extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-
-	@Pattern(regexp = "^TS-[A-Z]{1,3}-[0-9]{3}$", message = "{validation.trainingSession.code}")
+	@Pattern(regexp = "^[A-Z]{1,3}-[0-9]{3}$", message = "{validation.sponsorships.code}")
 	@NotBlank
 	@Column(unique = true)
 	private String				code;
 
-	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	@Past
+	private Date				moment;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
 	private Date				start;
 
-	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
 	private Date				finish;
 
-	@NotBlank
-	@Length(max = 75)
-	private String				location;
+	@NotNull
+	@Positive
+	private int					amount;
 
-	@NotBlank
-	@Length(max = 75)
-	private String				instructor;
+	@NotNull
+	private Sponsorship			type;
 
-	@NotBlank
 	@Email
 	@Length(max = 255)
-	private String				contactEmail;
+	private String				email;
 
 	@URL
 	@Length(max = 255)
@@ -67,10 +73,14 @@ public class TrainingSession extends AbstractEntity {
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Project				project;
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private TrainingModule		trainingModule;
+	private Sponsor				sponsor;
 
 }

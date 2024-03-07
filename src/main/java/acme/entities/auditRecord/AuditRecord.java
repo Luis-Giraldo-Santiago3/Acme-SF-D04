@@ -32,7 +32,7 @@ public class AuditRecord extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------
-	@Pattern(regexp = "AU-[0-9]{4}-[09]{3}")
+	@Pattern(regexp = "AU-[0-9]{4}-[0-9]{3}")
 	@NotBlank
 	@Column(unique = true)
 	private String				code;
