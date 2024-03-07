@@ -58,6 +58,7 @@ public class Sponsorships extends AbstractEntity {
 	@Positive
 	private int					amount;
 
+	@NotNull
 	private Sponsorship			type;
 
 	@Email

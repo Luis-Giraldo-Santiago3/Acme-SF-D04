@@ -6,11 +6,12 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.Valid;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -28,7 +29,6 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table
 public class Invoices extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
@@ -53,8 +53,8 @@ public class Invoices extends AbstractEntity {
 	@Positive
 	private int					quantity;
 
-	@NotNull
-	@Positive
+	@DecimalMin(value = "0.0")
+	@DecimalMax(value = "1.0")
 	private double				tax;
 
 	@URL
