@@ -1,5 +1,5 @@
 
-package acme.entities.isContent;
+package acme.entities.ProjectUserStory;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -15,7 +15,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class IsContent extends AbstractEntity {
+public class ProjectUserStory extends AbstractEntity {
 
 	@NotNull
 	@Valid

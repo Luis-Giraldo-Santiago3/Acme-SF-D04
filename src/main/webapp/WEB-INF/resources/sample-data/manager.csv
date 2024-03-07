@@ -1,3 +1,32 @@
 key,key:userAccount,degree,overview,certifications,link
-manager-01,user-account-manager-01,"Bachelor of Computer Science","Expert in theoretical and practical fundamentals of computer science","CompTIA A+","http://AcmeJob"
-manager-02,user-account-manager-02,"Bachelor of Software Engineering","Specialized in the software development process from an engineering perspective","Certified Ethical Hacker","http://HellowWorld"
+manager-01,user-account-manager-01,Degree,Overview,Certifications,http://AcmeJob
+manager-02,user-account-manager-02,Degree,Overview,Certifications,http://HellowWorld
+manager-03,user-account-manager-03,D,Overview,Certifications,http://HellowWorld
+manager-04,user-account-manager-04,De,Overview,Certifications,http://HellowWorld
+manager-05,user-account-manager-05,DegreeCon75Caracteres------------------------------------------------------,Overview,Certifications,http://HellowWorld
+manager-06,user-account-manager-06,DegreeCon74Caracteres-----------------------------------------------------,Overview,Certifications,http://HellowWorld
+manager-07,user-account-manager-07,Degree por defecto de 18 caracteres,Overview,Certifications,http://HellowWorld
+manager-08,user-account-manager-08,你好,Overview,Certifications,http://HellowWorld
+manager-09,user-account-manager-09, <div> <Hola> <你好> </div>,Overview,Certifications,http://HellowWorld
+manager-10,user-account-manager-10,Degree,O,Certifications,http://AcmeJob
+manager-11,user-account-manager-11,Degree,Ov,Certifications,http://AcmeJob
+manager-12,user-account-manager-12,Degree,OverviewCon100Caracteres----------------------------------------------------------------------------,Certifications,http://AcmeJob
+manager-13,user-account-manager-13,Degree,OverviewCon99Caracteres----------------------------------------------------------------------------,Certifications,http://AcmeJob
+manager-14,user-account-manager-14,Degree,Overview por defecto de 37 caracteres,Certifications,http://AcmeJob
+manager-15,user-account-manager-15,Degree,你好,Certifications15,http://AcmeJob
+manager-16,user-account-manager-16,Degree,<div> <Hola> <你好> </div>,Certifications16,http://AcmeJob
+manager-17,user-account-manager-17,Degree,Overview13,Certifications,http://AcmeJob
+manager-18,user-account-manager-18,Degree,Overview,Certifications,http://AcmeJob
+manager-19,user-account-manager-19,Degree,Overview,Certifications,http://AcmeJob
+manager-20,user-account-manager-20,Degree,Overview,Certifications,http://AcmeJob
+manager-21,user-account-manager-21,Degree,Overview,Certifications,http://AcmeJob
+manager-22,user-account-manager-22,Degree,Overview,Certifications,http://AcmeJob
+manager-23,user-account-manager-23,Degree,Overview,Certifications,
+manager-24,user-account-manager-24,Degree,Overview,Certifications,http://AcmeJob
+manager-25,user-account-manager-25,Degree,Overview,Certifications,http://AcmeJob
+manager-26,user-account-manager-26,Degree,Overview,Certifications,ftp://ftp.example.org
+manager-27,user-account-manager-27,Degree,Overview,Certifications,http://AcmeJob-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+manager-28,user-account-manager-28,Degree,Overview,Certifications,http://AcmeJob------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+manager-29,user-account-manager-29,Degree,Overview,Certifications,http://example.com/page?param1=value1&param2=value2
+manager-30,user-account-manager-30,Degree,Overview,Certifications,http://example.org/api?key=123456789&format=json
+manager-31,user-account-manager-31,Degree,Overview,Certifications,ftp://ftp.example.com/file.txt?user=username&password=12345
