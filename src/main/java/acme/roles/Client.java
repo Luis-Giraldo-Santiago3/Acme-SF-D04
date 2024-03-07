@@ -44,7 +44,7 @@ public class Client extends AbstractRole {
 	private String				email;
 
 	@URL
-	@Length(max = 185, min = 0)
+	@Length(max = 255, min = 0)
 	private String				link;
 
 	// Derived attributes -----------------------------------------------------
