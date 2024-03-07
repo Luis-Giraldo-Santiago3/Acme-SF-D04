@@ -11,24 +11,24 @@ public class AuditorDasboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	Integer				staticCodeAudits;
+	int					staticCodeAudits;
 
-	Integer				dynamicCodeAudits;
+	int					dynamicCodeAudits;
 
 	Double				averageNumAuditRecords;
 
 	Double				deviationNumAuditRecords;
 
-	Integer				minNumAuditRecords;
+	int					minNumAuditRecords;
 
-	Integer				maxNumAuditRecords;
+	int					maxNumAuditRecords;
 
 	Double				averageTimeAuditRecords;
 
 	Double				deviationTimeAuditRecords;
 
-	Integer				minTimeAuditRecords;
+	int					minTimeAuditRecords;
 
-	Integer				maxTimeAuditRecords;
+	int					maxTimeAuditRecords;
 
 }
