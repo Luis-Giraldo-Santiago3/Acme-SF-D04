@@ -15,18 +15,19 @@ manager-13,user-account-manager-13,Degree,OverviewCon99Caracteres---------------
 manager-14,user-account-manager-14,Degree,Overview por defecto de 37 caracteres,Certifications,http://AcmeJob
 manager-15,user-account-manager-15,Degree,你好,Certifications15,http://AcmeJob
 manager-16,user-account-manager-16,Degree,<div> <Hola> <你好> </div>,Certifications16,http://AcmeJob
-manager-17,user-account-manager-17,Degree,Overview13,Certifications,http://AcmeJob
-manager-18,user-account-manager-18,Degree,Overview,Certifications,http://AcmeJob
-manager-19,user-account-manager-19,Degree,Overview,Certifications,http://AcmeJob
-manager-20,user-account-manager-20,Degree,Overview,Certifications,http://AcmeJob
-manager-21,user-account-manager-21,Degree,Overview,Certifications,http://AcmeJob
-manager-22,user-account-manager-22,Degree,Overview,Certifications,http://AcmeJob
-manager-23,user-account-manager-23,Degree,Overview,Certifications,
-manager-24,user-account-manager-24,Degree,Overview,Certifications,http://AcmeJob
-manager-25,user-account-manager-25,Degree,Overview,Certifications,http://AcmeJob
+manager-17,user-account-manager-17,Degree,Overview,C,http://AcmeJob
+manager-18,user-account-manager-18,Degree,Overview,Ce,http://AcmeJob
+manager-19,user-account-manager-19,Degree,Overview,Certifications con 100 caracteres-------------------------------------------------------------------,http://AcmeJob
+manager-20,user-account-manager-20,Degree,Overview,Certifications con 99 caracteres-------------------------------------------------------------------,http://AcmeJob
+manager-21,user-account-manager-21,Degree,Overview,Certifications con 32 caracteres,http://AcmeJob
+manager-22,user-account-manager-22,Degree,Overview,你好,http://AcmeJob
+manager-23,user-account-manager-23,Degree,Overview,<div> <Hola> <你好> </div>,http://AcmeJob
+manager-24,user-account-manager-24,Degree,Overview,console.log("Hola"),http://AcmeJob
+manager-25,user-account-manager-25,Degree,Overview,привет,http://AcmeJob
 manager-26,user-account-manager-26,Degree,Overview,Certifications,ftp://ftp.example.org
-manager-27,user-account-manager-27,Degree,Overview,Certifications,http://AcmeJob-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-manager-28,user-account-manager-28,Degree,Overview,Certifications,http://AcmeJob------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+manager-27,user-account-manager-27,Degree,Overview,Certifications,http://AcmeJobCon255Caracteres---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+manager-28,user-account-manager-28,Degree,Overview,Certifications,http://AcmeJobCon254Caracteres--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 manager-29,user-account-manager-29,Degree,Overview,Certifications,http://example.com/page?param1=value1&param2=value2
 manager-30,user-account-manager-30,Degree,Overview,Certifications,http://example.org/api?key=123456789&format=json
 manager-31,user-account-manager-31,Degree,Overview,Certifications,ftp://ftp.example.com/file.txt?user=username&password=12345
+manager-32,user-account-manager-32,Degree,Overview,Certifications,
