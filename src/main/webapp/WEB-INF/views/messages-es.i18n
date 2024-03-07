@@ -1,2 +1,6 @@
 validation.project.code = El código del projecto debe seguir el patrón ^[A-Z]{3}-[0-9]{4}$
 validation.claim.code = El código del projecto debe seguir el patrón ^C-[0-9]{4}$
+validation.Contract.code = El código de un contrato debe seguir el patrón de ejemplo: AAA-1111
+validation.ProgressLog.recordId = El código de un registro de progreso debe seguir el patrón de ejemplo: PG-AA-1111
+validation.Risk.reference = El código de un riesgo debe seguir el patrón de ejemplo: R-111
+validation.Client.identification = El código de un cliente debe seguir el patrón de ejemplo: CLI-1111
