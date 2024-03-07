@@ -1,3 +1,27 @@
 key,key:userAccount,identification,companyName,type,email,link
-client-01,user-account-client-01,"CLI-1234","Acme One","company","acme@job.com","http://AcmeJob"
-client-02,user-account-client-02,"CLI-1235","Hellow World","individual","hellow@world.com","http://HellowWorld"
+client-01,user-account-client-01,CLI-1234,A,company,acme@job.com,http://AcmeJob
+client-02,user-account-client-02,CLI-1235,Este es el nombre de empresa más lago permitido por el sistema a dia de hoy,individual,hellow@world.com,http://HellowWorld
+client-03,user-account-client-03,CLI-1236,Проект,company,acme@job.com,http://AcmeJob
+client-04,user-account-client-04,CLI-1237,ÖÜàíê,individual,hellow@world.com,http://HellowWorld
+client-05,user-account-client-05,CLI-1238,123456789,company,acme@job.j.com,http://AcmeJob
+client-06,user-account-client-06,CLI-1239,A,individual,a@a.a,http://HellowWorld
+client-07,user-account-client-07,CLI-0000,A,company,專案@hotmail.com,http://AcmeJob
+client-08,user-account-client-08,CLI-1111,A,individual,123456789@gmail.es,http://HellowWorld
+client-09,user-account-client-09,CLI-2222,A,company,ÖÜàíê@email.com,http://AcmeJob
+client-10,user-account-client-10,CLI-3333,A,individual,esteeselcorreomaslargoquesepuedeponerconsesentaycuatrocaracteres@laftngssaasdfghjklasdfghjklasdfghjklqwertyuiopqwertyuiopqwertya.asdfghjklzxcvbnmqwertyuiopqazwsxedcrfvtgbyhnujmikolpñqaz,http://HellowWorld
+client-11,user-account-client-11,CLI-4444,A,company,A@gmail,http://A
+client-12,user-account-client-12,CLI-5555,A,individual,A@gmail.com,http://プロジェクト
+client-13,user-account-client-13,CLI-6666,A,company,A@gmail,http://123456789
+client-14,user-account-client-14,CLI-7777,A,individual,A@gmail.com,http://ÖÜàíê
+client-15,user-account-client-15,CLI-8888,Acme One,company,acme@job.com,http://El_URL_proporcionado_es_demasiado_extenso_excediendo_el_límite_estándar_de_255_caracteres_recomendado_para_la_mayoría_de_los_navegadores_y_sistemas_de_gestión_de_bases_de_datos?muyExtensa=true&&Incesario=false&&esUnaPrueba=true&&soloPuedeMedir==100
+client-16,user-account-client-16,CLI-9999,Hellow World,individual,hellow@world.com,https://A
+client-17,user-account-client-17,CLI-1010,Acme One,company,acme@job.com,ftp://ftp.example.com
+client-18,user-account-client-18,CLI-0101,Hellow World,individual,hellow@world.com,https://A?type=A&name=example.com
+client-19,user-account-client-19,CLI-0009,Acme One,company,acme@job.com,https://A
+client-20,user-account-client-20,CLI-0099,Hellow World,individual,hellow@world.com,https://A
+client-21,user-account-client-21,CLI-0999,Acme One,company,acme@job.com,file:///path/to/file.txt
+client-22,user-account-client-22,CLI-9990,Hellow World,individual,hellow@world.com,mailto:example@example.com?subject=Subject&body=Body
+client-23,user-account-client-23,CLI-9900,Acme One,company,acme@job.com,https://A
+client-24,user-account-client-24,CLI-9000,Hellow World,individual,hellow@world.com,https://A
+client-25,user-account-client-25,CLI-0001,Acme One,company,acme@job.com,
+client-26,user-account-client-26,CLI-0002,Este es el nombre de empresa más lago permitido por el sistema a dia de hoy,company,esteeselcorreomaslargoquesepuedeponerconsesentaycuatrocaracteres@laftngssaasdfghjklasdfghjklasdfghjklqwertyuiopqwertyuiopqwertya.asdfghjklzxcvbnmqwertyuiopqazwsxedcrfvtgbyhnujmikolpñqaz,http://El_URL_proporcionado_es_demasiado_extenso_excediendo_el_límite_estándar_de_255_caracteres_recomendado_para_la_mayoría_de_los_navegadores_y_sistemas_de_gestión_de_bases_de_datos?muyExtensa=true&&Incesario=false&&esUnaPrueba=true&&soloPuedeMedir==100

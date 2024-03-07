@@ -1,0 +1,2 @@
+validation.project.code = El código del projecto debe seguir el patrón ^[A-Z]{3}-[0-9]{4}$
+validation.claim.code = El código del projecto debe seguir el patrón ^C-[0-9]{4}$
