@@ -4,5 +4,5 @@ validation.Contract.code = El código de un contrato debe seguir el patrón de e
 validation.ProgressLog.recordId = El código de un registro de progreso debe seguir el patrón de ejemplo: PG-AA-1111
 validation.Risk.reference = El código de un riesgo debe seguir el patrón de ejemplo: R-111
 validation.Client.identification = El código de un cliente debe seguir el patrón de ejemplo: CLI-1111
-validation.sponsorships.code = El código de los patrocinios debe seguir el patrón ^[A-Z]{1,3}-[0-9]{3}$
-validation.invoices.code = El código de las facturas debe seguir el patrón ^IN-[0-9]{4}-[0-9]{4}$
+validation.sponsorships.code = El código de los patrocinios debe seguir el patrón ^[A-Z]{1,3}-[0-9]{3}$, es decir, debe iniciar con una letra mayúscula de la A a la Z, la cual puede aparecer de 1 a 3 veces, seguida de un guión. Posteriormente, debe aparecer un dígito numérico de 0 a 9. {3} indica que debe aparecer exactamente 3 veces.
+validation.invoices.code = El código de las facturas debe seguir el patrón ^IN-[0-9]{4}-[0-9]{4}$, es decir, debe comenzar por "IN-" seguido por cuatro dígitos, después un guión y, finalmente otros cuatro dígitos.

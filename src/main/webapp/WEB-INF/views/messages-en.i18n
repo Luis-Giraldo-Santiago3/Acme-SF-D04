@@ -4,5 +4,5 @@ validation.Contract.code = The code of a contract must follow the example patter
 validation.ProgressLog.recordId = The code of a progress Log must follow the example pattern: PG-AA-1111
 validation.Risk.reference = The code of a risk must follow the example pattern: R-111
 validation.Client.identification = The code of a client must follow the example pattern: CLI-1111
-validation.sponsorships.code = The code of the sponsorships must follow the pattern ^[A-Z]{1,3}-[0-9]{3}$
-validation.invoices.code = The code of a invoices must follow the pattern ^IN-[0-9]{4}-[0-9]{4}$ 
+validation.sponsorships.code = The code of the sponsorships must follow the pattern ^[A-Z]{1,3}-[0-9]{3}$, that is, it must begin with a capital letter from A to Z, which can appear 1 to 3 times, followed by a hyphen. Afterwards, a numerical digit from 0 to 9 should appear. {3} indicates that it should appear exactly 3 times.
+validation.invoices.code = The code of a invoices must follow the pattern ^IN-[0-9]{4}-[0-9]{4}$, that is, it must begin with "IN-" followed by four digits, then a hyphen, and finally another four digits.
