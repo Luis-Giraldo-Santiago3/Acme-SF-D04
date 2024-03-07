@@ -1,0 +1,26 @@
+key,code,instantiation_moment,provider_name,customer_name,goals,budget,draft_mode,key:project,key:client
+contract-01,ABC-123,2000/01/01 00:00,Provider1,Customer1,Project goals description,EUR 5000.0,true,project-01,client-01
+contract-02,BBC-567,2000/01/01 00:00,Provider1,Customer1,Project goals description,EUR 5000.0,true,project-01,client-01
+contract-03,CBC-987,2022/07/30 00:00,Provider1,Customer1,Project goals description,EUR 5000.0,true,project-01,client-01
+contract-04,DBC-128,2022/07/30 00:00,Provider1,Customer1,Project goals description,EUR 5000.0,true,project-01,client-01
+contract-05,QWW-124,2000/01/01 00:00,Este_es_el_nombre_más_largo_que_se_puede_poner_en_este_atributo_antes_fallo,Customer1,Project goals description,EUR 5000.0,true,project-01,client-01
+contract-06,ABM-128,2000/01/01 00:00,계약,Customer1,Project goals description,EUR 5000.0,true,project-01,client-01
+contract-07,ABN-128,2000/01/01 00:00,Όνομα εταιρείας,Customer1,Project goals description,EUR 5000.0,true,project-01,client-01
+contract-08,ABL-128,2000/01/01 00:00,x,Customer1,Project goals description,EUR 5000.0,true,project-01,client-01
+contract-09,ABT-123,2000/01/01 00:00,Öùáî'e,Customer1,Project goals description,EUR 5000.0,true,project-01,client-01
+contract-10,ABI-123,2000/01/01 00:00,print(Hola Mundo),Customer1,Project goals description,EUR 5000.0,true,project-01,client-01
+contract-11,ABK-123,2000/01/01 00:00,Provider1,Este_es_el_nombre_más_largo_que_se_puede_poner_en_este_atributo_antes_fallo,Project goals description,EUR 5000.0,true,project-01,client-01
+contract-12,ATC-123,2000/01/01 00:00,Provider1,계약,Project goals description,EUR 5000.0,true,project-01,client-01
+contract-13,AEC-123,2000/01/01 00:00,Provider1,Όνομα εταιρείας,Project goals description,EUR 5000.0,true,project-01,client-01
+contract-14,AWC-123,2000/01/01 00:00,Provider1,x,Project goals description,EUR 5000.0,true,project-01,client-01
+contract-15,AQC-123,2000/01/01 00:00,Provider1,Öùáî'e,Project goals description,EUR 5000.0,true,project-01,client-01
+contract-16,AAC-123,2000/01/01 00:00,Provider1,print(Hola Mundo),Project goals description,EUR 5000.0,true,project-01,client-01
+contract-17,AZC-123,2000/01/01 00:00,Provider1,Customer1,Este_es_el_nombre_más_largo_que_se_puede_poner_en_este_atributo_antes_de_que_produzca_un_gran_error_,EUR 5000.0,true,project-01,client-01
+contract-18,AUC-123,2000/01/01 00:00,Provider1,Customer1,계약,EUR 5000.0,true,project-01,client-01
+contract-19,ACU-123,2000/01/01 00:00,Provider1,Customer1,Όνομα εταιρείας,EUR 5000.0,true,project-01,client-01
+contract-20,ALC-123,2000/01/01 00:00,Provider1,Customer1,x,EUR 5000.0,true,project-01,client-01
+contract-21,AKC-123,2000/01/01 00:00,Provider1,Customer1,Öùáî'e,EUR 5000.0,true,project-01,client-01
+contract-22,AJC-123,2000/01/01 00:00,Provider1,Customer1,print(Hola Mundo),EUR 5000.0,true,project-01,client-01
+contract-23,AHC-123,2000/01/01 00:00,Provider1,Customer1,Project goals description,EUR 0.0,true,project-01,client-01
+contract-24,ANC-123,2000/01/01 00:00,Provider1,Customer1,Project goals description,EUR 1000000.0,true,project-01,client-01
+contract-25,NBC-123,2000/01/01 00:00,Provider1,Customer1,Project goals description,EUR 5000.69,false,project-01,client-01

@@ -1,0 +1,24 @@
+key,reference,identification_date,impact,probability,description,link
+risk-01,R-000,2000/01/01 00:00,1.0,2.2,description estándar,https://risk.com
+risk-02,R-111,2000/01/01 00:00,100.0,2.2,description estándar,https://risk.com
+risk-03,R-222,2000/01/01 00:00,0.1,2.2,description estándar,https://risk.com
+risk-04,R-333,2000/01/01 00:00,2.2,0.1,description estándar,https://risk.com
+risk-05,R-444,2000/01/01 00:00,2.2,100.0,description estándar,https://risk.com
+risk-06,R-555,2000/01/01 00:00,2.2,54.69,description estándar,https://risk.com
+risk-07,R-666,2000/01/01 00:00,2.2,2.2,Descripción,https://risk.com
+risk-08,R-777,2022/07/30 00:00,2.2,2.2,A estándar,https://risk.com
+risk-09,R-888,2022/07/30 00:00,2.2,2.2,Este_es_el_nombre_más_largo_que_se_puede_poner_en_este_atributo_antes_de_que_produzca_un_gran_error_,https://risk.com
+risk-10,R-999,2022/07/30 00:00,2.2,2.2,설명,https://risk.com
+risk-11,R-001,2022/07/30 00:00,2.2,2.2,Öùáî'e,https://risk.com
+risk-12,R-101,2022/07/30 00:00,2.2,2.2,print(Hola Mundo),https://risk.com
+risk-13,R-110,2022/07/30 00:00,2.2,2.2,description estándar,https://risk.com
+risk-14,R-002,2022/07/30 00:00,2.2,2.2,description estándar,http://A
+risk-15,R-202,2022/07/30 00:00,2.2,2.2,description estándar,http://プロジェクト
+risk-16,R-220,2022/07/30 00:00,2.2,2.2,description estándar,http://123456789
+risk-17,R-003,2022/07/30 00:00,2.2,2.2,description estándar,http://ÖÜàíê
+risk-18,R-303,2022/07/30 00:00,2.2,2.2,description estándar,http://El_URL_proporcionado_es_demasiado_extenso_excediendo_el_límite_estándar_de_255_caracteres_recomendado_para_la_mayoría_de_los_navegadores_y_sistemas_de_gestión_de_bases_de_datos?muyExtensa=true&&Incesario=false&&esUnaPrueba=true&&soloPuedeMedir==100
+risk-19,R-330,2022/07/30 00:00,2.2,2.2,description estándar,ftp://ftp.example.com
+risk-20,R-004,2022/07/30 00:00,2.2,2.2,description estándar,https://A?type=A&name=example.com
+risk-21,R-404,2022/07/30 00:00,2.2,2.2,description estándar,file:///path/to/file.txt
+risk-22,R-440,2022/07/30 00:00,2.2,2.2,description estándar,mailto:example@example.com?subject=Subject&body=Body
+risk-23,R-005,2022/07/30 00:00,2.2,2.2,description estándar,
