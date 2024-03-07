@@ -80,6 +80,6 @@ user-account-sponsor-05,true,"UserIdentity{name: 'Sponsor5', surname: 'AcmeSF', 
 user-account-sponsor-06,true,"UserIdentity{name: 'Sponsor6', surname: 'AcmeSF', email: 'sponsor6@acmesf.com'}",sponsor6,sponsor6
 user-account-sponsor-07,true,"UserIdentity{name: 'Sponsor7', surname: 'AcmeSF', email: 'sponsor7@acmesf.com'}",sponsor7,sponsor7
 user-account-sponsor-08,true,"UserIdentity{name: 'Sponsor8', surname: 'AcmeSF', email: 'sponsor8@acmesf.com'}",sponsor8,sponsor8
-user-account-sponsor-09,true,"UserIdentity{name: 'Sponsor9', surname: 'AcmeSF', email: 'sponsor9@acmesf.com'}",sponsor9,sponsor9
+user-account-sponsor-09,true,"UserIdentity{name: 'Sponsor9', surname: 'AcmeSF', email: 'sponsor2@acmesf.com'}",sponsor9,sponsor9
 user-account-developer-01,true,"UserIdentity{name: 'Developer1', surname: 'AcmeSF', email: 'developer1@acmesf.com'}",developer1,developer1
 user-account-developer-02,true,"UserIdentity{name: 'Developer2', surname: 'AcmeSF', email: 'developer2@acmesf.com'}",developer2,developer2

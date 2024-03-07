@@ -12,7 +12,7 @@ public interface SponsorDashboardRepository extends AbstractRepository {
 	Integer totalInvoicesTaxLessEqual21();
 
 	//Obtener el número total de patrocinios con link
-	@Query("SELECT COUNT(s) FROM Sponsorships s WHERE s.link IS NOT NULL")
+	@Query("SELECT COUNT(s) FROM Sponsorships s WHERE s.link IS NOT BLANK")
 	Integer totalSponsorshipsWithLink();
 
 	//Obtener el promedio de la cantidad de los patrocinios
