@@ -1,0 +1,2 @@
+validation.project.code = The code of a project must follow the pattern ^[A-Z]{3}-[0-9]{4}$
+validation.claim.code = The code of a claim must follow the pattern ^C-[0-9]{4}$
