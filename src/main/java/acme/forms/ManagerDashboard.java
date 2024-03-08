@@ -13,13 +13,13 @@ public class ManagerDashboard {
 	int							totalNumberShouldUserStories;
 	int							totalNumberCouldUserStories;
 	int							totalNumberWontUserStories;
-	Double						averageEstimatedCostOfUserStories;
-	Double						deviationEstimatedCostOfUserStories;
-	int							minimunEstimatedCostUserStories;
-	int							maximumEstimatedCostUserStories;
+	Double						averageEstimatedCostUserStories;
+	Double						deviationEstimatedCostUserStories;
+	Integer						minimunEstimatedCostUserStories;
+	Integer						maximumEstimatedCostUserStories;
 	Double						averageCostProjects;
 	Double						deviationCostProjects;
-	int							minimunCostProjects;
-	int							maximumCostNumberProjects;
+	Integer						minimunCostProjects;
+	Integer						maximumCostNumberProjects;
 
 }
