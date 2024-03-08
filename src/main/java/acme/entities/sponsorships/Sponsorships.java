@@ -1,4 +1,5 @@
 
+
 package acme.entities.sponsorships;
 
 import java.util.Date;
@@ -22,6 +23,7 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import acme.entities.project.Project;
+import acme.roles.Sponsor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -35,7 +37,7 @@ public class Sponsorships extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.sponsorships.code}")
+	@Pattern(regexp = "^[A-Z]{1,3}-[0-9]{3}$", message = "{validation.sponsorships.code}")
 	@NotBlank
 	@Column(unique = true)
 	private String				code;
@@ -75,5 +77,10 @@ public class Sponsorships extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Project				project;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Sponsor				sponsor;
 
 }
