@@ -46,6 +46,9 @@ public class Risk extends AbstractEntity {
 	private Date				identificationDate;
 
 	@Positive
+	@Digits(integer = 3, fraction = 2)
+	@Min(0)
+	@Max(100)
 	private double				impact;
 
 	@Positive
@@ -55,11 +58,11 @@ public class Risk extends AbstractEntity {
 	private double				probability;
 
 	@NotBlank
-	@Length(max = 100, min = 0)
+	@Length(min = 0, max = 100)
 	private String				description;
 
 	@URL
-	@Length(max = 255, min = 0)
+	@Length(min = 0, max = 255)
 	private String				link;
 
 	// Derived attributes -----------------------------------------------------
