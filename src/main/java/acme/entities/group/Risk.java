@@ -47,11 +47,9 @@ public class Risk extends AbstractEntity {
 
 	@Positive
 	@Digits(integer = 3, fraction = 2)
-	@Min(0)
 	@Max(100)
 	private double				impact;
 
-	@Positive
 	@Digits(integer = 3, fraction = 2)
 	@Min(0)
 	@Max(100)
