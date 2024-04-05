@@ -3,6 +3,7 @@ user-account-consumer-01,true,"UserIdentity{name: 'Peter', surname: 'Consumer', 
 user-account-consumer-02,true,"UserIdentity{name: 'Mary', surname: '貸んい建濯よ芝弾テソ Λορεμ ιπσθμ', email: 'mary@acme.com'}",consumer2,consumer2
 user-account-provider-01,true,"UserIdentity{name: 'Laurel', surname: 'Provider', email: 'laurel@acme.com'}",provider1,provider1
 user-account-provider-02,true,"UserIdentity{name: 'Martina', surname: 'коза თხა', email: 'martina@acme.com'}",provider2,provider2
+user-account-client-00,true,"UserIdentity{name: 'client0', surname: 'client0', email: 'client0@acme.com'}",client0,client0
 user-account-client-01,true,"UserIdentity{name: 'client1', surname: 'client1', email: 'client1@acme.com'}",client1,client1
 user-account-client-02,true,"UserIdentity{name: 'client2', surname: 'client2', email: 'client2@acme.com'}",client2,client2
 user-account-client-03,true,"UserIdentity{name: 'client3', surname: 'client3', email: 'client3@acme.com'}",client3client3,client3
@@ -29,6 +30,11 @@ user-account-client-23,true,"UserIdentity{name: 'client23', surname: 'client23',
 user-account-client-24,true,"UserIdentity{name: 'client24', surname: 'client24', email: 'client24@acme.com'}",client24,client24
 user-account-client-25,true,"UserIdentity{name: 'client25', surname: 'client25', email: 'client25@acme.com'}",client25,client25
 user-account-client-26,true,"UserIdentity{name: 'client26', surname: 'client26', email: 'client26@acme.com'}",client26,client26
+user-account-client-27,true,"UserIdentity{name: 'client27', surname: 'client27', email: 'client27@acme.com'}",client27,client27
+user-account-client-28,true,"UserIdentity{name: 'client28', surname: 'client28', email: 'client28@acme.com'}",client28,client28
+user-account-client-29,true,"UserIdentity{name: 'client29', surname: 'client29', email: 'client29@acme.com'}",client29,client29
+user-account-client-30,true,"UserIdentity{name: 'client30', surname: 'client30', email: 'client30@acme.com'}",client30,client30
+user-account-client-31,true,"UserIdentity{name: 'client31', surname: 'client31', email: 'client31@acme.com'}",client31,client31
 user-account-manager-01,true,"UserIdentity{name: 'Luis', surname: 'Giraldo', email: 'luisGiraldo@acme.com'}",manager1,manager1
 user-account-manager-02,true,"UserIdentity{name: 'David', surname: 'Guillén', email: 'davidGuillen@acme.com'}",manager2,manager2
 user-account-manager-03,true,"UserIdentity{name: 'Luis', surname: 'Giraldo', email: 'luisGiraldo@acme.com'}",manager3,manager3

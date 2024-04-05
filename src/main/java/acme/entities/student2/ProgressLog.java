@@ -11,7 +11,6 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
@@ -42,7 +41,6 @@ public class ProgressLog extends AbstractEntity {
 
 	@Positive
 	@Digits(integer = 3, fraction = 2)
-	@Min(0)
 	@Max(100)
 	private double				completeness;
 
