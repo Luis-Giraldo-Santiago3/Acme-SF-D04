@@ -1,4 +1,5 @@
 key,title,description,estimatedCost,acceptanceCriteria,priority,link,published,key:manager
+userStory-00,Title,Description,1,Acceptance Criteria,SHOULD,http://AcmeJob,false,manager-01
 userStory-01,T,Description,1,Acceptance Criteria,MUST,http://AcmeJob,false,manager-01
 userStory-02,Ti,Description,1,Acceptance Criteria,MUST,http://AcmeJob,false,manager-02
 userStory-03,Esto es un title de 75 caracteres------------------------------------------,Description,1,Acceptance Criteria,MUST,http://AcmeJob,false,manager-01
