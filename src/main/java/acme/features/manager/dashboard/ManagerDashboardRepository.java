@@ -1,5 +1,5 @@
 
-package acme.features.manager;
+package acme.features.manager.dashboard;
 
 import org.springframework.data.jpa.repository.Query;
 
