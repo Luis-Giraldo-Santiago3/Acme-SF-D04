@@ -1,0 +1,10 @@
+# messages-en.i18n
+
+
+client.dashboard.form.title = Client dashboard
+
+client.dashboard.form.title.general-indicators = General indicators
+client.dashboard.form.title.application-statuses = Application statuses  
+
+client.dashboard.form.label.average-Budget-Of-Contract =  Average Budget Of Contract
+
