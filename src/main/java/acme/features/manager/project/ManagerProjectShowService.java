@@ -2,11 +2,13 @@
 package acme.features.manager.project;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import acme.client.services.AbstractService;
 import acme.entities.student1.Project;
 import acme.roles.Manager;
 
+@Service
 public class ManagerProjectShowService extends AbstractService<Manager, Project> {
 
 	// Internal state ---------------------------------------------------------
