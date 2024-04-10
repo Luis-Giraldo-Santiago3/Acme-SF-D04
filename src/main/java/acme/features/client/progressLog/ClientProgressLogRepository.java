@@ -1,6 +1,6 @@
+
 package acme.features.client.progressLog;
 
-
-public class ClientProgressLogRepository {
+public interface ClientProgressLogRepository {
 
 }

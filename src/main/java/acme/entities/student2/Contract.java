@@ -58,7 +58,6 @@ public class Contract extends AbstractEntity {
 	private String				goals;
 
 	@NotNull
-	@Valid
 	private Money				budget;
 
 	private boolean				published;

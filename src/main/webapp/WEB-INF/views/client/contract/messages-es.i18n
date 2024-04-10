@@ -1,0 +1,27 @@
+# messages-es.i18n
+
+client.contract.form.title = Detalles de contratos
+client.contract.list.title = Lista de contratos
+
+client.contract.list.label.code = Código
+client.contract.list.label.instantiationMoment = Momento de instanciación
+client.contract.list.label.providerName = Nombre del proveedorTítulo
+client.contract.list.label.customerName = Nombre del cliente
+client.contract.list.label.goals = Metas
+client.contract.list.label.budget = Presupuesto
+
+client.contract.list.button.create = Crear
+
+client.contract.form.label.code = Código: 
+client.contract.form.label.instantiationMoment = Momento de instanciación: 
+client.contract.form.label.providerName = Nombre del proveedor:
+client.contract.form.label.customerName = Nombre del cliente:
+client.contract.form.label.goals = Metas:
+client.contract.form.label.budget = Presupuesto:
+		
+client.contract.form.button.progressLog = Responsabilidades
+
+client.contract.form.error.duplicated = Esta referencia no está libre
+client.contract.form.error.too-close = La fecha límite debe ser en una semana como mínimo
+client.contract.form.error.bad-work-load = La carga de trabajo no es del 100%
+client.contract.form.error.negative-salary = El salario debe ser positivo
