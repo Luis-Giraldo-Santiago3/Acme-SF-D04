@@ -35,11 +35,16 @@ master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
 
+# master.menu.client ###################################################
+
+master.menu.client = Client
+master.menu.client.dashboard = Dashboard
+master.menu.client.list = Client List
+
 # master.menu.manager ########################################################
 
 master.menu.manager = Manager
 master.menu.manager.list = Projects
-
 
 # master.menu.provider ########################################################
 
