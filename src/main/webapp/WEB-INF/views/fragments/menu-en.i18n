@@ -41,6 +41,11 @@ master.menu.client = Client
 master.menu.client.dashboard = Dashboard
 master.menu.client.list = Client List
 
+# master.menu.manager ########################################################
+
+master.menu.manager = Manager
+master.menu.manager.list = Projects
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
