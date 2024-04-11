@@ -9,7 +9,8 @@
 # they accept any liabilities with respect to them.
 
 
-manager.project.list.title = Projects details:
+manager.project.list.title = Projects:
+manager.project.form.title = Projects details:
 
 manager.project.form.label.code = Code
 manager.project.form.label.title = Title
@@ -24,3 +25,4 @@ manager.project.list.label.$abstract = Abstract
 manager.project.list.label.fatalErrors = Fatal errors
 manager.project.list.label.cost = Cost
 manager.project.list.label.title = Title
+manager.project.list.label.link = Link
