@@ -16,7 +16,7 @@
 	<acme:input-money code="client.contract.form.label.budget" path="budget" />
 
 	<jstl:choose>	 
-		<jstl:when test="${_command == 'show' && publish == true}">
+		<jstl:when test="${_command == 'show' && publish == true}">			
 		</jstl:when>	
 	</jstl:choose>
 </acme:form>
