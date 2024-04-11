@@ -11,8 +11,8 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.student1.Project;
 import acme.entities.student2.Contract;
-import acme.entities.student2.ProgressLog;
 import acme.roles.Client;
 
 @Service
@@ -59,17 +59,17 @@ public class ClientContractShowService extends AbstractService<Client, Contract>
 		assert object != null;
 
 		int clientId;
-		Collection<ProgressLog> progressLogs;
+		Collection<Project> projects;
 		SelectChoices choices;
 		Dataset dataset;
 
 		if (object.isPublished())
-			progressLogs = this.repository.findAllProgressLog();
+			projects = this.repository.findAllProjects();
 		else {
 			clientId = super.getRequest().getPrincipal().getActiveRoleId();
-			progressLogs = this.repository.findManyProgressLogByClientId(clientId);
+			projects = this.repository.findManyProjectsByClientId(clientId);
 		}
-		choices = SelectChoices.from(progressLogs, "recordId", progressLogs.stream().toList().get(0));
+		choices = SelectChoices.from(projects, "title", object.getProject());
 
 		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "published");
 		dataset.put("contractor", choices.getSelected().getKey());
