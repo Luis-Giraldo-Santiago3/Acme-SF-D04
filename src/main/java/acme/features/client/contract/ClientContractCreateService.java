@@ -2,6 +2,7 @@
 package acme.features.client.contract;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,6 +59,9 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 
 	@Override
 	public void validate(final Contract object) {
+		Collection<Contract> listAllContracts = this.repository.findAllContract();
+		Collection<Contract> contractsFiltered = listAllContracts.stream().filter(x -> x.getProject().getId() == object.getProject().getId()).toList();
+		double totalAmount = contractsFiltered.stream().map(x -> x.getBudget().getAmount()).collect(Collectors.summingDouble(x -> x));
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
@@ -68,7 +72,8 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("budget"))
-			super.state(object.getBudget().getAmount() < object.getProject().getCost(), "budget", "client.contract.form.error.higher-cost");
+
+			super.state(totalAmount * object.getBudget().getAmount() < object.getProject().getCost(), "budget", "client.contract.form.error.higher-cost");
 	}
 
 	@Override
@@ -88,7 +93,8 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		Dataset dataset;
 
 		clientId = super.getRequest().getPrincipal().getActiveRoleId();
-		projects = this.repository.findManyProjectsByClientId(clientId);
+		projects = this.repository.findAllProjects();
+
 		choices = SelectChoices.from(projects, "title", object.getProject());
 
 		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "published");

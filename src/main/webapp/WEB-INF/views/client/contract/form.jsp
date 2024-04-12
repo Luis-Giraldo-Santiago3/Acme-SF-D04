@@ -15,7 +15,7 @@
 	<acme:input-textbox code="client.contract.form.label.goals" path="goals"/>
 	<acme:input-money code="client.contract.form.label.budget" path="budget" />
 	<acme:input-select code="cleint.contract.form.label.project" path="project" choices="${projects}"/>
-	<acme:input-checkbox code="client.contract.form.label.publish" path="publish" />
+	<acme:input-checkbox code="client.contract.form.label.published" path="published" />
 
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show' && publish == true}">			

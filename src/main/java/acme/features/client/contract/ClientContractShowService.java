@@ -69,11 +69,12 @@ public class ClientContractShowService extends AbstractService<Client, Contract>
 			clientId = super.getRequest().getPrincipal().getActiveRoleId();
 			projects = this.repository.findManyProjectsByClientId(clientId);
 		}
+
 		choices = SelectChoices.from(projects, "title", object.getProject());
 
 		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "published");
-		dataset.put("contractor", choices.getSelected().getKey());
-		dataset.put("contractors", choices);
+		dataset.put("project", choices.getSelected().getKey());
+		dataset.put("projects", choices);
 
 		super.getResponse().addData(dataset);
 	}

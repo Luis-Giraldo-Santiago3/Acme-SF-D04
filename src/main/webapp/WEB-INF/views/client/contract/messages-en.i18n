@@ -10,7 +10,7 @@ client.contract.form.label.customerName = CustomerName:
 client.contract.form.label.goals = Goals:
 client.contract.form.label.budget = Budget:
 cleint.contract.form.label.project = Projects
-client.contract.form.label.publish = Publish
+client.contract.form.label.published = Published
 		
 client.contract.form.button.progressLog = ProgressLog
 
@@ -20,7 +20,7 @@ client.contract.list.label.providerName = ProviderName
 client.contract.list.label.customerName = CustomerName
 client.contract.list.label.goals = Goals
 client.contract.list.label.budget = Budget
-client.contract.form.label.publish = Publish
+client.contract.form.label.published = Published
 
 
 client.contract.list.button.create = Create contract
