@@ -18,8 +18,12 @@
 	<acme:input-checkbox code="client.contract.form.label.published" path="published" />
 
 	<jstl:choose>	 
-		<jstl:when test="${_command == 'show' && publish == true}">			
-		</jstl:when>	
+		<jstl:when test="${_command == 'show' && published == true}">			
+		</jstl:when>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">
+			<acme:submit code="client.contract.form.button.update" action="/client/contract/update"/>
+			<acme:submit code="client.contract.form.button.delete" action="/client/contract/delete"/>
+		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="client.contract.list.button.create" action="/client/contract/create"/>
 		</jstl:when>

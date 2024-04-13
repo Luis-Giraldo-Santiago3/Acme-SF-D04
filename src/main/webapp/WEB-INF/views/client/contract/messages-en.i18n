@@ -25,6 +25,8 @@ client.contract.form.label.published = Published
 
 client.contract.list.button.create = Create contract
 client.contract.form.button.create = Create
+client.contract.form.button.update = Update contract
+client.contract.form.button.delete = Delete contract
 
 client.contract.form.error.duplicated = This reference is taken
 client.contract.form.error.higher-cost = The budget can be higher than project cost

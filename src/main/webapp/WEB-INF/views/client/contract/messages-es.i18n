@@ -14,6 +14,8 @@ client.contract.form.label.published = Publicado
 
 client.contract.list.button.create = Crear un contrato
 client.contract.list.button.create = Crear
+client.contract.form.button.update = Actualizar contracto
+client.contract.form.button.delete = Borrar contrato
 
 client.contract.form.label.code = Código: 
 client.contract.form.label.instantiationMoment = Momento de instanciación: 
