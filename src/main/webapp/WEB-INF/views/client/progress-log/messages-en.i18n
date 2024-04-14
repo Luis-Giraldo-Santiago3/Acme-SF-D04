@@ -1,9 +1,8 @@
 # messages-en.i18n
 
-client.ProgressLog.form.title = ProgressLog form
-client.ProgressLog.list.title = Listing of progressLogs
+client.progress-log.form.title = ProgressLog form
+client.progress-log.list.title = Listing of progressLogs
 
-client.ProgressLog.form.label.title = Title:
 client.ProgressLog.form.label.recordId = RecordId:
 client.ProgressLog.form.label.completeness = Completeness:
 client.ProgressLog.form.label.comment = Comment: 
@@ -15,7 +14,6 @@ client.ProgressLog.form.button.create = Create
 client.ProgressLog.form.button.update = Update
 client.ProgressLog.form.button.delete = Delete
 
-client.ProgressLog.list.label.title = Title
 client.ProgressLog.list.label.recordId = RecordId
 client.ProgressLog.list.label.completeness = Completeness
 client.ProgressLog.list.label.comment = Comment

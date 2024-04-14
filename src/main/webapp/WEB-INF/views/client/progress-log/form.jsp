@@ -17,11 +17,11 @@
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">
-			<acme:submit code="client.ProgressLog.form.button.update" action="/client/progressLog/update"/>
-			<acme:submit code="client.ProgressLog.form.button.delete" action="/client/progressLog/delete"/>
+			<acme:submit code="client.ProgressLog.form.button.update" action="/client/progress-log/update"/>
+			<acme:submit code="client.ProgressLog.form.button.delete" action="/client/progress-log/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="client.ProgressLog.form.button.create" action="/client/progressLog/create?masterId=${masterId}"/>
+			<acme:submit code="client.ProgressLog.form.button.create" action="/client/progress-log/create?masterId=${masterId}"/>
 		</jstl:when>		
 	</jstl:choose>		
 </acme:form>

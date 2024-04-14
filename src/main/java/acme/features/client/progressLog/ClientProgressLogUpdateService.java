@@ -1,4 +1,4 @@
-package acme.features.client.progresslog;
+package acme.features.client.progressLog;
 
 
 public class ClientProgressLogUpdateService {
