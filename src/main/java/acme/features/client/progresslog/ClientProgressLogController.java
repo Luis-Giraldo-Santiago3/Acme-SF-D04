@@ -1,5 +1,5 @@
 
-package acme.features.client.progressLog;
+package acme.features.client.progresslog;
 
 import javax.annotation.PostConstruct;
 
@@ -16,7 +16,10 @@ public class ClientProgressLogController extends AbstractController<Client, Prog
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ClientProgressLogListService listService;
+	private ClientProgressLogListService	listService;
+
+	@Autowired
+	private ClientProgressLogShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -24,6 +27,7 @@ public class ClientProgressLogController extends AbstractController<Client, Prog
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
 	}
 
 }
