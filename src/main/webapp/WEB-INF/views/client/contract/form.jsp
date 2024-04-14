@@ -17,9 +17,7 @@
 	<acme:input-select code="cleint.contract.form.label.project" path="project" choices="${projects}"/>
 	<acme:input-checkbox code="client.contract.form.label.published" path="published" />
 
-	<jstl:choose>	 
-		<jstl:when test="${_command == 'show' && published == true}">			
-		</jstl:when>
+	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">
 			<acme:submit code="client.contract.form.button.update" action="/client/contract/update"/>
 			<acme:submit code="client.contract.form.button.delete" action="/client/contract/delete"/>
