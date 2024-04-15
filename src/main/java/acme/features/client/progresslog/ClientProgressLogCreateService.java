@@ -29,7 +29,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		contract = this.repository.findOneContractById(masterId);
-		status = contract != null && contract.isPublished() && super.getRequest().getPrincipal().hasRole(contract.getClient());
+		status = contract != null && super.getRequest().getPrincipal().hasRole(contract.getClient());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -62,6 +62,13 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 	@Override
 	public void validate(final ProgressLog object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("recordId")) {
+			ProgressLog existing;
+
+			existing = this.repository.findOneProgressLogtByRecordId(object.getRecordId());
+			super.state(existing == null, "recordId", "client.progressLog.form.error.duplicated");
+		}
 	}
 
 	@Override
