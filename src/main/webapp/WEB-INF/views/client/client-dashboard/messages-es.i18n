@@ -1,7 +1,7 @@
 # messages-es.i18n
 
 
-client.dashboard.form.title = Panel de indicadores de administrador
+client.client-dashboard.form.title = Panel de indicadores de cliente
 
 client.dashboard.form.title.general-indicators = Indicadores generales
 

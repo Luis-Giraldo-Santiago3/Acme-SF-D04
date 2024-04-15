@@ -86,6 +86,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 
 		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson");
 		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
+		dataset.put("published", object.getContract().isPublished());
 
 		super.getResponse().addData(dataset);
 	}

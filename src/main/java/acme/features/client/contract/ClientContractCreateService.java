@@ -2,6 +2,7 @@
 package acme.features.client.contract;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,11 +35,13 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 	public void load() {
 		Contract object;
 		Client client;
+		List<Project> projects = this.repository.findAllProjects().stream().toList();
 
 		client = this.repository.findOneClientById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new Contract();
 		object.setPublished(false);
 		object.setClient(client);
+		object.setProject(projects.get(0));
 
 		super.getBuffer().addData(object);
 	}
