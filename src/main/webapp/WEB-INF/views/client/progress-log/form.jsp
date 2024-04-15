@@ -13,7 +13,6 @@
 	<acme:input-textarea code="client.ProgressLog.form.label.comment" path="comment"/>
 	<acme:input-moment code="client.ProgressLog.form.label.registrationMoment" path="registrationMoment"/>
 	<acme:input-textbox code="client.ProgressLog.form.label.responsiblePerson" path="responsiblePerson"/>
-	<acme:input-checkbox code="client.ProgressLog.form.label.published" path="published"/>
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">
