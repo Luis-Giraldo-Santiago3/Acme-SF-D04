@@ -37,7 +37,7 @@ master.menu.administrator.shut-down = Parar el sistema
 
 master.menu.client = Cliente
 master.menu.client.dashboard = Panel de indicadores
-master.menu.client.list = Lista de cliente
+master.menu.client.list = Lista de contratos
 
 # master.menu.manager ########################################################
 
