@@ -18,6 +18,7 @@ manager.project.form.label.$abstract = Resumen
 manager.project.form.label.fatalErrors = Errores fatales
 manager.project.form.label.cost= Coste
 manager.project.form.label.link = Link
+manager.project.form.error.duplicated = El código del proyecto está duplicado
 
 manager.project.list.label.code = Código 
 manager.project.list.label.title = Título
@@ -26,4 +27,9 @@ manager.project.list.label.fatalErrors = Errores fatales
 manager.project.list.label.cost = Coste
 manager.project.list.label.title = Título
 manager.project.form.label.link = Link
+manager.project.form.label.published = Publicado
+
+manager.project.form.button.create = Crear proyecto
+manager.project.list.button.create = Crear proyecto
+manager.project.form.button.delete = Eliminar proyecto
 

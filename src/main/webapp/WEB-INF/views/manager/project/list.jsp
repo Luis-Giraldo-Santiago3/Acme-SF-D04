@@ -24,7 +24,7 @@
 
 </acme:list>
 
-<jstl:if test="${_command == 'list-mine'}">
-</jstl:if>		
+<acme:button code="manager.project.list.button.create" action="/administrator/company/create"/>
+		
 	
 
