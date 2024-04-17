@@ -21,9 +21,16 @@
 	<acme:input-textbox code="manager.project.form.label.$abstract" path="$abstract"/>
 	<acme:input-integer code="manager.project.form.label.fatalErrors" path="fatalErrors"/>
 	<acme:input-integer code="manager.project.form.label.cost" path="cost"/>
+	<acme:input-integer code="manager.project.form.label.link" path="link"/>
+	<acme:input-integer code="manager.project.form.label.published" path="published"/>
 	
+
 	<jstl:choose>	 
-		<jstl:when test="${_command == 'show' && published == true}">
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="manager.project.form.button.create" action="/manager/project/create"/>
+		</jstl:when>		
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">
+			<acme:submit code="manager.project.form.button.delete" action="/client/contract/delete"/>
 		</jstl:when>
 	</jstl:choose>
 </acme:form>
