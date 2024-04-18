@@ -1,5 +1,5 @@
 
-package acme.features.client.progresslog;
+package acme.features.client.progressLog;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import acme.entities.student2.ProgressLog;
 import acme.roles.Client;
 
 @Service
-public class ClientProgressLogCreateService extends AbstractService<Client, ProgressLog> {
+public class ClientProgressLogDeleteService extends AbstractService<Client, ProgressLog> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -24,12 +24,12 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int progressLogId;
 		Contract contract;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		contract = this.repository.findOneContractById(masterId);
-		status = contract != null && super.getRequest().getPrincipal().hasRole(contract.getClient());
+		progressLogId = super.getRequest().getData("id", int.class);
+		contract = this.repository.findOneContractByProgressLogId(progressLogId);
+		status = contract != null && !contract.isPublished() && super.getRequest().getPrincipal().hasRole(contract.getClient());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -37,17 +37,10 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 	@Override
 	public void load() {
 		ProgressLog object;
-		int masterId;
-		Contract contract;
+		int id;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		contract = this.repository.findOneContractById(masterId);
-
-		object = new ProgressLog();
-		object.setRecordId("");
-		object.setComment("");
-		object.setResponsiblePerson("");
-		object.setContract(contract);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneProgressLogById(id);
 
 		super.getBuffer().addData(object);
 	}
@@ -62,20 +55,13 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 	@Override
 	public void validate(final ProgressLog object) {
 		assert object != null;
-
-		if (!super.getBuffer().getErrors().hasErrors("recordId")) {
-			ProgressLog existing;
-
-			existing = this.repository.findOneProgressLogtByRecordId(object.getRecordId());
-			super.state(existing == null, "recordId", "client.progressLog.form.error.duplicated");
-		}
 	}
 
 	@Override
 	public void perform(final ProgressLog object) {
 		assert object != null;
 
-		this.repository.save(object);
+		this.repository.delete(object);
 	}
 
 	@Override
@@ -85,7 +71,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 		Dataset dataset;
 
 		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson");
-		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
+		dataset.put("masterId", object.getContract().getId());
 		dataset.put("published", object.getContract().isPublished());
 
 		super.getResponse().addData(dataset);

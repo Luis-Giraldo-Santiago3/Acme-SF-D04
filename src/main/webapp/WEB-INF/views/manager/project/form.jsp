@@ -18,12 +18,21 @@
 <acme:form> 
 	<acme:input-textbox code="manager.project.form.label.code" path="code"/>
 	<acme:input-textbox code="manager.project.form.label.title" path="title"/>
-	<acme:input-textbox code="manager.project.form.label.$abstract" path="$abstract"/>
-	<acme:input-integer code="manager.project.form.label.fatalErrors" path="fatalErrors"/>
+	<acme:input-textbox code="manager.project.form.label.projectAbstract" path="projectAbstract"/>
+	<acme:input-checkbox code="manager.project.form.label.fatalErrors" path="fatalErrors"/>
 	<acme:input-integer code="manager.project.form.label.cost" path="cost"/>
+	<acme:input-textbox code="manager.project.form.label.link" path="link"/>
+	<acme:input-checkbox code="manager.project.form.label.published" path="published"/>
 	
+
 	<jstl:choose>	 
-		<jstl:when test="${_command == 'show' && published == true}">
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="manager.project.form.button.create" action="/manager/project/create"/>
+		</jstl:when>		
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">
+			<acme:submit code="manager.project.form.button.delete" action="/manager/project/delete"/>
+			<acme:submit code="manager.project.form.button.update" action="/manager/project/update"/>
+			
 		</jstl:when>
 	</jstl:choose>
 </acme:form>

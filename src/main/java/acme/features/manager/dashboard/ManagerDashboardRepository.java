@@ -8,51 +8,51 @@ import acme.client.repositories.AbstractRepository;
 public interface ManagerDashboardRepository extends AbstractRepository {
 
 	// Proporciona el número total de "Must" historias de usuario
-	@Query("select u from UserStory u where u.priority = 'Must'")
-	Double totalNumberOfMustUserStories();
+	@Query("SELECT COUNT(u) FROM UserStory u WHERE u.priority = 0")
+	int totalNumberOfMustUserStories();
 
 	// Proporciona el número total de "Should" historias de usuario
-	@Query("select u from UserStory u where u.priority = 'Should'")
-	Double totalNumberOfShouldUserStories();
+	@Query("SELECT COUNT(u) FROM UserStory u WHERE u.priority = 1")
+	int totalNumberOfShouldUserStories();
 
 	// Proporciona el número total de "Could" historias de usuario
-	@Query("select u from UserStory u where u.priority = 'Could'")
-	Double totalNumberOfCouldUserStories();
+	@Query("SELECT COUNT(u) FROM UserStory u WHERE u.priority = 2")
+	int totalNumberOfCouldUserStories();
 
 	// Proporciona el número total de "Wont" historias de usuario
-	@Query("select u from UserStory u where u.priority = 'Wont'")
-	Double totalNumberOfWontUserStories();
+	@Query("SELECT COUNT(u) FROM UserStory u WHERE u.priority = 3")
+	int totalNumberOfWontUserStories();
 
 	// Proporciona el coste medio estimado de todas las historias de usuario
-	@Query("select avg(u.estimatedCost) from UserStory u ")
-	Double averageEstimatedCostOfUserStories();
+	@Query("SELECT AVG(u.estimatedCost) FROM UserStory u")
+	Double averageEstimatedCostUserStories();
 
 	// Proporciona la desviación del coste estimado de todas las historias de usuario
-	@Query("select stddev(u.estimatedCost) from UserStory u")
-	Double deviationEstimatedCostOfUserStories();
+	@Query("SELECT STDDEV(u.estimatedCost) FROM UserStory u")
+	Double deviationEstimatedCostUserStories();
 
-	// Proporciona el minimo coste estimado de todas las historias de usuario
-	@Query("select min(u.estimatedCost) from UserStory u")
-	Double minimumEstimatedCostOfUserStories();
+	// Proporciona el mínimo coste estimado de todas las historias de usuario
+	@Query("SELECT MIN(u.estimatedCost) FROM UserStory u")
+	Integer minimunEstimatedCostUserStories();
 
-	// Proporciona el maximo coste estimado de todas las historias de usuario
-	@Query("select max(u.estimatedCost) from UserStory u")
-	Double maximumEstimatedCostNumberOfUserStories();
+	// Proporciona el máximo coste estimado de todas las historias de usuario
+	@Query("SELECT MAX(u.estimatedCost) FROM UserStory u")
+	Integer maximumEstimatedCostUserStories();
 
 	// Proporciona la media de coste de todos los proyectos
-	@Query("select avg(p.cost) from Project p")
-	Double averageCostOfProjects();
+	@Query("SELECT AVG(p.cost) FROM Project p")
+	Double averageCostProjects();
 
 	// Proporciona la desviación del coste de todos los proyectos
-	@Query("select stddev(p.cost) from Project p")
-	Double deviationCostOfProjects();
+	@Query("SELECT STDDEV(p.cost) FROM Project p")
+	Double deviationCostProjects();
 
-	// Proporciona el minimo coste de todos los proyectos
-	@Query("select min(p.cost) from Project p")
-	Double minimumCostOfProjects();
+	// Proporciona el mínimo coste de todos los proyectos
+	@Query("SELECT MIN(p.cost) FROM Project p")
+	Integer minimunCostProjects();
 
-	// Proporciona el maximo coste de todos los proyectos
-	@Query("select max(p.cost) from Project p")
-	Double maximumCostNumberOfProjects();
+	// Proporciona el máximo coste de todos los proyectos
+	@Query("SELECT MAX(p.cost) FROM Project p")
+	Integer maximumCostProjects();
 
 }

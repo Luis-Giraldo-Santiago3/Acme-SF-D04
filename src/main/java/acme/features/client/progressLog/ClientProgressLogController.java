@@ -1,5 +1,5 @@
 
-package acme.features.client.progresslog;
+package acme.features.client.progressLog;
 
 import javax.annotation.PostConstruct;
 

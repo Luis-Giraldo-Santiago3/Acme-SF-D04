@@ -42,7 +42,9 @@ master.menu.client.list = Lista de contratos
 # master.menu.manager ########################################################
 
 master.menu.manager = Manager
-master.menu.manager.list = Proyectos
+master.menu.manager.list.project = Proyectos
+master.menu.manager.list.userStory = Historias de Usuario
+master.menu.manager.dashboard = Panel de control
 
 # master.menu.provider ########################################################
 
