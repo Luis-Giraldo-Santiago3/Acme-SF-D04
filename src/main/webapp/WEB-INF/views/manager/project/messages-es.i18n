@@ -32,4 +32,7 @@ manager.project.form.label.published = Publicado
 manager.project.form.button.create = Crear proyecto
 manager.project.list.button.create = Crear proyecto
 manager.project.form.button.delete = Eliminar proyecto
+manager.project.form.button.update = Actualizar proyecto
+
+
 

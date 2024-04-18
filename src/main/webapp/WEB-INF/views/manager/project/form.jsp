@@ -31,6 +31,8 @@
 		</jstl:when>		
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">
 			<acme:submit code="manager.project.form.button.delete" action="/manager/project/delete"/>
+			<acme:submit code="manager.project.form.button.update" action="/manager/project/update"/>
+			
 		</jstl:when>
 	</jstl:choose>
 </acme:form>

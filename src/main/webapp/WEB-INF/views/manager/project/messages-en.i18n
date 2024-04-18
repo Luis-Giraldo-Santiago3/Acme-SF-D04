@@ -32,3 +32,6 @@ manager.project.form.label.published = Published
 manager.project.form.button.create = Create project
 manager.project.list.button.create = Create project
 manager.project.form.button.delete = Delete project
+manager.project.form.button.update = Update projec
+
+
