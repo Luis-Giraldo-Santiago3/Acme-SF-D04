@@ -44,7 +44,9 @@ master.menu.client.list = Contract List
 # master.menu.manager ########################################################
 
 master.menu.manager = Manager
-master.menu.manager.list = Projects
+master.menu.manager.list.project = Projects
+master.menu.manager.list.userStory = User Stories
+
 
 # master.menu.provider ########################################################
 

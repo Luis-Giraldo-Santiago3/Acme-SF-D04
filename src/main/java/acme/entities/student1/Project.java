@@ -42,7 +42,7 @@ public class Project extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	private String				$abstract;
+	private String				projectAbstract;
 
 	private boolean				fatalErrors;
 

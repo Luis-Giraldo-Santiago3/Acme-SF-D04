@@ -1,4 +1,4 @@
-key,code,title,$abstract,fatalErrors,cost,link,published,key:manager
+key,code,title,projectAbstract,fatalErrors,cost,link,published,key:manager
 project-00,MVN-0123,Title,Abstract,false,1,http://AcmeJob,true,manager-01
 project-01,ABC-0123,T,Abstract,false,1,http://AcmeJob,true,manager-01
 project-02,BCD-0123,Ti,Abstract,false,1,http://AcmeJob,false,manager-01
