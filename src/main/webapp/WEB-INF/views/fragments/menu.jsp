@@ -71,7 +71,7 @@
 	</acme:menu-right>
 </acme:menu-bar>
 <!-- Añade el banner en la parte de arriba del menu -->
-<%-- Comprueba si el banner esta disponible (preguntar si lo de comprobar si esta disponible esta bien asi o lo miro con las dos fechas y en ese caso como selecciono la fecha para el if este) --%>
+<%-- Comprueba si el banner esta disponible (preguntar lo de las fechas como lo tengo en el bloc de notas) --%>
 <jstl:if test="${banner != null}"> 
     <div style="padding: 10px; background-color: #f0f0f0; text-align: center;">
         <a href="${banner.linkTarget}" target="_blank">
