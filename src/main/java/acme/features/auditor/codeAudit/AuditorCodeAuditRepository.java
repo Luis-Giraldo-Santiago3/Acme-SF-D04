@@ -12,10 +12,10 @@ import acme.entities.student5.CodeAudit;
 @Repository
 public interface AuditorCodeAuditRepository extends AbstractRepository {
 
-	@Query("select ca from CodeAudit ca where ca.auditor.id = :id")
-	Collection<CodeAudit> findManyCodeAuditByAuditorId(int id);
+	@Query("select ca from CodeAudit ca where ca.auditor.id = :auditorId")
+	Collection<CodeAudit> findManyCodeAuditByAuditorId(int auditorId);
 
-	@Query("select ca from CodeAudit ca where ca.id = :id")
-	CodeAudit findOneCodeAuditById(int id);
+	@Query("select ca from CodeAudit ca where ca.id = :codeAuditId")
+	CodeAudit findOneCodeAuditById(int codeAuditId);
 
 }

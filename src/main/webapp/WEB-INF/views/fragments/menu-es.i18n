@@ -35,6 +35,11 @@ master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
 master.menu.administrator.list.claim = Reclamaciones
 
+# master.menu.auditor ###################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.list.codeAudit = Auditorías de código
+
 # master.menu.client ###################################################
 
 master.menu.client = Cliente
