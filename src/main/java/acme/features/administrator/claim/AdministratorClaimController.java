@@ -26,7 +26,7 @@ public class AdministratorClaimController extends AbstractController<Administrat
 
 	@PostConstruct
 	protected void initialise() {
-		//super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("show", this.showService);
 		super.addCustomCommand("list-service", "list", this.listService);
 	}
 

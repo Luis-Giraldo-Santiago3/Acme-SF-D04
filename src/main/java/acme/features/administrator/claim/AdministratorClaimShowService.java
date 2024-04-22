@@ -8,8 +8,6 @@ import acme.client.data.accounts.Administrator;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.group.Claim;
-import acme.entities.student1.Project;
-import acme.roles.Manager;
 
 @Service
 public class AdministratorClaimShowService extends AbstractService<Administrator, Claim> {
@@ -24,43 +22,29 @@ public class AdministratorClaimShowService extends AbstractService<Administrator
 
 	@Override
 	public void authorise() {
-		boolean status;
-		Manager manager;
-		int managerRequestId;
-		int projectId;
-		Project project;
 
-		projectId = super.getRequest().getData("id", int.class);
-		project = this.repository.findOneProjectById(projectId);
-		manager = project == null ? null : project.getManager();
-		managerRequestId = super.getRequest().getPrincipal().getActiveRoleId();
-		if (manager != null)
-			status = super.getRequest().getPrincipal().hasRole(manager) && manager.getId() == managerRequestId;
-		else
-			status = false;
+		super.getResponse().setAuthorised(true);
 
-		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Project object;
-		int projectId;
+		Claim object;
+		int id;
 
-		projectId = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneProjectById(projectId);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneClaimById(id);
 
 		super.getBuffer().addData(object);
 	}
 
 	@Override
-	public void unbind(final Project object) {
+	public void unbind(final Claim object) {
 		assert object != null;
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "title", "projectAbstract", "fatalErrors", "cost", "link", "published");
-		dataset.put("manager", object.getManager().getUserAccount().getUsername());
+		dataset = super.unbind(object, "code", "instantiationMoment", "heading", "description", "department", "email", "link", "published");
 
 		super.getResponse().addData(dataset);
 	}

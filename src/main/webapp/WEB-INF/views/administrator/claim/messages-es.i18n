@@ -10,20 +10,24 @@
 
 
 
-manager.user-story.list.title = Historias de usuario
-manager.user-story.form.title = Detalles de la historia de usuario
+administrator.claim.list.title = Reclamaciones
+administrator.claim.form.title = Detalles de las reclamaciones
 
-manager.userStory.list.label.title = Título:
-manager.userStory.list.label.estimatedCost = Coste estimado (en horas enteras):
-manager.userStory.list.label.priority = Prioridad:
-manager.userStory.list.label.published = Publicado
+administrator.claim.list.label.code = Código
+administrator.claim.list.label.instantiationMoment = Momento de instanciación
+administrator.claim.list.label.heading = Encabezado
+administrator.claim.list.label.description = Descripción
+administrator.claim.list.label.department = Departamento
+administrator.claim.list.label.email = Correo electrónico
+administrator.claim.list.label.link = Link
+administrator.claim.list.label.published = Publicado 
 
-manager.userStory.form.label.title = Título:
-manager.userStory.form.label.description = Descripción: 
-manager.userStory.form.label.estimatedCost = Coste estimado (en horas enteras):
-manager.userStory.form.label.acceptanceCriteria = Criterio de aceptación:
-manager.userStory.form.label.priority = Prioridad:
-manager.userStory.form.label.link = Link para más información: (Opcional)
-manager.userStory.form.label.published = Publicado
-manager.userStory.form.label.manager = Nombre del manager: 
+administrator.claim.form.label.code = Código
+administrator.claim.form.label.instantiationMoment = Momento de instanciación
+administrator.claim.form.label.heading = Encabezado
+administrator.claim.form.label.description = Descripción
+administrator.claim.form.label.department = Departamento
+administrator.claim.form.label.email = Correo electrónico
+administrator.claim.form.label.link = Link
+administrator.claim.form.label.published = Publicado 
 

@@ -15,4 +15,7 @@ public interface AdministratorClaimRepository extends AbstractRepository {
 	@Query("SELECT c FROM Claim c")
 	Collection<Claim> findAllClaims();
 
+	@Query("SELECT c FROM Claim c WHERE c.id = :claimId")
+	Claim findOneClaimById(int claimId);
+
 }

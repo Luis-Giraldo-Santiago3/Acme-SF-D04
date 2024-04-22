@@ -8,19 +8,23 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-manager.user-story.list.title = User Stories
-manager.user-story.form.title = User Stories Details
+administrator.claim.list.title = Claims
+administrator.claim.form.title = Details of claims
 
-manager.userStory.list.label.title = Title:
-manager.userStory.list.label.estimatedCost = Estimated Cost (in whole ours):
-manager.userStory.list.label.priority = Priority:
-manager.userStory.list.label.published = Published
+administrator.claim.list.label.code = Code
+administrator.claim.list.label.instantiationMoment = Intantiation moment
+administrator.claim.list.label.heading = Heading
+administrator.claim.list.label.description = Description
+administrator.claim.list.label.department = Department
+administrator.claim.list.label.email = Email
+administrator.claim.list.label.link = Link
+administrator.claim.list.label.published = Published
 
-manager.userStory.form.label.title = Title:
-manager.userStory.form.label.description = Description: 
-manager.userStory.form.label.estimatedCost = Estimated cost (in whole ours):
-manager.userStory.form.label.acceptanceCriteria = Acepttance criteria:
-manager.userStory.form.label.priority = Priority:
-manager.userStory.form.label.link = Link (Optional)
-manager.userStory.form.label.published = Published
-manager.userStory.form.label.manager = Manager: 
+administrator.claim.form.label.code = Code
+administrator.claim.form.label.instantiationMoment = Intantiation moment
+administrator.claim.form.label.heading = Heading
+administrator.claim.form.label.description = Description
+administrator.claim.form.label.department = Department
+administrator.claim.form.label.email = Email
+administrator.claim.form.label.link = Link
+administrator.claim.form.label.published = Published

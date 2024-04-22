@@ -26,6 +26,7 @@ master.menu.anonymous.favourite-link-davvarmun = 21015312M: Vargas Muñiz, David
 
 # master.menu.administrator ###################################################
 
+administrator.claim.list.title = Listado de reclamaciones
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
