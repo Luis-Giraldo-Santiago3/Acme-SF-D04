@@ -44,6 +44,8 @@
 		
 		<acme:menu-option code="master.menu.sponsor" access="hasRole('Sponsor')">
 			<acme:menu-suboption code="master.menu.sponsor.list.sponsorship" action="/sponsor/sponsorship/list-service"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.sponsor.list.invoice" action="/sponsor/invoice/list-service"/>
     	</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.client" access="hasRole('Client')">
