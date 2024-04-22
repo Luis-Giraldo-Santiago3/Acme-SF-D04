@@ -2,11 +2,14 @@
 package acme.features.manager.project;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.student1.Project;
 import acme.roles.Manager;
 
+@Service
 public class ManagerProjectShowService extends AbstractService<Manager, Project> {
 
 	// Internal state ---------------------------------------------------------
@@ -20,12 +23,19 @@ public class ManagerProjectShowService extends AbstractService<Manager, Project>
 	@Override
 	public void authorise() {
 		boolean status;
+		Manager manager;
+		int managerRequestId;
 		int projectId;
 		Project project;
+
 		projectId = super.getRequest().getData("id", int.class);
 		project = this.repository.findOneProjectById(projectId);
-
-		status = super.getRequest().getPrincipal().hasRole(project.getManager()) || project != null && project.isPublished();
+		manager = project == null ? null : project.getManager();
+		managerRequestId = super.getRequest().getPrincipal().getActiveRoleId();
+		if (manager != null)
+			status = super.getRequest().getPrincipal().hasRole(manager) && manager.getId() == managerRequestId;
+		else
+			status = false;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -33,37 +43,24 @@ public class ManagerProjectShowService extends AbstractService<Manager, Project>
 	@Override
 	public void load() {
 		Project object;
-		int id;
+		int projectId;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneProjectById(id);
+		projectId = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneProjectById(projectId);
 
 		super.getBuffer().addData(object);
 	}
-	/*
-	 * 
-	 * @Override
-	 * public void unbind(final Project object) {
-	 * assert object != null;
-	 * 
-	 * int managerId;
-	 * SelectChoices choices;
-	 * Dataset dataset;
-	 * 
-	 * if (object.isPublished())
-	 * contractors = this.repository.findAllContractors();
-	 * else {
-	 * employerId = super.getRequest().getPrincipal().getActiveRoleId();
-	 * contractors = this.repository.findManyContractorsByEmployerId(employerId);
-	 * }
-	 * choices = SelectChoices.from(contractors, "name", object.getContractor());
-	 * 
-	 * dataset = super.unbind(object, "reference", "title", "deadline", "salary", "score", "moreInfo", "description", "draftMode");
-	 * dataset.put("contractor", choices.getSelected().getKey());
-	 * dataset.put("contractors", choices);
-	 * 
-	 * super.getResponse().addData(dataset);
-	 * }
-	 */
+
+	@Override
+	public void unbind(final Project object) {
+		assert object != null;
+
+		Dataset dataset;
+
+		dataset = super.unbind(object, "code", "title", "projectAbstract", "fatalErrors", "cost", "link", "published");
+		dataset.put("manager", object.getManager().getUserAccount().getUsername());
+
+		super.getResponse().addData(dataset);
+	}
 
 }

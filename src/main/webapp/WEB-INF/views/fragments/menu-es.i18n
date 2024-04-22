@@ -22,18 +22,31 @@ master.menu.anonymous.favourite-link-rafmolgar2 = 32086160X: Molina García, Raf
 master.menu.anonymous.favourite-link-luigirsan1 = 29537801M: Giraldo Santiago, Luis
 master.menu.anonymous.favourite-link-alevarmun1 = 21015313Y: Vargas Muñiz, Alejandro
 master.menu.anonymous.favourite-link-davguifer = 45970470W: Guillén Fernández, David
-
-
 master.menu.anonymous.favourite-link-davvarmun = 21015312M: Vargas Muñiz, David
 
 # master.menu.administrator ###################################################
 
+administrator.claim.list.title = Listado de reclamaciones
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
+master.menu.administrator.list.claim = Reclamaciones
+
+# master.menu.client ###################################################
+
+master.menu.client = Cliente
+master.menu.client.dashboard = Panel de indicadores
+master.menu.client.list = Lista de contratos
+
+# master.menu.manager ########################################################
+
+master.menu.manager = Manager
+master.menu.manager.list.project = Proyectos
+master.menu.manager.list.userStory = Historias de Usuario
+master.menu.manager.dashboard = Panel de control
 
 # master.menu.provider ########################################################
 

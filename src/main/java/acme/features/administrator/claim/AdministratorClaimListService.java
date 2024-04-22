@@ -1,21 +1,23 @@
 
-package acme.features.manager.project;
+package acme.features.administrator.claim;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Administrator;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.student1.Project;
-import acme.roles.Manager;
+import acme.entities.group.Claim;
 
-public class ManagerProjectsListService extends AbstractService<Manager, Project> {
+@Service
+public class AdministratorClaimListService extends AbstractService<Administrator, Claim> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ManagerProjectRepository repository;
+	private AdministratorClaimRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -27,22 +29,20 @@ public class ManagerProjectsListService extends AbstractService<Manager, Project
 
 	@Override
 	public void load() {
-		Collection<Project> objects;
-		int managerId;
+		Collection<Claim> objects;
 
-		managerId = super.getRequest().getPrincipal().getActiveRoleId();
-		objects = this.repository.findManyProjectByManagerId(managerId);
+		objects = this.repository.findAllClaims();
 
 		super.getBuffer().addData(objects);
 	}
 
 	@Override
-	public void unbind(final Project object) {
+	public void unbind(final Claim object) {
 		assert object != null;
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "title");
+		dataset = super.unbind(object, "code", "instantiationMoment", "heading", "description", "department", "email", "link", "published");
 
 		super.getResponse().addData(dataset);
 	}

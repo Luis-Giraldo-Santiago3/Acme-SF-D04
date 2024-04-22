@@ -34,6 +34,23 @@ master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+master.menu.administrator.list.claim = Claims
+administrator.claim.list.title = List of claims
+
+
+# master.menu.client ###################################################
+
+master.menu.client = Client
+master.menu.client.dashboard = Dashboard
+master.menu.client.list = Contract List
+
+# master.menu.manager ########################################################
+
+master.menu.manager = Manager
+master.menu.manager.list.project = Projects
+master.menu.manager.list.userStory = User Stories
+master.menu.manager.dashboard = Dashboard
+
 
 # master.menu.provider ########################################################
 

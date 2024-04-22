@@ -33,8 +33,22 @@
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/system/populate-sample"/>			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/system/shut-down"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.list.claim" action="/administrator/claim/list-service"/>
+			
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.client" access="hasRole('Client')">
+			<acme:menu-suboption code="master.menu.client.dashboard" action="/client/client-dashboard/show"/>
+			<acme:menu-suboption code="master.menu.client.list" action="/client/contract/list-service"/>
+    </acme:menu-option>
 
+		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">
+			<acme:menu-suboption code="master.menu.manager.list.project" action="/manager/project/list-service"/>
+			<acme:menu-suboption code="master.menu.manager.dashboard" action="/manager/manager-dashboard/show"/>
+				
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
@@ -59,4 +73,13 @@
 		<acme:menu-option code="master.menu.sign-out" action="/authenticated/system/sign-out" access="isAuthenticated()"/>
 	</acme:menu-right>
 </acme:menu-bar>
+<!-- Añade el banner en la parte de arriba del menu -->
+<%-- Comprueba si el banner esta disponible (preguntar lo de las fechas como lo tengo en el bloc de notas) --%>
+<jstl:if test="${banner != null}"> 
+    <div style="padding: 10px; background-color: #f0f0f0; text-align: center;">
+        <a href="${banner.linkTarget}" target="_blank">
+            <img src="${banner.linkPicture}" alt="${banner.slogan}" style="max-width: 100%; height: auto;"/>
+        </a>
+    </div>
+</jstl:if>
 

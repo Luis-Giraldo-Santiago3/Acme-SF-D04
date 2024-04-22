@@ -1,7 +1,13 @@
 
 package acme.forms;
 
-public class ManagerDashboard {
+import acme.client.data.AbstractForm;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class ManagerDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -20,6 +26,6 @@ public class ManagerDashboard {
 	Double						averageCostProjects;
 	Double						deviationCostProjects;
 	Integer						minimunCostProjects;
-	Integer						maximumCostNumberProjects;
+	Integer						maximumCostProjects;
 
 }
