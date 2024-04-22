@@ -12,7 +12,7 @@ import acme.entities.student1.Project;
 import acme.roles.Manager;
 
 @Service
-public class ManagerProjectListService extends AbstractService<Manager, Project> {
+public class ManagerProjectListMineService extends AbstractService<Manager, Project> {
 
 	// Internal state ---------------------------------------------------------
 
