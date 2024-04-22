@@ -1,5 +1,5 @@
 
-package acme.features.administrator.claim;
+package acme.features.any.claim;
 
 import java.util.Collection;
 
@@ -10,7 +10,7 @@ import acme.client.repositories.AbstractRepository;
 import acme.entities.group.Claim;
 
 @Repository
-public interface AdministratorClaimRepository extends AbstractRepository {
+public interface AnyClaimRepository extends AbstractRepository {
 
 	@Query("SELECT c FROM Claim c")
 	Collection<Claim> findAllClaims();

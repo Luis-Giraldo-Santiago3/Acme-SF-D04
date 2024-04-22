@@ -22,7 +22,7 @@ manager.project.form.error.duplicated = El código del proyecto está duplicado
 manager.project.form.error.noUserStory = El proyecto no tiene historias de usuario
 manager.project.form.error.allUserStoryNotpublished = Todas las historias tienen que estar publicadas
 manager.project.form.error.fatalErrors = El proyecto tiene errores fatales
-
+manager.project.form.label.manager = Gerente
 
 
 manager.project.list.label.code = Código 

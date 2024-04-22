@@ -1,23 +1,22 @@
 
-package acme.features.administrator.claim;
+package acme.features.manager.userStory;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.accounts.Administrator;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.group.Claim;
+import acme.entities.student1.UserStory;
+import acme.roles.Manager;
 
 @Service
-public class AdministratorClaimListService extends AbstractService<Administrator, Claim> {
-
+public class ManagerUserStoryListMineService extends AbstractService<Manager, UserStory> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AdministratorClaimRepository repository;
+	private ManagerUserStoryRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -29,20 +28,23 @@ public class AdministratorClaimListService extends AbstractService<Administrator
 
 	@Override
 	public void load() {
-		Collection<Claim> objects;
+		Collection<UserStory> objects;
+		int managerId;
 
-		objects = this.repository.findAllClaims();
+		managerId = super.getRequest().getPrincipal().getActiveRoleId();
+		objects = this.repository.findManyUserStoriesByManagerId(managerId);
 
 		super.getBuffer().addData(objects);
+
 	}
 
 	@Override
-	public void unbind(final Claim object) {
+	public void unbind(final UserStory object) {
 		assert object != null;
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "instantiationMoment", "heading", "description", "department", "email", "link", "published");
+		dataset = super.unbind(object, "title", "estimatedCost", "priority", "published");
 
 		super.getResponse().addData(dataset);
 	}

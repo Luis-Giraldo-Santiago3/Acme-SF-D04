@@ -22,7 +22,9 @@
 	<acme:input-checkbox code="manager.project.form.label.fatalErrors" path="fatalErrors"/>
 	<acme:input-integer code="manager.project.form.label.cost" path="cost"/>
 	<acme:input-textbox code="manager.project.form.label.link" path="link"/>
+	<acme:input-textbox code="manager.project.form.label.manager" path="manager" readonly="true"/>
 	<acme:input-checkbox code="manager.project.form.label.published" path="published" readonly="true"/>
+	
 	
 	
 
