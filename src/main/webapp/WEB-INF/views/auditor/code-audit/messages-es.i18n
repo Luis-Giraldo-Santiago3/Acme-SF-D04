@@ -18,6 +18,7 @@ auditor.codeAudit.form.label.mark = nota
 auditor.codeAudit.form.label.type = tipo
 auditor.codeAudit.form.label.correctiveActions = acciones de correción
 auditor.codeAudit.form.label.link = link
+auditor.codeAudit.form.label.published = públicado
 
 auditor.codeAudit.form.error.duplicated = El código de la auditoría de código está duplicado
 
@@ -28,10 +29,10 @@ auditor.codeAudit.list.label.type = tipo
 auditor.codeAudit.list.label.correctiveActions = acciones de correción
 auditor.codeAudit.list.label.link = link
 
-manager.project.form.button.create = Crear auditoría de código
-manager.project.list.button.create = Crear auditoría de código
-manager.project.form.button.delete = Eliminar auditoría de código
-manager.project.form.button.update = Actualizar auditoría de código
+auditor.codeAudit.form.button.create = Crear auditoría de código
+auditor.codeAudit.list.button.create = Crear auditoría de código
+auditor.codeAudit.form.button.delete = Eliminar auditoría de código
+auditor.codeAudit.form.button.update = Actualizar auditoría de código
 
 
 

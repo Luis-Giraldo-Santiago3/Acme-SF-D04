@@ -18,6 +18,7 @@ auditor.codeAudit.form.label.mark = mark
 auditor.codeAudit.form.label.type = type
 auditor.codeAudit.form.label.correctiveActions = corrective actions 
 auditor.codeAudit.form.label.link = link
+auditor.codeAudit.form.label.published = published
 
 auditor.CodeAudit.form.error.duplicated = code audit code is duplicated
 
@@ -28,7 +29,7 @@ auditor.codeAudit.list.label.type = type
 auditor.codeAudit.list.label.correctiveActions = corrective actions 
 auditor.codeAudit.list.label.link = link
 
-manager.project.form.button.create = create audit record
-manager.project.list.button.create = create audit record
-manager.project.form.button.delete = delete audit record
-manager.project.form.button.update = update audit record
+auditor.codeAudit.form.button.create = create audit record
+auditor.codeAudit.list.button.create = create audit record
+auditor.codeAudit.form.button.delete = delete audit record
+auditor.codeAudit.form.button.update = update audit record

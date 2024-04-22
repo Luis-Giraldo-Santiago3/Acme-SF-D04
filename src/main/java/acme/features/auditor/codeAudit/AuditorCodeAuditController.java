@@ -14,15 +14,22 @@ import acme.roles.Auditor;
 public class AuditorCodeAuditController extends AbstractController<Auditor, CodeAudit> {
 
 	// Internal state ---------------------------------------------------------
+	@Autowired
+	private AuditorCodeAuditShowService		showService;
 
 	@Autowired
-	private AuditorCodeAuditListService listService;
+	private AuditorCodeAuditListService		listService;
+
+	@Autowired
+	private AuditorCodeAuditCreateService	createService;
 
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
+		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
 		super.addCustomCommand("list-service", "list", this.listService);
 	}
 }

@@ -53,6 +53,8 @@ public class AuditRecord extends AbstractEntity {
 	@Length(max = 255)
 	private String				link;
 
+	private boolean				published;
+
 	// Relationships ----------------------------------------------------------
 
 	@NotNull
