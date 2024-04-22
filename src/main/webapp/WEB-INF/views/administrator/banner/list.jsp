@@ -17,7 +17,7 @@
 
 <acme:list>
 	<acme:list-column code="administrator.banner.list.label.instantiationUpdateMoment" path="instantiationUpdateMoment"/>
-	<acme:list-column code="administrator.banner.list.label.displayStart" path="description"/>
+	<acme:list-column code="administrator.banner.list.label.displayStart" path="displayStart"/>
 	<acme:list-column code="administrator.banner.list.label.displayFinish" path="displayFinish"/>
 	<acme:list-column code="administrator.banner.list.label.linkPicture" path="linkPicture"/>
 	<acme:list-column code="administrator.banner.list.label.slogan" path="slogan"/>

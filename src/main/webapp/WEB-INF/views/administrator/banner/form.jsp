@@ -16,12 +16,11 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form> 
-	<acme:input-textbox code="manager.userStory.form.label.title" path="title"/>
-	<acme:input-textarea code="manager.userStory.form.label.description" path="description"/>
-	<acme:input-integer code="manager.userStory.form.label.estimatedCost" path="estimatedCost"/>
-	<acme:input-textarea code="manager.userStory.form.label.acceptanceCriteria" path="acceptanceCriteria"/>
-	<acme:input-textbox code="manager.userStory.form.label.priority" path="priority"/>
-	<acme:input-url code="manager.userStory.form.label.link" path="link"/>
-	<acme:input-checkbox code="manager.userStory.form.label.published" path="published" readonly = "true"/>
-	<acme:input-textbox code="manager.userStory.form.label.manager" path="manager" readonly = "true"/>
+	<acme:list-column code="administrator.banner.form.label.instantiationUpdateMoment" path="instantiationUpdateMoment"/>
+	<acme:list-column code="administrator.banner.form.label.displayStart" path="displayStart"/>
+	<acme:list-column code="administrator.banner.form.label.displayFinish" path="displayFinish"/>
+	<acme:list-column code="administrator.banner.form.label.linkPicture" path="linkPicture"/>
+	<acme:list-column code="administrator.banner.form.label.slogan" path="slogan"/>
+	<acme:list-column code="administrator.banner.form.label.link" path="link"/>
+	<acme:list-column code="administrator.banner.form.label.linkTarget" path="linkTarget"/>	
 </acme:form>
