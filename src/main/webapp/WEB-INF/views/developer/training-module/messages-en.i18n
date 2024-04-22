@@ -9,8 +9,8 @@
 # they accept any liabilities with respect to them.
 
 
-developer.trainingModule.list.title = Training modules:
-developer.trainingModule.form.title = Training modules details:
+developer.training-module.list.title = Training modules:
+developer.training-module.form.title = Training modules details:
 
 developer.trainingModule.form.label.code = Code
 developer.trainingModule.form.label.creationMoment = Creation moment
