@@ -26,12 +26,14 @@ master.menu.anonymous.favourite-link-davvarmun = 21015312M: Vargas Muñiz, David
 
 # master.menu.administrator ###################################################
 
+administrator.claim.list.title = Listado de reclamaciones
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
+master.menu.administrator.list.claim = Reclamaciones
 
 # master.menu.client ###################################################
 
