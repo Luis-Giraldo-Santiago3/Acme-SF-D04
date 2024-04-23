@@ -1,5 +1,5 @@
 
-package acme.features.manager.project;
+package acme.features.sponsor.invoice;
 
 import java.util.Collection;
 
@@ -8,16 +8,15 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.student1.Project;
-import acme.roles.Manager;
+import acme.entities.student4.Invoice;
+import acme.roles.Sponsor;
 
 @Service
-public class ManagerProjectListService extends AbstractService<Manager, Project> {
-
+public class SponsorInvoiceListService extends AbstractService<Sponsor, Invoice> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ManagerProjectRepository repository;
+	private SponsorInvoiceRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -29,24 +28,21 @@ public class ManagerProjectListService extends AbstractService<Manager, Project>
 
 	@Override
 	public void load() {
-		Collection<Project> objects;
-		int managerId;
+		Collection<Invoice> objects;
 
-		managerId = super.getRequest().getPrincipal().getActiveRoleId();
-		objects = this.repository.findManyProjectByManagerId(managerId);
+		objects = this.repository.findAllInvoices();
 
 		super.getBuffer().addData(objects);
 	}
 
 	@Override
-	public void unbind(final Project object) {
+	public void unbind(final Invoice object) {
 		assert object != null;
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "title", "projectAbstract", "fatalErrors", "cost", "link", "published");
+		dataset = super.unbind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link");
 
 		super.getResponse().addData(dataset);
 	}
-
 }

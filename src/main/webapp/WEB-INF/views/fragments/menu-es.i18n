@@ -27,6 +27,7 @@ master.menu.anonymous.favourite-link-davvarmun = 21015312M: Vargas Muñiz, David
 # master.menu.administrator ###################################################
 
 administrator.claim.list.title = Listado de reclamaciones
+administrator.banner.list.title = Listado de pancartas
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
@@ -34,6 +35,7 @@ master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
 master.menu.administrator.list.claim = Reclamaciones
+master.menu.administrator.list.banner = Pancarta
 
 # master.menu.client ###################################################
 
@@ -47,6 +49,11 @@ master.menu.manager = Manager
 master.menu.manager.list.project = Proyectos
 master.menu.manager.list.userStory = Historias de Usuario
 master.menu.manager.dashboard = Panel de control
+
+# master.menu.authenticated ########################################################
+
+master.menu.authenticated = Autentificado
+master.menu.authenticated.list.claim = Reclamaciones
 
 # master.menu.provider ########################################################
 
@@ -66,3 +73,10 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+
+# master.menu.sponsor ##########################################################
+
+master.menu.sponsor.list.sponsorship = Patrocinios
+sponsor.sponsorship.list.title = Lista de Patrocinios
+master.menu.sponsor.list.invoice = Facturas
+sponsor.invoice.list.title = Lista de Facturas

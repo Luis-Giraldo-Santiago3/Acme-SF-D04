@@ -8,19 +8,21 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-manager.user-story.list.title = User Stories
-manager.user-story.form.title = User Stories Details
+administrator.banner.list.title = Banners
+administrator.banner.form.title = Details of banners
 
-manager.userStory.list.label.title = Title:
-manager.userStory.list.label.estimatedCost = Estimated Cost (in whole ours):
-manager.userStory.list.label.priority = Priority:
-manager.userStory.list.label.published = Published
+administrator.banner.list.label.instantiationUpdateMoment = Instantiation Update Moment
+administrator.banner.list.label.displayStart = Display Start
+administrator.banner.list.label.displayFinish = Display Finish
+administrator.banner.list.label.linkPicture = Link Picture
+administrator.banner.list.label.slogan = Slogan
+administrator.banner.list.label.link = Link
+administrator.banner.list.label.linkTarget = Link Target	
 
-manager.userStory.form.label.title = Title:
-manager.userStory.form.label.description = Description: 
-manager.userStory.form.label.estimatedCost = Estimated cost (in whole ours):
-manager.userStory.form.label.acceptanceCriteria = Acepttance criteria:
-manager.userStory.form.label.priority = Priority:
-manager.userStory.form.label.link = Link (Optional)
-manager.userStory.form.label.published = Published
-manager.userStory.form.label.manager = Manager: 
+administrator.banner.form.label.instantiationUpdateMoment = Instantiation Update Moment
+administrator.banner.form.label.displayStart = Display Start
+administrator.banner.form.label.displayFinish = Display Finish
+administrator.banner.form.label.linkPicture = Link Picture
+administrator.banner.form.label.slogan = Slogan
+administrator.banner.form.label.link = Link
+administrator.banner.form.label.linkTarget = Link Target	

@@ -36,7 +36,8 @@ master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
 master.menu.administrator.list.claim = Claims
 administrator.claim.list.title = List of claims
-
+master.menu.administrator.list.banner = Banners
+administrator.banner.list.title = List of banners
 
 # master.menu.client ###################################################
 
@@ -51,6 +52,10 @@ master.menu.manager.list.project = Projects
 master.menu.manager.list.userStory = User Stories
 master.menu.manager.dashboard = Dashboard
 
+# master.menu.authenticated ########################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.list.claim = Claims
 
 # master.menu.provider ########################################################
 
@@ -70,3 +75,11 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+
+# master.menu.sponsor###################################################
+
+master.menu.sponsor = Sponsor
+master.menu.sponsor.list.sponsorship = Sponsorships
+sponsor.sponsorship.list.title = List of Sponsorships
+master.menu.sponsor.list.invoice = Invoices
+sponsor.invoice.list.title = List of Invoices
