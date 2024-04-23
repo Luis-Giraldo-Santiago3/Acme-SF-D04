@@ -1,12 +1,16 @@
 
 package acme.features.developer.trainingModule;
 
+import java.util.Collection;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.student1.Project;
 import acme.entities.student3.Difficulty;
 import acme.entities.student3.TrainingModule;
 import acme.roles.Developer;
@@ -31,11 +35,13 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	public void load() {
 		TrainingModule object;
 		Developer developer;
+		List<Project> projects = this.repository.findAllProjects().stream().toList();
 
 		developer = this.repository.findDeveloperById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new TrainingModule();
 		object.setPublished(false);
 		object.setDeveloper(developer);
+		object.setProject(projects.get(0));
 		super.getBuffer().addData(object);
 	}
 
@@ -43,7 +49,14 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	public void bind(final TrainingModule object) {
 		assert object != null;
 
+		int projectId;
+		Project project;
+
+		projectId = super.getRequest().getData("project", int.class);
+		project = this.repository.findOneProjectById(projectId);
+
 		super.bind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "published");
+		object.setProject(project);
 	}
 
 	@Override
@@ -56,6 +69,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 			existing = this.repository.findOneTrainingModuleByCode(object.getCode());
 			super.state(existing == null, "code", "developer.trainingModule.form.error.duplicated");
 		}
+
 	}
 
 	@Override
@@ -69,9 +83,20 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	public void unbind(final TrainingModule object) {
 		assert object != null;
 
+		int developerId;
+		Collection<Project> projects;
+		SelectChoices projectChoices;
 		Dataset dataset;
 
+		developerId = super.getRequest().getPrincipal().getActiveRoleId();
+		projects = this.repository.findAllProjects();
+
+		projectChoices = SelectChoices.from(projects, "title", object.getProject());
+
 		dataset = super.unbind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "published");
+		dataset.put("project", projectChoices.getSelected().getKey());
+		dataset.put("projects", projectChoices);
+
 		final SelectChoices choices;
 		choices = SelectChoices.from(Difficulty.class, object.getDifficultyLevel());
 		dataset.put("difficultyLevel", choices.getSelected().getKey());
