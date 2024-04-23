@@ -23,5 +23,8 @@
 	<acme:list-column code="sponsor.sponsorship.list.label.amount" path="amount"/>
 	<acme:list-column code="sponsor.sponsorship.list.label.type" path="type"/>
 	<acme:list-column code="sponsor.sponsorship.list.label.email" path="email"/>
-	<acme:list-column code="sponsor.sponsorship.list.label.link" path="link"/>	
+	<acme:list-column code="sponsor.sponsorship.list.label.link" path="link"/>
+	<acme:list-column code="sponsor.sponsorship.list.label.published" path="published"/>	
 </acme:list>
+
+<acme:button code="sponsor.sponsorship.list.button.create" action="/sponsor/sponsorship/create"/>

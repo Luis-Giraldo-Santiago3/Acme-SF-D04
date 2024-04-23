@@ -23,5 +23,16 @@
 	<acme:list-column code="sponsor.sponsorship.form.label.amount" path="amount"/>
 	<acme:list-column code="sponsor.sponsorship.form.label.type" path="type"/>
 	<acme:list-column code="sponsor.sponsorship.form.label.email" path="email"/>
-	<acme:list-column code="sponsor.sponsorship.form.label.link" path="link"/>	
+	<acme:list-column code="sponsor.sponsorship.form.label.link" path="link"/>
+	<acme:list-column code="sponsor.sponsorship.form.label.published" path="published"/>
+	
+	<jstl:choose>	 
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="sponsor.sponsorship.form.button.create" action="/sponsor/sponsorship/create"/>
+		</jstl:when>		
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">
+			<acme:submit code="sponsor.sponsorship.form.button.delete" action="/sponsor/sponsorship/delete"/>
+			<acme:submit code="sponsor.sponsorship.form.button.update" action="/sponsor/sponsorship/update"/>
+		</jstl:when>
+	</jstl:choose>	
 </acme:form>
