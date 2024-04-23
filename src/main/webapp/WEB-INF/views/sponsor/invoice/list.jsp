@@ -17,9 +17,13 @@
 
 <acme:list>
 	<acme:list-column code="sponsor.invoice.list.label.code" path="code"/>
-	<acme:list-column code="sponsor.invoice.list.label.moment" path="registrationTime"/>
-	<acme:list-column code="sponsor.invoice.list.label.start" path="dueDate"/>
-	<acme:list-column code="sponsor.invoice.list.label.finish" path="quantity"/>
-	<acme:list-column code="sponsor.invoice.list.label.amount" path="tax"/>
-	<acme:list-column code="sponsor.invoice.list.label.type" path="link"/>		
+	<acme:list-column code="sponsor.invoice.list.label.registrationTime" path="registrationTime"/>
+	<acme:list-column code="sponsor.invoice.list.label.dueDate" path="dueDate"/>
+	<acme:list-column code="sponsor.invoice.list.label.quantity" path="quantity"/>
+	<acme:list-column code="sponsor.invoice.list.label.tax" path="tax"/>
+	<acme:list-column code="sponsor.invoice.list.label.link" path="link"/>
+	<acme:list-column code="sponsor.invoice.list.label.published" path="published"/>		
+		
 </acme:list>
+
+<acme:button test="${showCreate}" code="sponsor.invoice.list.button.create" action="/sponsor/invoice/create?masterId=${masterId}"/>
