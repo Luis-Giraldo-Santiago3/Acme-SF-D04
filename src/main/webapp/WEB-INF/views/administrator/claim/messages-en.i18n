@@ -28,3 +28,5 @@ administrator.claim.form.label.department = Department
 administrator.claim.form.label.email = Email
 administrator.claim.form.label.link = Link
 administrator.claim.form.label.published = Published
+
+administrator.claim.form.button.publish = Publish

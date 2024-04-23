@@ -65,6 +65,7 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		Collection<Contract> listAllContracts = this.repository.findAllContract();
 		Collection<Contract> contractsFiltered = listAllContracts.stream().filter(x -> x.getProject().getId() == object.getProject().getId()).toList();
 		double totalAmount = contractsFiltered.stream().map(x -> x.getBudget().getAmount()).collect(Collectors.summingDouble(x -> x));
+		double converterHourToEUR = 24;
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
@@ -76,7 +77,7 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 
 		if (!super.getBuffer().getErrors().hasErrors("budget"))
 
-			super.state(totalAmount * object.getBudget().getAmount() < object.getProject().getCost(), "budget", "client.contract.form.error.higher-cost");
+			super.state(totalAmount < object.getProject().getCost() * converterHourToEUR, "budget", "client.contract.form.error.higher-cost");
 	}
 
 	@Override

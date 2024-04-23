@@ -31,3 +31,5 @@ administrator.claim.form.label.email = Correo electrónico
 administrator.claim.form.label.link = Link
 administrator.claim.form.label.published = Publicado 
 
+administrator.claim.form.button.publish = Publicar
+

@@ -25,6 +25,12 @@
 	<acme:input-checkbox code="administrator.claim.form.label.link" path="link"/>
 	<acme:input-textbox code="administrator.claim.form.label.published" path="published" readonly = "true"/>
 	
+	<jstl:choose>
+		<jstl:when test="${acme:anyOf(_command, 'publish') && published == false}">
+			<acme:submit code="administrator.claim.form.button.publish" action="/administrator/claim/publish"/>
+		</jstl:when>		
+	</jstl:choose>
+	
 	
 	
 </acme:form>
