@@ -3,17 +3,6 @@ package acme.entities.student5;
 
 public enum Mark {
 
-	A_PLUS("A+"), A("A"), B("B"), C("C"), F("F"), F_MINUS("F-");
+	A_PLUS, A, B, C, F, F_MINUS;
 
-
-	private final String markValue;
-
-
-	Mark(final String markValue) {
-		this.markValue = markValue;
-	}
-
-	public String getMarkValue() {
-		return this.markValue;
-	}
 }

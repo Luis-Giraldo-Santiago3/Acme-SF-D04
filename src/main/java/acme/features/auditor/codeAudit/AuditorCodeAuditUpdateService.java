@@ -8,6 +8,8 @@ import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.student5.CodeAudit;
+import acme.entities.student5.Mark;
+import acme.entities.student5.Type;
 import acme.roles.Auditor;
 
 @Service
@@ -81,8 +83,11 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 
 		SelectChoices choices;
 		Dataset dataset;
-
-		dataset = super.unbind(object, "code", "executionDate", "type", "mark", "correctiveActions", "link", "published");
+		choices = SelectChoices.from(Mark.class, object.getMark());
+		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "link", "published");
+		dataset.put("mark", choices.getSelected().getKey());
+		dataset.put("marks", choices);
+		dataset.put("types", SelectChoices.from(Type.class, object.getType()));
 		super.getResponse().addData(dataset);
 	}
 
