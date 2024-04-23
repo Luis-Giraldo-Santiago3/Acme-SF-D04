@@ -72,7 +72,7 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.developer.list.trainingSession" action="/developer/training-session/list"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.manager.dashboard" action="/manager/manager-dashboard/show"/>
+			<acme:menu-suboption code="master.menu.developer.dashboard" action="/developer/developer-dashboard/show"/>
 		</acme:menu-option>
 	</acme:menu-left>
 
