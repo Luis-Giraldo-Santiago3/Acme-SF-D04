@@ -19,7 +19,7 @@
 	<acme:input-textbox code="auditor.codeAudit.form.label.code" path="code"/>
 	<acme:input-moment code="auditor.codeAudit.form.label.executionDate" path="executionDate"/>
 	<acme:input-textbox code="auditor.codeAudit.form.label.type" path="type"/>
-	<acme:input-textbox code="auditor.codeAudit.form.label.mark" path="mark"/>
+	<acme:input-select code="auditor.codeAudit.form.label.mark" path="mark" choices="${marks}"/>
 	<acme:input-textbox code="auditor.codeAudit.form.label.correctiveActions" path="correctiveActions"/>
 	<acme:input-url code="auditor.codeAudit.form.label.link" path="link"/>
 	<acme:input-checkbox code="auditor.codeAudit.form.label.published" path="published"/>
@@ -27,6 +27,10 @@
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="auditor.codeAudit.form.button.create" action="/auditor/code-audit/create"/>
+		</jstl:when>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">
+			<acme:submit code="auditor.codeAudit.form.button.delete" action="/auditor/code-audit/delete"/>
+			<acme:submit code="auditor.codeAudit.form.button.update" action="/auditor/code-audit/update"/>
 		</jstl:when>
 	</jstl:choose>
 </acme:form>
