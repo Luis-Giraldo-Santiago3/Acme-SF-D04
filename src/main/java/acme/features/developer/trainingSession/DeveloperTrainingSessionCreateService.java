@@ -44,6 +44,7 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 		trainingModule = this.repository.findOneTrainingModuleById(masterId);
 
 		object = new TrainingSession();
+		object.setPublished(false);
 		object.setCode("");
 		object.setLocation("");
 		object.setInstructor("");

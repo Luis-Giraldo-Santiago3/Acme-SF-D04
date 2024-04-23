@@ -19,7 +19,8 @@ developer.TrainingSession.form.label.location = Ubicación
 developer.TrainingSession.form.label.instructor = Instructor
 developer.TrainingSession.form.label.contactEmail = Email de contacto
 developer.TrainingSession.form.label.link = Enlace
-developer.TrainingSession.form.error.duplicated = El código de la sesión de entrenamiento está duplicado
+developer.TrainingSession.form.label.published = Publicada
+developer.trainingSession.form.error.duplicated = El código de la sesión de entrenamiento está duplicado
 
 developer.TrainingSession.form.button.create = Crear	
 developer.TrainingSession.form.button.update = Actualizar
