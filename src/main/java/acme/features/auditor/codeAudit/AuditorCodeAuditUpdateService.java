@@ -68,6 +68,11 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 			if (!(object.getId() == existing.getId()))
 				super.state(existing == null, "code", "auditor.codeAudit.form.error.duplicated");
 		}
+
+		if (!(object.getMark() == Mark.F || object.getMark() == Mark.F_MINUS))
+			super.state(object.isPublished(), "mark", "auditor.codeAudit.form.error.publishedTrue");
+		else
+			super.state(!object.isPublished(), "mark", "auditor.codeAudit.form.error.publishedFalse");
 	}
 
 	@Override
@@ -84,7 +89,7 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 		SelectChoices choices;
 		Dataset dataset;
 		choices = SelectChoices.from(Mark.class, object.getMark());
-		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "link", "published");
+		dataset = super.unbind(object, "code", "executionDate", "type", "mark", "correctiveActions", "link", "published");
 		dataset.put("mark", choices.getSelected().getKey());
 		dataset.put("marks", choices);
 		dataset.put("types", SelectChoices.from(Type.class, object.getType()));
