@@ -9,8 +9,8 @@
 # they accept any liabilities with respect to them.
 
 
-client.progress-log.list.title = Sesiones de entrenamiento:
-client.progress-log.form.title = Detalles de la sesión de entrenamiento
+developer.training-session.list.title = Sesiones de entrenamiento:
+developer.training-session.form.title = Detalles de la sesión de entrenamiento
 
 developer.TrainingSession.form.label.code = Código
 developer.TrainingSession.form.label.start = Inicio
@@ -19,11 +19,11 @@ developer.TrainingSession.form.label.location = Ubicación
 developer.TrainingSession.form.label.instructor = Instructor
 developer.TrainingSession.form.label.contactEmail = Email de contacto
 developer.TrainingSession.form.label.link = Enlace
-developer.trainingSession.form.error.duplicated = El código de la sesión de entrenamiento está duplicado
+developer.TrainingSession.form.error.duplicated = El código de la sesión de entrenamiento está duplicado
 
-client.ProgressLog.form.button.create = Crear	
-client.ProgressLog.form.button.update = Actualizar
-client.ProgressLog.form.button.delete = Borrar
+developer.TrainingSession.form.button.create = Crear	
+developer.TrainingSession.form.button.update = Actualizar
+developer.TrainingSession.form.button.delete = Borrar
 
 developer.TrainingSession.list.label.code = Código
 developer.TrainingSession.list.label.start = Inicio
@@ -34,4 +34,4 @@ developer.TrainingSession.list.label.contactEmail = Email de contacto
 developer.TrainingSession.list.label.link = Enlace
 developer.TrainingSession.list.label.published = Publicado
 
-client.ProgressLog.list.button.create = Crear
+developer.TrainingSession.list.button.create = Crear

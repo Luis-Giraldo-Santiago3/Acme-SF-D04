@@ -19,6 +19,7 @@ developer.trainingModule.form.label.difficultyLevel = Nivel de dificultad
 developer.trainingModule.form.label.updateMoment= Momento de actualización
 developer.trainingModule.form.label.link = Enlace
 developer.trainingModule.form.label.totalTime = Tiempo total
+developer.trainingModule.form.label.project = Proyecto
 developer.trainingModule.form.error.duplicated = El código del módulo de entrenamiento está duplicado
 
 developer.trainingModule.list.label.code = Código

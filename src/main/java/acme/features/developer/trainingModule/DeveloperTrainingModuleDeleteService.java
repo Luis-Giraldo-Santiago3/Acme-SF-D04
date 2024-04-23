@@ -1,12 +1,17 @@
 
 package acme.features.developer.trainingModule;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.client.views.SelectChoices;
+import acme.entities.student1.Project;
 import acme.entities.student3.TrainingModule;
+import acme.entities.student3.TrainingSession;
 import acme.roles.Developer;
 
 @Service
@@ -50,14 +55,14 @@ public class DeveloperTrainingModuleDeleteService extends AbstractService<Develo
 	public void bind(final TrainingModule object) {
 		assert object != null;
 
-		//int developerId;
-		//Manager manager;
+		int projectId;
+		Project project;
 
-		//developerId = super.getRequest().getData("developer", int.class);
-		//developer = this.repository.findDeveloperById(developerId);
+		projectId = super.getRequest().getData("project", int.class);
+		project = this.repository.findOneProjectById(projectId);
 
 		super.bind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "published");
-		//object.setDeveloper(developer);
+		object.setProject(project);
 	}
 
 	@Override
@@ -69,6 +74,11 @@ public class DeveloperTrainingModuleDeleteService extends AbstractService<Develo
 	public void perform(final TrainingModule object) {
 		assert object != null;
 
+		Collection<TrainingSession> trainingSessions;
+
+		trainingSessions = this.repository.findManyTrainingSessionByTrainingModuleId(object.getId());
+		this.repository.deleteAll(trainingSessions);
+
 		this.repository.delete(object);
 	}
 
@@ -76,10 +86,19 @@ public class DeveloperTrainingModuleDeleteService extends AbstractService<Develo
 	public void unbind(final TrainingModule object) {
 		assert object != null;
 
+		int developerId;
+		Collection<Project> projects;
+		SelectChoices choices;
 		Dataset dataset;
 
+		developerId = super.getRequest().getPrincipal().getActiveRoleId();
+		projects = this.repository.findManyProjectsByDeveloperId(developerId);
+
+		choices = SelectChoices.from(projects, "title", object.getProject());
+
 		dataset = super.unbind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "published");
-		//dataset.put("developer", object.getDeveloper().getUserAccount().getUsername());
+		dataset.put("project", choices.getSelected().getKey());
+		dataset.put("projects", choices);
 
 		super.getResponse().addData(dataset);
 	}

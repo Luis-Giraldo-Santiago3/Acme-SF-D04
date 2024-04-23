@@ -22,17 +22,18 @@
 	<acme:input-select code="developer.trainingModule.form.label.difficultyLevel" path="difficultyLevel" choices="${difficulties}"/>
 	<acme:input-moment code="developer.trainingModule.form.label.updateMoment" path="updateMoment"/>
 	<acme:input-textbox code="developer.trainingModule.form.label.link" path="link"/>
-	<acme:input-double code="developer.trainingModule.form.label.totalTime" path="totalTime"/>
+	<acme:input-integer code="developer.trainingModule.form.label.totalTime" path="totalTime"/>
+	<acme:input-select code="developer.trainingModule.form.label.project" path="project" choices="${projects}"/>
 	<acme:input-checkbox code="developer.trainingModule.form.label.published" path="published"/>
 	
 
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="developer.trainingModule.form.button.create" action="/developer/trainingModule/create"/>
+			<acme:submit code="developer.trainingModule.form.button.create" action="/developer/training-module/create"/>
 		</jstl:when>		
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">
-			<acme:submit code="developer.trainingModule.form.button.delete" action="/developer/trainingModule/delete"/>
-			<acme:submit code="developer.trainingModule.form.button.update" action="/developer/trainingModule/update"/>
+			<acme:submit code="developer.trainingModule.form.button.delete" action="/developer/training-module/delete"/>
+			<acme:submit code="developer.trainingModule.form.button.update" action="/developer/training-module/update"/>
 			
 		</jstl:when>
 	</jstl:choose>
