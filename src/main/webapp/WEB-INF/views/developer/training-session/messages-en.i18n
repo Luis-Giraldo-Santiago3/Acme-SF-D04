@@ -19,7 +19,8 @@ developer.TrainingSession.form.label.location = Location
 developer.TrainingSession.form.label.instructor = Instructor
 developer.TrainingSession.form.label.contactEmail = ContactEmail
 developer.TrainingSession.form.label.link = Link
-developer.TrainingSession.form.error.duplicated = The training session code is duplicated
+developer.TrainingSession.form.label.published = Published
+developer.trainingSession.form.error.duplicated = The training session code is duplicated
 
 developer.TrainingSession.form.button.create = Create		
 developer.TrainingSession.form.button.update = Update
