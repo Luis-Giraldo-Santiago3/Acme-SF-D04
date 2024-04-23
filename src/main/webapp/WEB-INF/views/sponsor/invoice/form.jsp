@@ -17,9 +17,19 @@
 
 <acme:form> 
 	<acme:list-column code="sponsor.invoice.form.label.code" path="code"/>
-	<acme:list-column code="sponsor.invoice.form.label.moment" path="registrationTime"/>
-	<acme:list-column code="sponsor.invoice.form.label.start" path="dueDate"/>
-	<acme:list-column code="sponsor.invoice.form.label.finish" path="quantity"/>
-	<acme:list-column code="sponsor.invoice.form.label.amount" path="tax"/>
-	<acme:list-column code="sponsor.invoice.form.label.type" path="link"/>	
+	<acme:list-column code="sponsor.invoice.form.label.registrationTime" path="registrationTime"/>
+	<acme:list-column code="sponsor.invoice.form.label.dueDate" path="dueDate"/>
+	<acme:list-column code="sponsor.invoice.form.label.quantity" path="quantity"/>
+	<acme:list-column code="sponsor.invoice.form.label.tax" path="tax"/>
+	<acme:list-column code="sponsor.invoice.form.label.link" path="link"/>
+	<acme:list-column code="sponsor.invoice.form.label.published" path="published"/>
+	<jstl:choose>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">
+			<acme:submit code="sponsor.invoice.form.button.update" action="/sponsor/invoice/update"/>
+			<acme:submit code="sponsor.invoice.form.button.delete" action="/sponsor/invoice/delete"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="sponsor.invoice.form.button.create" action="/sponsor/invoice/create?masterId=${masterId}"/>
+		</jstl:when>		
+	</jstl:choose>	
 </acme:form>

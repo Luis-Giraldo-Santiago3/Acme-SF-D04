@@ -12,15 +12,20 @@ sponsor.invoice.list.title = Invoices
 sponsor.invoice.form.title = Details of invoices
 
 sponsor.invoice.list.label.code = Code
-sponsor.invoice.list.label.moment = Registration Time
-sponsor.invoice.list.label.start = Due Date
-sponsor.invoice.list.label.finish = Quantity
-sponsor.invoice.list.label.amount = Tax
-sponsor.invoice.list.label.type = Link
+sponsor.invoice.list.label.registrationTime = Registration Time
+sponsor.invoice.list.label.dueDate = Due Date
+sponsor.invoice.list.label.quantity = Quantity
+sponsor.invoice.list.label.tax = Tax
+sponsor.invoice.list.label.link = Link
+sponsor.invoice.list.label.published = Published
 
 sponsor.invoice.form.label.code = Code
-sponsor.invoice.form.label.moment = Registration Time
-sponsor.invoice.form.label.start = Due Date
-sponsor.invoice.form.label.finish = Quantity
-sponsor.invoice.form.label.amount = Tax
-sponsor.invoice.form.label.type = Link
+sponsor.invoice.form.label.registrationTime = Registration Time
+sponsor.invoice.form.label.dueDate = Due Date
+sponsor.invoice.form.label.quantity = Quantity
+sponsor.invoice.form.label.tax = Tax
+sponsor.invoice.form.label.link = Link
+sponsor.invoice.form.label.published = Published
+sponsor.invoice.form.error.duplicated = The invoice code is duplicated
+
+sponsor.invoice.list.button.create = Create
