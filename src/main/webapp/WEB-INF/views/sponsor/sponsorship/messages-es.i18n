@@ -21,6 +21,7 @@ sponsor.sponsorship.list.label.amount = Cantidad
 sponsor.sponsorship.list.label.type = Tipo
 sponsor.sponsorship.list.label.email = Correo electrónico
 sponsor.sponsorship.list.label.link = Enlace
+sponsor.sponsorship.list.label.published = Publicado
 
 sponsor.sponsorship.form.label.code = Código
 sponsor.sponsorship.form.label.moment = Código
@@ -30,3 +31,11 @@ sponsor.sponsorship.form.label.amount = Cantidad
 sponsor.sponsorship.form.label.type = Tipo
 sponsor.sponsorship.form.label.email = Correo electrónico
 sponsor.sponsorship.form.label.link = Enlace	
+sponsor.sponsorship.form.label.published = Publicado
+sponsor.sponsorship.form.error.duplicated = El código del patrocinio está duplicado
+
+sponsor.sponsorship.form.button.create = Crear patrocinio
+sponsor.sponsorship.list.button.create = Crear patrocinio
+sponsor.sponsorship.form.button.delete = Borrar patrocinio
+sponsor.sponsorship.form.button.update = Actualizar patrocinio
+	

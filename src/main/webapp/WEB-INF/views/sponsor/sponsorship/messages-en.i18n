@@ -19,6 +19,7 @@ sponsor.sponsorship.list.label.amount = Amount
 sponsor.sponsorship.list.label.type = Type
 sponsor.sponsorship.list.label.email = Email
 sponsor.sponsorship.list.label.link = Link
+sponsor.sponsorship.list.label.published = Published
 
 sponsor.sponsorship.form.label.code = Code
 sponsor.sponsorship.form.label.moment = Moment
@@ -28,3 +29,10 @@ sponsor.sponsorship.form.label.amount = Amount
 sponsor.sponsorship.form.label.type = Type
 sponsor.sponsorship.form.label.email = Email
 sponsor.sponsorship.form.label.link = Link	
+sponsor.sponsorship.form.label.published = Published	
+sponsor.sponsorship.form.error.duplicated = The sponsorship code is duplicated
+
+sponsor.sponsorship.form.button.create = Create sponsorship
+sponsor.sponsorship.list.button.create = Create sponsorship
+sponsor.sponsorship.form.button.delete = Delete sponsorship
+sponsor.sponsorship.form.button.update = Update sponsorship
