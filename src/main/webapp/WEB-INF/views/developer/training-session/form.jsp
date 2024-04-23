@@ -9,13 +9,13 @@
 
 <acme:form>
 	<acme:input-textbox code="developer.TrainingSession.form.label.code" path="code"/>
-	<acme:input-double code="developer.TrainingSession.form.label.start" path="start"/>
-	<acme:input-textarea code="developer.TrainingSession.form.label.finish" path="finish"/>
-	<acme:input-moment code="developer.TrainingSession.form.label.location" path="location"/>
+	<acme:input-moment code="developer.TrainingSession.form.label.start" path="start"/>
+	<acme:input-moment code="developer.TrainingSession.form.label.finish" path="finish"/>
+	<acme:input-textbox code="developer.TrainingSession.form.label.location" path="location"/>
 	<acme:input-textbox code="developer.TrainingSession.form.label.instructor" path="instructor"/>
 	<acme:input-textbox code="developer.TrainingSession.form.label.contactEmail" path="contactEmail"/>
 	<acme:input-textbox code="developer.TrainingSession.form.label.link" path="link"/>
-	<acme:input-textbox code="developer.TrainingSession.form.label.published" path="published"/>
+	<acme:input-checkbox code="developer.TrainingSession.form.label.published" path="published"/>
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">

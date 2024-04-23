@@ -68,9 +68,9 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.developer" access="hasRole('Developer')">
-			<acme:menu-suboption code="master.menu.developer.list.trainingModule" action="/developer/trainingModule/list-mine"/>
+			<acme:menu-suboption code="master.menu.developer.list.trainingModule" action="/developer/training-module/list"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.developer.list.trainingSession" action="/developer/trainingSession/list-mine"/>
+			<acme:menu-suboption code="master.menu.developer.list.trainingSession" action="/developer/training-session/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.manager.dashboard" action="/manager/manager-dashboard/show"/>
 		</acme:menu-option>
