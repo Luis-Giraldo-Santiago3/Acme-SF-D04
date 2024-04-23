@@ -22,8 +22,8 @@ public interface DeveloperTrainingSessionRepository extends AbstractRepository {
 	@Query("select ts from TrainingSession ts where ts.id = :id")
 	TrainingSession findOneTrainingSessionById(int id);
 
-	@Query("select ts from TrainingSession ts where ts.trainingModule.id = :masterId")
-	Collection<TrainingSession> findManyTrainingSessionByMasterId(int masterId);
+	@Query("select ts from TrainingSession ts where ts.trainingModule.id = :id")
+	Collection<TrainingSession> findManyTrainingSessionByMasterId(int id);
 
 	@Query("select ts from TrainingSession ts where ts.code = :code")
 	TrainingSession findOneTrainingSessionByCode(String code);

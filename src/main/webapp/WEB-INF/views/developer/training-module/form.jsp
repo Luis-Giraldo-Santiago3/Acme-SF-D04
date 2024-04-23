@@ -17,12 +17,12 @@
 
 <acme:form> 
 	<acme:input-textbox code="developer.trainingModule.form.label.code" path="code"/>
-	<acme:input-textbox code="developer.trainingModule.form.label.creationMoment" path="creationMoment"/>
+	<acme:input-moment code="developer.trainingModule.form.label.creationMoment" path="creationMoment"/>
 	<acme:input-textbox code="developer.trainingModule.form.label.details" path="details"/>
-	<acme:input-checkbox code="developer.trainingModule.form.label.difficultyLevel" path="difficultyLevel"/>
-	<acme:input-integer code="developer.trainingModule.form.label.updateMoment" path="updateMoment"/>
+	<acme:input-select code="developer.trainingModule.form.label.difficultyLevel" path="difficultyLevel" choices="${difficulties}"/>
+	<acme:input-moment code="developer.trainingModule.form.label.updateMoment" path="updateMoment"/>
 	<acme:input-textbox code="developer.trainingModule.form.label.link" path="link"/>
-	<acme:input-textbox code="developer.trainingModule.form.label.totalTime" path="totalTime"/>
+	<acme:input-double code="developer.trainingModule.form.label.totalTime" path="totalTime"/>
 	<acme:input-checkbox code="developer.trainingModule.form.label.published" path="published"/>
 	
 

@@ -27,7 +27,7 @@
 
 </acme:list>
 
-<acme:button code="developer.trainingModule.list.button.create" action="/developer/trainingModule/create"/>
+<acme:button code="developer.trainingModule.list.button.create" action="/developer/training-module/create"/>
 		
 	
 
