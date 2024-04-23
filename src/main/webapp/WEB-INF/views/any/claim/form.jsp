@@ -26,7 +26,7 @@
 	<acme:input-checkbox code="any.claim.form.label.published" path="published" readonly = "true"/>
 	
 	<jstl:choose>
-		<jstl:when test="${_command == 'publish' && published == false}">
+		<jstl:when test="${_command == 'show' && published == false}">
 			<acme:submit code="any.claim.form.button.publish" action="/any/claim/publish"/>
 		</jstl:when>		
 	</jstl:choose>
