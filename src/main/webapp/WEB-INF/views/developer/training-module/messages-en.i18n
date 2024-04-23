@@ -35,5 +35,6 @@ developer.trainingModule.form.button.create = Create training module
 developer.trainingModule.list.button.create = Create training module
 developer.trainingModule.form.button.delete = Delete training module
 developer.trainingModule.form.button.update = Update training module
+developer.trainingModule.form.button.trainingSession = Training Sessions
 
 

@@ -28,13 +28,16 @@
 	
 
 	<jstl:choose>	 
-		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="developer.trainingModule.form.button.create" action="/developer/training-module/create"/>
-		</jstl:when>		
+		<jstl:when test="${_command == 'show' && published == true}">
+			<acme:button code="developer.trainingModule.form.button.trainingSession" action="/developer/training-session/list?masterId=${id}"/>			
+		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">
-			<acme:submit code="developer.trainingModule.form.button.delete" action="/developer/training-module/delete"/>
+		<acme:button code="developer.trainingModule.form.button.trainingSession" action="/developer/training-session/list?masterId=${id}"/>
 			<acme:submit code="developer.trainingModule.form.button.update" action="/developer/training-module/update"/>
-			
+			<acme:submit code="developer.trainingModule.form.button.delete" action="/developer/training-module/delete"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="developer.trainingModule.list.button.create" action="/developer/training-module/create"/>
 		</jstl:when>
 	</jstl:choose>
 </acme:form>
