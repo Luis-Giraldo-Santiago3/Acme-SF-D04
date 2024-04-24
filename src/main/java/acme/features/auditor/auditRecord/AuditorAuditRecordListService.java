@@ -31,7 +31,7 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 		int codeAuditId;
 		CodeAudit codeAudit;
 
-		codeAuditId = super.getRequest().getData("codeAuditId", int.class); //por arreglar
+		codeAuditId = super.getRequest().getData("masterId", int.class); //por arreglar
 		codeAudit = this.repository.findOneCodeAuditById(codeAuditId);
 		auditor = codeAudit == null ? null : codeAudit.getAuditor();
 		auditorRequestId = super.getRequest().getPrincipal().getActiveRoleId();
@@ -47,7 +47,7 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 		Collection<AuditRecord> objects;
 		int codeAuditId;
 
-		codeAuditId = super.getRequest().getData("codeAuditId", int.class);
+		codeAuditId = super.getRequest().getData("masterId", int.class);
 		objects = this.repository.findManyAuditRecordsByCodeAuditId(codeAuditId);
 
 		super.getBuffer().addData(objects);
@@ -56,11 +56,12 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 	@Override
 	public void unbind(final AuditRecord object) {
 		assert object != null;
-
 		Dataset dataset;
+		int masterId;
+		masterId = super.getRequest().getData("masterId", int.class);
+		dataset = super.unbind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark", "link", "published");
 
-		dataset = super.unbind(object, "code");
-		super.getResponse().addGlobal("codeAuditId", object.getCodeAudit().getId());
+		super.getResponse().addGlobal("masterId", masterId);
 
 		super.getResponse().addData(dataset);
 	}

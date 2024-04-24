@@ -23,6 +23,6 @@ public class AuditorAuditRecordController extends AbstractController<Auditor, Au
 
 	@PostConstruct
 	protected void initialise() {
-		super.addCustomCommand("list-service", "list", this.listService);
+		super.addBasicCommand("list", this.listService);
 	}
 }
