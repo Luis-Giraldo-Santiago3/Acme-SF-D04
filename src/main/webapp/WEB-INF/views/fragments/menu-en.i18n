@@ -51,6 +51,7 @@ master.menu.manager = Manager
 master.menu.manager.list.project = Projects
 master.menu.manager.list.userStory = User Stories
 master.menu.manager.dashboard = Dashboard
+master.menu.manager.my-userStories = My user stories
 
 # master.menu.developer ########################################################
 
