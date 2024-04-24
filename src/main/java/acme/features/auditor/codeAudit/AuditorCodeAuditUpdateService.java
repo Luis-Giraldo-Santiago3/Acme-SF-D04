@@ -71,8 +71,10 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 
 		if (!(object.getMark() == Mark.F || object.getMark() == Mark.F_MINUS))
 			super.state(object.isPublished(), "mark", "auditor.codeAudit.form.error.publishedTrue");
-		else
+		else {
 			super.state(!object.isPublished(), "mark", "auditor.codeAudit.form.error.publishedFalse");
+			object.setPublished(false);
+		}
 	}
 
 	@Override

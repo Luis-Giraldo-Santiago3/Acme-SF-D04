@@ -1,24 +1,24 @@
 
-package acme.features.auditor.codeAudit;
+package acme.features.auditor.auditRecord;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.client.views.SelectChoices;
+import acme.entities.student5.AuditRecord;
 import acme.entities.student5.CodeAudit;
-import acme.entities.student5.Mark;
-import acme.entities.student5.Type;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAudit> {
+public class AuditorAuditRecordListService extends AbstractService<Auditor, AuditRecord> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuditorCodeAuditRepository repository;
+	private AuditorAuditRecordRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -31,7 +31,7 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 		int codeAuditId;
 		CodeAudit codeAudit;
 
-		codeAuditId = super.getRequest().getData("id", int.class);
+		codeAuditId = super.getRequest().getData("codeAuditId", int.class); //por arreglar
 		codeAudit = this.repository.findOneCodeAuditById(codeAuditId);
 		auditor = codeAudit == null ? null : codeAudit.getAuditor();
 		auditorRequestId = super.getRequest().getPrincipal().getActiveRoleId();
@@ -42,32 +42,27 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 
 		super.getResponse().setAuthorised(status);
 	}
-
 	@Override
 	public void load() {
-		CodeAudit object;
+		Collection<AuditRecord> objects;
 		int codeAuditId;
 
-		codeAuditId = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneCodeAuditById(codeAuditId);
+		codeAuditId = super.getRequest().getData("codeAuditId", int.class);
+		objects = this.repository.findManyAuditRecordsByCodeAuditId(codeAuditId);
 
-		super.getBuffer().addData(object);
+		super.getBuffer().addData(objects);
 	}
 
 	@Override
-	public void unbind(final CodeAudit object) {
+	public void unbind(final AuditRecord object) {
 		assert object != null;
 
-		SelectChoices choices;
 		Dataset dataset;
-		choices = SelectChoices.from(Mark.class, object.getMark());
 
-		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "mark", "link", "published");
-		dataset.put("auditor", object.getAuditor().getUserAccount().getUsername());
-		dataset.put("marks", choices);
-		dataset.put("types", SelectChoices.from(Type.class, object.getType()));
+		dataset = super.unbind(object, "code");
+		super.getResponse().addGlobal("codeAuditId", object.getCodeAudit().getId());
+
 		super.getResponse().addData(dataset);
-
 	}
 
 }

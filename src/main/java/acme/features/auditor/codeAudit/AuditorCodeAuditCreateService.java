@@ -53,8 +53,10 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 
 		if (!(object.getMark() == Mark.F || object.getMark() == Mark.F_MINUS))
 			super.state(object.isPublished(), "mark", "auditor.codeAudit.form.error.publishedTrue");
-		else
+		else {
 			super.state(!object.isPublished(), "mark", "auditor.codeAudit.form.error.publishedFalse");
+			object.setPublished(false);
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			CodeAudit existing;
@@ -83,7 +85,7 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 		dataset.put("mark", choices.getSelected().getKey());
 		dataset.put("marks", choices);
 		dataset.put("types", SelectChoices.from(Type.class, object.getType()));
-
+		dataset.put("auditor", object.getAuditor().getUserAccount().getUsername());
 		super.getResponse().addData(dataset);
 	}
 }
