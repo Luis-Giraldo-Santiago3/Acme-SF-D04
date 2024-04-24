@@ -1,3 +1,4 @@
+
 package acme.features.developer.trainingSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +11,12 @@ import acme.entities.student3.TrainingSession;
 import acme.roles.Developer;
 
 @Service
-public class DeveloperTrainingSessionUpdateService extends AbstractService<Developer, TrainingSession> {
+public class DeveloperTrainingSessionPublishService extends AbstractService<Developer, TrainingSession> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private DeveloperTrainingSessionRepository repository;
+	protected DeveloperTrainingSessionRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -60,6 +61,7 @@ public class DeveloperTrainingSessionUpdateService extends AbstractService<Devel
 	public void perform(final TrainingSession object) {
 		assert object != null;
 
+		object.setPublished(true);
 		this.repository.save(object);
 	}
 
@@ -71,7 +73,5 @@ public class DeveloperTrainingSessionUpdateService extends AbstractService<Devel
 
 		dataset = super.unbind(object, "code", "start", "finish", "location", "instructor", "contactEmail", "link", "published");
 		dataset.put("masterId", object.getTrainingModule().getId());
-		dataset.put("published", object.getTrainingModule().isPublished());
 	}
-
 }
