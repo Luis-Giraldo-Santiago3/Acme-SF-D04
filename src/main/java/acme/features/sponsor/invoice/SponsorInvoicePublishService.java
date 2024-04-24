@@ -11,11 +11,11 @@ import acme.entities.student4.Sponsorship;
 import acme.roles.Sponsor;
 
 @Service
-public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoice> {
+public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoice> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private SponsorInvoiceRepository repository;
+	protected SponsorInvoiceRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -27,7 +27,7 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 		Sponsorship sponsorship;
 
 		invoiceId = super.getRequest().getData("id", int.class);
-		sponsorship = this.repository.findOneSponsorshipById(invoiceId);
+		sponsorship = this.repository.findOneSponsorshipByInvoiceId(invoiceId);
 		status = sponsorship != null && !sponsorship.isPublished() && super.getRequest().getPrincipal().hasRole(sponsorship.getSponsor());
 
 		super.getResponse().setAuthorised(status);
@@ -60,6 +60,7 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 	public void perform(final Invoice object) {
 		assert object != null;
 
+		object.setPublished(true);
 		this.repository.save(object);
 	}
 
@@ -71,6 +72,5 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 
 		dataset = super.unbind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link", "published");
 		dataset.put("masterId", object.getSponsorship().getId());
-		dataset.put("published", object.getSponsorship().isPublished());
 	}
 }

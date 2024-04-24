@@ -2,6 +2,7 @@
 package acme.features.sponsor.sponsorship;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,11 +16,11 @@ import acme.entities.student4.Sponsorship;
 import acme.roles.Sponsor;
 
 @Service
-public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sponsorship> {
+public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, Sponsorship> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private SponsorSponsorshipRepository repository;
+	protected SponsorSponsorshipRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -46,6 +47,7 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneSponsorshipById(id);
+		object.setPublished(false);
 
 		super.getBuffer().addData(object);
 	}
@@ -60,24 +62,28 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findOneProjectById(projectId);
 
-		super.bind(object, "code", "moment", "start", "finish", "amount", "type", "email", "link");
+		super.bind(object, "code", "moment", "start", "finish", "amount", "type", "email", "link", "published");
 		object.setProject(project);
 	}
 
 	@Override
 	public void validate(final Sponsorship object) {
 		assert object != null;
+		Collection<Invoice> listAllInvoices = this.repository.findAllInvoices();
+		Collection<Invoice> invoicesFiltered = listAllInvoices.stream().filter(x -> x.getSponsorship().getId() == object.getId()).toList();
+		double totalAmount = invoicesFiltered.stream().map(x -> x.getQuantity().getAmount()).collect(Collectors.summingDouble(x -> x));
+
+		if (!super.getBuffer().getErrors().hasErrors("amount"))
+
+			super.state(totalAmount != object.getAmount().getAmount(), "amount", "sponsor.sponsorship.form.error.not-equal-amount");
 	}
 
 	@Override
 	public void perform(final Sponsorship object) {
 		assert object != null;
 
-		Collection<Invoice> invoices;
-
-		invoices = this.repository.findManyInvoiceBySponsorshipId(object.getId());
-		this.repository.deleteAll(invoices);
-		this.repository.delete(object);
+		object.setPublished(true);
+		this.repository.save(object);
 	}
 
 	@Override
