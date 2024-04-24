@@ -16,6 +16,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form> 
+<<<<<<< HEAD
 	<acme:input-moment code="administrator.banner.form.label.instantiationUpdateMoment" path="instantiationUpdateMoment"/>
 			<acme:input-moment code="administrator.banner.form.label.displayStart" path="displayStart"/>
 			<acme:input-moment code="administrator.banner.form.label.displayFinish" path="displayFinish"/>
@@ -23,4 +24,13 @@
 			<acme:input-textbox code="administrator.banner.form.label.slogan" path="slogan"/>
 			<acme:input-url code="administrator.banner.form.label.link" path="link"/>
 			<acme:submit code="administrator.banner.form.button.delete" action="/administrator/banner/delete"/>
+=======
+	<acme:list-column code="administrator.banner.form.label.instantiationUpdateMoment" path="instantiationUpdateMoment"/>
+	<acme:list-column code="administrator.banner.form.label.displayStart" path="displayStart"/>
+	<acme:list-column code="administrator.banner.form.label.displayFinish" path="displayFinish"/>
+	<acme:list-column code="administrator.banner.form.label.linkPicture" path="linkPicture"/>
+	<acme:list-column code="administrator.banner.form.label.slogan" path="slogan"/>
+	<acme:list-column code="administrator.banner.form.label.link" path="link"/>
+	<acme:list-column code="administrator.banner.form.label.linkTarget" path="linkTarget"/>	
+>>>>>>> refs/remotes/origin/main
 </acme:form>
