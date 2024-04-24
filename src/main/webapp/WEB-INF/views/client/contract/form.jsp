@@ -14,9 +14,14 @@
 	<acme:input-textbox code="client.contract.form.label.customerName" path="customerName"/>
 	<acme:input-textbox code="client.contract.form.label.goals" path="goals"/>
 	<acme:input-money code="client.contract.form.label.budget" path="budget" />
-	<acme:input-select code="cleint.contract.form.label.project" path="project" choices="${projects}"/>
 
 	<jstl:choose>
+		<jstl:when test="${_command == 'show'}">
+			<acme:input-textbox code="client.contract.form.label.project" path="project"/>		
+		</jstl:when>
+		<jstl:when test="${_command == 'update|delete|publish'}">
+			<acme:input-select code="client.contract.form.label.project" path="project" choices="${projects}"/>		
+		</jstl:when>
 		<jstl:when test="${_command == 'show' && published == true}">
 			<acme:button code="client.contract.form.button.progressLog" action="/client/progress-log/list?masterId=${id}"/>			
 		</jstl:when>
@@ -27,6 +32,7 @@
 			<acme:submit code="client.contract.form.button.publish" action="/client/contract/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
+		<acme:input-select code="client.contract.form.label.project" path="project" choices="${projects}"/>	
 			<acme:submit code="client.contract.list.button.create" action="/client/contract/create"/>
 		</jstl:when>
 	</jstl:choose>
