@@ -21,11 +21,11 @@
 	<acme:list-column code="manager.userStory.list.label.priority" path="priority"/>
 	<acme:list-column code="manager.userStory.list.label.published" path="published"/>
 </acme:list>
-<%--	
-<acme:button code="manager.userStory.list.button.create" action="/manager/userStory/create"/>
+	
+<acme:button code="manager.userStory.list.button.create" action="/manager/user-story/create"/>
 
  <jstl:if test="${showAdd}">
-	<acme:button code="manager.userStory.list.button.add" action="/manager/associated-with/create?projectId=${projectId}"/>
-	<acme:button code="manager.userStory.list.button.remove" action="/manager/associated-with/delete?projectId=${projectId}"/>
-</jstl:if>--%>
+	<acme:button code="manager.userStory.list.button.add" action="/manager/project-user-story/create?projectId=${projectId}"/>
+	<acme:button code="manager.userStory.list.button.remove" action="/manager/project-user-story/delete?projectId=${projectId}"/>
+</jstl:if>
 

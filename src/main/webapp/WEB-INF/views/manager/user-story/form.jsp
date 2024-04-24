@@ -20,11 +20,10 @@
 	<acme:input-textarea code="manager.userStory.form.label.description" path="description"/>
 	<acme:input-integer code="manager.userStory.form.label.estimatedCost" path="estimatedCost"/>
 	<acme:input-textarea code="manager.userStory.form.label.acceptanceCriteria" path="acceptanceCriteria"/>
-	<acme:input-textbox code="manager.userStory.form.label.priority" path="priority"/>
+	<acme:input-select code="manager.userStory.form.label.priority" path="priority" choices="${priorities}"/>
 	<acme:input-url code="manager.userStory.form.label.link" path="link"/>
 	<acme:input-checkbox code="manager.userStory.form.label.published" path="published" readonly = "true"/>
-	<acme:input-textbox code="manager.userStory.form.label.manager" path="manager" readonly = "true"/>
-<%-- <jstl:choose>	 
+ <jstl:choose>	 
 		<jstl:when test="${acme:anyOf(_command, 'show|delete|update|publish') && published == false}">
 			<acme:submit code="manager.userStory.form.button.delete" action="/manager/user-story/delete"/>
 			<acme:submit code="manager.userStory.form.button.update" action="/manager/user-story/update"/>
@@ -33,6 +32,6 @@
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="manager.userStory.form.button.create" action="/manager/user-story/create"/>
 		</jstl:when>		
-	</jstl:choose>--%>
+	</jstl:choose>
 	
 </acme:form>

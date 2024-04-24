@@ -8,13 +8,14 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-manager.user-story.list.title = User Stories
-manager.user-story.form.title = User Stories Details
+manager.user-story.list.title = My user stories
+manager.user-story.form.title = User stories details
 
 manager.userStory.list.label.title = Title:
 manager.userStory.list.label.estimatedCost = Estimated Cost (in whole ours):
 manager.userStory.list.label.priority = Priority:
 manager.userStory.list.label.published = Published
+manager.userStory.list.button.create = Create user story
 
 manager.userStory.form.label.title = Title:
 manager.userStory.form.label.description = Description: 
@@ -24,3 +25,7 @@ manager.userStory.form.label.priority = Priority:
 manager.userStory.form.label.link = Link (Optional)
 manager.userStory.form.label.published = Published
 manager.userStory.form.label.manager = Manager: 
+manager.userStory.form.button.delete = Delete
+manager.userStory.form.button.update = Update
+manager.userStory.form.button.publish = Publish
+manager.userStory.form.button.create = Confirm creation
