@@ -22,8 +22,10 @@
 	<acme:input-textarea code="manager.userStory.form.label.acceptanceCriteria" path="acceptanceCriteria"/>
 	<acme:input-select code="manager.userStory.form.label.priority" path="priority" choices="${priorities}"/>
 	<acme:input-url code="manager.userStory.form.label.link" path="link"/>
+	<acme:input-textbox code="manager.userStory.form.label.managerUsername" path="manager" readonly = "true"/>
 	<acme:input-checkbox code="manager.userStory.form.label.published" path="published" readonly = "true"/>
- <jstl:choose>	 
+	
+ 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|delete|update|publish') && published == false}">
 			<acme:submit code="manager.userStory.form.button.delete" action="/manager/user-story/delete"/>
 			<acme:submit code="manager.userStory.form.button.update" action="/manager/user-story/update"/>

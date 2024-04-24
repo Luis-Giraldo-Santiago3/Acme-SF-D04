@@ -12,15 +12,15 @@
 
 manager.project-user-story.form.title = Formulario asociar historia de usuario - proyecto
 
-manager.project-user-story.form.userStory.cant.info = No puedes añadir/eliminar una historia de usuario de un proyecto publicado
-manager.project-user-story.form.userStory.create.info = Añade una historia de usuario al proyecto
-manager.project-user-story.form.userStory.delete.info =  Borra una historia de usuario del proyecto
-manager.project-user-story.form.project.code = Proyecto:
-manager.project-user-story.form.project.title = Título:
-manager.project-user-story.form.label.userStory = Historia de usuario:
+manager.projectUserStory.form.userStory.cant.info = No puedes añadir/eliminar una historia de usuario de un proyecto publicado
+manager.projectUserStory.form.userStory.create.info = Añade una historia de usuario al proyecto
+manager.projectUserStory.form.userStory.delete.info =  Borra una historia de usuario del proyecto
+manager.projectUserStory.form.project.code = Proyecto:
+manager.projectUserStory.form.project.title = Título:
+manager.projectUserStory.form.label.userStory = Historia de usuario:
 
-manager.project-user-story.form.button.add = Añadir historia de usuario
-manager.project-user-story.form.button.remove = Eliminar historia de usuario
+manager.projectUserStory.form.button.add = Añadir historia de usuario
+manager.projectUserStory.form.button.remove = Eliminar historia de usuario
 
 manager.project-user-story.form.error.published =  El proyecto está publicado, no puede modificarse
 manager.project-user-story.form.error.duplicatedRelation = Ya está esa historia de usuario en este proyecto
