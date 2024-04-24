@@ -11,12 +11,12 @@ import acme.entities.student2.ProgressLog;
 import acme.roles.Client;
 
 @Service
-public class ClientProgressLogShowService extends AbstractService<Client, ProgressLog> {
+public class ClientProgressLogPublishService extends AbstractService<Client, ProgressLog> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ClientProgressLogRepository repository;
+	protected ClientProgressLogRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -29,7 +29,7 @@ public class ClientProgressLogShowService extends AbstractService<Client, Progre
 
 		progressLogId = super.getRequest().getData("id", int.class);
 		contract = this.repository.findOneContractByProgressLogId(progressLogId);
-		status = contract != null && (contract.isPublished() || super.getRequest().getPrincipal().hasRole(contract.getClient()));
+		status = contract != null && !contract.isPublished() && super.getRequest().getPrincipal().hasRole(contract.getClient());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -46,6 +46,26 @@ public class ClientProgressLogShowService extends AbstractService<Client, Progre
 	}
 
 	@Override
+	public void bind(final ProgressLog object) {
+		assert object != null;
+
+		super.bind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson");
+	}
+
+	@Override
+	public void validate(final ProgressLog object) {
+		assert object != null;
+	}
+
+	@Override
+	public void perform(final ProgressLog object) {
+		assert object != null;
+
+		object.setPublished(true);
+		this.repository.save(object);
+	}
+
+	@Override
 	public void unbind(final ProgressLog object) {
 		assert object != null;
 
@@ -53,8 +73,5 @@ public class ClientProgressLogShowService extends AbstractService<Client, Progre
 
 		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "published");
 		dataset.put("masterId", object.getContract().getId());
-
-		super.getResponse().addData(dataset);
 	}
-
 }

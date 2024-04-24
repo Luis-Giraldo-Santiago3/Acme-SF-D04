@@ -12,6 +12,7 @@ client.ProgressLog.form.label.responsiblePerson = Responsible Person:
 client.ProgressLog.form.button.create = Create		
 client.ProgressLog.form.button.update = Update
 client.ProgressLog.form.button.delete = Delete
+client.ProgressLog.form.button.publish = Publish
 
 client.ProgressLog.list.label.recordId = RecordId
 client.ProgressLog.list.label.completeness = Completeness
