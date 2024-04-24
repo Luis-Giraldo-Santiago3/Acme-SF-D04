@@ -19,6 +19,8 @@ sponsor.invoice.list.label.tax = Tax
 sponsor.invoice.list.label.link = Link
 sponsor.invoice.list.label.published = Published
 
+sponsor.invoice.list.button.create = Create
+
 sponsor.invoice.form.label.code = Code
 sponsor.invoice.form.label.registrationTime = Registration Time
 sponsor.invoice.form.label.dueDate = Due Date
@@ -28,4 +30,6 @@ sponsor.invoice.form.label.link = Link
 sponsor.invoice.form.label.published = Published
 sponsor.invoice.form.error.duplicated = The invoice code is duplicated
 
-sponsor.invoice.list.button.create = Create
+sponsor.invoice.form.button.create = Create		
+sponsor.invoice.form.button.update = Update
+sponsor.invoice.form.button.delete = Delete

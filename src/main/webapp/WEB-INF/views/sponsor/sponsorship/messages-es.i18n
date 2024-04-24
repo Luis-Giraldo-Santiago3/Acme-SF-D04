@@ -33,9 +33,14 @@ sponsor.sponsorship.form.label.email = Correo electrónico
 sponsor.sponsorship.form.label.link = Enlace	
 sponsor.sponsorship.form.label.published = Publicado
 sponsor.sponsorship.form.error.duplicated = El código del patrocinio está duplicado
+sponsor.sponsorship.form.error.not-equal-amount = La cantidad total de todas las facturas no es igual a la del patrocinio
+
 
 sponsor.sponsorship.form.button.create = Crear patrocinio
 sponsor.sponsorship.list.button.create = Crear patrocinio
 sponsor.sponsorship.form.button.delete = Borrar patrocinio
 sponsor.sponsorship.form.button.update = Actualizar patrocinio
+
+sponsor.sponsorship.form.button.invoice = Factura
+sponsor.sponsorship.form.button.publish = Publicar
 	

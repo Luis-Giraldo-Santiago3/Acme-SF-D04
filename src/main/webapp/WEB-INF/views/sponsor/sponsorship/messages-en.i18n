@@ -11,6 +11,9 @@
 sponsor.sponsorship.list.title = Sponsorships
 sponsor.sponsorship.form.title = Details of sponsorships
 
+sponsor.sponsorship.form.button.invoice = Invoice
+sponsor.sponsorship.form.button.publish = Publish
+
 sponsor.sponsorship.list.label.code = Code
 sponsor.sponsorship.list.label.moment = Moment
 sponsor.sponsorship.list.label.start = Start
@@ -31,6 +34,7 @@ sponsor.sponsorship.form.label.email = Email
 sponsor.sponsorship.form.label.link = Link	
 sponsor.sponsorship.form.label.published = Published	
 sponsor.sponsorship.form.error.duplicated = The sponsorship code is duplicated
+sponsor.sponsorship.form.error.not-equal-amount = The total amount of all the invoices is not equal than sponsorship amount
 
 sponsor.sponsorship.form.button.create = Create sponsorship
 sponsor.sponsorship.list.button.create = Create sponsorship

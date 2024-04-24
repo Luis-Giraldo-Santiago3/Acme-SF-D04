@@ -16,13 +16,13 @@ public interface SponsorDashboardRepository extends AbstractRepository {
 	@Query("SELECT COUNT(s) FROM Sponsorship s WHERE s.link IS NOT BLANK")
 	Integer totalSponsorshipsWithLink();
 
-	//	//Obtener el promedio de la cantidad de los patrocinios
-	//	@Query("SELECT AVG(s.amount) FROM Sponsorship s")
-	//	Double averageSponsorships();
+	//Obtener el promedio de la cantidad de los patrocinios
+	@Query("SELECT AVG(s.amount.amount) FROM Sponsorship s")
+	Double averageSponsorships();
 
-	//	//Obtener la desviación de la cantidad de los patrocinios
-	//	@Query("SELECT STDDEV(s.amount) FROM Sponsorship s")
-	//	Double deviationSponsorships();
+	//Obtener la desviación de la cantidad de los patrocinios
+	@Query("SELECT STDDEV(s.amount.amount) FROM Sponsorship s")
+	Double deviationSponsorships();
 
 	//Obtener el patrocionio con la cantidad mínima
 	@Query("SELECT MIN(s.amount) FROM Sponsorship s")
@@ -32,9 +32,9 @@ public interface SponsorDashboardRepository extends AbstractRepository {
 	@Query("SELECT MAX(s.amount) FROM Sponsorship s")
 	Money maximunSponsorships();
 
-	//	//Obtener el promedio de la cantidad de las facturas
-	//	@Query("SELECT AVG(i.quantity) FROM Invoice i")
-	//	Double averageInvoices();
+	//Obtener el promedio de la cantidad de las facturas
+	@Query("SELECT AVG(i.quantity.amount) FROM Invoice i")
+	Double averageInvoices();
 
 	//Obtener la desviación de la cantidad de facturas
 	@Query("SELECT STDDEV(i.quantity) FROM Invoice i")

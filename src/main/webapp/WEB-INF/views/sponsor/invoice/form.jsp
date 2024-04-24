@@ -16,20 +16,20 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form> 
-	<acme:list-column code="sponsor.invoice.form.label.code" path="code"/>
-	<acme:list-column code="sponsor.invoice.form.label.registrationTime" path="registrationTime"/>
-	<acme:list-column code="sponsor.invoice.form.label.dueDate" path="dueDate"/>
-	<acme:list-column code="sponsor.invoice.form.label.quantity" path="quantity"/>
-	<acme:list-column code="sponsor.invoice.form.label.tax" path="tax"/>
-	<acme:list-column code="sponsor.invoice.form.label.link" path="link"/>
-	<acme:list-column code="sponsor.invoice.form.label.published" path="published"/>
+	<acme:list-column code="sponsor.Invoice.form.label.code" path="code"/>
+	<acme:list-column code="sponsor.Invoice.form.label.registrationTime" path="registrationTime"/>
+	<acme:list-column code="sponsor.Invoice.form.label.dueDate" path="dueDate"/>
+	<acme:list-column code="sponsor.Invoice.form.label.quantity" path="quantity"/>
+	<acme:list-column code="sponsor.Invoice.form.label.tax" path="tax"/>
+	<acme:list-column code="sponsor.Invoice.form.label.link" path="link"/>
+	<acme:list-column code="sponsor.Invoice.form.label.published" path="published"/>
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">
-			<acme:submit code="sponsor.invoice.form.button.update" action="/sponsor/invoice/update"/>
-			<acme:submit code="sponsor.invoice.form.button.delete" action="/sponsor/invoice/delete"/>
+			<acme:submit code="sponsor.Invoice.form.button.update" action="/sponsor/invoice/update"/>
+			<acme:submit code="sponsor.Invoice.form.button.delete" action="/sponsor/invoice/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="sponsor.invoice.form.button.create" action="/sponsor/invoice/create?masterId=${masterId}"/>
+			<acme:submit code="sponsor.Invoice.form.button.create" action="/sponsor/invoice/create?masterId=${masterId}"/>
 		</jstl:when>		
 	</jstl:choose>	
 </acme:form>

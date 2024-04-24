@@ -26,13 +26,18 @@
 	<acme:list-column code="sponsor.sponsorship.form.label.link" path="link"/>
 	<acme:list-column code="sponsor.sponsorship.form.label.published" path="published"/>
 	
-	<jstl:choose>	 
-		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="sponsor.sponsorship.form.button.create" action="/sponsor/sponsorship/create"/>
-		</jstl:when>		
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">
-			<acme:submit code="sponsor.sponsorship.form.button.delete" action="/sponsor/sponsorship/delete"/>
+	<jstl:choose>
+		<jstl:when test="${_command == 'show' && published == true}">
+			<acme:button code="sponsor.sponsorship.form.button.invoice" action="/sponsor/invoice/list?masterId=${id}"/>			
+		</jstl:when>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published == false}">
+		<acme:button code="sponsor.contract.form.button.progressLog" action="/sponsor/invoice/list?masterId=${id}"/>
 			<acme:submit code="sponsor.sponsorship.form.button.update" action="/sponsor/sponsorship/update"/>
+			<acme:submit code="sponsor.sponsorship.form.button.delete" action="/sponsor/sponsorship/delete"/>
+			<acme:submit code="sponsor.sponsorship.form.button.publish" action="/sponsor/sponsorship/publish"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="sponsor.sponsorship.list.button.create" action="/sponsor/sponsorship/create"/>
 		</jstl:when>
 	</jstl:choose>	
 </acme:form>

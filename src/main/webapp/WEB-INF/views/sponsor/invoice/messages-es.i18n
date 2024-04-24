@@ -13,25 +13,25 @@
 sponsor.invoice.list.title = Facturas
 sponsor.invoice.form.title = Detalles de facturas
 
-sponsor.invoice.list.label.code = Código
-sponsor.invoice.list.label.registrationTime = Tiempo de registro
-sponsor.invoice.list.label.dueDate = Fecha de vencimiento
-sponsor.invoice.list.label.quantity = Cantidad
-sponsor.invoice.list.label.tax = Impuesto
-sponsor.invoice.list.label.link = Enlace
-sponsor.invoice.list.label.published = Publicado
+sponsor.Invoice.list.label.code = Código
+sponsor.Invoice.list.label.registrationTime = Tiempo de registro
+sponsor.Invoice.list.label.dueDate = Fecha de vencimiento
+sponsor.Invoice.list.label.quantity = Cantidad
+sponsor.Invoice.list.label.tax = Impuesto
+sponsor.Invoice.list.label.link = Enlace
+sponsor.Invoice.list.label.published = Publicado
 
-sponsor.invoice.list.button.create = Crear
+sponsor.Invoice.list.button.create = Crear
 
-sponsor.invoice.form.label.code = Código
-sponsor.invoice.form.label.registrationTime = Tiempo de registro
-sponsor.invoice.form.label.dueDate = Fecha de vencimiento
-sponsor.invoice.form.label.quantity = Cantidad
-sponsor.invoice.form.label.tax = Impuesto
-sponsor.invoice.form.label.link = Enlace
-sponsor.invoice.form.label.published = Publicado
-sponsor.invoice.form.error.duplicated = El código de la factura está duplicado	
+sponsor.Invoice.form.label.code = Código
+sponsor.Invoice.form.label.registrationTime = Tiempo de registro
+sponsor.Invoice.form.label.dueDate = Fecha de vencimiento
+sponsor.Invoice.form.label.quantity = Cantidad
+sponsor.Invoice.form.label.tax = Impuesto
+sponsor.Invoice.form.label.link = Enlace
+sponsor.Invoice.form.label.published = Publicado
+sponsor.Invoice.form.error.duplicated = El código de la factura está duplicado	
 
-sponsor.invoice.form.button.create = Crear	
-sponsor.invoice.form.button.update = Actualizar
-sponsor.invoice.form.button.delete = Borrar
+sponsor.Invoice.form.button.create = Crear	
+sponsor.Invoice.form.button.update = Actualizar
+sponsor.Invoice.form.button.delete = Borrar
