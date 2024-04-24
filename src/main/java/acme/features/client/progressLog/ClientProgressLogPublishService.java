@@ -42,14 +42,11 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneProgressLogById(id);
 
-		object.setPublished(false);
-
 		super.getBuffer().addData(object);
 	}
 
 	@Override
 	public void bind(final ProgressLog object) {
-		assert object != null;
 		assert object != null;
 
 		super.bind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson");
@@ -74,7 +71,7 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson");
+		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "published");
 		dataset.put("masterId", object.getContract().getId());
 	}
 }
