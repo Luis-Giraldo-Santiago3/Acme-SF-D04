@@ -39,4 +39,10 @@ public interface DeveloperTrainingModuleRepository extends AbstractRepository {
 	@Query("select ts from TrainingSession ts where ts.trainingModule.id = :trainingModuleId")
 	Collection<TrainingSession> findManyTrainingSessionByTrainingModuleId(int trainingModuleId);
 
+	@Query("select p from Project p where p.published = true")
+	Collection<Project> findAllProjectsPublished();
+
+	@Query("select tm from TrainingModule tm where tm.project.id = :id")
+	Collection<TrainingModule> findTrainingModulesFromProject(int id);
+
 }

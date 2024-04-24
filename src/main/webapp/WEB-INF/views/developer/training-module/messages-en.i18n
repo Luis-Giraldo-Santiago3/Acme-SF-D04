@@ -21,6 +21,9 @@ developer.trainingModule.form.label.link = Link
 developer.trainingModule.form.label.totalTime = Total time
 developer.trainingModule.form.label.project = Project
 developer.trainingModule.form.error.duplicated = The training module code is duplicated
+developer.trainingModule.form.error.noTrainingSession = This training module does not have any training sessions
+developer.trainingModule.form.error.trainingSessionnotpublish = No training session published
+
 
 developer.trainingModule.list.label.code = Code
 developer.trainingModule.list.label.creationMoment = Creation moment
@@ -30,11 +33,15 @@ developer.trainingModule.list.label.updateMoment = Update moment
 developer.trainingModule.list.label.link = Link
 developer.trainingModule.list.label.totalTime = Total time
 developer.trainingModule.form.label.published = Published
+developer.trainingModule.list.label.published = Published
 
 developer.trainingModule.form.button.create = Create training module
 developer.trainingModule.list.button.create = Create training module
 developer.trainingModule.form.button.delete = Delete training module
 developer.trainingModule.form.button.update = Update training module
 developer.trainingModule.form.button.trainingSession = Training Sessions
+developer.trainingModule.form.button.publish = Publish
+
+
 
 

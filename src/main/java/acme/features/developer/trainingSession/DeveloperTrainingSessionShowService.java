@@ -53,7 +53,6 @@ public class DeveloperTrainingSessionShowService extends AbstractService<Develop
 
 		dataset = super.unbind(object, "code", "start", "finish", "location", "instructor", "contactEmail", "link", "published");
 		dataset.put("masterId", object.getTrainingModule().getId());
-		dataset.put("published", object.getTrainingModule().isPublished());
 
 		super.getResponse().addData(dataset);
 	}

@@ -15,12 +15,12 @@
 	<acme:input-textbox code="developer.TrainingSession.form.label.instructor" path="instructor"/>
 	<acme:input-textbox code="developer.TrainingSession.form.label.contactEmail" path="contactEmail"/>
 	<acme:input-textbox code="developer.TrainingSession.form.label.link" path="link"/>
-	<acme:input-checkbox code="developer.TrainingSession.form.label.published" path="published"/>
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">
 			<acme:submit code="developer.TrainingSession.form.button.update" action="/developer/training-session/update"/>
 			<acme:submit code="developer.TrainingSession.form.button.delete" action="/developer/training-session/delete"/>
+			<acme:submit code="developer.TrainingSession.form.button.publish" action="/developer/training-session/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="developer.TrainingSession.form.button.create" action="/developer/training-session/create?masterId=${masterId}"/>

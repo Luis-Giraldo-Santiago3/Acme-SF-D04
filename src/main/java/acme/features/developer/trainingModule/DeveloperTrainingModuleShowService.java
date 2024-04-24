@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.client.views.SelectChoices;
 import acme.entities.student1.Project;
 import acme.entities.student3.TrainingModule;
 import acme.roles.Developer;
@@ -27,19 +26,14 @@ public class DeveloperTrainingModuleShowService extends AbstractService<Develope
 	@Override
 	public void authorise() {
 		boolean status;
-		Developer developer;
-		int developerRequestId;
-		int trainingModuleId;
+		int masterId;
 		TrainingModule trainingModule;
+		Developer developer;
 
-		trainingModuleId = super.getRequest().getData("id", int.class);
-		trainingModule = this.repository.findOneTrainingModuleById(trainingModuleId);
+		masterId = super.getRequest().getData("id", int.class);
+		trainingModule = this.repository.findOneTrainingModuleById(masterId);
 		developer = trainingModule == null ? null : trainingModule.getDeveloper();
-		developerRequestId = super.getRequest().getPrincipal().getActiveRoleId();
-		if (developer != null)
-			status = super.getRequest().getPrincipal().hasRole(developer) && developer.getId() == developerRequestId;
-		else
-			status = false;
+		status = super.getRequest().getPrincipal().hasRole(developer) && trainingModule != null;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -61,25 +55,12 @@ public class DeveloperTrainingModuleShowService extends AbstractService<Develope
 
 		int developerId;
 		Collection<Project> projects;
-		SelectChoices choices;
-		SelectChoices difficultychoices;
+		//SelectChoices choices;
+		//SelectChoices difficultychoices;
 		Dataset dataset;
 
-		if (object.isPublished())
-			projects = this.repository.findAllProjects();
-		else {
-			developerId = super.getRequest().getPrincipal().getActiveRoleId();
-			projects = this.repository.findManyProjectsByDeveloperId(developerId);
-		}
-
-		//		difficultychoices = SelectChoices.from(Difficulty.class, object.getDifficultyLevel());
-		//		choices = SelectChoices.from(projects, "title", object.getProject());
-
-		dataset = super.unbind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "published");
-		//		dataset.put("difficultyLevel", difficultychoices.getSelected().getKey());
-		//		dataset.put("difficulties", difficultychoices);
-		//		dataset.put("project", choices.getSelected().getKey());
-		//		dataset.put("projects", choices);
+		dataset = super.unbind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "project", "developer", "published");
+		dataset.put("project", object.getProject().getTitle());
 
 		super.getResponse().addData(dataset);
 	}
