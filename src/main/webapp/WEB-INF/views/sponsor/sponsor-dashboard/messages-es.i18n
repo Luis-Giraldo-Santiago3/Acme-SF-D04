@@ -1,9 +1,9 @@
 # messages-es.i18n
 
 
-sponsor.dashboard.form.title = Panel de indicadores de developer
+sponsor.sponsor-dashboard.form.title = Panel de indicadores de developer
 
-sponsor.dashboard.form.title.general-indicators = Indicadores generales
+sponsor.sponsor-dashboard.form.title.general-indicators = Indicadores generales
 
 
 sponsor.dashboard.form.label.totalInvoicesTaxLessEqual21 = Impuesto total de facturas menos igual 21

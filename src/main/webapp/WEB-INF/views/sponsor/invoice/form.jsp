@@ -27,6 +27,7 @@
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">
 			<acme:submit code="sponsor.Invoice.form.button.update" action="/sponsor/invoice/update"/>
 			<acme:submit code="sponsor.Invoice.form.button.delete" action="/sponsor/invoice/delete"/>
+			<acme:submit code="sponsor.Invoice.form.button.publish" action="/sponsor/invoice/publish"/>		
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="sponsor.Invoice.form.button.create" action="/sponsor/invoice/create?masterId=${masterId}"/>

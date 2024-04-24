@@ -8,7 +8,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <h2>
-	<acme:message code="sponsor.dashboard.form.title.general-indicators"/>
+	<acme:message code="sponsor.sponsor-dashboard.form.title.general-indicators"/>
 </h2>
 
 <table class="table table-sm">

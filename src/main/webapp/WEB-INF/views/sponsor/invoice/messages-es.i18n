@@ -35,3 +35,4 @@ sponsor.Invoice.form.error.duplicated = El código de la factura está duplicado
 sponsor.Invoice.form.button.create = Crear	
 sponsor.Invoice.form.button.update = Actualizar
 sponsor.Invoice.form.button.delete = Borrar
+sponsor.Invoice.form.button.publish = Publicar

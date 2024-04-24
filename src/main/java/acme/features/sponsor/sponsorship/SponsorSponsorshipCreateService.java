@@ -1,11 +1,15 @@
 
 package acme.features.sponsor.sponsorship;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.client.views.SelectChoices;
+import acme.entities.student1.Project;
 import acme.entities.student4.Sponsorship;
 import acme.roles.Sponsor;
 
@@ -41,7 +45,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 	public void bind(final Sponsorship object) {
 		assert object != null;
 
-		super.bind(object, "code", "moment", "start", "finish", "amount", "type", "email", "link", "published");
+		super.bind(object, "code", "moment", "start", "finish", "amount", "type", "email", "link");
 	}
 
 	@Override
@@ -52,7 +56,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 			Sponsorship existing;
 
 			existing = this.repository.findOneSponsorshipByCode(object.getCode());
-			super.state(existing == null, "code", "developer.trainingModule.form.error.duplicated");
+			super.state(existing == null, "code", "sponsor.sponsorship.form.error.duplicated");
 		}
 	}
 
@@ -67,9 +71,18 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 	public void unbind(final Sponsorship object) {
 		assert object != null;
 
+		int sponsorId;
+		Collection<Project> projects;
+		SelectChoices choices;
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "moment", "start", "finish", "amount", "type", "email", "link", "published");
+		projects = this.repository.findAllProjectsPublished();
+
+		choices = SelectChoices.from(projects, "title", object.getProject());
+
+		dataset = super.unbind(object, "code", "moment", "start", "finish", "amount", "type", "email", "link", "project", "sponsor", "published");
+		dataset.put("project", choices.getSelected().getKey());
+		dataset.put("projects", choices);
 
 		super.getResponse().addData(dataset);
 	}
