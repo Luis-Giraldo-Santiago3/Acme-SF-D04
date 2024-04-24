@@ -19,23 +19,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import acme.entities.group.Banner;
 
 @ControllerAdvice
-public class BannerAdvisor {
+public class RandomBannerController {
 
 	@Autowired
-	private BannerRepository repository;
+	private RandomBannerService service;
 
 
 	@ModelAttribute("banner")
 	public Banner getBanner() {
-		Banner result;
-
-		try {
-			result = this.repository.findRandomBanner();
-		} catch (final Throwable oops) {
-			result = null;
-		}
-
-		return result;
+		Banner res;
+		res = this.service.findRandomBanner();
+		return res;
 	}
 
 }
