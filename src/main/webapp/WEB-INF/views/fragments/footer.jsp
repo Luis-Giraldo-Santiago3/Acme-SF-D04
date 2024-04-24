@@ -38,3 +38,12 @@
 		<acme:footer-copyright code="master.company.name"/>
 	</acme:footer-logo>
 </acme:footer-panel>
+<!-- Añade el banner en la parte de arriba del menu -->
+<%-- Comprueba si el banner esta disponible (preguntar lo de las fechas como lo tengo en el bloc de notas) --%>
+<jstl:if test="${banner != null}"> 
+    <div style="padding: 10px; background-color: #f0f0f0; text-align: center;">
+        <a href="${banner.linkTarget}" target="_blank">
+            <img src="${banner.linkPicture}" alt="${banner.slogan}" style="max-width: 100%; height: auto;"/>
+        </a>
+    </div>
+</jstl:if>
