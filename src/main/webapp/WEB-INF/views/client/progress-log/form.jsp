@@ -15,9 +15,10 @@
 	<acme:input-textbox code="client.ProgressLog.form.label.responsiblePerson" path="responsiblePerson"/>
 	
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published == false}">
 			<acme:submit code="client.ProgressLog.form.button.update" action="/client/progress-log/update"/>
 			<acme:submit code="client.ProgressLog.form.button.delete" action="/client/progress-log/delete"/>
+			<acme:submit code="client.ProgressLog.form.button.publish" action="/client/progress-log/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="client.ProgressLog.form.button.create" action="/client/progress-log/create?masterId=${masterId}"/>
