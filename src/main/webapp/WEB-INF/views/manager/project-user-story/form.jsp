@@ -62,7 +62,7 @@
 	</jstl:choose>
 	<jstl:choose>	
 		<jstl:when test="${_command == 'delete'}">
-			<acme:submit code="manager.associatedWith.form.button.remove" action="/manager/project-user-story/delete?projectId=${projectId}"/>
+			<acme:submit code="manager.projectUserStory.form.button.remove" action="/manager/project-user-story/delete?projectId=${projectId}"/>
 		</jstl:when> 	
 	</jstl:choose>
 </acme:form>

@@ -18,6 +18,9 @@ manager.userStory.list.label.estimatedCost = Coste estimado (en horas enteras):
 manager.userStory.list.label.priority = Prioridad:
 manager.userStory.list.label.published = Publicado
 manager.userStory.list.button.create = Crear historia de usuario
+manager.userStory.list.button.add = Añadir historia usuario
+manager.userStory.list.button.remove = Eliminar historia usuario
+
 
 manager.userStory.form.label.title = Título:
 manager.userStory.form.label.description = Descripción: 
@@ -31,5 +34,6 @@ manager.userStory.form.button.delete = Borrar
 manager.userStory.form.button.update = Actualizar
 manager.userStory.form.button.publish = Publicar
 manager.userStory.form.button.create = Confirmar creación
+ manager.userStory.form.label.managerUsername = Gerente
 
 

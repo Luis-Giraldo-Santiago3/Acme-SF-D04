@@ -10,15 +10,15 @@
 
 manager.project-user-story.form.title = Associate user story - project form
 
-manager.project-user-story.form.userStory.cant.info = You can't add/delete a user story to/from a project which is published
-manager.project-user-story.form.userStory.create.info = Add a user story to the project 
-manager.project-user-story.form.userStory.delete.info = Delete a user story from the project 
-manager.project-user-story.form.project.code = Project:
-manager.project-user-story.form.project.title = Title:
-manager.project-user-story.form.label.userStory = User story:
+manager.projectUserStory.form.userStory.cant.info = You can't add/delete a user story to/from a project which is published
+manager.projectUserStory.form.userStory.create.info = Add a user story to the project 
+manager.projectUserStory.form.userStory.delete.info = Delete a user story from the project 
+manager.projectUserStory.form.project.code = Project:
+manager.projectUserStory.form.project.title = Title:
+manager.projectUserStory.form.label.userStory = User story:
 
-manager.project-user-story.form.button.add = Add user history
-manager.project-user-story.form.button.remove = Remove user history
+manager.projectUserStory.form.button.add = Add user history
+manager.projectUserStory.form.button.remove = Remove user history
 
 manager.project-user-story.form.error.published = The project is published, you can't modify
 manager.project-user-story.form.error.duplicatedRelation = That user story is already in this project

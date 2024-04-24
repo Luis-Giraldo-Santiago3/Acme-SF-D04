@@ -16,6 +16,8 @@ manager.userStory.list.label.estimatedCost = Estimated Cost (in whole ours):
 manager.userStory.list.label.priority = Priority:
 manager.userStory.list.label.published = Published
 manager.userStory.list.button.create = Create user story
+manager.userStory.list.button.add = Añadir historia usuario
+manager.userStory.list.button.remove = Eliminar historia usuario
 
 manager.userStory.form.label.title = Title:
 manager.userStory.form.label.description = Description: 
@@ -29,3 +31,4 @@ manager.userStory.form.button.delete = Delete
 manager.userStory.form.button.update = Update
 manager.userStory.form.button.publish = Publish
 manager.userStory.form.button.create = Confirm creation
+ manager.userStory.form.label.managerUsername = Manager
