@@ -19,6 +19,11 @@ manager.project.form.label.fatalErrors = Fatal errors
 manager.project.form.label.cost= Cost
 manager.project.form.label.link = Link
 manager.project.form.error.duplicated = The project code is duplicated
+manager.project.form.error.noUserStory = The project has no user stories
+manager.project.form.error.allUserStoryNotpublished = All stories must be published
+manager.project.form.error.fatalErrors = The project has fatal errors
+manager.project.form.label.manager = Manager
+
 
 manager.project.list.label.code = Code
 manager.project.list.label.title = Title
