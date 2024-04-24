@@ -25,6 +25,7 @@ developer.trainingSession.form.error.duplicated = The training session code is d
 developer.TrainingSession.form.button.create = Create		
 developer.TrainingSession.form.button.update = Update
 developer.TrainingSession.form.button.delete = Delete
+developer.TrainingSession.form.button.publish = Publish
 
 developer.TrainingSession.list.label.code = Code
 developer.TrainingSession.list.label.start = Start
