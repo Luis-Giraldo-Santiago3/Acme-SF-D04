@@ -2,6 +2,7 @@
 package acme.features.client.contract;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,16 +12,15 @@ import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.student1.Project;
 import acme.entities.student2.Contract;
-import acme.entities.student2.ProgressLog;
 import acme.roles.Client;
 
 @Service
-public class ClientContractDeleteService extends AbstractService<Client, Contract> {
+public class ClientContractPublishService extends AbstractService<Client, Contract> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ClientContractRepository repository;
+	protected ClientContractRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -47,6 +47,7 @@ public class ClientContractDeleteService extends AbstractService<Client, Contrac
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneContractById(id);
+		object.setPublished(false);
 
 		super.getBuffer().addData(object);
 	}
@@ -68,17 +69,21 @@ public class ClientContractDeleteService extends AbstractService<Client, Contrac
 	@Override
 	public void validate(final Contract object) {
 		assert object != null;
+		Collection<Contract> listAllContracts = this.repository.findAllContract();
+		Collection<Contract> contractsFiltered = listAllContracts.stream().filter(x -> x.getProject().getId() == object.getProject().getId()).toList();
+		double totalAmount = contractsFiltered.stream().map(x -> x.getBudget().getAmount()).collect(Collectors.summingDouble(x -> x));
+
+		if (!super.getBuffer().getErrors().hasErrors("budget"))
+
+			super.state(totalAmount * object.getBudget().getAmount() < object.getProject().getCost(), "budget", "client.contract.form.error.higher-cost");
 	}
 
 	@Override
 	public void perform(final Contract object) {
 		assert object != null;
 
-		Collection<ProgressLog> progressLogs;
-
-		progressLogs = this.repository.findManyProgressLogByContractId(object.getId());
-		this.repository.deleteAll(progressLogs);
-		this.repository.delete(object);
+		object.setPublished(true);
+		this.repository.save(object);
 	}
 
 	@Override
@@ -101,5 +106,4 @@ public class ClientContractDeleteService extends AbstractService<Client, Contrac
 
 		super.getResponse().addData(dataset);
 	}
-
 }
