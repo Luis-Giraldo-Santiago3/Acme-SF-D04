@@ -61,7 +61,7 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findOneProjectById(projectId);
 
-		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "published");
+		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget");
 		object.setProject(project);
 	}
 
@@ -98,7 +98,7 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 
-		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "published");
+		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "project", "client", "published");
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
 

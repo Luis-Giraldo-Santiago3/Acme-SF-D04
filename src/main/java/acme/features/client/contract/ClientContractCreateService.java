@@ -35,7 +35,7 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 	public void load() {
 		Contract object;
 		Client client;
-		List<Project> projects = this.repository.findAllProjects().stream().toList();
+		List<Project> projects = this.repository.findAllProjectsPublished().stream().toList();
 
 		client = this.repository.findOneClientById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new Contract();
@@ -56,7 +56,7 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findOneProjectById(projectId);
 
-		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "published");
+		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "project");
 		object.setProject(project);
 	}
 
@@ -76,7 +76,6 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("budget"))
-
 			super.state(totalAmount < object.getProject().getCost() * converterHourToEUR, "budget", "client.contract.form.error.higher-cost");
 	}
 
@@ -96,12 +95,11 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		SelectChoices choices;
 		Dataset dataset;
 
-		clientId = super.getRequest().getPrincipal().getActiveRoleId();
-		projects = this.repository.findAllProjects();
+		projects = this.repository.findAllProjectsPublished();
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 
-		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "published");
+		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "project", "client", "published");
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
 

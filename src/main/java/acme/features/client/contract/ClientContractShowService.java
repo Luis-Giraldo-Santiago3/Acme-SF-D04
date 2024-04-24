@@ -2,13 +2,11 @@
 package acme.features.client.contract;
 
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.student1.Project;
@@ -32,13 +30,11 @@ public class ClientContractShowService extends AbstractService<Client, Contract>
 		int masterId;
 		Contract contract;
 		Client client;
-		Date currentMoment;
 
 		masterId = super.getRequest().getData("id", int.class);
 		contract = this.repository.findOneContractById(masterId);
 		client = contract == null ? null : contract.getClient();
-		currentMoment = MomentHelper.getCurrentMoment();
-		status = super.getRequest().getPrincipal().hasRole(client) || contract != null && contract.isPublished() && MomentHelper.isAfter(contract.getInstantiationMoment(), currentMoment);
+		status = super.getRequest().getPrincipal().hasRole(client) && contract != null;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -63,8 +59,8 @@ public class ClientContractShowService extends AbstractService<Client, Contract>
 		SelectChoices choices;
 		Dataset dataset;
 
-		if (object.isPublished())
-			projects = this.repository.findAllProjects();
+		if (!object.isPublished())
+			projects = this.repository.findAllProjectsPublished();
 		else {
 			clientId = super.getRequest().getPrincipal().getActiveRoleId();
 			projects = this.repository.findManyProjectsByClientId(clientId);
@@ -72,7 +68,7 @@ public class ClientContractShowService extends AbstractService<Client, Contract>
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 
-		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "published");
+		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "project", "client", "published");
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
 
