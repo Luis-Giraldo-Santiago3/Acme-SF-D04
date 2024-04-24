@@ -38,13 +38,13 @@ public class ManagerUserStoryController extends AbstractController<Manager, User
 
 	@PostConstruct
 	protected void initialise() {
-		//super.addBasicCommand("show", this.showService);
-		//super.addBasicCommand("create", this.createService);
-		//super.addBasicCommand("delete", this.deleteService);
-		//super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("delete", this.deleteService);
+		super.addBasicCommand("update", this.updateService);
 
 		super.addCustomCommand("list-mine", "list", this.listMineService);
-		//super.addCustomCommand("publish", "update", this.publishService);
+		super.addCustomCommand("publish", "update", this.publishService);
 	}
 
 }

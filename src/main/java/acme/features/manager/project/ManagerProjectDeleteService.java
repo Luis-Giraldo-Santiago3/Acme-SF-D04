@@ -12,12 +12,15 @@
 
 package acme.features.manager.project;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.student1.Project;
+import acme.entities.student1.ProjectUserStory;
 import acme.roles.Manager;
 
 @Service
@@ -80,6 +83,10 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 	public void perform(final Project object) {
 		assert object != null;
 
+		Collection<ProjectUserStory> userStoriesAssociated;
+
+		userStoriesAssociated = this.repository.findManyAssociationBetweenProjectAndUserStory(object.getId());
+		this.repository.deleteAll(userStoriesAssociated);
 		this.repository.delete(object);
 	}
 
