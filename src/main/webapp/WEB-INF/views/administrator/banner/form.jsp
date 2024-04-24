@@ -23,4 +23,8 @@
 	<acme:list-column code="administrator.banner.form.label.slogan" path="slogan"/>
 	<acme:list-column code="administrator.banner.form.label.link" path="link"/>
 	<acme:list-column code="administrator.banner.form.label.linkTarget" path="linkTarget"/>	
+<<<<<<< HEAD
+=======
+>>>>>>> refs/remotes/origin/main
+>>>>>>> refs/remotes/origin/rafmolgar2
 </acme:form>

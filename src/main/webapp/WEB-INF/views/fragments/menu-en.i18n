@@ -68,6 +68,10 @@ master.menu.developer.dashboard = Dashboard
 
 master.menu.authenticated = Authenticated
 master.menu.authenticated.list.claim = Claims
+<<<<<<< HEAD
+=======
+>>>>>>> refs/remotes/origin/main
+>>>>>>> refs/remotes/origin/rafmolgar2
 
 # master.menu.provider ########################################################
 
