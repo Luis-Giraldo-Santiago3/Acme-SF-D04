@@ -42,7 +42,7 @@ public class AuditorAuditRecordController extends AbstractController<Auditor, Au
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("create", this.createService);
-		super.addBasicCommand("publish", this.publishService);
 		super.addBasicCommand("delete", this.deleteService);
+		super.addCustomCommand("publish", "update", this.publishService);
 	}
 }
