@@ -1,11 +1,16 @@
 
 package acme.features.sponsor.sponsorship;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.client.views.SelectChoices;
+import acme.entities.student1.Project;
+import acme.entities.student4.Invoice;
 import acme.entities.student4.Sponsorship;
 import acme.roles.Sponsor;
 
@@ -49,14 +54,14 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 	public void bind(final Sponsorship object) {
 		assert object != null;
 
-		//int developerId;
-		//Manager manager;
+		int projectId;
+		Project project;
 
-		//developerId = super.getRequest().getData("developer", int.class);
-		//developer = this.repository.findDeveloperById(developerId);
+		projectId = super.getRequest().getData("project", int.class);
+		project = this.repository.findOneProjectById(projectId);
 
-		super.bind(object, "code", "moment", "start", "finish", "amount", "type", "email", "link", "published");
-		//object.setDeveloper(developer);
+		super.bind(object, "code", "moment", "start", "finish", "amount", "type", "email", "link");
+		object.setProject(project);
 	}
 
 	@Override
@@ -68,6 +73,10 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 	public void perform(final Sponsorship object) {
 		assert object != null;
 
+		Collection<Invoice> invoices;
+
+		invoices = this.repository.findManyInvoiceBySponsorshipId(object.getId());
+		this.repository.deleteAll(invoices);
 		this.repository.delete(object);
 	}
 
@@ -75,10 +84,19 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 	public void unbind(final Sponsorship object) {
 		assert object != null;
 
+		int sponsorId;
+		Collection<Project> projects;
+		SelectChoices choices;
 		Dataset dataset;
 
+		sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
+		projects = this.repository.findManyProjectsBySponsorId(sponsorId);
+
+		choices = SelectChoices.from(projects, "title", object.getProject());
+
 		dataset = super.unbind(object, "code", "moment", "start", "finish", "amount", "type", "email", "link", "published");
-		//dataset.put("developer", object.getDeveloper().getUserAccount().getUsername());
+		dataset.put("project", choices.getSelected().getKey());
+		dataset.put("projects", choices);
 
 		super.getResponse().addData(dataset);
 	}

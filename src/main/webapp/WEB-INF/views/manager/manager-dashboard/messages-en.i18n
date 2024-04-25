@@ -17,3 +17,7 @@ manager.dashboard.form.label.deviationCostProjects = Cost variance of all projec
 manager.dashboard.form.label.minimunCostProjects = Minimum cost of all projects
 manager.dashboard.form.label.maximumCostProjects = Maximum cost of all projects
 
+
+manager.dashboard.form.label.userStories.priority.information = Graphic about the priorities of the user stories
+manager.dashboard.form.label.userStories.information = Graphic about user stories estimated cost (in hours)
+manager.dashboard.form.label.projects.information = Graphic about projects costs (in hours)

@@ -64,7 +64,7 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 	public void bind(final Project object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "projectAbstract", "fatalErrors", "cost", "link", "published");
+		super.bind(object, "code", "title", "projectAbstract", "fatalErrors", "cost", "link");
 	}
 
 	@Override
@@ -72,27 +72,21 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Project existing;
-
-			existing = this.repository.findOneProjectByCode(object.getCode());
-			super.state(existing == null, "code", "manager.project.form.error.duplicated");
+			Project existing = this.repository.findOneProjectByCode(object.getCode());
+			super.state(existing == null || existing.equals(object), "code", "manager.project.form.error.duplicated");
 		}
 
 		Collection<UserStory> userStories = this.repository.findManyUserStoriesByProjectId(object.getId());
+		super.state(!userStories.isEmpty(), "*", "manager.project.form.error.nouserstory");
 
 		if (!userStories.isEmpty()) {
-			int numberUserStoryPublished = userStories.stream().filter(UserStory::isPublished).toList().size();
-			boolean allUserStoriesPublished = userStories.size() == numberUserStoryPublished;
-			if (!allUserStoriesPublished)
-				super.state(allUserStoriesPublished, "*", "manager.project.form.error.allUserStoryNotpublished");
-		} else if (userStories.isEmpty())
-			super.state(userStories.isEmpty(), "*", "manager.project.form.error.noUserStory");
+			int numUserStoryPublish = userStories.stream().filter(UserStory::isPublished).toList().size();
+			boolean allUserStoriesPublish = userStories.size() == numUserStoryPublish;
+			super.state(allUserStoriesPublish, "*", "manager.project.form.error.userstorynotpublish");
+		}
 
-		if (object.isFatalErrors())
-			super.state(object.isFatalErrors(), "fatalErrors", "manager.project.form.error.fatalErrors");
-
+		super.state(!object.isFatalErrors(), "fatalErrors", "manager.project.form.error.fatalErrors");
 	}
-
 	@Override
 	public void perform(final Project object) {
 		assert object != null;

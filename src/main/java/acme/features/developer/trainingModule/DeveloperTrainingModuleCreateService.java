@@ -35,7 +35,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	public void load() {
 		TrainingModule object;
 		Developer developer;
-		List<Project> projects = this.repository.findAllProjects().stream().toList();
+		List<Project> projects = this.repository.findAllProjectsPublished().stream().toList();
 
 		developer = this.repository.findDeveloperById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new TrainingModule();
@@ -55,7 +55,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findOneProjectById(projectId);
 
-		super.bind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "published");
+		super.bind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "project");
 		object.setProject(project);
 	}
 
@@ -88,12 +88,11 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		SelectChoices projectChoices;
 		Dataset dataset;
 
-		developerId = super.getRequest().getPrincipal().getActiveRoleId();
-		projects = this.repository.findAllProjects();
+		projects = this.repository.findAllProjectsPublished();
 
 		projectChoices = SelectChoices.from(projects, "title", object.getProject());
 
-		dataset = super.unbind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "published");
+		dataset = super.unbind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "project", "developer", "published");
 		dataset.put("project", projectChoices.getSelected().getKey());
 		dataset.put("projects", projectChoices);
 

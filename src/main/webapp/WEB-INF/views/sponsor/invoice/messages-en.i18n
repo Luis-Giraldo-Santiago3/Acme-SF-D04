@@ -11,21 +11,26 @@
 sponsor.invoice.list.title = Invoices
 sponsor.invoice.form.title = Details of invoices
 
-sponsor.invoice.list.label.code = Code
-sponsor.invoice.list.label.registrationTime = Registration Time
-sponsor.invoice.list.label.dueDate = Due Date
-sponsor.invoice.list.label.quantity = Quantity
-sponsor.invoice.list.label.tax = Tax
-sponsor.invoice.list.label.link = Link
-sponsor.invoice.list.label.published = Published
+sponsor.Invoice.list.label.code = Code
+sponsor.Invoice.list.label.registrationTime = Registration Time
+sponsor.Invoice.list.label.dueDate = Due Date
+sponsor.Invoice.list.label.quantity = Quantity
+sponsor.Invoice.list.label.tax = Tax
+sponsor.Invoice.list.label.link = Link
+sponsor.Invoice.list.label.published = Published
 
-sponsor.invoice.form.label.code = Code
-sponsor.invoice.form.label.registrationTime = Registration Time
-sponsor.invoice.form.label.dueDate = Due Date
-sponsor.invoice.form.label.quantity = Quantity
-sponsor.invoice.form.label.tax = Tax
-sponsor.invoice.form.label.link = Link
-sponsor.invoice.form.label.published = Published
-sponsor.invoice.form.error.duplicated = The invoice code is duplicated
+sponsor.Invoice.list.button.create = Create
 
-sponsor.invoice.list.button.create = Create
+sponsor.Invoice.form.label.code = Code
+sponsor.Invoice.form.label.registrationTime = Registration Time
+sponsor.Invoice.form.label.dueDate = Due Date
+sponsor.Invoice.form.label.quantity = Quantity
+sponsor.Invoice.form.label.tax = Tax
+sponsor.Invoice.form.label.link = Link
+sponsor.Invoice.form.label.published = Published
+sponsor.Invoice.form.error.duplicated = The invoice code is duplicated
+
+sponsor.Invoice.form.button.create = Create		
+sponsor.Invoice.form.button.update = Update
+sponsor.Invoice.form.button.delete = Delete
+sponsor.Invoice.form.button.publish = Publish

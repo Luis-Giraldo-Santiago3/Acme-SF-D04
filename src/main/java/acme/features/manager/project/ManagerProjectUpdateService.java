@@ -50,7 +50,7 @@ public class ManagerProjectUpdateService extends AbstractService<Manager, Projec
 	public void bind(final Project object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "projectAbstract", "fatalErrors", "cost", "link", "published");
+		super.bind(object, "code", "title", "projectAbstract", "fatalErrors", "cost", "link");
 
 	}
 
@@ -62,7 +62,7 @@ public class ManagerProjectUpdateService extends AbstractService<Manager, Projec
 			Project existing;
 
 			existing = this.repository.findOneProjectByCode(object.getCode());
-			super.state(existing == null, "code", "manager.project.form.error.duplicated");
+			super.state(existing == null || existing.equals(object), "code", "manager.project.form.error.duplicated");
 		}
 	}
 

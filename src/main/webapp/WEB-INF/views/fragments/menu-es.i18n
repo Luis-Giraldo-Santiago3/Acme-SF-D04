@@ -55,6 +55,8 @@ master.menu.manager = Manager
 master.menu.manager.list.project = Proyectos
 master.menu.manager.list.userStory = Historias de Usuario
 master.menu.manager.dashboard = Panel de control
+master.menu.manager.my-userStories = Mis historias de usuario
+
 
 # master.menu.developer ########################################################
 
@@ -68,10 +70,6 @@ master.menu.developer.dashboard = Panel de control
 master.menu.authenticated = Autentificado
 master.menu.authenticated.list.claim = Reclamaciones
 
-# master.menu.provider ########################################################
-
-master.menu.provider = Proveedor
-master.menu.provider.favourite-link = Enlace favorito
 
 # master.menu.consumer ##########################################################
 
@@ -82,10 +80,12 @@ master.menu.consumer.favourite-link = Enlace favorito
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
-master.menu.user-account.provider = Datos de proveedor
-master.menu.user-account.become-provider = Hazte proveedor
-master.menu.user-account.consumer = Datos de consumidor
-master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.manager = Datos de manager
+master.menu.user-account.become-manager = Hazte manager
+master.menu.user-account.developer = Datos de desarrollador
+master.menu.user-account.become-developer = Hazte desarrollador
+master.menu.user-account.sponsor = Datos de patrocinador
+master.menu.user-account.become-sponsor = Hazte patrocinador
 
 # master.menu.sponsor ##########################################################
 
@@ -93,3 +93,4 @@ master.menu.sponsor.list.sponsorship = Patrocinios
 sponsor.sponsorship.list.title = Lista de Patrocinios
 master.menu.sponsor.list.invoice = Facturas
 sponsor.invoice.list.title = Lista de Facturas
+master.menu.sponsor.dashboard = Panel de indicadores

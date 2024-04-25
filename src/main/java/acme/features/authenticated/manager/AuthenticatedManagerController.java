@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.provider;
+package acme.features.authenticated.manager;
 
 import javax.annotation.PostConstruct;
 
@@ -19,18 +19,18 @@ import org.springframework.stereotype.Controller;
 
 import acme.client.controllers.AbstractController;
 import acme.client.data.accounts.Authenticated;
-import acme.roles.Provider;
+import acme.roles.Manager;
 
 @Controller
-public class AuthenticatedProviderController extends AbstractController<Authenticated, Provider> {
+public class AuthenticatedManagerController extends AbstractController<Authenticated, Manager> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedProviderCreateService	createService;
+	private AuthenticatedManagerCreateService	createService;
 
 	@Autowired
-	private AuthenticatedProviderUpdateService	updateService;
+	private AuthenticatedManagerUpdateService	updateService;
 
 	// Constructors -----------------------------------------------------------
 

@@ -25,6 +25,7 @@ developer.trainingSession.form.error.duplicated = El código de la sesión de en
 developer.TrainingSession.form.button.create = Crear	
 developer.TrainingSession.form.button.update = Actualizar
 developer.TrainingSession.form.button.delete = Borrar
+developer.TrainingSession.form.button.publish = Publicar
 
 developer.TrainingSession.list.label.code = Código
 developer.TrainingSession.list.label.start = Inicio
