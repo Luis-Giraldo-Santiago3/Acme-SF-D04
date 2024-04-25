@@ -53,6 +53,14 @@ master.menu.manager.list.userStory = User Stories
 master.menu.manager.dashboard = Dashboard
 master.menu.manager.my-userStories = My user stories
 
+# master.menu.auditor ########################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.list.codeAudit = Code Audits
+master.menu.auditor.dashboard = Dashboard
+>>>>>>> refs/remotes/origin/rafmolgar2
+>>>>>>> refs/remotes/origin/rafmolgar2
+
 # master.menu.developer ########################################################
 
 master.menu.developer = Developer
@@ -64,7 +72,10 @@ master.menu.developer.dashboard = Dashboard
 
 master.menu.authenticated = Authenticated
 master.menu.authenticated.list.claim = Claims
-
+<<<<<<< HEAD
+=======
+>>>>>>> refs/remotes/origin/main
+>>>>>>> refs/remotes/origin/rafmolgar2
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider

@@ -58,6 +58,11 @@
 			<acme:menu-suboption code="master.menu.manager.my-userStories" action="/manager/user-story/list-mine"/>	
 		</acme:menu-option>
 		
+		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
+			<acme:menu-suboption code="master.menu.auditor.list.codeAudit" action="/auditor/code-audit/list-service"/>
+			<acme:menu-suboption code="master.menu.auditor.dashboard" action="/auditor/auditor-dashboard/show"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
