@@ -16,15 +16,14 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form> 
-	<acme:list-column code="administrator.banner.form.label.instantiationUpdateMoment" path="instantiationUpdateMoment"/>
-	<acme:list-column code="administrator.banner.form.label.displayStart" path="displayStart"/>
-	<acme:list-column code="administrator.banner.form.label.displayFinish" path="displayFinish"/>
-	<acme:list-column code="administrator.banner.form.label.linkPicture" path="linkPicture"/>
-	<acme:list-column code="administrator.banner.form.label.slogan" path="slogan"/>
-	<acme:list-column code="administrator.banner.form.label.link" path="link"/>
-	<acme:list-column code="administrator.banner.form.label.linkTarget" path="linkTarget"/>	
-<<<<<<< HEAD
-=======
->>>>>>> refs/remotes/origin/main
->>>>>>> refs/remotes/origin/rafmolgar2
+	<acme:input-moment code="administrator.banner.form.label.instantiationUpdateMoment" path="instantiationUpdateMoment"/>
+	<acme:input-moment code="administrator.banner.form.label.displayStart" path="displayStart"/>
+	<acme:input-moment code="administrator.banner.form.label.displayFinish" path="displayFinish"/>
+	<acme:input-url code="administrator.banner.form.label.linkPicture" path="linkPicture"/>
+	<acme:input-textbox code="administrator.banner.form.label.slogan" path="slogan"/>
+	<acme:input-url code="administrator.banner.form.label.link" path="link"/>
+	<acme:input-url code="administrator.banner.form.label.linkTarget" path="linkTarget"/>
+		
+	<acme:submit code="administrator.banner.form.button.delete" action="/administrator/banner/delete"/>
+	<acme:submit code="administrator.banner.form.button.update" action="/administrator/banner/update"/>
 </acme:form>
