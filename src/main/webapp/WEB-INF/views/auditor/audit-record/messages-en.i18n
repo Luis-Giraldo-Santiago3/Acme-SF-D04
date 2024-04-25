@@ -35,3 +35,4 @@ auditor.auditRecord.form.button.create = create audit record
 auditor.auditRecord.list.button.create = create audit record
 auditor.auditRecord.form.button.delete = delete audit record
 auditor.auditRecord.form.button.update = update audit record
+auditor.auditRecord.form.button.publish = publish

@@ -68,13 +68,6 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 			if (!(object.getId() == existing.getId()))
 				super.state(existing == null, "code", "auditor.codeAudit.form.error.duplicated");
 		}
-
-		if (!(object.getMark() == Mark.F || object.getMark() == Mark.F_MINUS))
-			super.state(object.isPublished(), "mark", "auditor.codeAudit.form.error.publishedTrue");
-		else {
-			super.state(!object.isPublished(), "mark", "auditor.codeAudit.form.error.publishedFalse");
-			object.setPublished(false);
-		}
 	}
 
 	@Override

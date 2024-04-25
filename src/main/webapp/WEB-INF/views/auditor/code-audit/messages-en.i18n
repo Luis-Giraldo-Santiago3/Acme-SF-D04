@@ -21,8 +21,6 @@ auditor.codeAudit.form.label.link = link
 auditor.codeAudit.form.label.published = published
 
 auditor.codeAudit.form.error.duplicated = code audit code is duplicated
-auditor.codeAudit.form.error.publishedTrue = code audit has a C or more, it needs to be published
-auditor.codeAudit.form.error.publishedFalse = code audit has less than a C, it shouldn't be published
 
 auditor.codeAudit.list.label.code = code
 auditor.codeAudit.list.label.executionDate = execution date

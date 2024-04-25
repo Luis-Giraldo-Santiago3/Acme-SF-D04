@@ -51,13 +51,6 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 	public void validate(final CodeAudit object) {
 		assert object != null;
 
-		if (!(object.getMark() == Mark.F || object.getMark() == Mark.F_MINUS))
-			super.state(object.isPublished(), "mark", "auditor.codeAudit.form.error.publishedTrue");
-		else {
-			super.state(!object.isPublished(), "mark", "auditor.codeAudit.form.error.publishedFalse");
-			object.setPublished(false);
-		}
-
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			CodeAudit existing;
 

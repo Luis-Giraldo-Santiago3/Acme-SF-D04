@@ -21,8 +21,6 @@ auditor.codeAudit.form.label.link = link
 auditor.codeAudit.form.label.published = públicado
 
 auditor.codeAudit.form.error.duplicated = El código de la auditoría de código está duplicado
-auditor.codeAudit.form.error.publishedTrue = La auditoría de código tiene una C o más, debe ser públicada
-auditor.codeAudit.form.error.publishedFalse = La auditoría de código tiene menos de una C, no debe ser públicada
 
 auditor.codeAudit.list.label.code = código
 auditor.codeAudit.list.label.executionDate = fecha de ejecución
