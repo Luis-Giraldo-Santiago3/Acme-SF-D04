@@ -58,7 +58,7 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 	public void bind(final AuditRecord object) {
 		assert object != null;
 
-		super.bind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark", "link", "published");
+		super.bind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark", "link");
 	}
 
 	@Override
