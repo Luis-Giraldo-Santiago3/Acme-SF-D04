@@ -44,7 +44,7 @@ public class ClientContractListService extends AbstractService<Client, Contract>
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget");
+		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "project", "client", "published");
 
 		super.getResponse().addData(dataset);
 	}

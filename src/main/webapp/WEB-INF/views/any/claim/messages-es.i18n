@@ -31,3 +31,5 @@ any.claim.form.label.email = Correo electrónico
 any.claim.form.label.link = Link
 any.claim.form.label.published = Publicado 
 
+any.claim.form.button.publish = Publicar
+

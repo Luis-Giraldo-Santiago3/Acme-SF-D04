@@ -18,4 +18,7 @@ public interface AnyClaimRepository extends AbstractRepository {
 	@Query("SELECT c FROM Claim c WHERE c.id = :claimId")
 	Claim findOneClaimById(int claimId);
 
+	@Query("SELECT c FROM Claim c WHERE c.published = :published")
+	Collection<Claim> findClaimsByPublished(boolean published);
+
 }
