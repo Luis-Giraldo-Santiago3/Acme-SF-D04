@@ -45,6 +45,7 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 		object = new Project();
 		object.setPublished(false);
 		object.setManager(manager);
+		object.setPublished(false);
 		super.getBuffer().addData(object);
 	}
 

@@ -26,6 +26,11 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-rafmolgar2" action="https://play.pokemonshowdown.com/"/>
 		</acme:menu-option>
 
+
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.list.claim" action="/any/claim/list-service"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
@@ -34,9 +39,14 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/system/shut-down"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.administrator.list.claim" action="/administrator/claim/list-service"/>
-			
+			<acme:menu-suboption code="master.menu.administrator.list.banner" action="/administrator/banner/list-service"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.sponsor" access="hasRole('Sponsor')">
+			<acme:menu-suboption code="master.menu.sponsor.list.sponsorship" action="/sponsor/sponsorship/list-service"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.sponsor.list.invoice" action="/sponsor/invoice/list-service"/>
+    	</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.client" access="hasRole('Client')">
 			<acme:menu-suboption code="master.menu.client.dashboard" action="/client/client-dashboard/show"/>
@@ -44,9 +54,9 @@
     </acme:menu-option>
 
 		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">
-			<acme:menu-suboption code="master.menu.manager.list.project" action="/manager/project/list-service"/>
+			<acme:menu-suboption code="master.menu.manager.list.project" action="/manager/project/list-mine"/>
 			<acme:menu-suboption code="master.menu.manager.dashboard" action="/manager/manager-dashboard/show"/>
-				
+			<acme:menu-suboption code="master.menu.manager.my-userStories" action="/manager/user-story/list-mine"/>	
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
@@ -60,6 +70,12 @@
 
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.developer" access="hasRole('Developer')">
+			<acme:menu-suboption code="master.menu.developer.list.trainingModule" action="/developer/training-module/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.developer.dashboard" action="/developer/developer-dashboard/show"/>
 		</acme:menu-option>
 	</acme:menu-left>
 

@@ -8,8 +8,6 @@ import acme.client.data.accounts.Administrator;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.group.Banner;
-import acme.entities.student1.Project;
-import acme.roles.Manager;
 
 @Service
 public class AdministratosBannerDeleteService extends AbstractService<Administrator, Banner> {
@@ -24,31 +22,18 @@ public class AdministratosBannerDeleteService extends AbstractService<Administra
 
 	@Override
 	public void authorise() {
-		boolean status;
-		Manager manager;
-		int managerRequestId;
-		int projectId;
-		Project project;
 
-		projectId = super.getRequest().getData("id", int.class);
-		project = this.repository.findOneProjectById(projectId);
-		manager = project == null ? null : project.getManager();
-		managerRequestId = super.getRequest().getPrincipal().getActiveRoleId();
-		if (manager != null)
-			status = super.getRequest().getPrincipal().hasRole(manager) && manager.getId() == managerRequestId;
-		else
-			status = false;
+		super.getResponse().setAuthorised(true);
 
-		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Project object;
-		int projectId;
+		Banner object;
+		int id;
 
-		projectId = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneProjectById(projectId);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneBannerById(id);
 
 		super.getBuffer().addData(object);
 	}

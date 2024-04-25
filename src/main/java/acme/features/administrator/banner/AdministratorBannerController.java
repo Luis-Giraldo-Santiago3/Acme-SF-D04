@@ -28,7 +28,11 @@ public class AdministratorBannerController extends AbstractController<Administra
 
 	@PostConstruct
 	protected void initialise() {
+<<<<<<< HEAD
+		super.addBasicCommand("show", this.showService);
+=======
 		//super.addBasicCommand("show", this.showService);
+>>>>>>> refs/remotes/origin/rafmolgar2
 		super.addBasicCommand("delete", this.deleteService);
 		super.addCustomCommand("list-service", "list", this.listService);
 	}

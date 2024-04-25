@@ -10,19 +10,21 @@
 
 
 
-manager.user-story.list.title = Historias de usuario
-manager.user-story.form.title = Detalles de la historia de usuario
+administrator.banner.list.title = Pancartas
+administrator.banner.form.title = Detalles de las pancartas
 
-manager.userStory.list.label.title = Título:
-manager.userStory.list.label.estimatedCost = Coste estimado (en horas enteras):
-manager.userStory.list.label.priority = Prioridad:
-manager.userStory.list.label.published = Publicado
+administrator.banner.list.label.instantiationUpdateMoment = Momento de actualización de creación de instancias
+administrator.banner.list.label.displayStart = Inicio de pantalla
+administrator.banner.list.label.displayFinish = Acabado de pantalla
+administrator.banner.list.label.linkPicture = Enlace de imagen
+administrator.banner.list.label.slogan = Eslogan
+administrator.banner.list.label.link = Enlace
+administrator.banner.list.label.linkTarget = Destino del enlace	
 
-manager.userStory.form.label.title = Título:
-manager.userStory.form.label.description = Descripción: 
-manager.userStory.form.label.estimatedCost = Coste estimado (en horas enteras):
-manager.userStory.form.label.acceptanceCriteria = Criterio de aceptación:
-manager.userStory.form.label.priority = Prioridad:
-manager.userStory.form.label.link = Link para más información: (Opcional)
-manager.userStory.form.label.published = Publicado
-manager.userStory.form.label.manager = Nombre del manager: 
+administrator.banner.form.label.instantiationUpdateMoment = Momento de actualización de creación de instancias
+administrator.banner.form.label.displayStart = Inicio de pantalla
+administrator.banner.form.label.displayFinish = Acabado de pantalla
+administrator.banner.form.label.linkPicture = Enlace de imagen
+administrator.banner.form.label.slogan = Eslogan
+administrator.banner.form.label.link = Enlace
+administrator.banner.form.label.linkTarget = Destino del enlace
