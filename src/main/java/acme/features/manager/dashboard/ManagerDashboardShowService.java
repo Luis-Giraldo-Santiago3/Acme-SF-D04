@@ -28,6 +28,9 @@ public class ManagerDashboardShowService extends AbstractService<Manager, Manage
 	@Override
 	public void load() {
 		ManagerDashboard dashboard;
+		int managerId;
+		int numberUserStories;
+		int numberProjects;
 		int totalNumberMustUserStories;
 		int totalNumberShouldUserStories;
 		int totalNumberCouldUserStories;
@@ -41,18 +44,36 @@ public class ManagerDashboardShowService extends AbstractService<Manager, Manage
 		Integer minimunCostProjects;
 		Integer maximumCostProjects;
 
-		totalNumberMustUserStories = this.repository.totalNumberOfMustUserStories();
-		totalNumberShouldUserStories = this.repository.totalNumberOfShouldUserStories();
-		totalNumberCouldUserStories = this.repository.totalNumberOfCouldUserStories();
-		totalNumberWontUserStories = this.repository.totalNumberOfWontUserStories();
-		averageEstimatedCostUserStories = this.repository.averageEstimatedCostUserStories();
-		deviationEstimatedCostUserStories = this.repository.deviationEstimatedCostUserStories();
-		minimunEstimatedCostUserStories = this.repository.minimunEstimatedCostUserStories();
-		maximumEstimatedCostUserStories = this.repository.maximumEstimatedCostUserStories();
-		averageCostProjects = this.repository.averageCostProjects();
-		deviationCostProjects = this.repository.deviationCostProjects();
-		minimunCostProjects = this.repository.minimunCostProjects();
-		maximumCostProjects = this.repository.maximumCostProjects();
+		managerId = super.getRequest().getPrincipal().getActiveRoleId();
+		numberUserStories = this.repository.findNumberUserStories(managerId);
+		numberProjects = this.repository.findNumberProjects(managerId);
+		totalNumberMustUserStories = this.repository.totalNumberOfMustUserStories(managerId);
+		totalNumberShouldUserStories = this.repository.totalNumberOfShouldUserStories(managerId);
+		totalNumberCouldUserStories = this.repository.totalNumberOfCouldUserStories(managerId);
+		totalNumberWontUserStories = this.repository.totalNumberOfWontUserStories(managerId);
+
+		if (numberUserStories >= 2) {
+			averageEstimatedCostUserStories = this.repository.averageEstimatedCostUserStories(managerId);
+			deviationEstimatedCostUserStories = this.repository.deviationEstimatedCostUserStories(managerId);
+		} else {
+			averageEstimatedCostUserStories = null;
+			deviationEstimatedCostUserStories = null;
+
+		}
+
+		minimunEstimatedCostUserStories = this.repository.minimunEstimatedCostUserStories(managerId);
+		maximumEstimatedCostUserStories = this.repository.maximumEstimatedCostUserStories(managerId);
+
+		if (numberProjects >= 2) {
+			averageCostProjects = this.repository.averageCostProjects(managerId);
+			deviationCostProjects = this.repository.deviationCostProjects(managerId);
+		} else {
+			averageCostProjects = null;
+			deviationCostProjects = null;
+		}
+
+		minimunCostProjects = this.repository.minimunCostProjects(managerId);
+		maximumCostProjects = this.repository.maximumCostProjects(managerId);
 
 		dashboard = new ManagerDashboard();
 		dashboard.setTotalNumberMustUserStories(totalNumberMustUserStories);
@@ -73,6 +94,8 @@ public class ManagerDashboardShowService extends AbstractService<Manager, Manage
 
 	@Override
 	public void unbind(final ManagerDashboard object) {
+		assert object != null;
+
 		Dataset dataset;
 
 		dataset = super.unbind(object, //

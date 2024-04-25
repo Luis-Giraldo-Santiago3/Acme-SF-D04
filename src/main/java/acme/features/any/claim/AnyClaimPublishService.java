@@ -43,7 +43,7 @@ public class AnyClaimPublishService extends AbstractService<Any, Claim> {
 	public void bind(final Claim object) {
 		assert object != null;
 
-		super.bind(object, "code", "instantiationMoment", "heading", "description", "department", "email", "link", "published");
+		super.bind(object, "code", "instantiationMoment", "heading", "description", "department", "email", "link");
 
 	}
 

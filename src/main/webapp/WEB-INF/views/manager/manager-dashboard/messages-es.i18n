@@ -19,3 +19,7 @@ manager.dashboard.form.label.deviationCostProjects = Desviación del coste de to
 manager.dashboard.form.label.minimunCostProjects = Mínimo coste de todos los proyectos
 manager.dashboard.form.label.maximumCostProjects = Máximo coste de todos los proyectos
 
+manager.dashboard.form.label.userStories.priority.information = Gráfica de la prioridad de las historias de usuario
+manager.dashboard.form.label.userStories.information = Gráfica del coste estimado (en horas) de las historias de usuario
+manager.dashboard.form.label.projects.information = Gráfica del coste (en horas) de los proyectos
+
