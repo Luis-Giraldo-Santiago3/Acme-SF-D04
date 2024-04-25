@@ -1,5 +1,5 @@
 /*
- * AuthenticatedProviderCreateService.java
+ * AuthenticatedProviderUpdateService.java
  *
  * Copyright (C) 2012-2024 Rafael Corchuelo.
  *
@@ -10,80 +10,73 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.provider;
+package acme.features.authenticated.manager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Authenticated;
 import acme.client.data.accounts.Principal;
-import acme.client.data.accounts.UserAccount;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractService;
-import acme.roles.Provider;
+import acme.roles.Manager;
 
 @Service
-public class AuthenticatedProviderCreateService extends AbstractService<Authenticated, Provider> {
+public class AuthenticatedManagerUpdateService extends AbstractService<Authenticated, Manager> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedProviderRepository repository;
+	private AuthenticatedManagerRepository repository;
 
-	// AbstractService<Authenticated, Provider> ---------------------------
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void authorise() {
-		boolean status;
-
-		status = !super.getRequest().getPrincipal().hasRole(Provider.class);
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		Provider object;
+		Manager object;
 		Principal principal;
 		int userAccountId;
-		UserAccount userAccount;
 
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
-		userAccount = this.repository.findOneUserAccountById(userAccountId);
-
-		object = new Provider();
-		object.setUserAccount(userAccount);
+		object = this.repository.findOneManagerByUserAccountId(userAccountId);
 
 		super.getBuffer().addData(object);
 	}
 
 	@Override
-	public void bind(final Provider object) {
+	public void bind(final Manager object) {
 		assert object != null;
 
-		super.bind(object, "company", "sector");
+		super.bind(object, "degree", "overview", "certifications", "link");
 	}
 
 	@Override
-	public void validate(final Provider object) {
+	public void validate(final Manager object) {
 		assert object != null;
 	}
 
 	@Override
-	public void perform(final Provider object) {
+	public void perform(final Manager object) {
 		assert object != null;
 
 		this.repository.save(object);
 	}
 
 	@Override
-	public void unbind(final Provider object) {
+	public void unbind(final Manager object) {
+		assert object != null;
+
 		Dataset dataset;
 
-		dataset = super.unbind(object, "company", "sector");
+		dataset = super.unbind(object, "degree", "overview", "certifications", "link");
 
 		super.getResponse().addData(dataset);
 	}

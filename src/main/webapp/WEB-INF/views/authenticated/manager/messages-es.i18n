@@ -8,10 +8,12 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.provider.form.title = Detalles de proveedor
+authenticated.manager.form.title = Detalles de manager
 
-authenticated.provider.form.label.company = Compañía: 
-authenticated.provider.form.label.sector = Sector:
+authenticated.manager.form.label.degree = Grado
+authenticated.manager.form.label.overview = Descripción
+authenticated.manager.form.label.certifications = Certificaciones
+authenticated.manager.form.label.link = Link
 
-authenticated.provider.form.button.create = Registrar
-authenticated.provider.form.button.update = Actualizar
+authenticated.manager.form.button.create = Registrar
+authenticated.manager.form.button.update = Actualizar

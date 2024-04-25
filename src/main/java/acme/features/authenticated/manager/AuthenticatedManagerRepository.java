@@ -10,22 +10,22 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.provider;
+package acme.features.authenticated.manager;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.data.accounts.UserAccount;
 import acme.client.repositories.AbstractRepository;
-import acme.roles.Provider;
+import acme.roles.Manager;
 
 @Repository
-public interface AuthenticatedProviderRepository extends AbstractRepository {
+public interface AuthenticatedManagerRepository extends AbstractRepository {
 
-	@Query("select p from Provider p where p.userAccount.id = :id")
-	Provider findOneProviderByUserAccountId(int id);
+	@Query("select ua from UserAccount ua where ua.id = :userAccountId")
+	UserAccount findOneUserAccountById(int userAccountId);
 
-	@Query("select ua from UserAccount ua where ua.id = :id")
-	UserAccount findOneUserAccountById(int id);
+	@Query("select m from Manager m where m.userAccount.id = :userAccountId")
+	Manager findOneManagerByUserAccountId(int userAccountId);
 
 }

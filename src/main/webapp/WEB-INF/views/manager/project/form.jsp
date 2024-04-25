@@ -21,13 +21,12 @@
 	<acme:input-textarea code="manager.project.form.label.projectAbstract" path="projectAbstract"/>
 	<acme:input-checkbox code="manager.project.form.label.fatalErrors" path="fatalErrors"/>
 	<acme:input-integer code="manager.project.form.label.cost" path="cost"/>
-	<acme:input-textbox code="manager.project.form.label.link" path="link"/>
-	<acme:input-checkbox code="manager.project.form.label.published" path="published" readonly="true"/>
+	<acme:input-textbox code="manager.project.form.label.link" path="link"/>	
 	
-	
-	
-
 	<jstl:choose>	 
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published == true}">
+	<acme:input-checkbox code="manager.project.form.label.published" path="published" readonly="true"/>
+		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="manager.project.form.button.create" action="/manager/project/create"/>
 		</jstl:when>		
