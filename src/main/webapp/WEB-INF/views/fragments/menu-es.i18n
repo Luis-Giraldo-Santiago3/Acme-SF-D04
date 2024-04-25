@@ -39,6 +39,7 @@ master.menu.administrator.list.claim = Reclamaciones
 
 master.menu.auditor = Auditor
 master.menu.auditor.list.codeAudit = Auditorías de código
+master.menu.auditor.dashboard = Panel de control
 
 # master.menu.client ###################################################
 

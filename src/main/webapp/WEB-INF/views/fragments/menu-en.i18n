@@ -55,7 +55,7 @@ master.menu.manager.dashboard = Dashboard
 
 master.menu.auditor = Auditor
 master.menu.auditor.list.codeAudit = Code Audits
-
+master.menu.auditor.dashboard = Dashboard
 
 # master.menu.provider ########################################################
 
