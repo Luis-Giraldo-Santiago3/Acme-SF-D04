@@ -1,5 +1,5 @@
 
-package acme.features.administrator.banner;
+package acme.features.auditor.codeAudit;
 
 import javax.annotation.PostConstruct;
 
@@ -7,27 +7,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import acme.client.controllers.AbstractController;
-import acme.client.data.accounts.Administrator;
-import acme.entities.group.Banner;
+import acme.entities.student5.CodeAudit;
+import acme.roles.Auditor;
 
 @Controller
-public class AdministratorBannerController extends AbstractController<Administrator, Banner> {
+public class AuditorCodeAuditController extends AbstractController<Auditor, CodeAudit> {
+
 	// Internal state ---------------------------------------------------------
+	@Autowired
+	private AuditorCodeAuditShowService		showService;
 
 	@Autowired
-	private AdministratorBannerShowService		showService;
+	private AuditorCodeAuditListService		listService;
 
 	@Autowired
-	private AdministratorBannerListService		listService;
+	private AuditorCodeAuditCreateService	createService;
 
 	@Autowired
-	private AdministratosBannerDeleteService	deleteService;
+	private AuditorCodeAuditDeleteService	deleteService;
 
 	@Autowired
-	private AdministratorBannerCreateService	createService;
-
-	@Autowired
-	private AdministratorBannerUpdateService	updateService;
+	private AuditorCodeAuditUpdateService	updateService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -35,8 +35,8 @@ public class AdministratorBannerController extends AbstractController<Administra
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("show", this.showService);
-		super.addBasicCommand("delete", this.deleteService);
 		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("delete", this.deleteService);
 		super.addBasicCommand("update", this.updateService);
 		super.addCustomCommand("list-service", "list", this.listService);
 	}
