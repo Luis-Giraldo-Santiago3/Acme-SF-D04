@@ -4,6 +4,7 @@ package acme.features.client.dashboard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.forms.ClientDashboard;
@@ -28,6 +29,13 @@ public class ClientDashboardShowService extends AbstractService<Client, ClientDa
 	@Override
 	public void load() {
 		ClientDashboard dashboard;
+
+		Principal principal;
+		int userAccountId;
+		principal = super.getRequest().getPrincipal();
+		userAccountId = principal.getAccountId();
+		final Client client = this.repository.findOneClientByUserAccountId(userAccountId);
+
 		Integer percentageOfTotalNumberCompleteness25;
 		Integer percentageOfTotalNumberCompleteness25At50;
 		Integer percentageOfTotalNumberCompleteness50at75;
@@ -37,14 +45,14 @@ public class ClientDashboardShowService extends AbstractService<Client, ClientDa
 		Double minimumBudgetOfContract;
 		Double maximumBudgetOfContract;
 
-		percentageOfTotalNumberCompleteness25 = this.repository.percentageOfTotalNumberCompleteness25();
-		percentageOfTotalNumberCompleteness25At50 = this.repository.percentageOfTotalNumberCompleteness25At50();
-		percentageOfTotalNumberCompleteness50at75 = this.repository.percentageOfTotalNumberCompleteness50at75();
-		percentageOfTotalNumberCompletenessMore75 = this.repository.percentageOfTotalNumberCompletenessMore75();
-		averageBudgetOfContract = this.repository.averageBudgetOfContract();
-		deviationBudgetOfContract = this.repository.deviationBudgetOfContract();
-		minimumBudgetOfContract = this.repository.minimumBudgetOfContract();
-		maximumBudgetOfContract = this.repository.maximumBudgetOfContract();
+		percentageOfTotalNumberCompleteness25 = this.repository.percentageOfTotalNumberCompleteness25(client).orElse(0);
+		percentageOfTotalNumberCompleteness25At50 = this.repository.percentageOfTotalNumberCompleteness25At50(client).orElse(0);
+		percentageOfTotalNumberCompleteness50at75 = this.repository.percentageOfTotalNumberCompleteness50at75(client).orElse(0);
+		percentageOfTotalNumberCompletenessMore75 = this.repository.percentageOfTotalNumberCompletenessMore75(client).orElse(0);
+		averageBudgetOfContract = this.repository.averageBudgetOfContract(client).orElse(0.0);
+		deviationBudgetOfContract = this.repository.deviationBudgetOfContract(client).orElse(0.0);
+		minimumBudgetOfContract = this.repository.minimumBudgetOfContract(client).orElse(0.0);
+		maximumBudgetOfContract = this.repository.maximumBudgetOfContract(client).orElse(0.0);
 
 		dashboard = new ClientDashboard();
 		dashboard.setPercentageOfTotalNumberCompleteness25(percentageOfTotalNumberCompleteness25);
