@@ -78,15 +78,15 @@ public class ManagerProjectUserStoryCreateService extends AbstractService<Manage
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("project"))
-			super.state(!object.getProject().isPublished(), "*", "manager.associatedWith.form.error.published");
+			super.state(!object.getProject().isPublished(), "*", "manager.projectUserStory.form.error.published");
 		if (!super.getBuffer().getErrors().hasErrors("*") && !super.getBuffer().getErrors().hasErrors("userStory")) {
 			ProjectUserStory existing = this.repository.findAssociationBetweenProjectIdAndUserStoryId(object.getProject().getId(), object.getUserStory().getId());
-			super.state(existing == null, "*", "manager.associatedWith.form.error.duplicatedRelation");
+			super.state(existing == null, "*", "manager.projectUserStory.form.error.duplicatedRelation");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("project") && !super.getBuffer().getErrors().hasErrors("userStory")) {
 			Manager projectManager = object.getProject().getManager();
 			Manager userStoryManager = object.getUserStory().getManager();
-			super.state(projectManager.getId() == userStoryManager.getId(), "*", "manager.associatedWith.form.error.sameManager");
+			super.state(projectManager.getId() == userStoryManager.getId(), "*", "manager.projectUserStory.form.error.sameManager");
 		}
 	}
 
@@ -132,12 +132,12 @@ public class ManagerProjectUserStoryCreateService extends AbstractService<Manage
 
 		for (final UserStory us : userStoriesManager)
 			if (object.getUserStory() != null && object.getUserStory().getId() == us.getId())
-				choices.add( //
-					Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), //
+				choices.add( 
+					Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), 
 					true);
 			else
-				choices.add( //
-					Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), //
+				choices.add( 
+					Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), 
 					false);
 
 		dataset.put("userStory", choices.getSelected().getKey());
