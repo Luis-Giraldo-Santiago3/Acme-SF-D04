@@ -2,6 +2,7 @@
 package acme.features.client.contract;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -74,9 +75,14 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 			existing = this.repository.findOneContractByCode(object.getCode());
 			super.state(existing == null, "code", "client.contract.form.error.duplicated");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("instantiationMoment")) {
+			Date present = new Date(2022, 7, 30, 0, 0);
+			super.state(present.before(object.getInstantiationMoment()), "instantiationMoment", "client.contract.form.error.moment");
+
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("budget"))
-			super.state(totalAmount < object.getProject().getCost() * converterHourToEUR, "budget", "client.contract.form.error.higher-cost");
+			super.state(totalAmount <= object.getProject().getCost() * converterHourToEUR, "budget", "client.contract.form.error.higher-cost");
 	}
 
 	@Override
@@ -90,7 +96,6 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 	public void unbind(final Contract object) {
 		assert object != null;
 
-		int clientId;
 		Collection<Project> projects;
 		SelectChoices choices;
 		Dataset dataset;
