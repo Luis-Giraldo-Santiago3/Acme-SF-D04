@@ -9,7 +9,7 @@ client.contract.form.label.providerName = ProviderName:
 client.contract.form.label.customerName = CustomerName:
 client.contract.form.label.goals = Goals:
 client.contract.form.label.budget = Budget:
-cleint.contract.form.label.project = Projects
+client.contract.form.label.project = Projects
 		
 client.contract.form.button.progressLog = ProgressLog
 client.contract.form.button.publish = Publish
@@ -27,6 +27,6 @@ client.contract.form.button.create = Create
 client.contract.form.button.update = Update contract
 client.contract.form.button.delete = Delete contract
 
-client.contract.form.error.duplicated = This reference is taken
+client.contract.form.error.duplicated = This code is taken
 client.contract.form.error.higher-cost = The budget can be higher than project cost
 client.contract.form.error.moment = The instantiation moment cannot be after 07/30/2022 at 00:00

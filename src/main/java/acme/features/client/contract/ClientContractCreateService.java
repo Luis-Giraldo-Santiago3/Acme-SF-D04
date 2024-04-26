@@ -77,7 +77,7 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		}
 		if (!super.getBuffer().getErrors().hasErrors("instantiationMoment")) {
 			Date present = new Date(2022, 7, 30, 0, 0);
-			super.state(present.before(object.getInstantiationMoment()), "instantiationMoment", "client.contract.form.error.moment");
+			super.state(present.after(object.getInstantiationMoment()), "instantiationMoment", "client.contract.form.error.moment");
 
 		}
 

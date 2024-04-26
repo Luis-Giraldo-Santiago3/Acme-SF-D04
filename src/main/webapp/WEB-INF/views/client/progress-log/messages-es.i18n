@@ -22,3 +22,6 @@ client.ProgressLog.list.label.registrationMoment = Momento de registro
 client.ProgressLog.list.label.responsiblePerson = Persona responsable
 
 client.ProgressLog.list.button.create = Crear
+
+client.progressLog.form.error.duplicated = Este recordId no está libre
+client.progresslog.form.error.registrationMoment = El momento de registro no puede ser después del 30/07/2022 a las 00:00
