@@ -69,13 +69,6 @@ user-account-manager-29,true,"UserIdentity{name: 'Luis', surname: 'Giraldo', ema
 user-account-manager-30,true,"UserIdentity{name: 'David', surname: 'Guillén', email: 'davidGuillen@acme.com'}",manager30,manager30
 user-account-manager-31,true,"UserIdentity{name: 'Luis', surname: 'Giraldo', email: 'luisGiraldo@acme.com'}",manager31,manager31
 user-account-manager-32,true,"UserIdentity{name: 'David', surname: 'Guillén', email: 'davidGuillen@acme.com'}",manager32,manager32
-user-account-manager-33,true,"UserIdentity{name: 'Luis', surname: 'Giraldo', email: 'luisGiraldo@acme.com'}",manager33,manager33
-user-account-manager-34,true,"UserIdentity{name: 'David', surname: 'Guillén', email: 'davidGuillen@acme.com'}",manager34,manager34
-user-account-manager-35,true,"UserIdentity{name: 'Luis', surname: 'Giraldo', email: 'luisGiraldo@acme.com'}",manager35,manager35
-user-account-manager-36,true,"UserIdentity{name: 'David', surname: 'Guillén', email: 'davidGuillen@acme.com'}",manager36,manager36
-user-account-manager-37,true,"UserIdentity{name: 'David', surname: 'Guillén', email: 'davidGuillen@acme.com'}",manager37,manager37
-user-account-manager-38,true,"UserIdentity{name: 'David', surname: 'Guillén', email: 'davidGuillen@acme.com'}",manager38,manager38
-user-account-manager-39,true,"UserIdentity{name: 'David', surname: 'Guillén', email: 'davidGuillen@acme.com'}",manager39,manager39
 user-account-auditor-01,true,"UserIdentity{name: 'Rafael', surname: 'Molina', email: 'rafaelMolina@acme.com'}",auditor1,auditor1
 user-account-auditor-02,true,"UserIdentity{name: 'Rafael', surname: 'García', email: 'rafaelGarcía@acme.com'}",auditor2,auditor2
 user-account-sponsor-01,true,"UserIdentity{name: 'Sponsor1', surname: 'AcmeSF', email: 'sponsor1@acmesf.com'}",sponsor1,sponsor1

@@ -78,12 +78,12 @@ public class ManagerProjectUserStoryDeleteService extends AbstractService<Manage
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("project"))
-			super.state(!object.getProject().isPublished(), "*", "manager.associatedWith.form.error.published");
+			super.state(!object.getProject().isPublished(), "*", "manager.projectUserStory.form.error.published");
 		if (!super.getBuffer().getErrors().hasErrors("userStory"))
-			super.state(object.getUserStory() != null, "userStory", "manager.associatedWith.form.error.notSelected");
+			super.state(object.getUserStory() != null, "userStory", "manager.projectUserStory.form.error.notSelected");
 		if (!super.getBuffer().getErrors().hasErrors("*") && !super.getBuffer().getErrors().hasErrors("userStory")) {
 			ProjectUserStory existing = this.repository.findAssociationBetweenProjectIdAndUserStoryId(object.getProject().getId(), object.getUserStory().getId());
-			super.state(existing != null, "*", "manager.associatedWith.form.error.mustBeDuplicated");
+			super.state(existing != null, "*", "manager.projectUserStory.form.error.mustBeDuplicated");
 		}
 	}
 
@@ -126,13 +126,10 @@ public class ManagerProjectUserStoryDeleteService extends AbstractService<Manage
 
 		for (final UserStory us : userStoriesAssociated)
 			if (object.getUserStory() != null && object.getUserStory().getId() == us.getId())
-				choices.add( //
-					Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), //
-					true);
+				choices.add(Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), true);
 			else
 				choices.add( //
-					Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), //
-					false);
+					Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), false);
 
 		dataset.put("userStory", choices.getSelected().getKey());
 		dataset.put("userStories", choices);

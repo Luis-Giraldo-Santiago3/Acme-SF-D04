@@ -22,9 +22,9 @@ manager.projectUserStory.form.label.userStory = Historia de usuario:
 manager.projectUserStory.form.button.add = Añadir historia de usuario
 manager.projectUserStory.form.button.remove = Eliminar historia de usuario
 
-manager.project-user-story.form.error.published =  El proyecto está publicado, no puede modificarse
-manager.project-user-story.form.error.duplicatedRelation = Ya está esa historia de usuario en este proyecto
-manager.project-user-story.form.error.sameManager = La historia de usuario y el proyecto tiene que tener el mismo gerente
-manager.project-user-story.form.error.notSelected = No has seleccionado ninguna historia de usuario
-manager.project-user-story.form.error.mustBeDuplicated = No puedes borrar una historia de usuario que no esta en el proyecto
+manager.projectUserStory.form.error.published =  El proyecto está publicado, no puede modificarse
+manager.projectUserStory.form.error.duplicatedRelation = Ya está esa historia de usuario en este proyecto
+manager.projectUserStory.form.error.sameManager = La historia de usuario y el proyecto tiene que tener el mismo gerente
+manager.projectUserStory.form.error.notSelected = No has seleccionado ninguna historia de usuario
+manager.projectUserStory.form.error.mustBeDuplicated = No puedes borrar una historia de usuario que no esta en el proyecto
 
