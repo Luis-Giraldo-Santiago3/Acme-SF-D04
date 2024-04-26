@@ -30,4 +30,3 @@ client.contract.form.button.delete = Delete contract
 client.contract.form.error.duplicated = This code is taken
 client.contract.form.error.higher-cost = The budget can be higher than project cost
 client.contract.form.error.moment = The instantiation moment cannot be after 07/30/2022 at 00:00
-client.contract.form.error.moment = The instantiation moment cannot be before 01/01/2000 at 00:00

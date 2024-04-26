@@ -86,12 +86,6 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 			super.state(present.after(object.getInstantiationMoment()), "instantiationMoment", "client.contract.form.error.moment");
 
 		}
-
-		if (!super.getBuffer().getErrors().hasErrors("instantiationMoment")) {
-			Date present = new Date(2000, 1, 1, 0, 0);
-			super.state(present.before(object.getInstantiationMoment()), "instantiationMoment", "client.contract.form.error.moment2");
-
-		}
 		if (!super.getBuffer().getErrors().hasErrors("budget"))
 
 			super.state(totalAmount * object.getBudget().getAmount() < object.getProject().getCost(), "budget", "client.contract.form.error.higher-cost");
