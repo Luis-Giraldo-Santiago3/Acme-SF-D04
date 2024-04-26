@@ -21,3 +21,6 @@ client.ProgressLog.list.label.registrationMoment = Registration Moment
 client.ProgressLog.list.label.responsiblePerson = Responsible Person
 
 client.ProgressLog.list.button.create = Create
+
+client.progresslog.form.error.duplicated = This recordId is taken
+client.progresslog.form.error.registrationMoment = The instantiation moment cannot be after 07/30/2022 at 00:00

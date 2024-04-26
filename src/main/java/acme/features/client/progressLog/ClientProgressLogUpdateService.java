@@ -1,6 +1,8 @@
 
 package acme.features.client.progressLog;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,6 +57,19 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 	@Override
 	public void validate(final ProgressLog object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("recordId")) {
+			ProgressLog existing;
+			existing = this.repository.findOneProgressLogtByRecordId(object.getRecordId());
+			final ProgressLog progressLog2 = object.getRecordId().equals("") || object.getRecordId() == null ? null : this.repository.findOneProgressLogtByRecordId(object.getRecordId());
+			super.state(existing == null || progressLog2.equals(existing), "code", "client.progresslog.form.error.code");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("registrationMoment")) {
+			Date present = new Date(2022, 7, 30, 0, 0);
+			super.state(present.after(object.getRegistrationMoment()), "registrationMoment", "client.progresslog.form.error.registrationMoment");
+
+		}
 	}
 
 	@Override

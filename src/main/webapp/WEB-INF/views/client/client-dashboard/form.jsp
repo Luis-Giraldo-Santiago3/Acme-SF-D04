@@ -78,10 +78,108 @@
 	</tr>
 </table>
 
+<jstl:choose>
+	<jstl:when test="${percentageOfTotalNumberCompleteness25 != 0.0 || percentageOfTotalNumberCompleteness25At50 != 0.0 || percentageOfTotalNumberCompleteness50at75 != 0.0 || percentageOfTotalNumberCompletenessMore75 != 0.0}">
+		<h3><acme:message code="client.dashboard.form.label.progresslog.completeness"/></h3>
+		<div>
+			<canvas id="canvas"></canvas>
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var data = {
+					labels : [
+							"less25", "25to50", "50to75", "over75"
+					],
+					datasets : [
+						{
+							data : [
+								<jstl:out value="${percentageOfTotalNumberCompleteness25}"/>, 
+								<jstl:out value="${percentageOfTotalNumberCompleteness25At50}"/>,
+								<jstl:out value="${percentageOfTotalNumberCompleteness50at75}"/>,
+								<jstl:out value="${percentageOfTotalNumberCompletenessMore75}"/>,
+							],
+							backgroundColor: [
+								'rgb(210, 180, 222)',
+						    	'rgb(174, 214, 241)',
+						    	'rgb(171, 235, 198)',
+						      	'rgb(245, 203, 167)'
+						    ]
+						}
+					]
+				};
+	
+				var canvas, context;
+				canvas = document.getElementById("canvas");
+				context = canvas.getContext("2d");
+				new Chart(context, {
+					type : "doughnut",
+					data : data,
+				});
+			});
+		</script>
+	</jstl:when>
+</jstl:choose>
 
-<div>
-	<canvas id="canvas"></canvas>
-</div>
+
+<jstl:choose>
+	<jstl:when test="${averageBudgetOfContract != null && deviationBudgetOfContract != null && minimumBudgetOfContract != null && maximumBudgetOfContract != null}">
+
+		<h3><acme:message code="client.dashboard.form.label.contract.budget"/></h3>
+		<div>
+			<canvas id="canvas0"></canvas>
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var data = {
+					labels : [
+						"AVERAGE", "DEVIATION", "MIN","MAX"
+					],
+					datasets : [
+						{
+							data : [
+								<jstl:out value="${averageBudgetOfContract}"/>, 
+								<jstl:out value="${deviationBudgetOfContract}"/>, 
+								<jstl:out value="${minimumBudgetOfContract}"/>,
+								<jstl:out value="${maximumBudgetOfContract}"/>
+							],
+							backgroundColor: [
+								'rgb(210, 180, 222)',
+						    	'rgb(174, 214, 241)',
+						    	'rgb(171, 235, 198)',
+						      	'rgb(245, 203, 167)'
+						    ]
+						}
+					]
+				};	
+				
+				var options = {
+						scales : {
+							yAxes : [
+								{
+									ticks : {
+										suggestedMin : 0.0,
+										suggestedMax : 10000.0
+									}
+									}
+							]
+						},
+						legend : {
+							display : false
+						}
+					};
+				
+				var canvas, context;
+				canvas = document.getElementById("canvas0");
+				context = canvas.getContext("2d");
+				new Chart(context, {
+					type : "bar",
+					data : data,
+					options : options
+				});
+			});
+		</script>
+	</jstl:when>
+</jstl:choose>
 
 <acme:return/>
 

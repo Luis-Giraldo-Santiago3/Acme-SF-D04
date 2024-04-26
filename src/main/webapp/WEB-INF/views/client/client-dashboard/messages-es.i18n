@@ -13,3 +13,6 @@ client.dashboard.form.label.average-Budget-Of-Contract =  La media de presupuest
 client.dashboard.form.label.deviation-Budget-Of-Contract = Desviación típica de los presupuestos de los contratos
 client.dashboard.form.label.minimum-Budget-Of-Contract = Mínimo presupuesto de los contratos
 client.dashboard.form.label.maximum-Budget-Of-Contract = Máximo presupuesto de los contratos
+
+client.dashboard.form.label.progresslog.completeness = Gráfica de los porcentages de los registros de progresos completados
+client.dashboard.form.label.contract.budget = Gráfica del presupuesto de los contratos

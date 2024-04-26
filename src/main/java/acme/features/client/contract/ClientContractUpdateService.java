@@ -2,6 +2,7 @@
 package acme.features.client.contract;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,6 +73,19 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 		double totalAmount = contractsFiltered.stream().map(x -> x.getBudget().getAmount()).collect(Collectors.summingDouble(x -> x));
 		assert object != null;
 
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Contract existing;
+			existing = this.repository.findOneContractByCode(object.getCode());
+			final Contract contract2 = object.getCode().equals("") || object.getCode() == null ? null : this.repository.findOneContractById(object.getId());
+			super.state(existing == null || contract2.equals(existing), "code", "client.contract.form.error.code");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("instantiationMoment")) {
+			Date present = new Date(2022, 7, 30, 0, 0);
+			super.state(present.after(object.getInstantiationMoment()), "instantiationMoment", "client.contract.form.error.moment");
+
+		}
+
 		if (!super.getBuffer().getErrors().hasErrors("budget"))
 
 			super.state(totalAmount * object.getBudget().getAmount() < object.getProject().getCost(), "budget", "client.contract.form.error.higher-cost");
@@ -88,13 +102,11 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 	public void unbind(final Contract object) {
 		assert object != null;
 
-		int clientId;
 		Collection<Project> projects;
 		SelectChoices choices;
 		Dataset dataset;
 
-		clientId = super.getRequest().getPrincipal().getActiveRoleId();
-		projects = this.repository.findManyProjectsByClientId(clientId);
+		projects = this.repository.findAllProjectsPublished();
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 

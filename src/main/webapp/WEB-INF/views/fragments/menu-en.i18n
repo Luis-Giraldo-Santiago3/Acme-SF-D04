@@ -22,8 +22,6 @@ master.menu.anonymous.favourite-link-rafmolgar2 = 32086160X: Molina García, Raf
 master.menu.anonymous.favourite-link-luigirsan1 = 29537801M: Giraldo Santiago, Luis
 master.menu.anonymous.favourite-link-alevarmun1 = 21015313Y: Vargas Muñiz, Alejandro
 master.menu.anonymous.favourite-link-davguifer = 45970470W: Guillén Fernández, David
-
-
 master.menu.anonymous.favourite-link-davvarmun = 21015312M: Vargas Muñiz, David
 
 # master.menu.administrator ###################################################
@@ -86,6 +84,8 @@ master.menu.provider.favourite-link = Favourite link
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
+master.menu.user-account.client = Client data
+master.menu.user-account.become-client = Become a client
 master.menu.user-account.general-data = General data
 master.menu.user-account.manager = Manager data
 master.menu.user-account.become-manager = Become a manager

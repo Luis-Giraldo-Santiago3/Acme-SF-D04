@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.consumer;
+package acme.features.authenticated.client;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,15 +21,15 @@ import acme.client.data.accounts.UserAccount;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractService;
-import acme.roles.Consumer;
+import acme.roles.Client;
 
 @Service
-public class AuthenticatedConsumerCreateService extends AbstractService<Authenticated, Consumer> {
+public class AuthenticatedClientCreateService extends AbstractService<Authenticated, Client> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedConsumerRepository repository;
+	private AuthenticatedClientRepository repository;
 
 	// AbstractService<Authenticated, Consumer> ---------------------------
 
@@ -41,7 +41,7 @@ public class AuthenticatedConsumerCreateService extends AbstractService<Authenti
 
 	@Override
 	public void load() {
-		Consumer object;
+		Client object;
 		Principal principal;
 		int userAccountId;
 		UserAccount userAccount;
@@ -50,36 +50,36 @@ public class AuthenticatedConsumerCreateService extends AbstractService<Authenti
 		userAccountId = principal.getAccountId();
 		userAccount = this.repository.findOneUserAccountById(userAccountId);
 
-		object = new Consumer();
+		object = new Client();
 		object.setUserAccount(userAccount);
 
 		super.getBuffer().addData(object);
 	}
 
 	@Override
-	public void bind(final Consumer object) {
+	public void bind(final Client object) {
 		assert object != null;
 
-		super.bind(object, "company", "sector");
+		super.bind(object, "identification", "companyName", "type", "email", "link");
 	}
 
 	@Override
-	public void validate(final Consumer object) {
+	public void validate(final Client object) {
 		assert object != null;
 	}
 
 	@Override
-	public void perform(final Consumer object) {
+	public void perform(final Client object) {
 		assert object != null;
 
 		this.repository.save(object);
 	}
 
 	@Override
-	public void unbind(final Consumer object) {
+	public void unbind(final Client object) {
 		Dataset dataset;
 
-		dataset = super.unbind(object, "company", "sector");
+		dataset = super.unbind(object, "identification", "companyName", "type", "email", "link");
 
 		super.getResponse().addData(dataset);
 	}

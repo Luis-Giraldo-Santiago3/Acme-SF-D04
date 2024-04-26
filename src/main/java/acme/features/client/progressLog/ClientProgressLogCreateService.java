@@ -1,6 +1,8 @@
 
 package acme.features.client.progressLog;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -69,6 +71,12 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 
 			existing = this.repository.findOneProgressLogtByRecordId(object.getRecordId());
 			super.state(existing == null, "recordId", "client.progressLog.form.error.duplicated");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("registrationMoment")) {
+			Date present = new Date(2022, 7, 30, 0, 0);
+			super.state(present.after(object.getRegistrationMoment()), "registrationMoment", "client.progresslog.form.error.registrationMoment");
+
 		}
 	}
 
