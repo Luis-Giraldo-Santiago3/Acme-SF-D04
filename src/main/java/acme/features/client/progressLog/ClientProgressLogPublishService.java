@@ -70,6 +70,12 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 			super.state(present.after(object.getRegistrationMoment()), "registrationMoment", "client.progresslog.form.error.registrationMoment");
 
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("registrationMoment")) {
+			Date present = new Date(2000, 1, 1, 0, 0);
+			super.state(present.before(object.getRegistrationMoment()), "registrationMoment", "client.progresslog.form.error.registrationMoment2");
+
+		}
 	}
 
 	@Override

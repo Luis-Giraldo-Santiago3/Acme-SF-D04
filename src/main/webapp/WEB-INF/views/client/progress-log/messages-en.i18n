@@ -24,3 +24,4 @@ client.ProgressLog.list.button.create = Create
 
 client.progresslog.form.error.duplicated = This recordId is taken
 client.progresslog.form.error.registrationMoment = The instantiation moment cannot be after 07/30/2022 at 00:00
+client.progresslog.form.error.registrationMoment2 = The instantiation moment cannot be before 01/01/2000 at 00:00
