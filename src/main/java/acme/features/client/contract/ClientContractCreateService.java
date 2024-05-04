@@ -4,7 +4,6 @@ package acme.features.client.contract;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -63,11 +62,8 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 
 	@Override
 	public void validate(final Contract object) {
-		Collection<Contract> listAllContracts = this.repository.findAllContract();
-		Collection<Contract> contractsFiltered = listAllContracts.stream().filter(x -> x.getProject().getId() == object.getProject().getId()).toList();
-		double totalAmount = contractsFiltered.stream().map(x -> x.getBudget().getAmount()).collect(Collectors.summingDouble(x -> x));
-		double converterHourToEUR = 24;
 		assert object != null;
+		Date past = new Date(946681199000L);
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Contract existing;
@@ -75,14 +71,14 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 			existing = this.repository.findOneContractByCode(object.getCode());
 			super.state(existing == null, "code", "client.contract.form.error.duplicated");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("instantiationMoment")) {
-			Date present = new Date(2022, 7, 30, 0, 0);
-			super.state(present.after(object.getInstantiationMoment()), "instantiationMoment", "client.contract.form.error.moment");
+		if (!super.getBuffer().getErrors().hasErrors("instantiationMoment"))
+			super.state(object.getInstantiationMoment().after(past), "instantiationMoment", "client.contract.form.error.moment");
 
+		if (!super.getBuffer().getErrors().hasErrors("budget")) {
+			super.state(object.getBudget().getAmount() <= 1000000.00, "budget", "client.contract.form.error.higher-amount");
+			super.state(object.getBudget().getAmount() >= -1000000.00, "budget", "client.contract.form.error.lower-amount");
+			super.state(object.getBudget().getCurrency().equals("EUR"), "budget", "client.contract.form.error.currency");
 		}
-
-		if (!super.getBuffer().getErrors().hasErrors("budget"))
-			super.state(totalAmount <= object.getProject().getCost() * converterHourToEUR, "budget", "client.contract.form.error.higher-cost");
 	}
 
 	@Override

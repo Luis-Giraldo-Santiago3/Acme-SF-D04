@@ -20,7 +20,7 @@ client.contract.list.label.providerName = ProviderName
 client.contract.list.label.customerName = CustomerName
 client.contract.list.label.goals = Goals
 client.contract.list.label.budget = Budget
-
+client.contract.form.label.projectTitle = Project Title
 
 client.contract.list.button.create = Create contract
 client.contract.form.button.create = Create
@@ -29,4 +29,7 @@ client.contract.form.button.delete = Delete contract
 
 client.contract.form.error.duplicated = This code is taken
 client.contract.form.error.higher-cost = The budget can be higher than project cost
-client.contract.form.error.moment = The instantiation moment cannot be after 07/30/2022 at 00:00
+client.contract.form.error.higher-amount = A budget cannot be greater than 1000000.00
+client.contract.form.error.lower-amount = A budget cannot be lower than -1000000.00
+client.contract.form.error.currency = The currency can only be EUR
+client.contract.form.error.moment = The instantiation moment cannot be before 01/01/2000 at 00:00

@@ -14,14 +14,17 @@
 	<acme:input-textbox code="client.contract.form.label.customerName" path="customerName"/>
 	<acme:input-textbox code="client.contract.form.label.goals" path="goals"/>
 	<acme:input-money code="client.contract.form.label.budget" path="budget" />
-
 	<jstl:choose>
 		<jstl:when test="${_command == 'show'}">
-			<acme:input-textbox code="client.contract.form.label.project" path="project"/>		
+			<acme:input-textbox code="client.contract.form.label.projectTitle" path="projectTitle"/>
+			<acme:input-integer code="client.contract.form.label.project" path="project" readonly="true"/>		
 		</jstl:when>
-		<jstl:when test="${_command == 'update|delete|publish'}">
+		<jstl:when test="${acme:anyOf(_command, 'update|delete|publish')}">
 			<acme:input-select code="client.contract.form.label.project" path="project" choices="${projects}"/>		
 		</jstl:when>
+	</jstl:choose>
+
+	<jstl:choose>
 		<jstl:when test="${_command == 'show' && published == true}">
 			<acme:button code="client.contract.form.button.progressLog" action="/client/progress-log/list?masterId=${id}"/>			
 		</jstl:when>

@@ -65,6 +65,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 	@Override
 	public void validate(final ProgressLog object) {
 		assert object != null;
+		Date past = new Date(946681199000L);
 
 		if (!super.getBuffer().getErrors().hasErrors("recordId")) {
 			ProgressLog existing;
@@ -73,11 +74,8 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 			super.state(existing == null, "recordId", "client.progressLog.form.error.duplicated");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("registrationMoment")) {
-			Date present = new Date(2022, 7, 30, 0, 0);
-			super.state(present.after(object.getRegistrationMoment()), "registrationMoment", "client.progresslog.form.error.registrationMoment");
-
-		}
+		if (!super.getBuffer().getErrors().hasErrors("registrationMoment"))
+			super.state(object.getRegistrationMoment().after(past), "registrationMoment", "client.progresslog.form.error.registrationMoment");
 	}
 
 	@Override

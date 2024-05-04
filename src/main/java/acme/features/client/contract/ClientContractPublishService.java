@@ -70,9 +70,11 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 	@Override
 	public void validate(final Contract object) {
 		assert object != null;
+		Date past = new Date(946681199000L);
 		Collection<Contract> listAllContracts = this.repository.findAllContract();
 		Collection<Contract> contractsFiltered = listAllContracts.stream().filter(x -> x.getProject().getId() == object.getProject().getId()).toList();
 		double totalAmount = contractsFiltered.stream().map(x -> x.getBudget().getAmount()).collect(Collectors.summingDouble(x -> x));
+		double converterHourToEUR = 24;
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Contract existing;
@@ -81,14 +83,16 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 			super.state(existing == null || contract2.equals(existing), "code", "client.contract.form.error.code");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("instantiationMoment")) {
-			Date present = new Date(2022, 7, 30, 0, 0);
-			super.state(present.after(object.getInstantiationMoment()), "instantiationMoment", "client.contract.form.error.moment");
+		if (!super.getBuffer().getErrors().hasErrors("instantiationMoment"))
+			super.state(object.getInstantiationMoment().after(past), "instantiationMoment", "client.contract.form.error.moment");
 
+		if (!super.getBuffer().getErrors().hasErrors("budget")) {
+			double totalCost = object.getProject().getCost() * converterHourToEUR;
+			super.state(totalAmount <= totalCost, "budget", "client.contract.form.error.higher-cost");
+			super.state(object.getBudget().getAmount() <= 1000000.00, "budget", "client.contract.form.error.higher-amount");
+			super.state(object.getBudget().getAmount() >= -1000000.00, "budget", "client.contract.form.error.lower-amount");
+			super.state(object.getBudget().getCurrency().equals("EUR"), "budget", "client.contract.form.error.currency");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("budget"))
-
-			super.state(totalAmount * object.getBudget().getAmount() < object.getProject().getCost(), "budget", "client.contract.form.error.higher-cost");
 	}
 
 	@Override
@@ -102,14 +106,11 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 	@Override
 	public void unbind(final Contract object) {
 		assert object != null;
-
-		int clientId;
 		Collection<Project> projects;
 		SelectChoices choices;
 		Dataset dataset;
 
-		clientId = super.getRequest().getPrincipal().getActiveRoleId();
-		projects = this.repository.findManyProjectsByClientId(clientId);
+		projects = this.repository.findAllProjectsPublished();
 
 		choices = SelectChoices.from(projects, "title", object.getProject());
 
