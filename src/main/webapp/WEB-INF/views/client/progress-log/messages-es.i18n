@@ -24,4 +24,3 @@ client.ProgressLog.list.label.responsiblePerson = Persona responsable
 client.ProgressLog.list.button.create = Crear
 
 client.progressLog.form.error.duplicated = Este recordId no está libre
-client.progresslog.form.error.registrationMoment = El momento de registro no puede ser antes del 01/01/2000 a las 00:00

@@ -11,7 +11,11 @@
 	<acme:input-textbox code="client.ProgressLog.form.label.recordId" path="recordId"/>
 	<acme:input-double code="client.ProgressLog.form.label.completeness" path="completeness"/>
 	<acme:input-textarea code="client.ProgressLog.form.label.comment" path="comment"/>
-	<acme:input-moment code="client.ProgressLog.form.label.registrationMoment" path="registrationMoment"/>
+	<jstl:choose>
+		<jstl:when test="${_command == 'show'}">
+			<acme:input-moment code="client.ProgressLog.form.label.registrationMoment" path="registrationMoment"/>
+			</jstl:when>
+	</jstl:choose>
 	<acme:input-textbox code="client.ProgressLog.form.label.responsiblePerson" path="responsiblePerson"/>
 	
 	<jstl:choose>

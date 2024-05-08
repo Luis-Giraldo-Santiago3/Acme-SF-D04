@@ -33,4 +33,3 @@ client.contract.form.error.higher-cost = El presupuesto no puede ser mayor al co
 client.contract.form.error.higher-amount = El presupuesto no puede ser mayor a 1000000.00
 client.contract.form.error.lower-amount = El presupuesto no puede ser menor a 0.00
 client.contract.form.error.currency = La divisa solo puede ser EUR
-client.contract.form.error.moment = El momento de instanciación no puede ser antes del 01/01/2000 a las 00:00

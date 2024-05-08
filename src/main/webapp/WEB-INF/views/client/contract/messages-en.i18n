@@ -32,4 +32,3 @@ client.contract.form.error.higher-cost = The budget can be higher than project c
 client.contract.form.error.higher-amount = A budget cannot be greater than 1000000.00
 client.contract.form.error.lower-amount = A budget cannot be lower than 0.00
 client.contract.form.error.currency = The currency can only be EUR
-client.contract.form.error.moment = The instantiation moment cannot be before 01/01/2000 at 00:00
