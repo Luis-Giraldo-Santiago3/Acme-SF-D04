@@ -82,7 +82,7 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 
 		if (!super.getBuffer().getErrors().hasErrors("budget")) {
 			super.state(object.getBudget().getAmount() <= 1000000.00, "budget", "client.contract.form.error.higher-amount");
-			super.state(object.getBudget().getAmount() >= -1000000.00, "budget", "client.contract.form.error.lower-amount");
+			super.state(object.getBudget().getAmount() >= 0.00, "budget", "client.contract.form.error.lower-amount");
 			super.state(object.getBudget().getCurrency().equals("EUR"), "budget", "client.contract.form.error.currency");
 		}
 	}
