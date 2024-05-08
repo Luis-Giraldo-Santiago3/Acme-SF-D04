@@ -12,6 +12,9 @@
 
 package acme.features.authenticated.client;
 
+import java.util.Collection;
+
+import org.mockito.ArgumentMatchers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -70,7 +73,7 @@ public class AuthenticatedClientCreateService extends AbstractService<Authentica
 			Client existing;
 
 			existing = this.repository.findOneClientByIdentification(object.getIdentification());
-			super.state(existing == null, "Identification", "authenticated.client.form.error.duplicated");
+			super.state(existing == null, "identification", "authenticated.client.form.error.duplicated");
 		}
 	}
 
@@ -85,6 +88,10 @@ public class AuthenticatedClientCreateService extends AbstractService<Authentica
 	public void unbind(final Client object) {
 		Dataset dataset;
 
+		Collection<String> companyName = ArgumentMatchers.anyCollection();
+
+		companyName.add("company");
+		companyName.add("individual");
 		dataset = super.unbind(object, "identification", "companyName", "type", "email", "link");
 
 		super.getResponse().addData(dataset);
