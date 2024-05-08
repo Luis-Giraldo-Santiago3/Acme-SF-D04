@@ -23,10 +23,14 @@ client.contract.form.label.customerName = Nombre del cliente:
 client.contract.form.label.goals = Metas:
 client.contract.form.label.budget = Presupuesto:
 client.contract.form.label.project = Proyectos:
+client.contract.form.label.projectTitle = Titulo del proyecto
 		
 client.contract.form.button.progressLog = Registros de progreso
 client.contract.form.button.publish = Publicar
 
 client.contract.form.error.duplicated = Este código no está libre
 client.contract.form.error.higher-cost = El presupuesto no puede ser mayor al coste del proyecto
-client.contract.form.error.moment = El momento de instanciación no puede ser después del 30/07/2022 a las 00:00
+client.contract.form.error.higher-amount = El presupuesto no puede ser mayor a 1000000.00
+client.contract.form.error.lower-amount = El presupuesto no puede ser menor a 0.00
+client.contract.form.error.currency = La divisa solo puede ser EUR
+client.contract.form.error.moment = El momento de instanciación no puede ser antes del 01/01/2000 a las 00:00
