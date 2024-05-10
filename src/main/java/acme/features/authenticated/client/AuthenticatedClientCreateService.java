@@ -12,9 +12,6 @@
 
 package acme.features.authenticated.client;
 
-import java.util.Collection;
-
-import org.mockito.ArgumentMatchers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +21,9 @@ import acme.client.data.accounts.UserAccount;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractService;
+import acme.client.views.SelectChoices;
 import acme.roles.Client;
+import acme.roles.Type;
 
 @Service
 public class AuthenticatedClientCreateService extends AbstractService<Authenticated, Client> {
@@ -88,11 +87,8 @@ public class AuthenticatedClientCreateService extends AbstractService<Authentica
 	public void unbind(final Client object) {
 		Dataset dataset;
 
-		Collection<String> companyName = ArgumentMatchers.anyCollection();
-
-		companyName.add("company");
-		companyName.add("individual");
 		dataset = super.unbind(object, "identification", "companyName", "type", "email", "link");
+		dataset.put("types", SelectChoices.from(Type.class, object.getType()));
 
 		super.getResponse().addData(dataset);
 	}
