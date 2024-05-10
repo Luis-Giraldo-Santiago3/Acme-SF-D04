@@ -1,12 +1,11 @@
 
 package acme.features.client.progressLog;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.student2.Contract;
 import acme.entities.student2.ProgressLog;
@@ -49,6 +48,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 		object.setRecordId("");
 		object.setComment("");
 		object.setResponsiblePerson("");
+		object.setRegistrationMoment(MomentHelper.getCurrentMoment());
 		object.setPublished(false);
 		object.setContract(contract);
 
@@ -59,13 +59,12 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 	public void bind(final ProgressLog object) {
 		assert object != null;
 
-		super.bind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson");
+		super.bind(object, "recordId", "completeness", "comment", "responsiblePerson");
 	}
 
 	@Override
 	public void validate(final ProgressLog object) {
 		assert object != null;
-		Date past = new Date(946681199000L);
 
 		if (!super.getBuffer().getErrors().hasErrors("recordId")) {
 			ProgressLog existing;
@@ -74,8 +73,6 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 			super.state(existing == null, "recordId", "client.progressLog.form.error.duplicated");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("registrationMoment"))
-			super.state(object.getRegistrationMoment().after(past), "registrationMoment", "client.progresslog.form.error.registrationMoment");
 	}
 
 	@Override

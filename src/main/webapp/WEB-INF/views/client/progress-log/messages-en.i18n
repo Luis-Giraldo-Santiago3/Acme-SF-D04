@@ -23,4 +23,3 @@ client.ProgressLog.list.label.responsiblePerson = Responsible Person
 client.ProgressLog.list.button.create = Create
 
 client.progresslog.form.error.duplicated = This recordId is taken
-client.progresslog.form.error.registrationMoment = The registration moment cannot be before 01/01/2000 at 00:00

@@ -20,7 +20,9 @@ import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractService;
+import acme.client.views.SelectChoices;
 import acme.roles.Client;
+import acme.roles.Type;
 
 @Service
 public class AuthenticatedClientUpdateService extends AbstractService<Authenticated, Client> {
@@ -85,6 +87,7 @@ public class AuthenticatedClientUpdateService extends AbstractService<Authentica
 		Dataset dataset;
 
 		dataset = super.unbind(object, "identification", "companyName", "type", "email", "link");
+		dataset.put("types", SelectChoices.from(Type.class, object.getType()));
 		super.getResponse().addData(dataset);
 	}
 

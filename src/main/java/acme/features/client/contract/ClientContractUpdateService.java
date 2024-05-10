@@ -2,12 +2,12 @@
 package acme.features.client.contract;
 
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.student1.Project;
@@ -47,6 +47,7 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneContractById(id);
+		object.setInstantiationMoment(MomentHelper.getCurrentMoment());
 
 		super.getBuffer().addData(object);
 	}
@@ -61,14 +62,13 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findOneProjectById(projectId);
 
-		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget");
+		super.bind(object, "code", "providerName", "customerName", "goals", "budget");
 		object.setProject(project);
 	}
 
 	@Override
 	public void validate(final Contract object) {
 		assert object != null;
-		Date past = new Date(946681199000L);
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Contract existing;
@@ -76,10 +76,6 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 			final Contract contract2 = object.getCode().equals("") || object.getCode() == null ? null : this.repository.findOneContractById(object.getId());
 			super.state(existing == null || contract2.equals(existing), "code", "client.contract.form.error.code");
 		}
-
-		if (!super.getBuffer().getErrors().hasErrors("instantiationMoment"))
-			super.state(object.getInstantiationMoment().after(past), "instantiationMoment", "client.contract.form.error.moment");
-
 		if (!super.getBuffer().getErrors().hasErrors("budget")) {
 			super.state(object.getBudget().getAmount() <= 1000000.00, "budget", "client.contract.form.error.higher-amount");
 			super.state(object.getBudget().getAmount() >= 0.00, "budget", "client.contract.form.error.lower-amount");

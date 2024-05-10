@@ -58,4 +58,12 @@ public interface ClientDashboardRepository extends AbstractRepository {
 	@Query("select c from Client c where c.userAccount.id = :id")
 	Client findOneClientByUserAccountId(int id);
 
+	// Proporciona el numero de historias de usuarios total del manager
+	@Query("select count(c) from Contract c WHERE (c.client = :client AND c.published = true)")
+	int findNumberContracts(Client client);
+
+	// Proporciona el numero de proyectos total del manager
+	@Query("select count(pl) from ProgressLog pl WHERE (pl.contract.client = :client AND pl.published = true)")
+	int findNumberProgressLogs(Client client);
+
 }

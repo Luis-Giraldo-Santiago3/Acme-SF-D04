@@ -21,7 +21,9 @@ import acme.client.data.accounts.UserAccount;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractService;
+import acme.client.views.SelectChoices;
 import acme.roles.Client;
+import acme.roles.Type;
 
 @Service
 public class AuthenticatedClientCreateService extends AbstractService<Authenticated, Client> {
@@ -70,7 +72,7 @@ public class AuthenticatedClientCreateService extends AbstractService<Authentica
 			Client existing;
 
 			existing = this.repository.findOneClientByIdentification(object.getIdentification());
-			super.state(existing == null, "Identification", "authenticated.client.form.error.duplicated");
+			super.state(existing == null, "identification", "authenticated.client.form.error.duplicated");
 		}
 	}
 
@@ -86,6 +88,7 @@ public class AuthenticatedClientCreateService extends AbstractService<Authentica
 		Dataset dataset;
 
 		dataset = super.unbind(object, "identification", "companyName", "type", "email", "link");
+		dataset.put("types", SelectChoices.from(Type.class, object.getType()));
 
 		super.getResponse().addData(dataset);
 	}
