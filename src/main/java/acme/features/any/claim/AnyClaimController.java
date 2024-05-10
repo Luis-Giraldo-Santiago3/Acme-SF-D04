@@ -22,7 +22,7 @@ public class AnyClaimController extends AbstractController<Any, Claim> {
 	private AnyClaimListService		listService;
 
 	@Autowired
-	private AnyClaimPublishService	publishService;
+	private AnyClaimCreateService	createService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -30,8 +30,8 @@ public class AnyClaimController extends AbstractController<Any, Claim> {
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
 		super.addCustomCommand("list-service", "list", this.listService);
-		super.addCustomCommand("publish", "update", this.publishService);
 	}
 
 }
