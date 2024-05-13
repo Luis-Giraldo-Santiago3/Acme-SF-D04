@@ -17,7 +17,14 @@
 			<acme:message code="client.dashboard.form.label.percentage-Of-Total-Number-Completeness-25"/>
 		</th>
 		<td>
-			<acme:print value="${percentageOfTotalNumberCompleteness25}"/>
+			<jstl:choose>
+				<jstl:when test="${percentageOfTotalNumberCompleteness25 != null}">
+					<acme:print value="${percentageOfTotalNumberCompleteness25}"/>
+				</jstl:when>
+				<jstl:when test="${percentageOfTotalNumberCompleteness25 == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
 		</td>
 	</tr>
 	<tr>
@@ -25,7 +32,14 @@
 			<acme:message code="client.dashboard.form.label.percentage-Of-Total-Number-Completeness-25-At-50"/>
 		</th>
 		<td>
-			<acme:print value="${percentageOfTotalNumberCompleteness25At50}"/>
+			<jstl:choose>
+				<jstl:when test="${percentageOfTotalNumberCompleteness25At50 != null}">
+					<acme:print value="${percentageOfTotalNumberCompleteness25At50}"/>
+				</jstl:when>
+				<jstl:when test="${percentageOfTotalNumberCompleteness25At50 == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
 		</td>
 	</tr>
 	<tr>
@@ -33,7 +47,14 @@
 			<acme:message code="client.dashboard.form.label.percentage-Of-Total-Number-Completeness-50-at-75"/>
 		</th>
 		<td>
-			<acme:print value="${percentageOfTotalNumberCompleteness50at75}"/>
+			<jstl:choose>
+				<jstl:when test="${percentageOfTotalNumberCompleteness50at75 != null}">
+					<acme:print value="${percentageOfTotalNumberCompleteness50at75}"/>
+				</jstl:when>
+				<jstl:when test="${percentageOfTotalNumberCompleteness50at75 == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
 		</td>
 	</tr>
 	<tr>
@@ -41,7 +62,14 @@
 			<acme:message code="client.dashboard.form.label.percentage-Of-Total-Number-Completeness-More-75"/>
 		</th>
 		<td>
-			<acme:print value="${percentageOfTotalNumberCompletenessMore75}"/>
+			<jstl:choose>
+				<jstl:when test="${percentageOfTotalNumberCompletenessMore75 != null}">
+					<acme:print value="${percentageOfTotalNumberCompletenessMore75}"/>
+				</jstl:when>
+				<jstl:when test="${percentageOfTotalNumberCompletenessMore75 == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
 		</td>
 	</tr>
 	<tr>
@@ -49,7 +77,14 @@
 			<acme:message code="client.dashboard.form.label.average-Budget-Of-Contract"/>
 		</th>
 		<td>
-			<acme:print value="${averageBudgetOfContract}"/>
+			<jstl:choose>
+				<jstl:when test="${averageBudgetOfContract != null}">
+					<acme:print value="${averageBudgetOfContract}"/>
+				</jstl:when>
+				<jstl:when test="${averageBudgetOfContract == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
 		</td>
 	</tr>
 	<tr>
@@ -57,7 +92,14 @@
 			<acme:message code="client.dashboard.form.label.deviation-Budget-Of-Contract"/>
 		</th>
 		<td>
-			<acme:print value="${deviationBudgetOfContract}"/>
+			<jstl:choose>
+				<jstl:when test="${deviationBudgetOfContract != null}">
+					<acme:print value="${deviationBudgetOfContract}"/>
+				</jstl:when>
+				<jstl:when test="${deviationBudgetOfContract == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
 		</td>
 	</tr>
 	<tr>
@@ -79,6 +121,10 @@
 </table>
 
 <jstl:choose>
+	<jstl:when test="${percentageOfTotalNumberCompleteness25 == null && percentageOfTotalNumberCompleteness25At50 == null && percentageOfTotalNumberCompleteness50at75 == null && percentageOfTotalNumberCompletenessMore75 == null}">
+		<h3><acme:message code="client.dashboard.form.label.progresslog.completeness"/></h3>
+		<acme:print value="N/A"/>
+	</jstl:when>
 	<jstl:when test="${percentageOfTotalNumberCompleteness25 != 0.0 || percentageOfTotalNumberCompleteness25At50 != 0.0 || percentageOfTotalNumberCompleteness50at75 != 0.0 || percentageOfTotalNumberCompletenessMore75 != 0.0}">
 		<h3><acme:message code="client.dashboard.form.label.progresslog.completeness"/></h3>
 		<div>
@@ -123,7 +169,6 @@
 
 <jstl:choose>
 	<jstl:when test="${averageBudgetOfContract != null && deviationBudgetOfContract != null && minimumBudgetOfContract != null && maximumBudgetOfContract != null}">
-
 		<h3><acme:message code="client.dashboard.form.label.contract.budget"/></h3>
 		<div>
 			<canvas id="canvas0"></canvas>
@@ -178,6 +223,10 @@
 				});
 			});
 		</script>
+	</jstl:when>
+	<jstl:when test="${averageBudgetOfContract == null && deviationBudgetOfContract == null}">
+		<h3><acme:message code="client.dashboard.form.label.contract.budget"/></h3>
+		<acme:print value="N/A"/>
 	</jstl:when>
 </jstl:choose>
 
