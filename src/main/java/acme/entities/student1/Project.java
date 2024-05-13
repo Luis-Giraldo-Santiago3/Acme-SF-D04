@@ -10,7 +10,6 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -46,7 +45,6 @@ public class Project extends AbstractEntity {
 
 	private boolean				fatalErrors;
 
-	@Positive
 	@Min(0)
 	@Max(10000)
 	private int					cost;
