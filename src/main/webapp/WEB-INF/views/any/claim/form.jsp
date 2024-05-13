@@ -17,23 +17,19 @@
 
 <acme:form> 
 	<acme:input-textbox code="any.claim.form.label.code" path="code"/>
-	<acme:input-moment code="any.claim.form.label.instantiationMoment" path="instantiationMoment"/>
+		<jstl:if test="${_command == 'show'}">
+		<acme:input-moment code="any.claim.form.label.instantiationMoment" path="instantiationMoment"/>
+	</jstl:if>
 	<acme:input-integer code="any.claim.form.label.heading" path="heading"/>
 	<acme:input-textarea code="any.claim.form.label.description" path="description"/>
 	<acme:input-textbox code="any.claim.form.label.department" path="department"/>
 	<acme:input-url code="any.claim.form.label.email" path="email"/>
 	<acme:input-textbox code="any.claim.form.label.link" path="link"/>
 	
-	<jstl:choose>
-		<jstl:when test="${_command == 'show' && published == false}">
-			<acme:submit code="any.claim.form.button.publish" action="/any/claim/publish"/>
-		</jstl:when>
-		<jstl:when test="${_command == 'show' && published == true}">
-			<acme:input-checkbox code="any.claim.form.label.published" path="published" readonly = "true"/>
-		
-		</jstl:when>		
-	</jstl:choose>
+	<jstl:if test="${_command == 'create'}">
+		<acme:submit code="any.claim.form.button.create" action="/any/claim/create"/>
+	</jstl:if>
 	
-	
+
 	
 </acme:form>

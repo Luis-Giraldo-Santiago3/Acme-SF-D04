@@ -20,6 +20,7 @@ manager.project.form.label.cost= Coste
 manager.project.form.label.link = Link
 manager.project.form.error.duplicated = El código del proyecto está duplicado
 manager.project.form.error.nouserstory = El proyecto no tiene historias de usuario
+ manager.project.form.error.userstorynotpublish = El proyecto tiene historias de usuario no publicadas
 manager.project.form.error.allUserStoryNotpublished = Todas las historias tienen que estar publicadas
 manager.project.form.error.fatalErrors = El proyecto tiene errores fatales
 manager.project.form.label.manager = Gerente
