@@ -49,7 +49,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 		object.setComment("");
 		object.setResponsiblePerson("");
 		object.setRegistrationMoment(MomentHelper.getCurrentMoment());
-		object.setPublished(false);
+		object.setPublished(contract.isPublished());
 		object.setContract(contract);
 
 		super.getBuffer().addData(object);
