@@ -31,7 +31,9 @@
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">
 			<acme:submit code="auditor.codeAudit.form.button.delete" action="/auditor/code-audit/delete"/>
 			<acme:submit code="auditor.codeAudit.form.button.update" action="/auditor/code-audit/update"/>
+			<acme:submit code="auditor.codeAudit.form.button.publish" action="/auditor/code-audit/publish"/>
 			<acme:button code="auditor.auditRecord.form.button.list" action="/auditor/audit-record/list?masterId=${id}"/>
+			
 		</jstl:when>
 		<jstl:when test="${published == true}">
 			<acme:button code="auditor.auditRecord.form.button.list" action="/auditor/audit-record/list?masterId=${id}"/>

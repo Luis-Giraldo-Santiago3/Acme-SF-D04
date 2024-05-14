@@ -20,7 +20,12 @@ auditor.codeAudit.form.label.correctiveActions = corrective actions
 auditor.codeAudit.form.label.link = link
 auditor.codeAudit.form.label.published = published
 
+
 auditor.codeAudit.form.error.duplicated = code audit code is duplicated
+auditor.codeAudit.form.error.auditRecordsNotPublished = All audit records have'nt been published
+auditor.codeAudit.form.error.low = Mark too low
+auditor.codeAudit.form.error.executionDateError = Date can't be below 1999-12-31 23:00
+
 auditor.codeAudit.list.label.code = code
 auditor.codeAudit.list.label.executionDate = execution date
 auditor.codeAudit.list.label.mark = mark
@@ -33,3 +38,4 @@ auditor.codeAudit.form.button.create = create code audit
 auditor.codeAudit.list.button.create = create code audit
 auditor.codeAudit.form.button.delete = delete code audit
 auditor.codeAudit.form.button.update = update code audit
+auditor.codeAudit.form.button.publish = publish code audit

@@ -1,10 +1,14 @@
 
 package acme.features.auditor.codeAudit;
 
+import java.time.Instant;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.student5.CodeAudit;
@@ -18,7 +22,9 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuditorCodeAuditRepository repository;
+	private AuditorCodeAuditRepository	repository;
+
+	private Date						lowestMoment	= Date.from(Instant.parse("1999-12-31T23:00:00Z"));
 
 	// AbstractService interface ----------------------------------------------
 
@@ -57,6 +63,11 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 			existing = this.repository.findOneCodeAuditByCode(object.getCode());
 			super.state(existing == null, "code", "auditor.codeAudit.form.error.duplicated");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("executionDate")) {
+			Date executionDate = object.getExecutionDate();
+
+			super.state(MomentHelper.isAfter(executionDate, this.lowestMoment), "executionDate", "auditor.codeAudit.form.error.executionDateError");
+		}
 	}
 
 	@Override
@@ -74,7 +85,7 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 		Dataset dataset;
 
 		mark = object.getMark(this.repository.findManyMarksByCodeAuditId(object.getId()));
-		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "link", "published");
+		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "link");
 		dataset.put("mark", mark == null ? null : mark.getMark());
 		dataset.put("types", SelectChoices.from(Type.class, object.getType()));
 		dataset.put("auditor", object.getAuditor().getUserAccount().getUsername());

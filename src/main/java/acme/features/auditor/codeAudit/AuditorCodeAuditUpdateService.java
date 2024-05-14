@@ -1,10 +1,14 @@
 
 package acme.features.auditor.codeAudit;
 
+import java.time.Instant;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.student5.CodeAudit;
@@ -18,9 +22,11 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuditorCodeAuditRepository repository;
+	private AuditorCodeAuditRepository	repository;
 
-	// AbstractService<Employer, Job> -------------------------------------
+	private Date						lowestMoment	= Date.from(Instant.parse("1999-12-31T23:00:00Z"));
+
+	// AbstractService interface -------------------------------------
 
 
 	@Override
@@ -67,6 +73,11 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 			existing = this.repository.findOneCodeAuditByCode(object.getCode());
 			if (!(object.getId() == existing.getId()))
 				super.state(existing == null, "code", "auditor.codeAudit.form.error.duplicated");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("executionDate")) {
+			Date executionDate = object.getExecutionDate();
+
+			super.state(MomentHelper.isAfter(executionDate, this.lowestMoment), "executionDate", "auditor.codeAudit.form.error.executionDateError");
 		}
 	}
 
