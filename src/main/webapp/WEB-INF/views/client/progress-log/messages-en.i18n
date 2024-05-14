@@ -22,4 +22,4 @@ client.ProgressLog.list.label.responsiblePerson = Responsible Person
 
 client.ProgressLog.list.button.create = Create
 
-client.progresslog.form.error.duplicated = This recordId is taken
+client.progressLog.form.error.duplicated = This recordId is taken
