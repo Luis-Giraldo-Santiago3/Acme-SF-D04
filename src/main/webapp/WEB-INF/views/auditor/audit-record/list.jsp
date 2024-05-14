@@ -21,5 +21,6 @@
 	<acme:list-column code="auditor.auditRecord.list.label.auditPeriodEnd" path="auditPeriodEnd" width="10%"/>
 	<acme:list-column code="auditor.auditRecord.list.label.mark" path="mark" width="10%"/>
 	<acme:list-column code="auditor.auditRecord.list.label.link" path="link" width="10%"/>
+	<acme:list-column code="auditor.auditRecord.list.label.published" path="published" width="10%"/>
 </acme:list>
 <acme:button code="auditor.auditRecord.form.button.create" action="/auditor/audit-record/create?masterId=${masterId}"/>

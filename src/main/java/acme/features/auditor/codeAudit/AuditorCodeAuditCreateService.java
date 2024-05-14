@@ -70,13 +70,12 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 	public void unbind(final CodeAudit object) {
 		assert object != null;
 
-		SelectChoices choices;
+		Mark mark;
 		Dataset dataset;
 
-		choices = SelectChoices.from(Mark.class, object.getMark());
+		mark = object.getMark(this.repository.findManyMarksByCodeAuditId(object.getId()));
 		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "link", "published");
-		dataset.put("mark", choices.getSelected().getKey());
-		dataset.put("marks", choices);
+		dataset.put("mark", mark == null ? null : mark.getMark());
 		dataset.put("types", SelectChoices.from(Type.class, object.getType()));
 		dataset.put("auditor", object.getAuditor().getUserAccount().getUsername());
 		super.getResponse().addData(dataset);

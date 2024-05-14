@@ -53,7 +53,7 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 	public void bind(final CodeAudit object) {
 		assert object != null;
 
-		super.bind(object, "code", "executionDate", "type", "correctiveActions", "mark", "link");
+		super.bind(object, "code", "executionDate", "type", "correctiveActions", "link");
 
 	}
 
@@ -81,12 +81,11 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 	public void unbind(final CodeAudit object) {
 		assert object != null;
 
-		SelectChoices choices;
+		Mark mark;
 		Dataset dataset;
-		choices = SelectChoices.from(Mark.class, object.getMark());
-		dataset = super.unbind(object, "code", "executionDate", "type", "mark", "correctiveActions", "link", "published");
-		dataset.put("mark", choices.getSelected().getKey());
-		dataset.put("marks", choices);
+		mark = object.getMark(this.repository.findManyMarksByCodeAuditId(object.getId()));
+		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "link", "published");
+		dataset.put("mark", mark == null ? null : mark.getMark());
 		dataset.put("types", SelectChoices.from(Type.class, object.getType()));
 		super.getResponse().addData(dataset);
 	}

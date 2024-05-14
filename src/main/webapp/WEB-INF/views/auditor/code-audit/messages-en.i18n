@@ -21,13 +21,13 @@ auditor.codeAudit.form.label.link = link
 auditor.codeAudit.form.label.published = published
 
 auditor.codeAudit.form.error.duplicated = code audit code is duplicated
-
 auditor.codeAudit.list.label.code = code
 auditor.codeAudit.list.label.executionDate = execution date
 auditor.codeAudit.list.label.mark = mark
 auditor.codeAudit.list.label.type = type
 auditor.codeAudit.list.label.correctiveActions = corrective actions 
 auditor.codeAudit.list.label.link = link
+auditor.codeAudit.list.label.published = published
 
 auditor.codeAudit.form.button.create = create code audit
 auditor.codeAudit.list.button.create = create code audit

@@ -1,13 +1,17 @@
 
 package acme.entities.student5;
 
+import java.util.Collection;
 import java.util.Date;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -51,22 +55,29 @@ public class CodeAudit extends AbstractEntity {
 	@Length(max = 100)
 	private String				correctiveActions;
 
-	@NotNull
-	private Mark				mark;
-
 	@URL
 	@Length(max = 255)
 	private String				link;
 
 	private boolean				published;
 
-	// Derived Attributes  ----------------------------------------------------------
 
+	// Derived Attributes  ----------------------------------------------------------
+	@Transient
+	public Mark getMark(final Collection<Mark> auditRecordsMark) {
+		Mark res = null;
+		Map<Mark, Integer> marks = auditRecordsMark.stream().collect(Collectors.groupingBy(m -> m, Collectors.collectingAndThen(Collectors.counting(), t -> t.intValue())));
+		for (Mark m : marks.keySet())
+			if (res == null || marks.get(m) > marks.get(res))
+				res = m;
+		return res;
+	}
 	// Relationships ----------------------------------------------------------
+
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private Auditor				auditor;
+	private Auditor auditor;
 
 }

@@ -29,6 +29,7 @@ auditor.auditRecord.list.label.auditPeriodStart =period start
 auditor.auditRecord.list.label.auditPeriodEnd = period end
 auditor.auditRecord.list.label.mark = mark
 auditor.auditRecord.list.label.link = link
+auditor.auditRecord.list.label.published = published
 
 auditor.auditRecord.form.button.list = audit records
 auditor.auditRecord.form.button.create = create audit record
