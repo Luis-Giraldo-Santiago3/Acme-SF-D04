@@ -2,7 +2,7 @@
 
 validation.project.code = The code of a project must follow the pattern ^[A-Z]{3}-[0-9]{4}$
 validation.claim.code = The code of a claim must follow the pattern ^C-[0-9]{4}$
-validation.Contract.code = The code of a contract must follow the example pattern: AAA-111
+validation.Contract.code = The code of a contract must follow one of the following patterns: A-111, AA-111 and AAA-111
 validation.ProgressLog.recordId = The code of a progress Log must follow the example pattern: PG-AA-1111
 validation.Risk.reference = The code of a risk must follow the example pattern: R-111
 validation.Client.identification = The code of a client must follow the example pattern: CLI-1111
