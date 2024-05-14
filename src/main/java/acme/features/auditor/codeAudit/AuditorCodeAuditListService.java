@@ -44,7 +44,6 @@ public class AuditorCodeAuditListService extends AbstractService<Auditor, CodeAu
 		assert object != null;
 		Mark mark;
 		Dataset dataset;
-
 		mark = object.getMark(this.repository.findManyMarksByCodeAuditId(object.getId()));
 		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "link", "published");
 		dataset.put("mark", mark == null ? null : mark.getMark());
