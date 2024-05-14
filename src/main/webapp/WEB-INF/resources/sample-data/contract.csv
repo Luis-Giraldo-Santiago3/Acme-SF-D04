@@ -22,7 +22,7 @@ contract-19,AAA-019,2002/03/20 00:00,Provider1,'OR 'A' = 'A,Project goals,5000.0
 contract-20,AAA-020,2002/03/20 00:00,Provider1,Customer1,P,5000.0 EUR,true,project-31,client-20
 contract-21,AAA-021,2002/03/20 00:00,Provider1,Customer1,Pr,5000.0 EUR,true,project-31,client-21
 contract-22,AAA-022,2002/03/20 00:00,Provider1,Customer1,Esto es un objetivo del proyecto con 99 caracteres ------------------------------------------------,5000.0 EUR,true,project-31,client-22
-contract-23,AAA-023,2002/03/20 00:00,Provider1,Customer1,Esto es un objetivo del proyecto con 99 caracteres -------------------------------------------------,5000.0 EUR,true,project-31,client-23
+contract-23,AAA-023,2002/03/20 00:00,Provider1,Customer1,Esto es un objetivo del proyecto con 100 caracteres ------------------------------------------------,5000.0 EUR,true,project-31,client-23
 contract-24,AAA-024,2002/03/20 00:00,Provider1,Customer1,プロジェクト,5000.0 EUR,true,project-31,client-24
 contract-25,AAA-025,2002/03/20 00:00,Provider1,Customer1,<h1>HolaMundo<h1>,5000.0 EUR,true,project-31,client-25
 contract-26,AAA-026,2002/03/20 00:00,Provider1,Customer1,'OR 'A' = 'A,5000.0 EUR,true,project-31,client-26
