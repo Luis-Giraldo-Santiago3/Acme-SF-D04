@@ -21,9 +21,9 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected ClientContractRepository repository;
+	private ClientContractRepository repository;
 
-	// AbstractService interface ----------------------------------------------
+	// AbstractService<Employer, Job> -------------------------------------
 
 
 	@Override
@@ -49,7 +49,6 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneContractById(id);
 		object.setInstantiationMoment(MomentHelper.getCurrentMoment());
-		object.setPublished(false);
 
 		super.getBuffer().addData(object);
 	}
@@ -71,9 +70,14 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 	@Override
 	public void validate(final Contract object) {
 		assert object != null;
-		Collection<Contract> listAllContracts = this.repository.findAllContract();
-		Collection<Contract> contractsFiltered = listAllContracts.stream().filter(x -> x.getProject().getId() == object.getProject().getId()).toList();
-		double totalAmount = contractsFiltered.stream().map(x -> x.getBudget().getAmount()).collect(Collectors.summingDouble(x -> x));
+		double totalAmount = 0;
+
+		if (object.getProject() != null) {
+			Collection<Contract> listAllContracts = this.repository.findAllContract();
+			Collection<Contract> contractsFiltered = listAllContracts.stream().filter(x -> x.getProject().getId() == object.getProject().getId()).toList();
+			totalAmount = contractsFiltered.stream().map(x -> x.getBudget().getAmount()).collect(Collectors.summingDouble(x -> x));
+
+		}
 		double converterHourToEUR = 24;
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
@@ -102,6 +106,7 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 	@Override
 	public void unbind(final Contract object) {
 		assert object != null;
+
 		Collection<Project> projects;
 		SelectChoices choices;
 		Dataset dataset;
@@ -116,4 +121,5 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 
 		super.getResponse().addData(dataset);
 	}
+
 }
