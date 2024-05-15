@@ -72,6 +72,7 @@ public class ClientProgressLogListService extends AbstractService<Client, Progre
 
 		super.getResponse().addGlobal("masterId", masterId);
 		super.getResponse().addGlobal("showCreate", showCreate);
+		super.getResponse().addGlobal("contractPublished", contract.isPublished());
 	}
 
 }
