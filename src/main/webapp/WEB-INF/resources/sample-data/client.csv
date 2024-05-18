@@ -3,7 +3,7 @@ client-00,user-account-client-00,CLI-0000,Company name,COMPANY,acme@sf.com,http:
 client-01,user-account-client-01,CLI-0001,C,COMPANY,acme@sf.com,http://AcmeSF
 client-02,user-account-client-02,CLI-0002,Co,COMPANY,acme@sf.com,http://AcmeSF
 client-03,user-account-client-03,CLI-0003,Esto es un nombre de companía con 74 caracteres --------------------------,COMPANY,acme@sf.com,http://AcmeSF
-client-04,user-account-client-04,CLI-0004,Esto es un nombre de companía con 74 caracteres ---------------------------,COMPANY,acme@sf.com,http://AcmeSF
+client-04,user-account-client-04,CLI-0004,Esto es un nombre de companía con 75 caracteres ---------------------------,COMPANY,acme@sf.com,http://AcmeSF
 client-05,user-account-client-05,CLI-0005,プロジェクト,COMPANY,acme@sf.com,http://AcmeSF
 client-06,user-account-client-06,CLI-0006,<h1>HolaMundo<h1>,COMPANY,acme@sf.com,http://AcmeSF
 client-07,user-account-client-07,CLI-0007,'OR 'A' = 'A,COMPANY,acme@sf.com,http://AcmeSF

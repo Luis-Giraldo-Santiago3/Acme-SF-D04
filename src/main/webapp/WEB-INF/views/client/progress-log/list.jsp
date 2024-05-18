@@ -15,4 +15,6 @@
 	<acme:list-column code="client.ProgressLog.list.label.responsiblePerson" path="responsiblePerson" width="20%"/>
 </acme:list>
 
-<acme:button test="${showCreate}" code="client.ProgressLog.list.button.create" action="/client/progress-log/create?masterId=${masterId}"/>
+<jstl:if test="${contractPublished == false}">
+	<acme:button test="${showCreate}" code="client.ProgressLog.list.button.create" action="/client/progress-log/create?masterId=${masterId}"/>
+</jstl:if>

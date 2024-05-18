@@ -13,6 +13,7 @@ import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.student1.Project;
 import acme.entities.student2.Contract;
+import acme.entities.student2.ProgressLog;
 import acme.roles.Client;
 
 @Service
@@ -21,9 +22,9 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected ClientContractRepository repository;
+	private ClientContractRepository repository;
 
-	// AbstractService interface ----------------------------------------------
+	// AbstractService<Employer, Job> -------------------------------------
 
 
 	@Override
@@ -49,7 +50,6 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneContractById(id);
 		object.setInstantiationMoment(MomentHelper.getCurrentMoment());
-		object.setPublished(false);
 
 		super.getBuffer().addData(object);
 	}
@@ -71,19 +71,24 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 	@Override
 	public void validate(final Contract object) {
 		assert object != null;
-		Collection<Contract> listAllContracts = this.repository.findAllContract();
-		Collection<Contract> contractsFiltered = listAllContracts.stream().filter(x -> x.getProject().getId() == object.getProject().getId()).toList();
-		double totalAmount = contractsFiltered.stream().map(x -> x.getBudget().getAmount()).collect(Collectors.summingDouble(x -> x));
+		double totalAmount = 0;
+
+		if (object.getProject() != null) {
+			Collection<Contract> listAllContracts = this.repository.findAllContract();
+			Collection<Contract> contractsFiltered = listAllContracts.stream().filter(x -> x.getProject().getId() == object.getProject().getId()).toList();
+			totalAmount = contractsFiltered.stream().map(x -> x.getBudget().getAmount()).collect(Collectors.summingDouble(x -> x));
+
+		}
 		double converterHourToEUR = 24;
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Contract existing;
 			existing = this.repository.findOneContractByCode(object.getCode());
 			final Contract contract2 = object.getCode().equals("") || object.getCode() == null ? null : this.repository.findOneContractById(object.getId());
-			super.state(existing == null || contract2.equals(existing), "code", "client.contract.form.error.code");
+			super.state(existing == null || contract2.equals(existing), "code", "client.contract.form.error.duplicated");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("budget")) {
-			double totalCost = object.getProject().getCost() * converterHourToEUR;
+			double totalCost = object.getProject() != null ? object.getProject().getCost() * converterHourToEUR : 0;
 			super.state(totalAmount <= totalCost, "budget", "client.contract.form.error.higher-cost");
 			super.state(object.getBudget().getAmount() <= 1000000.00, "budget", "client.contract.form.error.higher-amount");
 			super.state(object.getBudget().getAmount() >= 0.00, "budget", "client.contract.form.error.lower-amount");
@@ -94,6 +99,10 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 	@Override
 	public void perform(final Contract object) {
 		assert object != null;
+		Collection<ProgressLog> progressLogs;
+
+		progressLogs = this.repository.findManyProgressLogByContractId(object.getId());
+		progressLogs.stream().forEach(x -> x.setPublished(true));
 
 		object.setPublished(true);
 		this.repository.save(object);
@@ -102,6 +111,7 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 	@Override
 	public void unbind(final Contract object) {
 		assert object != null;
+
 		Collection<Project> projects;
 		SelectChoices choices;
 		Dataset dataset;
@@ -116,4 +126,5 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 
 		super.getResponse().addData(dataset);
 	}
+
 }
