@@ -19,11 +19,10 @@
 	<acme:input-textbox code="client.contract.form.label.goals" path="goals"/>
 	<acme:input-money code="client.contract.form.label.budget" path="budget" />
 	<jstl:choose>
-		<jstl:when test="${_command == 'show'}">
-			<acme:input-textbox code="client.contract.form.label.projectTitle" path="projectTitle"/>
-			<acme:input-integer code="client.contract.form.label.project" path="project" readonly="true"/>		
+		<jstl:when test="${_command == 'show' && published == true }">
+			<acme:input-textbox code="client.contract.form.label.projectTitle" path="projectTitle"/>	
 		</jstl:when>
-		<jstl:when test="${acme:anyOf(_command, 'update|delete|publish')}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published == false}">
 			<acme:input-select code="client.contract.form.label.project" path="project" choices="${projects}"/>		
 		</jstl:when>
 	</jstl:choose>

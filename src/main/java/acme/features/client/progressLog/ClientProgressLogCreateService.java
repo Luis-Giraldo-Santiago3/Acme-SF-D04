@@ -30,7 +30,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		contract = this.repository.findOneContractById(masterId);
-		status = contract != null && super.getRequest().getPrincipal().hasRole(contract.getClient());
+		status = contract != null && !contract.isPublished() && super.getRequest().getPrincipal().hasRole(contract.getClient());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -49,7 +49,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 		object.setComment("");
 		object.setResponsiblePerson("");
 		object.setRegistrationMoment(MomentHelper.getCurrentMoment());
-		object.setPublished(false);
+		object.setPublished(contract.isPublished());
 		object.setContract(contract);
 
 		super.getBuffer().addData(object);

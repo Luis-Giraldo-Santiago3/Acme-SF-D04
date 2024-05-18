@@ -26,10 +26,13 @@ public class ClientProgressLogDeleteService extends AbstractService<Client, Prog
 		boolean status;
 		int progressLogId;
 		Contract contract;
+		ProgressLog progressLog;
 
 		progressLogId = super.getRequest().getData("id", int.class);
 		contract = this.repository.findOneContractByProgressLogId(progressLogId);
-		status = contract != null && !contract.isPublished() && super.getRequest().getPrincipal().hasRole(contract.getClient());
+		progressLog = this.repository.findOneProgressLogById(progressLogId);
+		status = contract != null && !contract.isPublished() && !progressLog.isPublished() && contract.getClient().getUserAccount().getUsername().equals(super.getRequest().getPrincipal().getUsername())
+			&& super.getRequest().getPrincipal().hasRole(contract.getClient());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -71,7 +74,6 @@ public class ClientProgressLogDeleteService extends AbstractService<Client, Prog
 		Dataset dataset;
 
 		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "published");
-		dataset.put("masterId", object.getContract().getId());
 
 		super.getResponse().addData(dataset);
 	}
