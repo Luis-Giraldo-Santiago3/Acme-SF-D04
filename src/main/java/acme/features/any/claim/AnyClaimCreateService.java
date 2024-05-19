@@ -1,21 +1,19 @@
-/*
- * AdministratorClaimPublishService.java
- */
 
 package acme.features.any.claim;
 
-import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Any;
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.group.Claim;
 
 @Service
-public class AnyClaimPublishService extends AbstractService<Any, Claim> {
+public class AnyClaimCreateService extends AbstractService<Any, Claim> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -32,24 +30,33 @@ public class AnyClaimPublishService extends AbstractService<Any, Claim> {
 
 	@Override
 	public void load() {
-		Collection<Claim> objects;
+		Claim object;
+		Date instantiationMoment;
 
-		objects = this.repository.findClaimsByPublished(false);
+		instantiationMoment = MomentHelper.getCurrentMoment();
+		object = new Claim();
+		object.setInstantiationMoment(instantiationMoment);
 
-		super.getBuffer().addData(objects);
+		super.getBuffer().addData(object);
 	}
 
 	@Override
 	public void bind(final Claim object) {
 		assert object != null;
 
-		super.bind(object, "code", "instantiationMoment", "heading", "description", "department", "email", "link");
-
+		super.bind(object, "code", "heading", "description", "department", "email", "link");
 	}
 
 	@Override
 	public void validate(final Claim object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Claim existing;
+
+			existing = this.repository.findOneClaimByCode(object.getCode());
+			super.state(existing == null, "code", "any.claim.form.error.duplicated");
+		}
 
 	}
 
@@ -57,7 +64,10 @@ public class AnyClaimPublishService extends AbstractService<Any, Claim> {
 	public void perform(final Claim object) {
 		assert object != null;
 
-		object.setPublished(true);
+		Date instantiationMoment;
+
+		instantiationMoment = MomentHelper.getCurrentMoment();
+		object.setInstantiationMoment(instantiationMoment);
 		this.repository.save(object);
 	}
 
@@ -67,7 +77,7 @@ public class AnyClaimPublishService extends AbstractService<Any, Claim> {
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "instantiationMoment", "heading", "description", "department", "email", "link", "published");
+		dataset = super.unbind(object, "code", "heading", "description", "department", "email", "link");
 
 		super.getResponse().addData(dataset);
 	}

@@ -9,19 +9,25 @@
 
 <acme:form> 
 	<acme:input-textbox code="client.contract.form.label.code" path="code"/>
-	<acme:input-moment code="client.contract.form.label.instantiationMoment" path="instantiationMoment"/>	
+	<jstl:choose>
+		<jstl:when test="${_command == 'show' && published == true}">
+			<acme:input-moment code="client.contract.form.label.instantiationMoment" path="instantiationMoment"/>	
+		</jstl:when>
+	</jstl:choose>
 	<acme:input-textbox code="client.contract.form.label.providerName" path="providerName"/>
 	<acme:input-textbox code="client.contract.form.label.customerName" path="customerName"/>
 	<acme:input-textbox code="client.contract.form.label.goals" path="goals"/>
 	<acme:input-money code="client.contract.form.label.budget" path="budget" />
-
 	<jstl:choose>
-		<jstl:when test="${_command == 'show'}">
-			<acme:input-textbox code="client.contract.form.label.project" path="project"/>		
+		<jstl:when test="${_command == 'show' && published == true }">
+			<acme:input-textbox code="client.contract.form.label.projectTitle" path="projectTitle"/>	
 		</jstl:when>
-		<jstl:when test="${_command == 'update|delete|publish'}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published == false}">
 			<acme:input-select code="client.contract.form.label.project" path="project" choices="${projects}"/>		
 		</jstl:when>
+	</jstl:choose>
+
+	<jstl:choose>
 		<jstl:when test="${_command == 'show' && published == true}">
 			<acme:button code="client.contract.form.button.progressLog" action="/client/progress-log/list?masterId=${id}"/>			
 		</jstl:when>

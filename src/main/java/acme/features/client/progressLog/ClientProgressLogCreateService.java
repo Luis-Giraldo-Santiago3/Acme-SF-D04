@@ -1,12 +1,11 @@
 
 package acme.features.client.progressLog;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.student2.Contract;
 import acme.entities.student2.ProgressLog;
@@ -31,7 +30,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		contract = this.repository.findOneContractById(masterId);
-		status = contract != null && super.getRequest().getPrincipal().hasRole(contract.getClient());
+		status = contract != null && !contract.isPublished() && super.getRequest().getPrincipal().hasRole(contract.getClient());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -49,7 +48,8 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 		object.setRecordId("");
 		object.setComment("");
 		object.setResponsiblePerson("");
-		object.setPublished(false);
+		object.setRegistrationMoment(MomentHelper.getCurrentMoment());
+		object.setPublished(contract.isPublished());
 		object.setContract(contract);
 
 		super.getBuffer().addData(object);
@@ -59,7 +59,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 	public void bind(final ProgressLog object) {
 		assert object != null;
 
-		super.bind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson");
+		super.bind(object, "recordId", "completeness", "comment", "responsiblePerson");
 	}
 
 	@Override
@@ -73,11 +73,6 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 			super.state(existing == null, "recordId", "client.progressLog.form.error.duplicated");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("registrationMoment")) {
-			Date present = new Date(2022, 7, 30, 0, 0);
-			super.state(present.after(object.getRegistrationMoment()), "registrationMoment", "client.progresslog.form.error.registrationMoment");
-
-		}
 	}
 
 	@Override

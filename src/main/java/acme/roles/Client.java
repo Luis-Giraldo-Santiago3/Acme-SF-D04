@@ -3,8 +3,10 @@ package acme.roles;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -34,13 +36,13 @@ public class Client extends AbstractRole {
 	@Length(max = 75, min = 0)
 	private String				companyName;
 
-	@NotBlank
-	@Pattern(regexp = "company|individual", message = "{validation.Client.type}")
-	private String				type;
+	@NotNull
+	@Valid
+	private Type				type;
 
 	@NotBlank
 	@Email
-	@Length(max = 255, min = 0)
+	@Length(max = 255, min = 6)
 	private String				email;
 
 	@URL
