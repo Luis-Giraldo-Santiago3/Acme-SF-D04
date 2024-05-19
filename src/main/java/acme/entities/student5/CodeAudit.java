@@ -37,7 +37,7 @@ public class CodeAudit extends AbstractEntity {
 
 	// Attributes --------------------------------------------------------------
 
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.codeAudit.code}")
+	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "validation.codeAudit.code")
 	@NotBlank
 	@NotNull
 	@Column(unique = true)

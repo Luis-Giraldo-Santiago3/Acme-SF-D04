@@ -23,6 +23,7 @@ auditor.auditRecord.form.error.duplicated = code audit code is duplicated
 auditor.auditRecord.form.error.startDateError= date shouldn't be inferior to 1999/12/31 23:59
 auditor.auditRecord.form.error.endDateError= date shouldn't be inferior to 1999/12/31 23:59
 auditor.auditRecord.form.error.notTimeEnough = at least 1 hour of diference between dates
+validation.auditRecord.code = Formato must be AU-0000-000
 
 auditor.auditRecord.list.label.code = code
 auditor.auditRecord.list.label.auditPeriodStart =period start
