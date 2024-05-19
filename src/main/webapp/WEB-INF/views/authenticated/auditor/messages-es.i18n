@@ -1,0 +1,12 @@
+# messages-en.i18n
+
+
+authenticated.auditor.form.title = Formulario de Auditor
+
+authenticated.auditor.form.label.firm = Firma
+authenticated.auditor.form.label.proffesionalID = Id profesional
+authenticated.auditor.form.label.certifications = Certificaciones
+authenticated.auditor.form.label.link = Link
+
+authenticated.auditor.form.button.create = Registrar
+authenticated.auditor.form.button.update = Actualizar

@@ -1,12 +1,18 @@
 
 package acme.features.auditor.codeAudit;
 
+import java.time.Instant;
+import java.util.Collection;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.student1.Project;
 import acme.entities.student5.CodeAudit;
 import acme.entities.student5.Mark;
 import acme.entities.student5.Type;
@@ -18,9 +24,11 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuditorCodeAuditRepository repository;
+	private AuditorCodeAuditRepository	repository;
 
-	// AbstractService<Employer, Job> -------------------------------------
+	private Date						lowestMoment	= Date.from(Instant.parse("1999-12-31T23:00:00Z"));
+
+	// AbstractService interface -------------------------------------
 
 
 	@Override
@@ -53,7 +61,7 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 	public void bind(final CodeAudit object) {
 		assert object != null;
 
-		super.bind(object, "code", "executionDate", "type", "correctiveActions", "mark", "link");
+		super.bind(object, "code", "executionDate", "type", "correctiveActions", "link");
 
 	}
 
@@ -68,6 +76,11 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 			if (!(object.getId() == existing.getId()))
 				super.state(existing == null, "code", "auditor.codeAudit.form.error.duplicated");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("executionDate")) {
+			Date executionDate = object.getExecutionDate();
+
+			super.state(MomentHelper.isAfter(executionDate, this.lowestMoment), "executionDate", "auditor.codeAudit.form.error.executionDateError");
+		}
 	}
 
 	@Override
@@ -80,14 +93,19 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 	@Override
 	public void unbind(final CodeAudit object) {
 		assert object != null;
-
+		Collection<Project> projects;
 		SelectChoices choices;
+		Mark mark;
 		Dataset dataset;
-		choices = SelectChoices.from(Mark.class, object.getMark());
-		dataset = super.unbind(object, "code", "executionDate", "type", "mark", "correctiveActions", "link", "published");
-		dataset.put("mark", choices.getSelected().getKey());
-		dataset.put("marks", choices);
+
+		projects = this.repository.findAllProjectsPublished();
+		choices = SelectChoices.from(projects, "title", object.getProject());
+		mark = object.getMark(this.repository.findManyMarksByCodeAuditId(object.getId()));
+		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "link", "published");
+		dataset.put("mark", mark == null ? null : mark.getMark());
 		dataset.put("types", SelectChoices.from(Type.class, object.getType()));
+		dataset.put("project", choices.getSelected().getKey());
+		dataset.put("projects", choices);
 		super.getResponse().addData(dataset);
 	}
 

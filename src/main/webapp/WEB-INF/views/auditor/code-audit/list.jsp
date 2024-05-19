@@ -22,6 +22,6 @@
 	<acme:list-column code="auditor.codeAudit.list.label.correctiveActions" path="correctiveActions" width="10%"/>
 	<acme:list-column code="auditor.codeAudit.list.label.mark" path="mark" width="10%"/>
 	<acme:list-column code="auditor.codeAudit.list.label.link" path="link" width="10%"/>
-	
+	<acme:list-column code="auditor.codeAudit.list.label.published" path="published" width="10%"/>
 </acme:list>
 <acme:button code="auditor.codeAudit.list.button.create" action="/auditor/code-audit/create"/>

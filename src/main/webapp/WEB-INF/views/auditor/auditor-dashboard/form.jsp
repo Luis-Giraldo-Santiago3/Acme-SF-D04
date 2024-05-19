@@ -10,7 +10,14 @@
 			<acme:message code="auditor.auditorDashboard.form.label.codeAudit-static"/>
 		</th>
 		<td>
-			<acme:print value="${staticCodeAudits}"/>
+			<jstl:choose>
+				<jstl:when test="${staticCodeAudits != null}">
+					<acme:print value="${staticCodeAudits}"/>
+				</jstl:when>
+				<jstl:when test="${staticCodeAudits == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
 		</td>
 	</tr>
 	<tr>
@@ -18,7 +25,14 @@
 			<acme:message code="auditor.auditorDashboard.form.label.codeAudit-dynamic"/>
 		</th>
 		<td>
-			<acme:print value="${dynamicCodeAudits}"/>
+			<jstl:choose>
+				<jstl:when test="${dynamicCodeAudits != null}">
+					<acme:print value="${dynamicCodeAudits}"/>
+				</jstl:when>
+				<jstl:when test="${dynamicCodeAudits == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
 		</td>
 	</tr>
 	<tr>
@@ -26,7 +40,14 @@
 			<acme:message code="auditor.auditorDashboard.form.label.averageAuditRecords"/>
 		</th>
 		<td>
-			<acme:print value="${averageNumAuditRecords}"/>
+			<jstl:choose>
+				<jstl:when test="${averageNumAuditRecords != null}">
+					<acme:print value="${averageNumAuditRecords}"/>
+				</jstl:when>
+				<jstl:when test="${averageNumAuditRecords == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
 		</td>
 	</tr>
 		<tr>
@@ -34,7 +55,14 @@
 			<acme:message code="auditor.auditorDashboard.form.label.deviationAuditRecords"/>
 		</th>
 		<td>
-			<acme:print value="${deviationNumAuditRecords}"/>
+		<jstl:choose>
+				<jstl:when test="${deviationNumAuditRecords != null}">
+					<acme:print value="${deviationNumAuditRecords}"/>
+				</jstl:when>
+				<jstl:when test="${deviationNumAuditRecords == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
 		</td>
 	</tr>
 	<tr>
@@ -42,7 +70,14 @@
 			<acme:message code="auditor.auditorDashboard.form.label.minNumAuditRecords"/>
 		</th>
 		<td>
-			<acme:print value="${minNumAuditRecords}"/>
+		<jstl:choose>
+				<jstl:when test="${minNumAuditRecords != null}">
+					<acme:print value="${minNumAuditRecords}"/>
+				</jstl:when>
+				<jstl:when test="${minNumAuditRecords == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
 		</td>
 	</tr>
 	<tr>
@@ -50,7 +85,14 @@
 			<acme:message code="auditor.auditorDashboard.form.label.maxNumAuditRecords"/>
 		</th>
 		<td>
-			<acme:print value="${maxNumAuditRecords}"/>
+		<jstl:choose>
+				<jstl:when test="${maxNumAuditRecords != null}">
+					<acme:print value="${maxNumAuditRecords}"/>
+				</jstl:when>
+				<jstl:when test="${maxNumAuditRecords == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
 		</td>
 	</tr>
 	<tr>
@@ -58,7 +100,14 @@
 			<acme:message code="auditor.auditorDashboard.form.label.averageAuditRecordsPeriodLength"/>
 		</th>
 		<td>
-			<acme:print value="${averageTimeAuditRecords}"/>
+		<jstl:choose>
+				<jstl:when test="${averageTimeAuditRecords != null}">
+					<acme:print value="${averageTimeAuditRecords}"/>
+				</jstl:when>
+				<jstl:when test="${averageTimeAuditRecords == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
 		</td>
 	</tr>
 	<tr>
@@ -66,7 +115,14 @@
 			<acme:message code="auditor.auditorDashboard.form.label.deviationAuditRecordsPeriodLength"/>
 		</th>
 		<td>
-			<acme:print value="${deviationTimeAuditRecords}"/>
+		<jstl:choose>
+				<jstl:when test="${deviationTimeAuditRecords != null}">
+					<acme:print value="${deviationTimeAuditRecords}"/>
+				</jstl:when>
+				<jstl:when test="${deviationTimeAuditRecords == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
 		</td>
 	</tr>
 	<tr>
@@ -74,7 +130,14 @@
 			<acme:message code="auditor.auditorDashboard.form.label.minAuditRecordsPeriodLength"/>
 		</th>
 		<td>
-			<acme:print value="${minTimeAuditRecords}"/>
+		<jstl:choose>
+				<jstl:when test="${minTimeAuditRecords != null}">
+					<acme:print value="${minTimeAuditRecords}"/>
+				</jstl:when>
+				<jstl:when test="${minTimeAuditRecords == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
 		</td>
 	</tr>
 	<tr>
@@ -82,7 +145,14 @@
 			<acme:message code="auditor.auditorDashboard.form.label.maxAuditRecordsPeriodLength"/>
 		</th>
 		<td>
-			<acme:print value="${maxTimeAuditRecords}"/>
+		<jstl:choose>
+				<jstl:when test="${maxTimeAuditRecords != null}">
+					<acme:print value="${maxTimeAuditRecords}"/>
+				</jstl:when>
+				<jstl:when test="${maxTimeAuditRecords == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
 		</td>
 	</tr>
 </table>

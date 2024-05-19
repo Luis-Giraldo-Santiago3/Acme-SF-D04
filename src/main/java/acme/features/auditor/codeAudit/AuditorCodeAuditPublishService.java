@@ -1,24 +1,32 @@
 
 package acme.features.auditor.codeAudit;
 
+import java.time.Instant;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
+import acme.client.views.SelectChoices;
 import acme.entities.student5.AuditRecord;
 import acme.entities.student5.CodeAudit;
+import acme.entities.student5.Mark;
+import acme.entities.student5.Type;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorCodeAuditDeleteService extends AbstractService<Auditor, CodeAudit> {
+public class AuditorCodeAuditPublishService extends AbstractService<Auditor, CodeAudit> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuditorCodeAuditRepository repository;
+	private AuditorCodeAuditRepository	repository;
+
+	private Date						lowestMoment	= Date.from(Instant.parse("1999-12-31T23:00:00Z"));
 
 	// AbstractService interface ----------------------------------------------
 
@@ -54,30 +62,46 @@ public class AuditorCodeAuditDeleteService extends AbstractService<Auditor, Code
 		assert object != null;
 
 		super.bind(object, "code", "executionDate", "type", "correctiveActions", "link");
+
 	}
 
 	@Override
 	public void validate(final CodeAudit object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("executionDate")) {
+			Date executionDate = object.getExecutionDate();
+
+			super.state(MomentHelper.isAfter(executionDate, this.lowestMoment), "executionDate", "auditor.codeAudit.form.error.executionDateError");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("mark")) {
+			Mark mark = object.getMark(this.repository.findManyMarksByCodeAuditId(object.getId()));
+			Collection<AuditRecord> all = this.repository.findManyAuditRecordsByCodeAuditId(object.getId());
+			Collection<AuditRecord> published = this.repository.findManyPublishedAuditRecordByCodeAuditId(object.getId());
+
+			super.state(mark != null && !mark.equals(Mark.F) && !mark.equals(Mark.F_MINUS), "mark", "auditor.codeAudit.form.error.low");
+			super.state(all.size() == published.size(), "mark", "auditor.codeAudit.form.error.auditRecordsNotPublished");
+		}
 	}
 
 	@Override
 	public void perform(final CodeAudit object) {
 		assert object != null;
-		Collection<AuditRecord> auditRecords;
-		auditRecords = this.repository.findManyAuditRecordsByCodeAuditId(object.getId());
-		this.repository.deleteAll(auditRecords);
-		this.repository.delete(object);
+		object.setPublished(true);
+		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final CodeAudit object) {
 		assert object != null;
 
+		Mark mark;
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "link");
-
+		mark = object.getMark(this.repository.findManyMarksByCodeAuditId(object.getId()));
+		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "published", "link");
+		dataset.put("mark", mark == null ? null : mark.getMark());
+		dataset.put("types", SelectChoices.from(Type.class, object.getType()));
 		super.getResponse().addData(dataset);
 	}
 }
