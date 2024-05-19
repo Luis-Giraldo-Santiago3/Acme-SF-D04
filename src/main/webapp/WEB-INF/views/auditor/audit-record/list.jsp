@@ -16,11 +16,11 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="auditor.auditRecord.list.label.code" path="code" width="10%"/>
-	<acme:list-column code="auditor.auditRecord.list.label.auditPeriodStart" path="auditPeriodStart" width="10%"/>
-	<acme:list-column code="auditor.auditRecord.list.label.auditPeriodEnd" path="auditPeriodEnd" width="10%"/>
+	<acme:list-column code="auditor.auditRecord.list.label.code" path="code" width="30%"/>
+	<acme:list-column code="auditor.auditRecord.list.label.auditPeriodStart" path="auditPeriodStart" width="20%"/>
+	<acme:list-column code="auditor.auditRecord.list.label.auditPeriodEnd" path="auditPeriodEnd" width="20%"/>
 	<acme:list-column code="auditor.auditRecord.list.label.mark" path="mark" width="10%"/>
-	<acme:list-column code="auditor.auditRecord.list.label.link" path="link" width="10%"/>
-	<acme:list-column code="auditor.auditRecord.list.label.published" path="published" width="10%"/>
+	<acme:list-column code="auditor.auditRecord.list.label.link" path="link" width="30%"/>
+	<acme:list-column code="auditor.auditRecord.list.label.published" path="published" width="20%"/>
 </acme:list>
 <acme:button code="auditor.auditRecord.form.button.create" action="/auditor/audit-record/create?masterId=${masterId}"/>

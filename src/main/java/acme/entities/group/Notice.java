@@ -41,7 +41,7 @@ public class Notice extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 75)
-	@Pattern(regexp = "^[\\w-]+-[\\w-]+,[a-zA-Z ]+$", message = "validation.notice.author")
+	@Pattern(regexp = "^[\\w-]+-[\\w-]+,[a-zA-Z ]+$", message = "author doesnt follow format “〈username〉 - 〈surname, name〉")
 	private String				author;
 
 	@NotBlank
