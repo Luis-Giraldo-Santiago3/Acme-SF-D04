@@ -81,7 +81,7 @@ public class ManagerProjectUserStoryCreateService extends AbstractService<Manage
 			super.state(!object.getProject().isPublished(), "*", "manager.projectUserStory.form.error.published");
 		if (!super.getBuffer().getErrors().hasErrors("*") && !super.getBuffer().getErrors().hasErrors("userStory")) {
 			ProjectUserStory existing = this.repository.findAssociationBetweenProjectIdAndUserStoryId(object.getProject().getId(), object.getUserStory().getId());
-			super.state(existing == null, "*", "manager.projectUserStory.form.error.redundantRelation");
+			super.state(existing == null, "*", "manager.projectUserStory.form.error.duplicatedRelation");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("project") && !super.getBuffer().getErrors().hasErrors("userStory")) {
 			Manager projectManager = object.getProject().getManager();
@@ -132,13 +132,9 @@ public class ManagerProjectUserStoryCreateService extends AbstractService<Manage
 
 		for (final UserStory us : userStoriesManager)
 			if (object.getUserStory() != null && object.getUserStory().getId() == us.getId())
-				choices.add( 
-					Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), 
-					true);
+				choices.add(Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), true);
 			else
-				choices.add( 
-					Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), 
-					false);
+				choices.add(Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), false);
 
 		dataset.put("userStory", choices.getSelected().getKey());
 		dataset.put("userStories", choices);

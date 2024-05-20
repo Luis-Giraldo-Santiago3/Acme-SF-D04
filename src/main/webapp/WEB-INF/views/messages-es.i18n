@@ -1,7 +1,7 @@
 # messages-es.i18n
 
-validation.project.code = El código del proyecto debe seguir el patrón: tres letras mayúsculas seguidas de un guion y luego cuatro números. Por ejemplo, "ABC-1234".
-validation.claim.code = El código de la reclamación debe seguir el patrón: una letra "C" seguida de un guion y luego cuatro números. Por ejemplo, "C-1234".
+validation.project.code = El código del proyecto debe seguir el patrón ^[A-Z]{3}-[0-9]{4}$
+validation.claim.code = El código del proyecto debe seguir el patrón ^C-[0-9]{4}$
 validation.Contract.code = El código de un contrato debe seguir alguno de los siguentes patrones: A-111, AA-111 y AAA-111
 validation.ProgressLog.recordId = El recordId de un registro de progreso debe seguir alguno de los siguentes patrones: PG-A-1111 y PG-AA-1111
 validation.Risk.reference = El código de un riesgo debe seguir el patrón de ejemplo: R-111
