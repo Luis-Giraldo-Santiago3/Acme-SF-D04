@@ -33,10 +33,12 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 		boolean status;
 		int masterId;
 		CodeAudit codeAudit;
+		AuditRecord auditRecord;
 
 		masterId = super.getRequest().getData("id", int.class);
 		codeAudit = this.repository.findOneCodeAuditByAuditRecordId(masterId);
-		status = codeAudit != null && !codeAudit.isPublished() && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor());
+		auditRecord = this.repository.findOneAuditRecordById(masterId);
+		status = codeAudit != null && !codeAudit.isPublished() && !auditRecord.isPublished() && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor());
 
 		super.getResponse().setAuthorised(status);
 
