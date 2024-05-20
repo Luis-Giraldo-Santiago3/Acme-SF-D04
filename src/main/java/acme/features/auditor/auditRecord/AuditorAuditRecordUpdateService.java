@@ -24,7 +24,7 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 	@Autowired
 	private AuditorAuditRecordRepository	repository;
 
-	private Date							lowestMoment	= Date.from(Instant.parse("1999-12-31T23:00:00Z"));
+	private Date							lowestMoment	= Date.from(Instant.parse("1999-12-31T23:59:00Z"));
 	// AbstractService interface ----------------------------------------------
 
 

@@ -25,7 +25,7 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 	@Autowired
 	private AuditorAuditRecordRepository	repository;
 
-	private Date							lowestMoment	= Date.from(Instant.parse("1999-12-31T23:00:00Z"));
+	private Date							lowestMoment	= Date.from(Instant.parse("1999-12-31T23:59:00Z"));
 	// AbstractService interface ----------------------------------------------
 
 
@@ -120,7 +120,7 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		CodeAudit codeAudit;
 
 		choices = SelectChoices.from(Mark.class, object.getMark());
-		codeAudit = object.getCodeAudit();
+		codeAudit = this.repository.findOneCodeAuditById(super.getRequest().getData("masterId", int.class));
 
 		dataset = super.unbind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark", "link", "published");
 		dataset.put("masterId", super.getRequest().getData("masterId", int.class));

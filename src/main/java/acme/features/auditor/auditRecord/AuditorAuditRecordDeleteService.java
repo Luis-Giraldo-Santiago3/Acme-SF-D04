@@ -24,7 +24,16 @@ public class AuditorAuditRecordDeleteService extends AbstractService<Auditor, Au
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		CodeAudit codeAudit;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+		codeAudit = this.repository.findOneCodeAuditById(masterId);
+		status = codeAudit != null && !codeAudit.isPublished() && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor());
+
+		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override

@@ -21,7 +21,6 @@
 	<acme:input-moment code="auditor.auditRecord.form.label.auditPeriodEnd" path="auditPeriodEnd"/>
 	<acme:input-select code="auditor.auditRecord.form.label.mark" path="mark" choices="${marks}"/>
 	<acme:input-url code="auditor.auditRecord.form.label.link" path="link"/>
-	<acme:input-checkbox code="auditor.auditRecord.form.label.published" path="published"/>
 
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'create'}">
