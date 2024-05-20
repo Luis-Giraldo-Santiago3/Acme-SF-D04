@@ -24,7 +24,8 @@ auditor.codeAudit.form.label.project = proyecto
 auditor.codeAudit.form.error.duplicated = El código de la auditoría de código está duplicado
 auditor.codeAudit.form.error.auditRecordsNotPublished = No se ha publicado todas las auditorias de código
 auditor.codeAudit.form.error.low = La nota media es demasiado baja
-auditor.codeAudit.form.error.executionDateError = Fecha no puede ser anterior a 1999-12-31 23:00
+auditor.codeAudit.form.error.executionDateError = Fecha no puede ser anterior a 01/01/2000 00:00
+auditor.codeAudit.form.error.maxExecutionDateError = Fecha no puede ser despues de 2020/07/30 00:00
 
 auditor.codeAudit.list.label.code = código
 auditor.codeAudit.list.label.executionDate = fecha de ejecución

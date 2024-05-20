@@ -21,13 +21,12 @@
 	<acme:input-moment code="auditor.auditRecord.form.label.auditPeriodEnd" path="auditPeriodEnd"/>
 	<acme:input-select code="auditor.auditRecord.form.label.mark" path="mark" choices="${marks}"/>
 	<acme:input-url code="auditor.auditRecord.form.label.link" path="link"/>
-	<acme:input-checkbox code="auditor.auditRecord.form.label.published" path="published"/>
 
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="auditor.auditRecord.form.button.create" action="/auditor/audit-record/create?masterId=${masterId}"/>
 		</jstl:when>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && published == false}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published == false}">
 			<acme:submit code="auditor.auditRecord.form.button.delete" action="/auditor/audit-record/delete"/>
 			<acme:submit code="auditor.auditRecord.form.button.update" action="/auditor/audit-record/update?masterId=${masterId}"/>
 			<acme:submit code="auditor.auditRecord.form.button.publish" action="/auditor/audit-record/publish"/>
