@@ -10,10 +10,10 @@ project-07,JIK-0123,<h2>Hola</h2>,Abstract,true,1,http://HellowWorld,false,manag
 project-08,KOP-4675,'OR '5'='5,Abstract,true,1,http://HellowWorld,false,manager-01
 project-09,NHB-0123,Title,A,true,1,http://AcmeJob,false,manager-01
 project-10,SPL-0123,Title,Ab,true,1,http://AcmeJob,false,manager-01
-project-11,DAU-0123,Title,Esto es un abstract de 100 caracteres---------------------------------------------------------------,true,1,http://HellowWorld,false,manager-01
-project-12,CUD-0123,Title,Esto es un abstract de 99 caracteres---------------------------------------------------------------,true,1,http://HellowWorld,false,manager-01
+project-11,DAU-0123,Title,Esto es un abstract de 100 caracteres---------------------------------------------------------------,false,1,http://HellowWorld,false,manager-01
+project-12,CUD-0123,Title,Esto es un abstract de 99 caracteres---------------------------------------------------------------,false,1,http://HellowWorld,false,manager-01
 project-13,XXX-0123,Title,Esto es un abstract de 36 caracteres,true,1,http://HellowWorld,false,manager-01
-project-14,VMJ-0123,Title,你好,true,1,http://AcmeJob,false,manager-01
+project-14,VMJ-0123,Title,你好,true,1,http://AcmeJob,true,manager-01
 project-15,NIG-0123,Title,<h2>Hola</h2>,true,1,http://AcmeJob,false,manager-01
 project-16,PAL-9999,Title,'OR '5'='5,true,1,http://AcmeJob,false,manager-01
 project-17,LAP-9999,Title,Abstract,false,1,http://AcmeJob,false,manager-01
