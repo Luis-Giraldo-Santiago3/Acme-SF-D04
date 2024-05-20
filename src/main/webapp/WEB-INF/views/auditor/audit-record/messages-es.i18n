@@ -23,12 +23,14 @@ auditor.auditRecord.form.error.duplicated = code audit code is duplicated
 auditor.auditRecord.form.error.startDateError= la fecha no deber ser inferior a 1999/12/31 23:59
 auditor.auditRecord.form.error.endDateError=la fecha no deber ser inferior a 1999/12/31 23:59
 auditor.auditRecord.form.error.notTimeEnough = al menos 1 hora de diferencia entre fechas
+validation.auditRecord.code = Formato debe ser AU-0000-000
 
 auditor.auditRecord.list.label.code = código
 auditor.auditRecord.list.label.auditPeriodStart =inicio
 auditor.auditRecord.list.label.auditPeriodEnd = final
 auditor.auditRecord.list.label.mark = nota
 auditor.auditRecord.list.label.link = link
+auditor.auditRecord.list.label.published = publicado
 
 auditor.auditRecord.form.button.list = registros de auditoría
 auditor.auditRecord.form.button.create =crear registro de auditoría

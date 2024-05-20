@@ -23,16 +23,16 @@ public class AuditorDashboard extends AbstractForm {
 
 	Double				deviationNumAuditRecords;
 
-	int					minNumAuditRecords;
+	Integer				minNumAuditRecords;
 
-	int					maxNumAuditRecords;
+	Integer				maxNumAuditRecords;
 
 	Double				averageTimeAuditRecords;
 
 	Double				deviationTimeAuditRecords;
 
-	int					minTimeAuditRecords;
+	Integer				minTimeAuditRecords;
 
-	int					maxTimeAuditRecords;
+	Integer				maxTimeAuditRecords;
 
 }
