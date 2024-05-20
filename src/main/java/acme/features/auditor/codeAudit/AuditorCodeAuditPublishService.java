@@ -26,7 +26,9 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 	@Autowired
 	private AuditorCodeAuditRepository	repository;
 
-	private Date						lowestMoment	= Date.from(Instant.parse("1999-12-31T23:59:00Z"));
+	private Date						lowestMoment	= Date.from(Instant.parse("1999-12-31T23:00:00Z"));
+
+	private Date						maximumMoment	= Date.from(Instant.parse("2020-07-29T22:00:00Z"));
 
 	// AbstractService interface ----------------------------------------------
 
@@ -72,7 +74,9 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		if (!super.getBuffer().getErrors().hasErrors("executionDate")) {
 			Date executionDate = object.getExecutionDate();
 
-			super.state(MomentHelper.isAfter(executionDate, this.lowestMoment), "executionDate", "auditor.codeAudit.form.error.executionDateError");
+			super.state(MomentHelper.isAfterOrEqual(executionDate, this.lowestMoment), "executionDate", "auditor.codeAudit.form.error.executionDateError");
+
+			super.state(MomentHelper.isBeforeOrEqual(executionDate, this.maximumMoment), "executionDate", "auditor.codeAudit.form.error.maxExecutionDateError");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("mark")) {
 			Mark mark = object.getMark(this.repository.findManyMarksByCodeAuditId(object.getId()));

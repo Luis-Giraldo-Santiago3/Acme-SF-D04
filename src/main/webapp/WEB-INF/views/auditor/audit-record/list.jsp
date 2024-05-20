@@ -23,4 +23,6 @@
 	<acme:list-column code="auditor.auditRecord.list.label.link" path="link" width="10%"/>
 	<acme:list-column code="auditor.auditRecord.list.label.published" path="published" width="10%"/>
 </acme:list>
-<acme:button code="auditor.auditRecord.form.button.create" action="/auditor/audit-record/create?masterId=${masterId}"/>
+<jstl:if test="${codeAuditPublished == false}">
+	<acme:button test="${showCreate}" code="auditor.auditRecord.form.button.create" action="/auditor/audit-record/create?masterId=${masterId}"/>
+</jstl:if>

@@ -24,7 +24,8 @@ auditor.codeAudit.form.label.project = project
 auditor.codeAudit.form.error.duplicated = code audit code is duplicated
 auditor.codeAudit.form.error.auditRecordsNotPublished = All audit records have'nt been published
 auditor.codeAudit.form.error.low = Mark too low
-auditor.codeAudit.form.error.executionDateError = Date can't be below 1999-12-31 23:00
+auditor.codeAudit.form.error.executionDateError = Date can't be below 2000/01/01 00:00
+auditor.codeAudit.form.error.maxExecutionDateError = Date can't be after 2020/07/30 00:00
 
 auditor.codeAudit.list.label.code = code
 auditor.codeAudit.list.label.executionDate = execution date
