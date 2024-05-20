@@ -77,10 +77,12 @@ public class ManagerProjectUserStoryDeleteService extends AbstractService<Manage
 	public void validate(final ProjectUserStory object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("project"))
-			super.state(!object.getProject().isPublished(), "*", "manager.projectUserStory.form.error.published");
 		if (!super.getBuffer().getErrors().hasErrors("userStory"))
 			super.state(object.getUserStory() != null, "userStory", "manager.projectUserStory.form.error.notSelected");
+
+		if (!super.getBuffer().getErrors().hasErrors("project"))
+			super.state(!object.getProject().isPublished(), "*", "manager.projectUserStory.form.error.published");
+
 		if (!super.getBuffer().getErrors().hasErrors("*") && !super.getBuffer().getErrors().hasErrors("userStory")) {
 			ProjectUserStory existing = this.repository.findAssociationBetweenProjectIdAndUserStoryId(object.getProject().getId(), object.getUserStory().getId());
 			super.state(existing != null, "*", "manager.projectUserStory.form.error.mustBeDuplicated");
@@ -91,9 +93,9 @@ public class ManagerProjectUserStoryDeleteService extends AbstractService<Manage
 	public void perform(final ProjectUserStory object) {
 		assert object != null;
 
-		ProjectUserStory association = this.repository.findAssociationBetweenProjectIdAndUserStoryId(object.getProject().getId(), object.getUserStory().getId());
+		ProjectUserStory projectUserStory = this.repository.findAssociationBetweenProjectIdAndUserStoryId(object.getProject().getId(), object.getUserStory().getId());
 
-		this.repository.delete(association);
+		this.repository.delete(projectUserStory);
 	}
 
 	@Override
@@ -102,7 +104,7 @@ public class ManagerProjectUserStoryDeleteService extends AbstractService<Manage
 
 		Dataset dataset;
 		int projectId;
-		Collection<UserStory> userStoriesAssociated;
+		Collection<UserStory> userStoriesAssociatedProject;
 		Project project;
 		SelectChoices choices;
 
@@ -111,7 +113,7 @@ public class ManagerProjectUserStoryDeleteService extends AbstractService<Manage
 		projectId = super.getRequest().getData("projectId", int.class);
 		dataset.put("projectId", projectId);
 
-		userStoriesAssociated = this.repository.findManyUserStoriesByProjectId(projectId);
+		userStoriesAssociatedProject = this.repository.findManyUserStoriesByProjectId(projectId);
 
 		project = this.repository.findProjectById(projectId);
 		dataset.put("project", project);
@@ -120,16 +122,15 @@ public class ManagerProjectUserStoryDeleteService extends AbstractService<Manage
 		choices = new SelectChoices();
 
 		if (object.getUserStory() == null)
-			choices.add("0", "---", true);
+			choices.add("0", "-----", true);
 		else
-			choices.add("0", "---", false);
+			choices.add("0", "-----", false);
 
-		for (final UserStory us : userStoriesAssociated)
-			if (object.getUserStory() != null && object.getUserStory().getId() == us.getId())
-				choices.add(Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), true);
+		for (final UserStory userStory : userStoriesAssociatedProject)
+			if (object.getUserStory() != null && object.getUserStory().getId() == userStory.getId())
+				choices.add(Integer.toString(userStory.getId()), userStory.getTitle() + " - " + Integer.toString(userStory.getEstimatedCost()) + " - " + userStory.getPriority(), true);
 			else
-				choices.add( //
-					Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), false);
+				choices.add(Integer.toString(userStory.getId()), userStory.getTitle() + " - " + Integer.toString(userStory.getEstimatedCost()) + " - " + userStory.getPriority(), false);
 
 		dataset.put("userStory", choices.getSelected().getKey());
 		dataset.put("userStories", choices);

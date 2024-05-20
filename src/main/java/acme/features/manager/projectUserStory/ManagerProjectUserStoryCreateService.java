@@ -81,7 +81,7 @@ public class ManagerProjectUserStoryCreateService extends AbstractService<Manage
 			super.state(!object.getProject().isPublished(), "*", "manager.projectUserStory.form.error.published");
 		if (!super.getBuffer().getErrors().hasErrors("*") && !super.getBuffer().getErrors().hasErrors("userStory")) {
 			ProjectUserStory existing = this.repository.findAssociationBetweenProjectIdAndUserStoryId(object.getProject().getId(), object.getUserStory().getId());
-			super.state(existing == null, "*", "manager.projectUserStory.form.error.duplicatedRelation");
+			super.state(existing == null, "*", "manager.projectUserStory.form.error.redundantRelation");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("project") && !super.getBuffer().getErrors().hasErrors("userStory")) {
 			Manager projectManager = object.getProject().getManager();
