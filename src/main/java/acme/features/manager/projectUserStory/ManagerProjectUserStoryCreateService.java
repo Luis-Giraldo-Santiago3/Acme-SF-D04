@@ -105,7 +105,7 @@ public class ManagerProjectUserStoryCreateService extends AbstractService<Manage
 		int projectId;
 		int managerId;
 		Collection<UserStory> userStoriesManager;
-		Collection<UserStory> userStoriesAssociated;
+		Collection<UserStory> userStoriesProject;
 		Project project;
 		SelectChoices choices;
 
@@ -116,8 +116,8 @@ public class ManagerProjectUserStoryCreateService extends AbstractService<Manage
 
 		managerId = super.getRequest().getPrincipal().getActiveRoleId();
 		userStoriesManager = this.repository.findUserStoriesByManagerId(managerId);
-		userStoriesAssociated = this.repository.findManyUserStoriesByProjectId(projectId);
-		userStoriesManager.removeAll(userStoriesAssociated);
+		userStoriesProject = this.repository.findManyUserStoriesByProjectId(projectId);
+		userStoriesManager.removeAll(userStoriesProject);
 
 		project = this.repository.findProjectById(projectId);
 		dataset.put("project", project);
@@ -126,9 +126,9 @@ public class ManagerProjectUserStoryCreateService extends AbstractService<Manage
 		choices = new SelectChoices();
 
 		if (object.getUserStory() == null)
-			choices.add("0", "---", true);
+			choices.add("0", "-----", true);
 		else
-			choices.add("0", "---", false);
+			choices.add("0", "-----", false);
 
 		for (final UserStory us : userStoriesManager)
 			if (object.getUserStory() != null && object.getUserStory().getId() == us.getId())

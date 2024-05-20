@@ -93,9 +93,9 @@ public class ManagerProjectUserStoryDeleteService extends AbstractService<Manage
 	public void perform(final ProjectUserStory object) {
 		assert object != null;
 
-		ProjectUserStory association = this.repository.findAssociationBetweenProjectIdAndUserStoryId(object.getProject().getId(), object.getUserStory().getId());
+		ProjectUserStory projectUserStory = this.repository.findAssociationBetweenProjectIdAndUserStoryId(object.getProject().getId(), object.getUserStory().getId());
 
-		this.repository.delete(association);
+		this.repository.delete(projectUserStory);
 	}
 
 	@Override
@@ -122,9 +122,9 @@ public class ManagerProjectUserStoryDeleteService extends AbstractService<Manage
 		choices = new SelectChoices();
 
 		if (object.getUserStory() == null)
-			choices.add("0", "---", true);
+			choices.add("0", "-----", true);
 		else
-			choices.add("0", "---", false);
+			choices.add("0", "-----", false);
 
 		for (final UserStory us : userStoriesAssociated)
 			if (object.getUserStory() != null && object.getUserStory().getId() == us.getId())

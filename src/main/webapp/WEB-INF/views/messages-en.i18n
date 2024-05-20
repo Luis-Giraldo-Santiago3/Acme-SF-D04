@@ -1,7 +1,7 @@
 # messages-en.i18n
 
-validation.project.code = The code of a project must follow the pattern ^[A-Z]{3}-[0-9]{4}$
-validation.claim.code = The code of a claim must follow the pattern ^C-[0-9]{4}$
+validation.project.code = The project code must follow this format: three uppercase letters followed by a hyphen and then four digits. For example: ABC-1234.
+validation.claim.code = The code of a claim must follow this pattern: the letter "C" followed by a hyphen and then four digits. For example: C-1234.
 validation.Contract.code = The code of a contract must follow one of the following patterns: A-111, AA-111 and AAA-111
 validation.ProgressLog.recordId = The recordId of a progress Log must follow one of the following patterns: PG-A-1111 and PG-AA-1111
 validation.Risk.reference = The code of a risk must follow the example pattern: R-111
