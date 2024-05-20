@@ -9,7 +9,7 @@
 
 <acme:form>
 	<acme:input-textbox code="authenticated.auditor.form.label.firm" path="firm"/>
-	<acme:input-textbox code="authenticated.auditor.form.label.proffesionalID" path="proffesionalID"/>
+	<acme:input-textbox code="authenticated.auditor.form.label.professionalID" path="professionalID"/>
 	<acme:input-textbox code="authenticated.auditor.form.label.certifications" path="certifications"/>
 	<acme:input-textbox code="authenticated.auditor.form.label.link" path="link"/>
 	

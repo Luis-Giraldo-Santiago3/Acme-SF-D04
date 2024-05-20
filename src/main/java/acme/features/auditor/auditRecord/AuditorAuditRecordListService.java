@@ -26,8 +26,6 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 	@Override
 	public void authorise() {
 		boolean status;
-		Auditor auditor;
-		int auditorRequestId;
 		int codeAuditId;
 		CodeAudit codeAudit;
 
