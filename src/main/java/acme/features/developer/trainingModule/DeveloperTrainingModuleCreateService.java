@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.student1.Project;
@@ -40,6 +41,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		developer = this.repository.findDeveloperById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new TrainingModule();
 		object.setPublished(false);
+		object.setCreationMoment(MomentHelper.getCurrentMoment());
 		object.setDeveloper(developer);
 		object.setProject(projects.get(0));
 		super.getBuffer().addData(object);
@@ -55,7 +57,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findOneProjectById(projectId);
 
-		super.bind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "project");
+		super.bind(object, "code", "details", "difficultyLevel", "link", "totalTime", "project");
 		object.setProject(project);
 	}
 
