@@ -17,13 +17,15 @@
 
 <acme:form> 
 	<acme:input-textbox code="developer.trainingModule.form.label.code" path="code"/>
-	<acme:input-moment code="developer.trainingModule.form.label.creationMoment" path="creationMoment"/>
 	<acme:input-textbox code="developer.trainingModule.form.label.details" path="details"/>
-	<acme:input-moment code="developer.trainingModule.form.label.updateMoment" path="updateMoment"/>
 	<acme:input-textbox code="developer.trainingModule.form.label.link" path="link"/>
 	<acme:input-integer code="developer.trainingModule.form.label.totalTime" path="totalTime"/>
-	
-
+	<jstl:choose>
+		<jstl:when test="${_command == 'show' && published == true}">
+			<acme:input-moment code="developer.trainingModule.form.label.creationMoment" path="creationMoment"/>
+			<acme:input-moment code="developer.trainingModule.form.label.updateMoment" path="updateMoment"/>	
+		</jstl:when>
+	</jstl:choose>
 	<jstl:choose>
 	<jstl:when test="${_command == 'show' && published == true }">
 			<acme:input-textbox code="developer.trainingModule.form.label.projectTitle" path="projectTitle"/>
