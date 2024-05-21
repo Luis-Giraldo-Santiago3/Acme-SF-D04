@@ -20,6 +20,7 @@ developer.trainingModule.form.label.updateMoment= Momento de actualización
 developer.trainingModule.form.label.link = Enlace
 developer.trainingModule.form.label.totalTime = Tiempo total
 developer.trainingModule.form.label.project = Proyecto
+developer.trainingModule.form.label.projectTitle = Título del proyecto
 developer.trainingModule.form.error.duplicated = El código del módulo de entrenamiento está duplicado
 developer.trainingModule.form.error.noTrainingSession = Este módulo de entrenamiento no tiene ninguna sesión de entrenamiento
 developer.trainingModule.form.error.trainingSessionnotpublish = No hay sesión de entrenamiento publicada

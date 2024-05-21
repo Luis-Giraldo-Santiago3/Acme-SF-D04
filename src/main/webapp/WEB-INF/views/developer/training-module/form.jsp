@@ -19,14 +19,23 @@
 	<acme:input-textbox code="developer.trainingModule.form.label.code" path="code"/>
 	<acme:input-moment code="developer.trainingModule.form.label.creationMoment" path="creationMoment"/>
 	<acme:input-textbox code="developer.trainingModule.form.label.details" path="details"/>
-	<acme:input-select code="developer.trainingModule.form.label.difficultyLevel" path="difficultyLevel" choices="${difficulties}"/>
 	<acme:input-moment code="developer.trainingModule.form.label.updateMoment" path="updateMoment"/>
 	<acme:input-textbox code="developer.trainingModule.form.label.link" path="link"/>
 	<acme:input-integer code="developer.trainingModule.form.label.totalTime" path="totalTime"/>
-	<acme:input-select code="developer.trainingModule.form.label.project" path="project" choices="${projects}"/>
 	
 
-	<jstl:choose>	 
+	<jstl:choose>
+	<jstl:when test="${_command == 'show' && published == true }">
+			<acme:input-textbox code="developer.trainingModule.form.label.projectTitle" path="projectTitle"/>
+			<acme:input-textbox code="developer.trainingModule.form.label.difficultyLevel" path="difficultyLevel"/>	
+		</jstl:when>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published == false}">
+			<acme:input-select code="developer.trainingModule.form.label.project" path="project" choices="${projects}"/>
+			<acme:input-select code="developer.trainingModule.form.label.difficultyLevel" path="difficultyLevel" choices="${difficulties}"/>		
+		</jstl:when>
+	</jstl:choose>
+	
+	<jstl:choose>
 		<jstl:when test="${_command == 'show' && published == true}">
 			<acme:button code="developer.trainingModule.form.button.trainingSession" action="/developer/training-session/list?masterId=${id}"/>			
 		</jstl:when>
@@ -37,6 +46,8 @@
 			<acme:submit code="developer.trainingModule.form.button.publish" action="/developer/training-module/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
+		<acme:input-select code="developer.trainingModule.form.label.project" path="project" choices="${projects}"/>
+		<acme:input-select code="developer.trainingModule.form.label.difficultyLevel" path="difficultyLevel" choices="${difficulties}"/>	
 			<acme:submit code="developer.trainingModule.list.button.create" action="/developer/training-module/create"/>
 		</jstl:when>
 	</jstl:choose>
