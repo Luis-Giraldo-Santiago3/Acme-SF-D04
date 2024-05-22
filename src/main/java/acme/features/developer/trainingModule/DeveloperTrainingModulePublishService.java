@@ -73,12 +73,12 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 		assert object != null;
 
 		Collection<TrainingSession> trainingSessions = this.repository.findManyTrainingSessionByTrainingModuleId(object.getId());
-		super.state(!trainingSessions.isEmpty(), "", "developer.trainingModule.form.error.noTrainingSession");
+		super.state(!trainingSessions.isEmpty(), "*", "developer.trainingModule.form.error.noTrainingSession");
 
 		if (!trainingSessions.isEmpty()) {
 			int numTrainingSessionPublish = trainingSessions.stream().filter(TrainingSession::isPublished).toList().size();
 			boolean allTrainingSessionsPublish = trainingSessions.size() == numTrainingSessionPublish;
-			super.state(allTrainingSessionsPublish, "", "developer.trainingModule.form.error.trainingSessionnotpublish");
+			super.state(allTrainingSessionsPublish, "*", "developer.trainingModule.form.error.trainingSessionnotpublish");
 		}
 
 	}
