@@ -104,7 +104,7 @@ public class ManagerProjectUserStoryDeleteService extends AbstractService<Manage
 
 		Dataset dataset;
 		int projectId;
-		Collection<UserStory> userStoriesAssociatedProject;
+		Collection<UserStory> userStoriesAssociated;
 		Project project;
 		SelectChoices choices;
 
@@ -113,7 +113,7 @@ public class ManagerProjectUserStoryDeleteService extends AbstractService<Manage
 		projectId = super.getRequest().getData("projectId", int.class);
 		dataset.put("projectId", projectId);
 
-		userStoriesAssociatedProject = this.repository.findManyUserStoriesByProjectId(projectId);
+		userStoriesAssociated = this.repository.findManyUserStoriesByProjectId(projectId);
 
 		project = this.repository.findProjectById(projectId);
 		dataset.put("project", project);
@@ -126,11 +126,11 @@ public class ManagerProjectUserStoryDeleteService extends AbstractService<Manage
 		else
 			choices.add("0", "-----", false);
 
-		for (final UserStory userStory : userStoriesAssociatedProject)
-			if (object.getUserStory() != null && object.getUserStory().getId() == userStory.getId())
-				choices.add(Integer.toString(userStory.getId()), userStory.getTitle() + " - " + Integer.toString(userStory.getEstimatedCost()) + " - " + userStory.getPriority(), true);
+		for (final UserStory us : userStoriesAssociated)
+			if (object.getUserStory() != null && object.getUserStory().getId() == us.getId())
+				choices.add(Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), true);
 			else
-				choices.add(Integer.toString(userStory.getId()), userStory.getTitle() + " - " + Integer.toString(userStory.getEstimatedCost()) + " - " + userStory.getPriority(), false);
+				choices.add(Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), false);
 
 		dataset.put("userStory", choices.getSelected().getKey());
 		dataset.put("userStories", choices);

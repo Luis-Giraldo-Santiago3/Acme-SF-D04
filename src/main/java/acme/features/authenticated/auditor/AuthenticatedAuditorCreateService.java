@@ -55,6 +55,13 @@ public class AuthenticatedAuditorCreateService extends AbstractService<Authentic
 	@Override
 	public void validate(final Auditor object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("professionalID")) {
+			Auditor existing;
+
+			existing = this.repository.findOneAuditorByProfessionalID(object.getProfessionalID());
+			super.state(existing == null, "professionalID", "authenticated.auditor.form.error.duplicated");
+		}
 	}
 
 	@Override

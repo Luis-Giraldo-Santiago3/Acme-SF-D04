@@ -26,6 +26,9 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 	private AuditorAuditRecordRepository	repository;
 
 	private Date							lowestMoment	= Date.from(Instant.parse("1999-12-31T23:00:00Z"));
+
+	private Date							maximumMoment	= Date.from(Instant.parse("2020-07-29T22:00:00Z"));
+
 	// AbstractService interface ----------------------------------------------
 
 
@@ -63,21 +66,37 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 	@Override
 	public void validate(final AuditRecord object) {
 		assert object != null;
+
+		int masterId;
+		CodeAudit codeAudit;
+		masterId = super.getRequest().getData("id", int.class);
+		codeAudit = this.repository.findOneCodeAuditByAuditRecordId(masterId);
+
 		if (!super.getBuffer().getErrors().hasErrors("auditPeriodStart")) {
 			Date startDate = object.getAuditPeriodStart();
 
-			super.state(MomentHelper.isAfter(startDate, this.lowestMoment), "auditPeriodStart", "auditor.auditRecord.form.error.startDateError");
+			super.state(MomentHelper.isAfterOrEqual(startDate, this.lowestMoment), "auditPeriodStart", "auditor.auditRecord.form.error.startDateError");
+
+			super.state(MomentHelper.isBeforeOrEqual(startDate, this.maximumMoment), "auditPeriodStart", "auditor.codeAudit.form.error.maxStartDateError");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("auditPeriodEnd")) {
 			Date endDate = object.getAuditPeriodEnd();
 
-			super.state(MomentHelper.isAfter(endDate, this.lowestMoment), "auditPeriodEnd", "auditor.auditRecord.form.error.endDateError");
+			super.state(MomentHelper.isAfterOrEqual(endDate, this.lowestMoment), "auditPeriodEnd", "auditor.auditRecord.form.error.endDateError");
+
+			super.state(MomentHelper.isBeforeOrEqual(endDate, this.maximumMoment), "auditPeriodEnd", "auditor.codeAudit.form.error.maxEndDateError");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("auditPeriodEnd") && !super.getBuffer().getErrors().hasErrors("startDate")) {
 			Date startDate = object.getAuditPeriodStart();
 			Date endDate = object.getAuditPeriodEnd();
 
 			super.state(this.isPassedOneHourAtLeast(endDate, startDate), "auditPeriodEnd", "auditor.auditRecord.form.error.notTimeEnough");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("auditPeriodStart")) {
+			Date startDate = object.getAuditPeriodStart();
+
+			super.state(MomentHelper.isAfterOrEqual(startDate, this.lowestMoment) && MomentHelper.isAfterOrEqual(startDate, codeAudit.getExecutionDate()), "auditPeriodStart", "auditor.auditRecord.form.error.codeAuditDate");
+
 		}
 
 	}

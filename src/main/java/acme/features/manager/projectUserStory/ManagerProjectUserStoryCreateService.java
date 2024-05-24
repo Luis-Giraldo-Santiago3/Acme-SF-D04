@@ -81,7 +81,7 @@ public class ManagerProjectUserStoryCreateService extends AbstractService<Manage
 			super.state(!object.getProject().isPublished(), "*", "manager.projectUserStory.form.error.published");
 		if (!super.getBuffer().getErrors().hasErrors("*") && !super.getBuffer().getErrors().hasErrors("userStory")) {
 			ProjectUserStory existing = this.repository.findAssociationBetweenProjectIdAndUserStoryId(object.getProject().getId(), object.getUserStory().getId());
-			super.state(existing == null, "*", "manager.projectUserStory.form.error.redundantRelation");
+			super.state(existing == null, "*", "manager.projectUserStory.form.error.duplicatedRelation");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("project") && !super.getBuffer().getErrors().hasErrors("userStory")) {
 			Manager projectManager = object.getProject().getManager();
@@ -105,7 +105,7 @@ public class ManagerProjectUserStoryCreateService extends AbstractService<Manage
 		int projectId;
 		int managerId;
 		Collection<UserStory> userStoriesManager;
-		Collection<UserStory> userStoriesAssociated;
+		Collection<UserStory> userStoriesProject;
 		Project project;
 		SelectChoices choices;
 
@@ -116,8 +116,8 @@ public class ManagerProjectUserStoryCreateService extends AbstractService<Manage
 
 		managerId = super.getRequest().getPrincipal().getActiveRoleId();
 		userStoriesManager = this.repository.findUserStoriesByManagerId(managerId);
-		userStoriesAssociated = this.repository.findManyUserStoriesByProjectId(projectId);
-		userStoriesManager.removeAll(userStoriesAssociated);
+		userStoriesProject = this.repository.findManyUserStoriesByProjectId(projectId);
+		userStoriesManager.removeAll(userStoriesProject);
 
 		project = this.repository.findProjectById(projectId);
 		dataset.put("project", project);
@@ -126,19 +126,15 @@ public class ManagerProjectUserStoryCreateService extends AbstractService<Manage
 		choices = new SelectChoices();
 
 		if (object.getUserStory() == null)
-			choices.add("0", "---", true);
+			choices.add("0", "-----", true);
 		else
-			choices.add("0", "---", false);
+			choices.add("0", "-----", false);
 
 		for (final UserStory us : userStoriesManager)
 			if (object.getUserStory() != null && object.getUserStory().getId() == us.getId())
-				choices.add( 
-					Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), 
-					true);
+				choices.add(Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), true);
 			else
-				choices.add( 
-					Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), 
-					false);
+				choices.add(Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), false);
 
 		dataset.put("userStory", choices.getSelected().getKey());
 		dataset.put("userStories", choices);

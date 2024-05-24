@@ -13,6 +13,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+//@Table(indexes = {	@Index(columnList = "project_id"), @Index(columnList = "user_story_id"),})
 public class ProjectUserStory extends AbstractEntity {
 
 	@NotNull

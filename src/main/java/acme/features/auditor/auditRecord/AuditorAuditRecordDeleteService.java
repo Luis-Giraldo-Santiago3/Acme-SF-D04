@@ -6,10 +6,8 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.client.views.SelectChoices;
 import acme.entities.student5.AuditRecord;
 import acme.entities.student5.CodeAudit;
-import acme.entities.student5.Mark;
 import acme.roles.Auditor;
 
 @Service
@@ -24,7 +22,18 @@ public class AuditorAuditRecordDeleteService extends AbstractService<Auditor, Au
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		CodeAudit codeAudit;
+		AuditRecord auditRecord;
+
+		masterId = super.getRequest().getData("id", int.class);
+		codeAudit = this.repository.findOneCodeAuditByAuditRecordId(masterId);
+		auditRecord = this.repository.findOneAuditRecordById(masterId);
+		status = auditRecord != null && !auditRecord.isPublished() && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor());
+
+		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override
@@ -41,7 +50,7 @@ public class AuditorAuditRecordDeleteService extends AbstractService<Auditor, Au
 	public void bind(final AuditRecord object) {
 		assert object != null;
 
-		super.bind(object, "code", "startDate", "endDate", "mark", "link", "published");
+		super.bind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark", "link");
 	}
 
 	@Override
@@ -60,17 +69,9 @@ public class AuditorAuditRecordDeleteService extends AbstractService<Auditor, Au
 	public void unbind(final AuditRecord object) {
 		assert object != null;
 
-		SelectChoices choices;
 		Dataset dataset;
-		CodeAudit codeAudit;
 
-		choices = SelectChoices.from(Mark.class, object.getMark());
-		codeAudit = object.getCodeAudit();
-
-		dataset = super.unbind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark", "link", "published");
-		dataset.put("codeAuditCode", codeAudit.getCode());
-		dataset.put("mark", choices.getSelected().getKey());
-		dataset.put("marks", choices);
+		dataset = super.unbind(object, "code", "auditPeriodStart", "auditPeriodEnd", "mark", "link");
 
 		super.getResponse().addData(dataset);
 	}
