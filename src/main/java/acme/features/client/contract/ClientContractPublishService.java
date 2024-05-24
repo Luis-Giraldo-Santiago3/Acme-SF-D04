@@ -89,7 +89,7 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 		}
 		if (!super.getBuffer().getErrors().hasErrors("budget")) {
 			double totalCost = object.getProject() != null ? object.getProject().getCost() * converterHourToEUR : 0;
-			super.state(totalAmount <= totalCost, "budget", "client.contract.form.error.higher-cost");
+			super.state(totalAmount + object.getBudget().getAmount() <= totalCost, "budget", "client.contract.form.error.higher-cost");
 			super.state(object.getBudget().getAmount() <= 1000000.00, "budget", "client.contract.form.error.higher-amount");
 			super.state(object.getBudget().getAmount() >= 0.00, "budget", "client.contract.form.error.lower-amount");
 			super.state(object.getBudget().getCurrency().equals("EUR"), "budget", "client.contract.form.error.currency");
