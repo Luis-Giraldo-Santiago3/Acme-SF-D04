@@ -16,7 +16,6 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form> 
-	<acme:input-moment code="administrator.banner.form.label.instantiationUpdateMoment" path="instantiationUpdateMoment"/>
 	<acme:input-moment code="administrator.banner.form.label.displayStart" path="displayStart"/>
 	<acme:input-moment code="administrator.banner.form.label.displayFinish" path="displayFinish"/>
 	<acme:input-url code="administrator.banner.form.label.linkPicture" path="linkPicture"/>
