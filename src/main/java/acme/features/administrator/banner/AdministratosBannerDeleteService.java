@@ -48,6 +48,7 @@ public class AdministratosBannerDeleteService extends AbstractService<Administra
 	@Override
 	public void validate(final Banner object) {
 		assert object != null;
+
 	}
 
 	@Override
