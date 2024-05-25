@@ -20,7 +20,6 @@
 	<acme:input-moment code="administrator.banner.form.label.displayFinish" path="displayFinish"/>
 	<acme:input-url code="administrator.banner.form.label.linkPicture" path="linkPicture"/>
 	<acme:input-textbox code="administrator.banner.form.label.slogan" path="slogan"/>
-	<acme:input-url code="administrator.banner.form.label.link" path="link"/>
 	<acme:input-url code="administrator.banner.form.label.linkTarget" path="linkTarget"/>
 	
 	<jstl:choose>	 
