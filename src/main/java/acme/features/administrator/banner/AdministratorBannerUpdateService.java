@@ -43,14 +43,19 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	@Override
 	public void validate(final Banner object) {
 		assert object != null;
+		Date fechaMaxima = new Date(7258114799000L);
 		object.setInstantiationUpdateMoment(MomentHelper.getCurrentMoment());
-		if (!super.getBuffer().getErrors().hasErrors("displayStart"))
-			super.state(MomentHelper.isAfter(object.getDisplayStart(), object.getInstantiationUpdateMoment()), "displayStart", "administrator.banner.form.error.displayStart");
+		if (!super.getBuffer().getErrors().hasErrors("displayStart")) {
+			super.state(MomentHelper.isAfter(object.getDisplayStart(), object.getInstantiationUpdateMoment()), "displayStart", "administrator.banner.form.error.startDisplayPeriod");
+			super.state(object.getDisplayStart().before(fechaMaxima), "displayStart", "administrator.banner.form.error.maximunPeriod");
+		}
 
-		if (!super.getBuffer().getErrors().hasErrors("displayFinish") && !super.getBuffer().getErrors().hasErrors("displayStart")) {
+		if (!super.getBuffer().getErrors().hasErrors("displayFinish")) {
 			Date maximumPeriod;
+			super.state(object.getDisplayFinish().before(fechaMaxima), "displayFinish", "administrator.banner.form.error.maximunPeriod");
 			maximumPeriod = MomentHelper.deltaFromMoment(object.getDisplayStart(), 7, ChronoUnit.DAYS);
-			super.state(MomentHelper.isAfterOrEqual(object.getDisplayFinish(), maximumPeriod) && object.getDisplayFinish().after(object.getDisplayStart()), "displayFinish", "administrator.banner.form.error.displayFinish");
+			super.state(MomentHelper.isAfterOrEqual(object.getDisplayFinish(), maximumPeriod) && object.getDisplayFinish().after(object.getDisplayStart()), "displayFinish", "administrator.banner.form.error.endDisplayPeriod");
+
 		}
 	}
 	@Override
