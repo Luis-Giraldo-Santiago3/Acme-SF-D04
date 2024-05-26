@@ -16,7 +16,6 @@ administrator.banner.list.label.displayStart = Display Start
 administrator.banner.list.label.displayFinish = Display Finish
 administrator.banner.list.label.linkPicture = Link Picture
 administrator.banner.list.label.slogan = Slogan
-administrator.banner.list.label.link = Link
 administrator.banner.list.label.linkTarget = Link Target	
 
 administrator.banner.form.label.instantiationUpdateMoment = Instantiation Update Moment
@@ -24,5 +23,13 @@ administrator.banner.form.label.displayStart = Display Start
 administrator.banner.form.label.displayFinish = Display Finish
 administrator.banner.form.label.linkPicture = Link Picture
 administrator.banner.form.label.slogan = Slogan
-administrator.banner.form.label.link = Link
 administrator.banner.form.label.linkTarget = Link Target	
+
+administrator.banner.list.button.create = Create
+administrator.banner.form.button.create = Create
+administrator.banner.form.button.update = Update
+administrator.banner.form.button.delete = Delete
+
+
+administrator.banner.form.error.displayStart = The displayPeriod must begin any moment after instantiation moment
+administrator.banner.form.error.displayFinish = The displayPeriod must end at one week maximum of the begin period

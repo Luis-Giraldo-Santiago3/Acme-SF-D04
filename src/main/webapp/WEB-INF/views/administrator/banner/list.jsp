@@ -21,7 +21,6 @@
 	<acme:list-column code="administrator.banner.list.label.displayFinish" path="displayFinish"/>
 	<acme:list-column code="administrator.banner.list.label.linkPicture" path="linkPicture"/>
 	<acme:list-column code="administrator.banner.list.label.slogan" path="slogan"/>
-	<acme:list-column code="administrator.banner.list.label.link" path="link"/>
 	<acme:list-column code="administrator.banner.list.label.linkTarget" path="linkTarget"/>	
 </acme:list>
 <acme:button code="administrator.banner.list.button.create" action="/administrator/banner/create"/>
