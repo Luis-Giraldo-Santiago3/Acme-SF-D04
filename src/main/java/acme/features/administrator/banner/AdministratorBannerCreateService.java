@@ -50,7 +50,7 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 		if (!super.getBuffer().getErrors().hasErrors("displayFinish") && !super.getBuffer().getErrors().hasErrors("displayStart")) {
 			Date maximumPeriod;
 			maximumPeriod = MomentHelper.deltaFromMoment(object.getDisplayStart(), 7, ChronoUnit.DAYS);
-			super.state(MomentHelper.isAfterOrEqual(object.getDisplayFinish(), maximumPeriod) && object.getDisplayFinish().after(object.getDisplayStart()), "endDisplayPeriod", "administrator.banner.form.error.displayFinish");
+			super.state(MomentHelper.isAfterOrEqual(object.getDisplayFinish(), maximumPeriod) && object.getDisplayFinish().after(object.getDisplayStart()), "displayFinish", "administrator.banner.form.error.displayFinish");
 		}
 	}
 	@Override
