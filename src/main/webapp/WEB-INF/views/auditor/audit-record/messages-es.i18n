@@ -23,8 +23,8 @@ auditor.auditRecord.form.error.duplicated = code audit code is duplicated
 auditor.auditRecord.form.error.startDateError= la fecha no deber ser inferior a 01/01/2000 00:00
 auditor.auditRecord.form.error.endDateError=la fecha no deber ser inferior a 01/01/2000 00:00
 auditor.auditRecord.form.error.notTimeEnough = al menos 1 hora de diferencia entre fechas
-auditor.codeAudit.form.error.maxStartDateError =la fecha no puede ser superior a 2020/07/30 00:00
-auditor.codeAudit.form.error.maxEndDateError =la fecha no puede ser superior a 2020/07/30 00:00
+auditor.codeAudit.form.error.maxStartDateError =la fecha no puede ser superior a 2022/07/30 00:00
+auditor.codeAudit.form.error.maxEndDateError =la fecha no puede ser superior a 2022/07/30 00:00
 auditor.auditRecord.form.error.codeAuditDate = la fecha de inicio debe ser superior a la fecha de ejecución de la auditoría de código.
 
 auditor.auditRecord.list.label.code = código

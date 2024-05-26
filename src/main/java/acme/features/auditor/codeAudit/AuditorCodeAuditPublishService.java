@@ -28,7 +28,7 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 
 	private Date						lowestMoment	= Date.from(Instant.parse("1999-12-31T23:00:00Z"));
 
-	private Date						maximumMoment	= Date.from(Instant.parse("2020-07-29T22:00:00Z"));
+	private Date						maximumMoment	= Date.from(Instant.parse("2022-07-29T22:00:00Z"));
 
 	// AbstractService interface ----------------------------------------------
 
