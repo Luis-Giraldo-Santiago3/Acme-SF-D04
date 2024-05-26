@@ -31,5 +31,5 @@ administrator.banner.form.button.update = Update
 administrator.banner.form.button.delete = Delete
 
 
-administrator.banner.form.error.startDisplayPeriod = The displayPeriod must begin any moment after instantiation moment
-administrator.banner.form.error.endDisplayPeriod = The displayPeriod must end at one week maximum of the begin period
+administrator.banner.form.error.displayStart = The displayPeriod must begin any moment after instantiation moment
+administrator.banner.form.error.displayFinish = The displayPeriod must end at one week maximum of the begin period

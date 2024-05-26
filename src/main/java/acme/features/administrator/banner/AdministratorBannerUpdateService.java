@@ -45,12 +45,12 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 		assert object != null;
 		object.setInstantiationUpdateMoment(MomentHelper.getCurrentMoment());
 		if (!super.getBuffer().getErrors().hasErrors("displayStart"))
-			super.state(MomentHelper.isAfter(object.getDisplayStart(), object.getInstantiationUpdateMoment()), "displayStart", "administrator.banner.form.error.startDisplayPeriod");
+			super.state(MomentHelper.isAfter(object.getDisplayStart(), object.getInstantiationUpdateMoment()), "displayStart", "administrator.banner.form.error.displayStart");
 
 		if (!super.getBuffer().getErrors().hasErrors("displayFinish") && !super.getBuffer().getErrors().hasErrors("displayStart")) {
 			Date maximumPeriod;
 			maximumPeriod = MomentHelper.deltaFromMoment(object.getDisplayStart(), 7, ChronoUnit.DAYS);
-			super.state(MomentHelper.isAfterOrEqual(object.getDisplayFinish(), maximumPeriod) && object.getDisplayFinish().after(object.getDisplayStart()), "displayFinish", "administrator.banner.form.error.endDisplayPeriod");
+			super.state(MomentHelper.isAfterOrEqual(object.getDisplayFinish(), maximumPeriod) && object.getDisplayFinish().after(object.getDisplayStart()), "displayFinish", "administrator.banner.form.error.displayFinish");
 		}
 	}
 	@Override
