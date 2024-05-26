@@ -44,11 +44,14 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	@Override
 	public void validate(final Banner object) {
 		assert object != null;
-		if (!super.getBuffer().getErrors().hasErrors("displayStart"))
+		Date fechaMaxima = new Date(7258114799000L);
+		if (!super.getBuffer().getErrors().hasErrors("displayStart")) {
 			super.state(MomentHelper.isAfter(object.getDisplayStart(), object.getInstantiationUpdateMoment()), "displayStart", "administrator.banner.form.error.displayStart");
-
+			super.state(object.getDisplayStart().before(fechaMaxima), "displayStart", "administrator.banner.form.error.maximunPeriod");
+		}
 		if (!super.getBuffer().getErrors().hasErrors("displayFinish") && !super.getBuffer().getErrors().hasErrors("displayStart")) {
 			Date maximumPeriod;
+			super.state(object.getDisplayFinish().before(fechaMaxima), "displayFinish", "administrator.banner.form.error.maximunPeriod");
 			maximumPeriod = MomentHelper.deltaFromMoment(object.getDisplayStart(), 7, ChronoUnit.DAYS);
 			super.state(MomentHelper.isAfterOrEqual(object.getDisplayFinish(), maximumPeriod) && object.getDisplayFinish().after(object.getDisplayStart()), "displayFinish", "administrator.banner.form.error.displayFinish");
 		}
