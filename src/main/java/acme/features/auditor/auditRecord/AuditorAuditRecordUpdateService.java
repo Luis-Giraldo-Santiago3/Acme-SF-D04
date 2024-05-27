@@ -73,6 +73,14 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 		codeAudit = this.repository.findOneCodeAuditByAuditRecordId(masterId);
 
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			AuditRecord existing;
+
+			existing = this.repository.findOneAuditRecordByCode(object.getCode());
+			super.state(existing == null, "code", "auditor.auditRecord.form.error.duplicated");
+		}
+
 		if (!super.getBuffer().getErrors().hasErrors("auditPeriodStart")) {
 			Date startDate = object.getAuditPeriodStart();
 
