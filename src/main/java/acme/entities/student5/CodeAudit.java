@@ -72,10 +72,18 @@ public class CodeAudit extends AbstractEntity {
 	@Transient
 	public Mark getMark(final Collection<Mark> auditRecordsMark) {
 		Mark res = null;
-		Map<Mark, Integer> marks = auditRecordsMark.stream().collect(Collectors.groupingBy(m -> m, Collectors.collectingAndThen(Collectors.counting(), t -> t.intValue())));
-		for (Mark m : marks.keySet())
-			if (res == null || marks.get(m) > marks.get(res))
-				res = m;
+
+		Map<Mark, Integer> marks = auditRecordsMark.stream().collect(Collectors.groupingBy(m -> m, Collectors.collectingAndThen(Collectors.counting(), Long::intValue)));
+		int totalSum = marks.values().stream().mapToInt(Integer::intValue).sum();
+
+		double averageIndex = totalSum / (double) marks.size();
+
+		res = marks.entrySet().stream().min((e1, e2) -> {
+			double diff1 = Math.abs(e1.getValue() - averageIndex);
+			double diff2 = Math.abs(e2.getValue() - averageIndex);
+			return Double.compare(diff1, diff2);
+		}).map(Map.Entry::getKey).orElse(null);
+
 		return res;
 	}
 	// Relationships ----------------------------------------------------------
