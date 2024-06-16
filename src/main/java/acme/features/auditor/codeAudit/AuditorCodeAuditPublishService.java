@@ -98,7 +98,6 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 	@Override
 	public void perform(final CodeAudit object) {
 		assert object != null;
-
 		object.setPublished(true);
 		this.repository.save(object);
 	}
@@ -111,7 +110,7 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		Dataset dataset;
 
 		mark = object.getMark(this.repository.findManyMarksByCodeAuditId(object.getId()));
-		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "published", "link");
+		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "link", "published");
 		dataset.put("mark", mark == null ? null : mark.getMark());
 		dataset.put("types", SelectChoices.from(Type.class, object.getType()));
 		super.getResponse().addData(dataset);
