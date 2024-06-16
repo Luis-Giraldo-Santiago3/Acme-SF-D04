@@ -75,7 +75,7 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 			CodeAudit existing;
 
 			existing = this.repository.findOneCodeAuditByCode(object.getCode());
-			super.state(existing == null, "code", "auditor.codeAudit.form.error.duplicated");
+			super.state(existing == null || existing.equals(object), "code", "auditor.codeAudit.form.error.duplicated");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("executionDate")) {
 			Date executionDate = object.getExecutionDate();
