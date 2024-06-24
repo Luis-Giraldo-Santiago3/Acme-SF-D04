@@ -107,7 +107,14 @@
 			<acme:message code="client.dashboard.form.label.minimum-Budget-Of-Contract"/>
 		</th>
 		<td>
-			<acme:print value="${minimumBudgetOfContract}"/>
+			<jstl:choose>
+				<jstl:when test="${minimumBudgetOfContract != null}">
+					<acme:print value="${minimumBudgetOfContract}"/>
+				</jstl:when>
+				<jstl:when test="${minimumBudgetOfContract == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
 		</td>
 	</tr>
 	<tr>
@@ -115,7 +122,14 @@
 			<acme:message code="client.dashboard.form.label.maximum-Budget-Of-Contract"/>
 		</th>
 		<td>
-			<acme:print value="${maximumBudgetOfContract}"/>
+			<jstl:choose>
+				<jstl:when test="${maximumBudgetOfContract != null}">
+					<acme:print value="${maximumBudgetOfContract}"/>
+				</jstl:when>
+				<jstl:when test="${maximumBudgetOfContract == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
 		</td>
 	</tr>
 </table>
