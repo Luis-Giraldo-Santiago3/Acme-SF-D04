@@ -69,6 +69,13 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 	@Override
 	public void validate(final Contract object) {
 		assert object != null;
+		int projectCost = 0;
+		if (object.getProject() != null) {
+			projectCost = object.getProject().getCost();
+			if (!super.getBuffer().getErrors().hasErrors("budget"))
+				super.state(object.getBudget() <= projectCost, "budget", "client.contract.form.error.lower-than-cost");
+
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Contract existing;
@@ -79,7 +86,6 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 		if (!super.getBuffer().getErrors().hasErrors("budget")) {
 			super.state(object.getBudget() <= 10000, "budget", "client.contract.form.error.higher-hour");
 			super.state(object.getBudget() >= 0, "budget", "client.contract.form.error.lower-hour");
-			super.state(object.getBudget() <= object.getProject().getCost(), "budget", "client.contract.form.error.lower-than-cost");
 		}
 	}
 
