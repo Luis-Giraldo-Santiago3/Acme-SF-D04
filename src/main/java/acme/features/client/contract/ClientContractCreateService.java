@@ -73,9 +73,9 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("budget")) {
-			super.state(object.getBudget().getAmount() <= 1000000.00, "budget", "client.contract.form.error.higher-amount");
-			super.state(object.getBudget().getAmount() >= 0.00, "budget", "client.contract.form.error.lower-amount");
-			super.state(object.getBudget().getCurrency().equals("EUR"), "budget", "client.contract.form.error.currency");
+			super.state(object.getBudget() <= 10000, "budget", "client.contract.form.error.higher-hour");
+			super.state(object.getBudget() >= 0, "budget", "client.contract.form.error.lower-hour");
+			super.state(object.getBudget() <= object.getProject().getCost(), "budget", "client.contract.form.error.lower-than-cost");
 		}
 	}
 
@@ -96,7 +96,7 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 
 		projects = this.repository.findAllProjectsPublished();
 
-		choices = SelectChoices.from(projects, "title", object.getProject());
+		choices = SelectChoices.from(projects, "code", object.getProject());
 
 		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "project", "client", "published");
 		dataset.put("project", choices.getSelected().getKey());
