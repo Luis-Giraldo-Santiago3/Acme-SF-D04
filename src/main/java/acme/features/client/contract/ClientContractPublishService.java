@@ -13,7 +13,6 @@ import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.student1.Project;
 import acme.entities.student2.Contract;
-import acme.entities.student2.ProgressLog;
 import acme.roles.Client;
 
 @Service
@@ -99,10 +98,6 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 	@Override
 	public void perform(final Contract object) {
 		assert object != null;
-		Collection<ProgressLog> progressLogs;
-
-		progressLogs = this.repository.findManyProgressLogByContractId(object.getId());
-		progressLogs.stream().forEach(x -> x.setPublished(true));
 
 		object.setPublished(true);
 		this.repository.save(object);
