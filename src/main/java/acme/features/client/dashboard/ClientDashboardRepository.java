@@ -40,19 +40,19 @@ public interface ClientDashboardRepository extends AbstractRepository {
 	Optional<Integer> percentageOfTotalNumberCompletenessMore75(Client client);
 
 	// Consulta para obtener el promedio del presupuesto de los contratos
-	@Query("select avg(c.budget.amount) from Contract c where c.client = :client and c.published=true")
+	@Query("select avg(c.budget) from Contract c where c.client = :client and c.published=true")
 	Optional<Double> averageBudgetOfContract(Client client);
 
 	// Consulta para obtener la desviación del presupuesto de los contratos
-	@Query("select stddev(c.budget.amount) from Contract c where c.client = :client and c.published=true")
+	@Query("select stddev(c.budget) from Contract c where c.client = :client and c.published=true")
 	Optional<Double> deviationBudgetOfContract(Client client);
 
 	// Consulta para obtener el presupuesto mínimo de los contratos
-	@Query("select min(c.budget.amount) from Contract c where c.client = :client and c.published=true")
+	@Query("select min(c.budget) from Contract c where c.client = :client and c.published=true")
 	Optional<Double> minimumBudgetOfContract(Client client);
 
 	// Consulta para obtener el presupuesto máximo de los contratos
-	@Query("select max(c.budget.amount) from Contract c where c.client = :client and c.published=true")
+	@Query("select max(c.budget) from Contract c where c.client = :client and c.published=true")
 	Optional<Double> maximumBudgetOfContract(Client client);
 
 	@Query("select c from Client c where c.userAccount.id = :id")
