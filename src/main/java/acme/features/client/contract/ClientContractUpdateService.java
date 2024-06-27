@@ -69,6 +69,13 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 	@Override
 	public void validate(final Contract object) {
 		assert object != null;
+		int projectCost = 0;
+		if (object.getProject() != null) {
+			projectCost = object.getProject().getCost();
+			if (!super.getBuffer().getErrors().hasErrors("budget"))
+				super.state(object.getBudget() <= projectCost, "budget", "client.contract.form.error.lower-than-cost");
+
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Contract existing;
@@ -77,9 +84,8 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 			super.state(existing == null || contract2.equals(existing), "code", "client.contract.form.error.duplicated");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("budget")) {
-			super.state(object.getBudget().getAmount() <= 1000000.00, "budget", "client.contract.form.error.higher-amount");
-			super.state(object.getBudget().getAmount() >= 0.00, "budget", "client.contract.form.error.lower-amount");
-			super.state(object.getBudget().getCurrency().equals("EUR"), "budget", "client.contract.form.error.currency");
+			super.state(object.getBudget() <= 10000, "budget", "client.contract.form.error.higher-hour");
+			super.state(object.getBudget() >= 0, "budget", "client.contract.form.error.lower-hour");
 		}
 	}
 
@@ -100,7 +106,7 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 
 		projects = this.repository.findAllProjectsPublished();
 
-		choices = SelectChoices.from(projects, "title", object.getProject());
+		choices = SelectChoices.from(projects, "code", object.getProject());
 
 		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "project", "client", "published");
 		dataset.put("project", choices.getSelected().getKey());

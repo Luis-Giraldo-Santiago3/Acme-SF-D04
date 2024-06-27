@@ -9,8 +9,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -32,7 +31,7 @@ public class Notice extends AbstractEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	@Past
+	@PastOrPresent
 	private Date				instantiationMoment;
 
 	@NotBlank
@@ -41,7 +40,6 @@ public class Notice extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 75)
-	@Pattern(regexp = "^[\\w-]+-[\\w-]+,[a-zA-Z ]+$", message = "author doesnt follow format “〈username〉 - 〈surname, name〉")
 	private String				author;
 
 	@NotBlank

@@ -93,7 +93,7 @@ public class ClientContractDeleteService extends AbstractService<Client, Contrac
 		clientId = super.getRequest().getPrincipal().getActiveRoleId();
 		projects = this.repository.findManyProjectsByClientId(clientId);
 
-		choices = SelectChoices.from(projects, "title", object.getProject());
+		choices = SelectChoices.from(projects, "code", object.getProject());
 
 		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "project", "client", "published");
 		dataset.put("project", choices.getSelected().getKey());

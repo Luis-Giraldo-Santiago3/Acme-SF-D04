@@ -29,7 +29,7 @@ client.contract.form.button.progressLog = Registros de progreso
 client.contract.form.button.publish = Publicar
 
 client.contract.form.error.duplicated = Este código no está libre
-client.contract.form.error.higher-cost = El presupuesto no puede ser mayor al coste del proyecto
-client.contract.form.error.higher-amount = El presupuesto no puede ser mayor a 1000000.00
-client.contract.form.error.lower-amount = El presupuesto no puede ser menor a 0.00
-client.contract.form.error.currency = La divisa solo puede ser EUR
+client.contract.form.error.higher-hour = El presupuesto no puede ser superior a 10000 horas
+client.contract.form.error.lower-hous = El presupuesto no puede ser inferior a 0 horas
+client.contract.form.error.lower-than-cost = El presupuesto no puede ser mayor que el costo del proyecto.
+client.contract.form.error.higher-than-cost = La suma de los presupuestos de los contratos asociados al proyecto superan el coste del proyecto
