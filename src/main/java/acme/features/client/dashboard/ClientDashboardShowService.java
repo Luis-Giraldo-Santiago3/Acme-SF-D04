@@ -55,20 +55,25 @@ public class ClientDashboardShowService extends AbstractService<Client, ClientDa
 			deviationBudgetOfContract = null;
 		}
 
+		if (numberOfContract >= 1) {
+			minimumBudgetOfContract = this.repository.minimumBudgetOfContract(client).orElse(0.0);
+			maximumBudgetOfContract = this.repository.maximumBudgetOfContract(client).orElse(0.0);
+		} else {
+			minimumBudgetOfContract = null;
+			maximumBudgetOfContract = null;
+		}
+
 		if (numberOfProgressLogs >= 1) {
 			percentageOfTotalNumberCompleteness25 = this.repository.percentageOfTotalNumberCompleteness25(client).orElse(0);
 			percentageOfTotalNumberCompleteness25At50 = this.repository.percentageOfTotalNumberCompleteness25At50(client).orElse(0);
 			percentageOfTotalNumberCompleteness50at75 = this.repository.percentageOfTotalNumberCompleteness50at75(client).orElse(0);
 			percentageOfTotalNumberCompletenessMore75 = this.repository.percentageOfTotalNumberCompletenessMore75(client).orElse(0);
-			minimumBudgetOfContract = this.repository.minimumBudgetOfContract(client).orElse(0.0);
-			maximumBudgetOfContract = this.repository.maximumBudgetOfContract(client).orElse(0.0);
+
 		} else {
 			percentageOfTotalNumberCompleteness25 = null;
 			percentageOfTotalNumberCompleteness25At50 = null;
 			percentageOfTotalNumberCompleteness50at75 = null;
 			percentageOfTotalNumberCompletenessMore75 = null;
-			minimumBudgetOfContract = null;
-			maximumBudgetOfContract = null;
 		}
 
 		dashboard = new ClientDashboard();
