@@ -23,6 +23,7 @@ master.menu.anonymous.favourite-link-luigirsan1 = 29537801M: Giraldo Santiago, L
 master.menu.anonymous.favourite-link-alevarmun1 = 21015313Y: Vargas Muñiz, Alejandro
 master.menu.anonymous.favourite-link-davguifer = 45970470W: Guillén Fernández, David
 master.menu.anonymous.favourite-link-davvarmun = 21015312M: Vargas Muñiz, David
+master.menu.any.list.claim = Claims
 
 # master.menu.administrator ###################################################
 
@@ -56,8 +57,6 @@ master.menu.manager.my-userStories = My user stories
 master.menu.auditor = Auditor
 master.menu.auditor.list.codeAudit = Code Audits
 master.menu.auditor.dashboard = Dashboard
->>>>>>> refs/remotes/origin/rafmolgar2
->>>>>>> refs/remotes/origin/rafmolgar2
 
 # master.menu.developer ########################################################
 
@@ -70,10 +69,7 @@ master.menu.developer.dashboard = Dashboard
 
 master.menu.authenticated = Authenticated
 master.menu.authenticated.list.claim = Claims
-<<<<<<< HEAD
-=======
->>>>>>> refs/remotes/origin/main
->>>>>>> refs/remotes/origin/rafmolgar2
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
