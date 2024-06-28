@@ -24,9 +24,9 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-luigirsan1" action="https://www.youtube.com/watch?v=xvFZjo5PgG0&ab_channel=Duran"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-alevarmun1" action="https://motos.coches.net/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-rafmolgar2" action="https://play.pokemonshowdown.com/"/>
+			<acme:menu-suboption code="master.menu.any.list.claim" action="/any/claim/list-service"/>
 		</acme:menu-option>
-
-
+		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.list.claim" action="/any/claim/list-service"/>
 		</acme:menu-option>
