@@ -43,10 +43,9 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	@Override
 	public void validate(final Banner object) {
 		assert object != null;
-		Date fechaMaxima = new Date(7258114799000L);
-		object.setInstantiationUpdateMoment(MomentHelper.getCurrentMoment());
+		Date fechaMaxima = new Date(7258114860000L);
 		if (!super.getBuffer().getErrors().hasErrors("displayStart")) {
-			super.state(MomentHelper.isAfter(object.getDisplayStart(), object.getInstantiationUpdateMoment()), "displayStart", "administrator.banner.form.error.startDisplayPeriod");
+			super.state(object.getDisplayStart().after(object.getInstantiationUpdateMoment()), "displayStart", "administrator.banner.form.error.startDisplayPeriod");
 			super.state(object.getDisplayStart().before(fechaMaxima), "displayStart", "administrator.banner.form.error.maximunPeriod");
 		}
 
