@@ -3,7 +3,7 @@
 
 ## Grupo C2.008
 
-![Imagen corporativa](https://cdn.discordapp.com/attachments/1163864826167185412/1258472206342815935/logo.png?ex=66882b13&is=6686d993&hm=2114dbddda98d91e13163b3f5c51186e10bf337a891a129a5f1f124a2b2722af&)
+![Imagen corporativa](https://cdn.discordapp.com/attachments/1163864826167185412/1259098235822407862/logo.jpg?ex=668a721c&is=6689209c&hm=e27bbfd3a0143c0b1fc32042f70aafa1382e6404b09e3aa779cead513b4e7819&)
 
 
 https://github.com/Luis-Giraldo-Santiago3/Acme-SF-D04
@@ -102,41 +102,55 @@ Este informe presenta los resultados de las pruebas funcionales y de rendimiento
 
     - Líneas rojas: se corresponden al método "unbind", este método no se ejecuta debido a que no se tiene que ejecutar, ya que sirve para mostrar los datos cuando devuelve un error y en el delete no hay errores que devolver por tanto no se cargan los datos.
 
+
 ### Capítulo 2: Pruebas de Rendimiento
 
 #### Introducción
-Este capítulo analiza las pruebas de rendimiento realizadas en el proyecto "Acme-SF" respecto a las características de los banners. El objetivo es evaluar el tiempo de respuesta y la capacidad del sistema bajo diferentes cargas. Utilizamos una metodología que incluye la simulación de escenarios reales y el análisis estadístico de los resultados para garantizar la eficiencia y estabilidad del sistema.
+Este capítulo analiza las pruebas de rendimiento realizadas en el proyecto "Acme-SF" respecto a las características del cliente. El objetivo es evaluar el tiempo de respuesta y la capacidad del sistema bajo diferentes cargas. Utilizamos una metodología que incluye la simulación de escenarios reales y el análisis estadístico de los resultados para garantizar la eficiencia y estabilidad del sistema.
 #### Resultados de las Pruebas de Rendimiento
 
 ##### Gráficos
-Gráfico del tiempo para la ejecución de las características del cliente sin la optimización en PC1.
+Gráficos del tiempo para la ejecución de las características del cliente en PC1.
 
 - **Gráfico 1:** Gráfico del tiempo para la ejecución de las características del cliente en PC1.
 
-![Gráfico del tiempo para la ejecución de las características del cliente en PC1](https://cdn.discordapp.com/attachments/1153717186490273878/1244370087570571314/image.png?ex=6654dd74&is=66538bf4&hm=4cbe54caa32d52eda1d456f74e902355cc53b4b6952bc65969a887cb0a879c23&)
+![Gráfico del tiempo para la ejecución de las características del cliente en PC1](https://cdn.discordapp.com/attachments/1163864826167185412/1259089440530366496/image.png?ex=668a69eb&is=6689186b&hm=ef2d6a34f80cc0c3aaedbd425bbe36fe8b2ca0eae8c05cffebbdf7f56cb41ffc&)
 
 
-- **Gráfico 2:** Gráfico del tiempo para la ejecución de las características del cliente en PC2 con optimización.
+- **Gráfico 2:** Gráfico del tiempo para la ejecución de las características del cliente con optimización en PC1.
 
-![Gráfico del tiempo para la ejecución de las características del cliente en PC2 con optimización](https://media.discordapp.net/attachments/1153717186490273878/1244370867648069684/image.png?ex=6654de2e&is=66538cae&hm=91b0098b5c538d2f403a728eb0dc35870a3559f43a85799f97ad161e98bbd3f3&=&format=webp&quality=lossless&width=687&height=388)
+![Gráfico del tiempo para la ejecución de las características del cliente con optimización en PC1](https://cdn.discordapp.com/attachments/1163864826167185412/1259089869557469266/image.png?ex=668a6a51&is=668918d1&hm=e815a6c1c71e7659557e336140accd0da07dbb932261ef026c545792a6003048&)
+
+Gráficos del tiempo para la ejecución de las características del cliente en PC1.
+
+- **Gráfico 3:** Gráfico del tiempo para la ejecución de las características del cliente con optimización en PC2.
+
+![Gráfico del tiempo para la ejecución de las características del cliente con optimización en PC2](https://cdn.discordapp.com/attachments/1163864826167185412/1259090688931270687/image.png?ex=668a6b15&is=66891995&hm=bf96001453ed1a08b58ab50280d5569a37b3a5b666bfb1d6d20e7698f5e2f664&)
 
 
 ##### Intervalo de Confianza
 Presentar el intervalo de confianza del 95% para el tiempo de respuesta en las dos computadoras.
 
-- **PC1:**
-  - **Nivel de Confianza sin la optimización:** 
-  ![Nivel de Confianza sin la optimización](https://cdn.discordapp.com/attachments/1153717186490273878/1244371773445771346/image.png?ex=6654df06&is=66538d86&hm=36ccb12d3ead7f3a5c6d7226753257689013791e11a3b34a46e7c2249831196c&)
-- **PC2:**
-  - **Nivel de Confianza con la optimización:** 
-  ![Nivel de Confianza con la optimización](https://cdn.discordapp.com/attachments/1153717186490273878/1244371539076583517/image.png?ex=6654dece&is=66538d4e&hm=5df905ee3d1c6aa0205ced718560cb84271196687fd303713e38958e0c2908cf&)
+- PC1:
+  - Nivel de confianza sin la optimización: 0,879700058
+  - Nivel de confianza con la optimización: 0,79323659
+- PC2:
+  - Nivel de confianza con la optimización: 2,039863002
+
+
 
 #### Contraste de Hipótesis
 Presentar el contraste de hipótesis con un 95% de confianza sobre cuál computadora es más potente.
 
 - **Resultado del Contraste de Hipótesis:** 
+  - **Prueba z entre los datos del mismo PC**
+![Prueba z entre los datos del mismo PC](https://cdn.discordapp.com/attachments/1163864826167185412/1259092182048964699/image.png?ex=668a6c79&is=66891af9&hm=cfc6f31659f06590e76ab38ecf6dab392e99d21ccad5c245fdb09266292c67cf&)
+  - **Prueba z entre los datos de distintos PC**
+![Prueba z entre distintos PC](https://cdn.discordapp.com/attachments/1163864826167185412/1259092499952042015/image.png?ex=668a6cc4&is=66891b44&hm=8d9ed41d00b36b1c379e7d680a5ce420902cc344ecf30d63d5ccbf5b90d13876&)
 
-![Resultado del Contraste de Hipótesis](https://media.discordapp.net/attachments/1153717186490273878/1244372273788358767/image.png?ex=6654df7d&is=66538dfd&hm=00c3fcf182e7ffa521514e7493464395925d7eade97243df4e66b59e84cd1996&=&format=webp&quality=lossless&width=776&height=363)
+Como podemos observar el la primera imagen, al fijanos en el valor crítico de z(dos cola), vemos que nos da un 0,030492559, este número esta entre [0.00,0.05), todo esto nos indica que ha habído una mejora de tiempo al añadir índices al código.
+
+Cuando hacemos la misma prueba con los tiempo de los dos PCs optimizados, nos da un valor de 0, esto quiere decir que al cambiar de PC a uno mejor, también optenemos una mejor del tiempo que ya habíamos mejorado.
 
 ## 5.	CONCLUSIONES
 
